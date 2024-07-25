@@ -29,7 +29,6 @@ let start
   let update_dimensions () =
     (* Consider listening to the resize event for this instead... *)
     let new_dimensions = Term.dimensions term in
-    print_s [%message (new_dimensions : Dimensions.t)];
     if not ([%equal: Dimensions.t] (Var.get dimensions_var) new_dimensions)
     then Bonsai.Var.set dimensions_var new_dimensions
   in
@@ -42,11 +41,25 @@ let start
          (Bonsai.Var.value dimensions_var)
          ~inside:app)
   in
-  let go () =
+  let rec go () =
     Bonsai_driver.flush driver;
     update_dimensions ();
     let result = Bonsai_driver.result driver in
-    Notty_unix.output_image result
+    Notty_unix.Term.image term result;
+    (* Consider queueing up all of these events and not doing stabilizations
+       each time... *)
+    match Notty_unix.Term.event term with
+    | `Key (`ASCII ('C' | 'c'), [ `Ctrl ]) -> ()
+    | `Key (`Uchar uchar, [ `Ctrl ])
+      when Uchar.equal (Uchar.of_char 'C') uchar
+           || Uchar.equal (Uchar.of_char 'c') uchar ->
+      ()
+    | `End -> ()
+    | `Resize (width, height) ->
+      Bonsai.Var.set dimensions_var { width; height };
+      go ()
+    | `Paste _ | `Mouse _ | `Key _ -> go ()
   in
-  go ()
+  go ();
+  Notty_unix.Term.release term
 ;;

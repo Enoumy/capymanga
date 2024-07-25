@@ -63,7 +63,7 @@ let styles =
     ]
 ;;
 
-let image w =
+let image { Dimensions.width; height } =
   let open List in
   let core16 =
     let c1 = map ~f:(fun (n, c) -> I.string A.(fg c) n) colors
@@ -81,15 +81,19 @@ let image w =
     [ "System colors:", core16
     ; "Color cube, 6x6x6:", Images.c_cube_ix
     ; "Grayscale ramp:", Images.c_gray_ramp
-    ; "24bit:", Images.c_rainbow (w - 2) 1
+    ; "24bit:", Images.c_rainbow (width - 2) 1
     ; "Text styles:", attr
+    ; ( "Dimensions"
+      , I.string
+          A.empty
+          [%string "%{[%message (width : int) (height : int)]#Sexp}"] )
     ]
 ;;
 
 let app =
   let%sub dimensions = Capy.terminal_dimensions in
-  let%arr { height = _; width } = dimensions in
-  image width
+  let%arr dimensions = dimensions in
+  image dimensions
 ;;
 
 let command =
