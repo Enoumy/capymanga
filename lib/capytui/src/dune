@@ -1,3 +1,5 @@
 (library
  (name capytui)
- (libraries core))
+ (libraries core bonsai.driver bonsai notty notty.unix)
+ (preprocess
+  (pps ppx_jane)))

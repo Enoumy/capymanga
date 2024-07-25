@@ -1,5 +1,5 @@
 (library
  (name capymanga)
- (libraries core)
+ (libraries core bonsai notty capytui)
  (preprocess
-  (pps ppx_jane)))
+  (pps ppx_jane bonsai.ppx_bonsai)))
