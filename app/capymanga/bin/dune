@@ -1,0 +1,3 @@
+(executable
+ (name main)
+ (libraries capymanga core_unix.command_unix core))
