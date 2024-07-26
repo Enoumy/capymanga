@@ -20,7 +20,7 @@ let start
   (app : image Computation.t)
   =
   let clock = Bonsai.Time_source.create ~start:(Time_ns.now ()) in
-  let _advance_clock_to to_ =
+  let advance_clock_to to_ =
     Bonsai.Time_source.advance_clock clock ~to_;
     Bonsai.Time_source.Private.flush clock
   in
@@ -42,6 +42,7 @@ let start
          ~inside:app)
   in
   let rec go () =
+    advance_clock_to (Time_ns.now ());
     Bonsai_driver.flush driver;
     update_dimensions ();
     let result = Bonsai_driver.result driver in
