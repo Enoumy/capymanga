@@ -7,5 +7,6 @@ val start
   -> ?mouse:bool
   -> ?bpaste:bool
   -> ?optimize:bool
+  -> ?target_frames_per_second:int
   -> Notty.image Computation.t
   -> unit
