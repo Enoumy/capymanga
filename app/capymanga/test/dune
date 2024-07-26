@@ -1,0 +1,6 @@
+(library
+ (name capymanga_test)
+ (libraries core notty bonsai bonsai.test capymanga)
+ (inline_tests)
+ (preprocess
+  (pps ppx_jane bonsai.ppx_bonsai)))
