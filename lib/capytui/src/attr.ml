@@ -28,7 +28,7 @@ module Color = struct
   let lightmagenta = Notty.A.lightmagenta
   let lightcyan = Notty.A.lightcyan
   let lightwhite = Notty.A.lightwhite
-  let rgb = Notty.A.rgb
+  let rgb = Notty.A.rgb_888
 end
 
 let foreground_color = Notty.A.fg
