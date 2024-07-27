@@ -13,3 +13,7 @@ val start
   -> ?target_frames_per_second:int
   -> Node.t Bonsai.Computation.t
   -> unit
+
+val listen_to_events
+  :  (Event.t -> unit Effect.t) Value.t
+  -> unit Computation.t

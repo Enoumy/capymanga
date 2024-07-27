@@ -40,10 +40,39 @@ module For_clock = struct
 end
 
 module For_events = struct
-  (* TODO: Implement this skeleton. *)
-  type t = unit
+  open Bonsai.Let_syntax
 
-  let create () = ()
-  let handle_event _ = ()
-  let register () x = x
+  type 'a handle =
+    { result : 'a
+    ; broadcast_event : Event.t -> unit Effect.t
+    }
+
+  let apply_action _ (model : (Event.t -> unit Effect.t) String.Map.t)
+    = function
+    | Event.Private.On_change { callback; bonsai_path } ->
+      Core.Map.set model ~key:bonsai_path ~data:callback
+    | Deactivate { bonsai_path } -> Core.Map.remove model bonsai_path
+  ;;
+
+  let register app =
+    let%sub handlers, inject =
+      Bonsai.state_machine0 ~default_model:String.Map.empty ~apply_action ()
+    in
+    let%sub broadcast_event =
+      let%arr handlers = handlers in
+      fun event ->
+        Effect.all_unit
+          (List.map (Core.Map.data handlers) ~f:(fun handler ->
+             handler event))
+    in
+    let%sub result =
+      Bonsai.Dynamic_scope.set
+        Event.Private.listener_registry_variable
+        inject
+        ~inside:app
+    in
+    let%arr result = result
+    and broadcast_event = broadcast_event in
+    { result; broadcast_event }
+  ;;
 end

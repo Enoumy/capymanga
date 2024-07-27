@@ -18,9 +18,10 @@ module For_clock : sig
 end
 
 module For_events : sig
-  type t
+  type 'a handle =
+    { result : 'a
+    ; broadcast_event : Event.t -> unit Effect.t
+    }
 
-  val create : unit -> t
-  val handle_event : Event.t -> unit
-  val register : t -> 'a Computation.t -> 'a Computation.t
+  val register : 'a Computation.t -> 'a handle Computation.t
 end

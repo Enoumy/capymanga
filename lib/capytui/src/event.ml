@@ -14,15 +14,17 @@ end
 module Private = struct
   open Bonsai
 
-  type callback =
-    { bonsai_path : string
-    ; callback : t -> unit Effect.t
-    }
+  type action =
+    | On_change of
+        { bonsai_path : string
+        ; callback : t -> unit Effect.t
+        }
+    | Deactivate of { bonsai_path : string }
 
   let listener_registry_variable =
     Dynamic_scope.create
       ~name:"event handler"
-      ~fallback:(fun (_ : callback) ->
+      ~fallback:(fun (_ : action) ->
         let _ =
           failwith
             "BUG in Capytui. The event handler was never registered! Please \

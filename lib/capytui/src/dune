@@ -2,4 +2,4 @@
  (name capytui)
  (libraries core bonsai.driver bonsai notty notty.unix core_unix)
  (preprocess
-  (pps ppx_jane)))
+  (pps ppx_jane bonsai.ppx_bonsai)))

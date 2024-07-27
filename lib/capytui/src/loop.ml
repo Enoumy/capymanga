@@ -16,12 +16,11 @@ let start
   and target_delay =
     Time_ns.Span.of_sec (1.0 /. Float.of_int target_frames_per_second)
   in
-  let dimensions_manager = State_management.For_dimensions.create ~term
-  and events_manager = State_management.For_events.create () in
+  let dimensions_manager = State_management.For_dimensions.create ~term in
   let driver =
     app
     |> State_management.For_dimensions.register dimensions_manager
-    |> State_management.For_events.register events_manager
+    |> State_management.For_events.register
     |> Bonsai_driver.create ~optimize ~clock
   in
   let rec go () =
@@ -29,7 +28,7 @@ let start
     let () = State_management.For_clock.advance_to clock frame_start_time
     and () = State_management.For_dimensions.update dimensions_manager in
     Bonsai_driver.flush driver;
-    let result = Bonsai_driver.result driver in
+    let%tydi { result; broadcast_event } = Bonsai_driver.result driver in
     Term.image term result;
     let time_taken = Time_ns.diff (Time_ns.now ()) frame_start_time in
     let delay = Time_ns.Span.(max zero (target_delay - time_taken)) in
@@ -53,7 +52,7 @@ let start
         { width; height };
       go () [@tail]
     | (`Paste _ | `Mouse _ | `Key _) as event ->
-      State_management.For_events.handle_event (event : Event.t);
+      Effect.Expert.handle (broadcast_event (event : Event.t));
       go () [@tail]
     | `Timer -> go () [@tail]
   in
