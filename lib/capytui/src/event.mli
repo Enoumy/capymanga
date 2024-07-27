@@ -10,3 +10,15 @@ module Root_event : sig
     | `Timer
     ]
 end
+
+module Private : sig
+  open Bonsai
+
+  type callback =
+    { bonsai_path : string
+    ; callback : t -> unit Effect.t
+    }
+
+  val listener_registry_variable
+    : (callback -> unit Effect.t) Dynamic_scope.t
+end
