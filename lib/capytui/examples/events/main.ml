@@ -54,11 +54,7 @@ let app =
   let%sub events, add_event =
     Bonsai.state_machine0
       ~default_model:[]
-      ~apply_action:(fun _ events event ->
-        let events =
-          if List.length events > 30 then List.take events 30 else events
-        in
-        event :: events)
+      ~apply_action:(fun _ events event -> event :: List.take events 30)
       ()
   in
   let%sub () = Capytui.listen_to_events add_event in
