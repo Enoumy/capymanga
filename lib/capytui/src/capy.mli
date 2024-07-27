@@ -3,3 +3,13 @@ open Bonsai
 
 (** [terminal_dimensions] returns the dimensions for the current terminal. *)
 val terminal_dimensions : Dimensions.t Computation.t
+
+val start
+  :  ?dispose:bool
+  -> ?nosig:bool
+  -> ?mouse:bool
+  -> ?bpaste:bool
+  -> ?optimize:bool
+  -> ?target_frames_per_second:int
+  -> Node.t Bonsai.Computation.t
+  -> unit

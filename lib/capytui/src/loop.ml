@@ -1,6 +1,5 @@
 open! Core
 open Bonsai
-open Notty
 
 let start
   { Start_params.dispose
@@ -64,7 +63,7 @@ let start
   ?bpaste
   ?(optimize = true)
   ?(target_frames_per_second = 60)
-  (app : image Computation.t)
+  (app : Node.t Computation.t)
   =
   let params =
     Start_params.create_exn

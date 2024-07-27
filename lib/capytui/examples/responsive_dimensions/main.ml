@@ -4,7 +4,7 @@ open Capytui
 open Bonsai.Let_syntax
 
 let app =
-  let%sub dimensions = Capy.terminal_dimensions in
+  let%sub dimensions = Capytui.terminal_dimensions in
   let%arr { width; height } = dimensions in
   let number_attr =
     Attr.many [ Attr.foreground_color Attr.Color.blue; Attr.bold ]

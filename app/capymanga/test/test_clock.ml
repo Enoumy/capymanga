@@ -7,7 +7,7 @@ let clock_app =
   let%sub now =
     Bonsai.Clock.approx_now ~tick_every:(Time_ns.Span.of_sec 1.0)
   in
-  let%sub dimensions = Capy.terminal_dimensions in
+  let%sub dimensions = terminal_dimensions in
   let%arr { width; height } = dimensions
   and now = now in
   Node.center
@@ -19,7 +19,8 @@ let%expect_test "Testing the example app with attrs" =
   let handle = Test_utils.create_handle clock_app in
   Test_utils.set_dimensions handle { width = 78; height = 10 };
   Handle.show handle;
-  [%expect {|
+  [%expect
+    {|
     ┌──────────────────────────────────────────────────────────────────────────────┐
     │                                                                              │
     │                                                                              │
@@ -34,7 +35,8 @@ let%expect_test "Testing the example app with attrs" =
     |}];
   Handle.advance_clock_by handle (Time_ns.Span.of_sec 1.0);
   Handle.show_diff handle;
-  [%expect {|
+  [%expect
+    {|
       ┌──────────────────────────────────────────────────────────────────────────────┐
       │                                                                              │
       │                                                                              │
@@ -53,7 +55,8 @@ let%expect_test "Testing the example app with attrs" =
   [%expect {||}];
   Handle.advance_clock_by handle (Time_ns.Span.of_sec 0.1);
   Handle.show_diff handle;
-  [%expect {|
+  [%expect
+    {|
       ┌──────────────────────────────────────────────────────────────────────────────┐
       │                                                                              │
       │                                                                              │

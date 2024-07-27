@@ -27,7 +27,7 @@ let clock_app =
   let%sub now =
     Bonsai.Clock.approx_now ~tick_every:(Time_ns.Span.of_sec 1.0)
   in
-  let%sub dimensions = Capy.terminal_dimensions in
+  let%sub dimensions = terminal_dimensions in
   let%arr { width; height } = dimensions
   and now = now in
   let date = Time_ns.to_date ~zone:(force Timezone.local) now in

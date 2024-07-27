@@ -91,7 +91,7 @@ let image { Dimensions.width; height } =
 ;;
 
 let app =
-  let%sub dimensions = Capy.terminal_dimensions in
+  let%sub dimensions = Capytui.terminal_dimensions in
   let%arr dimensions = dimensions in
   image dimensions
 ;;

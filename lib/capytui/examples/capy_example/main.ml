@@ -26,25 +26,18 @@ let height = 12
 let capybara =
   Node.vcat
     (List.init height ~f:(fun h ->
-         Node.hcat
-           (List.init width ~f:(fun w ->
-                let i = (h * width) + w in
-                let color_index = Char.to_int image.[i] - Char.to_int '0' in
-                match color_index with
-                | 0 -> Node.text "  "
-                | index ->
-                  Node.text ~attrs:[ Attr.background_color colors.(index) ] "  "))))
+       Node.hcat
+         (List.init width ~f:(fun w ->
+            let i = (h * width) + w in
+            let color_index = Char.to_int image.[i] - Char.to_int '0' in
+            match color_index with
+            | 0 -> Node.text "  "
+            | index ->
+              Node.text ~attrs:[ Attr.background_color colors.(index) ] "  "))))
 ;;
 
 let app =
-  let%sub dimensions = Capy.terminal_dimensions in
-  (* let%sub offset, tick =  *)
-  (*   Bonsai.state_machine0 ~default_model:0 ~apply_action:(fun _  model () -> *)
-  (**)
-  (**)
-  (*   ) *)
-  (**)
-  (*   in *)
+  let%sub dimensions = Capytui.terminal_dimensions in
   let%arr dimensions = dimensions in
   Node.center ~within:dimensions capybara
 ;;

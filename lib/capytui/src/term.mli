@@ -1,5 +1,16 @@
 open! Core
-include module type of Notty_unix.Term
+
+type t = Notty_unix.Term.t
+
+val create
+  :  ?dispose:bool
+  -> ?nosig:bool
+  -> ?mouse:bool
+  -> ?bpaste:bool
+  -> unit
+  -> t
 
 val dimensions : t -> Dimensions.t
 val next_event_or_wait_delay : t -> delay:Time_ns.Span.t -> Event.t
+val image : t -> Node.t -> unit
+val release : t -> unit

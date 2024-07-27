@@ -6,7 +6,7 @@ open Bonsai.Let_syntax
 let%expect_test "Really basic sanity test" =
   let handle =
     Test_utils.create_handle
-      (let%sub dimensions = Capy.terminal_dimensions in
+      (let%sub dimensions = Capytui.terminal_dimensions in
        let%arr dimensions = dimensions in
        Node.sexp_for_debugging
          [%message
@@ -80,7 +80,7 @@ let%expect_test "Really basic sanity test" =
 ;;
 
 let example_app =
-  let%sub dimensions = Capy.terminal_dimensions in
+  let%sub dimensions = Capytui.terminal_dimensions in
   let%arr { width; height } = dimensions in
   let number_attr =
     Attr.many [ Attr.foreground_color Attr.Color.blue; Attr.bold ]

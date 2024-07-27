@@ -25,3 +25,7 @@ let next_event_or_wait_delay t ~delay =
     | { read = _ :: _; write = _; except = _ } -> (event t :> Event.t)
     | exception Unix_error (EINTR, _, _) -> (event t :> Event.t)
 ;;
+
+let create ?dispose ?nosig ?mouse ?bpaste () =
+  create ?mouse ?dispose ?nosig ?bpaste ()
+;;
