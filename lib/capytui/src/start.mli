@@ -8,5 +8,5 @@ val start
   -> ?bpaste:bool
   -> ?optimize:bool
   -> ?target_frames_per_second:int
-  -> Notty.image Computation.t
+  -> Node.t Computation.t
   -> unit
