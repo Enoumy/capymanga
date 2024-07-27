@@ -30,6 +30,7 @@ let start
     Bonsai_driver.flush driver;
     let%tydi { result; broadcast_event } = Bonsai_driver.result driver in
     Term.image term result;
+    Bonsai_driver.trigger_lifecycles driver;
     let time_taken = Time_ns.diff (Time_ns.now ()) frame_start_time in
     let delay = Time_ns.Span.(max zero (target_delay - time_taken)) in
     (* Consider queueing up all of these events and not doing stabilizations

@@ -15,7 +15,9 @@ let listen_to_events callback =
   let%sub on_change =
     let%arr inject = inject
     and bonsai_path = bonsai_path in
-    fun callback -> inject (On_change { callback; bonsai_path })
+    fun callback ->
+      let%bind.Effect () = Effect.print_s [%message "on_change!"] in
+      inject (On_change { callback; bonsai_path })
   in
   let%sub () =
     Bonsai.Edge.on_change ~equal:phys_equal callback ~callback:on_change
@@ -23,8 +25,16 @@ let listen_to_events callback =
   let%sub on_deactivate =
     let%arr inject = inject
     and bonsai_path = bonsai_path in
+    let%bind.Effect () = Effect.print_s [%message "deactivate!"] in
     inject (Deactivate { bonsai_path })
   in
-  let%sub () = Bonsai.Edge.lifecycle ~on_deactivate () in
+  let%sub on_activate =
+    let%arr inject = inject
+    and bonsai_path = bonsai_path
+    and callback = callback in
+    let%bind.Effect () = Effect.print_s [%message "on_change!"] in
+    inject (On_change { callback; bonsai_path })
+  in
+  let%sub () = Bonsai.Edge.lifecycle ~on_activate ~on_deactivate () in
   Bonsai.const ()
 ;;
