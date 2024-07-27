@@ -54,7 +54,7 @@ let command =
     ~summary:{|An actual capybara!!!|}
     [%map_open.Command
       let () = return () in
-      fun () -> Capytui.Start.start app]
+      fun () -> Capytui.start app]
 ;;
 
 let () = Command_unix.run command

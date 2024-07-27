@@ -44,7 +44,7 @@ let command =
     ~summary:{|A capytui demo showcasing clock!|}
     [%map_open.Command
       let () = return () in
-      fun () -> Capytui.Start.start clock_app]
+      fun () -> Capytui.start clock_app]
 ;;
 
 let () = Command_unix.run command

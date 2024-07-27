@@ -101,5 +101,5 @@ let command =
     ~summary:{|Capy manga!|}
     [%map_open.Command
       let () = return () in
-      fun () -> Capytui.Start.start app]
+      fun () -> Capytui.start app]
 ;;
