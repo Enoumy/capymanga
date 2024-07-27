@@ -44,7 +44,7 @@ let app =
 
 let command =
   Command.basic
-    ~summary:{|Capy manga!|}
+    ~summary:{|An actual capybara!!!|}
     [%map_open.Command
       let () = return () in
       fun () -> Capytui.Start.start app]
