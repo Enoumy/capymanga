@@ -24,7 +24,7 @@ let app =
 
 let command =
   Command.basic
-    ~summary:{|Capy manga!|}
+    ~summary:{|Capy dimensions!|}
     [%map_open.Command
       let () = return () in
       fun () -> Capytui.Start.start app]
