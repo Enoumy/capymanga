@@ -11,6 +11,11 @@ val create
   -> t
 
 val dimensions : t -> Dimensions.t
-val next_event_or_wait_delay : t -> delay:Time_ns.Span.t -> Event.t
+
+val next_event_or_wait_delay
+  :  t
+  -> delay:Time_ns.Span.t
+  -> Event.Root_event.t
+
 val image : t -> Node.t -> unit
 val release : t -> unit

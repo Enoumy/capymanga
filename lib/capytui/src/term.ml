@@ -9,7 +9,7 @@ let dimensions t =
 let next_event_or_wait_delay t ~delay =
   let delay = Time_ns.Span.max Time_ns.Span.zero delay in
   if pending t
-  then (event t :> Event.t)
+  then (event t :> Event.Root_event.t)
   else
     let open Core_unix in
     match
@@ -22,8 +22,9 @@ let next_event_or_wait_delay t ~delay =
         ()
     with
     | { read = []; write = _; except = _ } -> `Timer
-    | { read = _ :: _; write = _; except = _ } -> (event t :> Event.t)
-    | exception Unix_error (EINTR, _, _) -> (event t :> Event.t)
+    | { read = _ :: _; write = _; except = _ } ->
+      (event t :> Event.Root_event.t)
+    | exception Unix_error (EINTR, _, _) -> (event t :> Event.Root_event.t)
 ;;
 
 let create ?dispose ?nosig ?mouse ?bpaste () =

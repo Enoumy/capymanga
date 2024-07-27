@@ -16,3 +16,11 @@ module For_clock : sig
   val create : unit -> t
   val advance_to : t -> Time_ns.t -> unit
 end
+
+module For_events : sig
+  type t
+
+  val create : unit -> t
+  val handle_event : Event.t -> unit
+  val register : t -> 'a Computation.t -> 'a Computation.t
+end

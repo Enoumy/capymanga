@@ -16,10 +16,12 @@ let start
   and target_delay =
     Time_ns.Span.of_sec (1.0 /. Float.of_int target_frames_per_second)
   in
-  let dimensions_manager = State_management.For_dimensions.create ~term in
+  let dimensions_manager = State_management.For_dimensions.create ~term
+  and events_manager = State_management.For_events.create () in
   let driver =
     app
     |> State_management.For_dimensions.register dimensions_manager
+    |> State_management.For_events.register events_manager
     |> Bonsai_driver.create ~optimize ~clock
   in
   let rec go () =
@@ -29,10 +31,10 @@ let start
     Bonsai_driver.flush driver;
     let result = Bonsai_driver.result driver in
     Term.image term result;
-    (* Consider queueing up all of these events and not doing stabilizations
-       each time... *)
     let time_taken = Time_ns.diff (Time_ns.now ()) frame_start_time in
     let delay = Time_ns.Span.(max zero (target_delay - time_taken)) in
+    (* Consider queueing up all of these events and not doing stabilizations
+       each time... *)
     match Term.next_event_or_wait_delay ~delay term with
     | `End
     | `Key
@@ -49,8 +51,11 @@ let start
       State_management.For_dimensions.set
         dimensions_manager
         { width; height };
-      go ()
-    | `Paste _ | `Mouse _ | `Key _ | `Timer -> go ()
+      go () [@tail]
+    | (`Paste _ | `Mouse _ | `Key _) as event ->
+      State_management.For_events.handle_event (event : Event.t);
+      go () [@tail]
+    | `Timer -> go () [@tail]
   in
   go ();
   Term.release term

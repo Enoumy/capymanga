@@ -38,3 +38,12 @@ module For_clock = struct
     Bonsai.Time_source.Private.flush clock
   ;;
 end
+
+module For_events = struct
+  (* TODO: Implement this skeleton. *)
+  type t = unit
+
+  let create () = ()
+  let handle_event _ = ()
+  let register () x = x
+end
