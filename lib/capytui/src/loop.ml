@@ -23,6 +23,8 @@ let start
     |> State_management.For_events.register
     |> Bonsai_driver.create ~optimize ~clock
   in
+  Bonsai_driver.flush driver;
+  Bonsai_driver.trigger_lifecycles driver;
   let rec go () =
     let frame_start_time = Time_ns.now () in
     let () = State_management.For_clock.advance_to clock frame_start_time
