@@ -226,7 +226,8 @@ let%expect_test "Paste events" =
     |}];
   Capytui_test.send_event handle (`Paste `End);
   Handle.show handle;
-  [%expect {|
+  [%expect
+    {|
     ┌──────────────────────────────────────────────────────────────────────────────┐
     │Press some keys!                                                              │
     │Paste                                                                         │

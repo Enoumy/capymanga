@@ -1,0 +1,5 @@
+(executables
+ (names test_integration_key_events)
+ (libraries capytui bonsai core_unix.command_unix)
+ (preprocess
+  (pps ppx_jane bonsai.ppx_bonsai)))
