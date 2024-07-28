@@ -5,7 +5,7 @@ open Bonsai.Let_syntax
 
 let%expect_test "Really basic sanity test" =
   let handle =
-    Test_utils.create_handle
+    Capytui_test.create_handle
       (let%sub dimensions = Capytui.terminal_dimensions in
        let%arr dimensions = dimensions in
        Node.sexp_for_debugging
@@ -61,7 +61,7 @@ let%expect_test "Really basic sanity test" =
     │                                                                                │
     └────────────────────────────────────────────────────────────────────────────────┘
     |}];
-  Test_utils.set_dimensions handle { width = 78; height = 10 };
+  Capytui_test.set_dimensions handle { width = 78; height = 10 };
   Handle.show handle;
   [%expect
     {|
@@ -99,7 +99,7 @@ let example_app =
 ;;
 
 let%expect_test "Testing the example app with attrs" =
-  let handle = Test_utils.create_handle example_app in
+  let handle = Capytui_test.create_handle example_app in
   Handle.show handle;
   [%expect
     {|
@@ -145,7 +145,7 @@ let%expect_test "Testing the example app with attrs" =
     │                                                                                │
     └────────────────────────────────────────────────────────────────────────────────┘
     |}];
-  Test_utils.set_dimensions handle { width = 78; height = 10 };
+  Capytui_test.set_dimensions handle { width = 78; height = 10 };
   Handle.show handle;
   [%expect
     {|

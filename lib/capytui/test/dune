@@ -1,6 +1,5 @@
 (library
  (name capytui_test)
- (libraries capytui core)
- (inline_tests)
+ (libraries capytui core bonsai.test)
  (preprocess
-  (pps ppx_jane)))
+  (pps ppx_jane bonsai.ppx_bonsai)))

@@ -3,7 +3,7 @@ open! Bonsai
 open Bonsai_test
 
 let%expect_test "Really basic sanity test" =
-  let handle = Test_utils.create_handle Capymanga.app in
+  let handle = Capytui_test.create_handle Capymanga.app in
   Handle.show handle;
   [%expect
     {|
@@ -49,7 +49,7 @@ let%expect_test "Really basic sanity test" =
     │                                                                                │
     └────────────────────────────────────────────────────────────────────────────────┘
     |}];
-  Test_utils.set_dimensions handle { height = 40; width = 50 };
+  Capytui_test.set_dimensions handle { height = 40; width = 50 };
   Handle.show_diff handle;
   [%expect
     {|

@@ -1,0 +1,6 @@
+(library
+ (name capytui_test_of_capytui_itself)
+ (libraries core bonsai.test capytui capytui_test)
+ (inline_tests)
+ (preprocess
+  (pps ppx_jane bonsai.ppx_bonsai)))
