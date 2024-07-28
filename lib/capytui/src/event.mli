@@ -59,4 +59,11 @@ module Private : sig
     | Deactivate of { bonsai_path : string }
 
   val listener_registry_variable : (action -> unit Effect.t) Dynamic_scope.t
+
+  type 'a handle =
+    { result : 'a
+    ; broadcast_event : t -> unit Effect.t
+    }
+
+  val register : 'a Computation.t -> 'a handle Computation.t
 end

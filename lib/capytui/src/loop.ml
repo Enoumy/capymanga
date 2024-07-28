@@ -20,7 +20,7 @@ let start
   let driver =
     app
     |> State_management.For_dimensions.register dimensions_manager
-    |> State_management.For_events.register
+    |> Event.Private.register
     |> Bonsai_driver.create ~optimize ~clock
   in
   Bonsai_driver.flush driver;

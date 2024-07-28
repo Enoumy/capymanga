@@ -26,11 +26,20 @@ module Result_spec = struct
     { image : Notty.image
     ; set_dimensions : Dimensions.t -> unit Effect.t
     ; dimensions : Dimensions.t
+    ; broadcast_event : Event.t -> unit Effect.t
     }
 
-  type incoming = Set_dimensions of { dimensions : Dimensions.t }
+  type incoming =
+    | Set_dimensions of { dimensions : Dimensions.t }
+    | Broadcast_event of { event : Event.t }
 
-  let view { image; set_dimensions = _; dimensions = { width; height } } =
+  let view
+    { image
+    ; set_dimensions = _
+    ; dimensions = { width; height }
+    ; broadcast_event = _
+    }
+    =
     let buffer = Buffer.create 100 in
     Notty.Render.to_buffer buffer Notty.Cap.dumb (0, 0) (width, height) image;
     let string = Buffer.contents buffer in
@@ -38,8 +47,10 @@ module Result_spec = struct
     string
   ;;
 
-  let incoming { image = _; set_dimensions; dimensions = _ } = function
+  let incoming { image = _; set_dimensions; dimensions = _; broadcast_event }
+    = function
     | Set_dimensions { dimensions } -> set_dimensions dimensions
+    | Broadcast_event { event } -> broadcast_event event
   ;;
 end
 
@@ -55,13 +66,20 @@ let create_handle
        Dimensions.Private.variable
        dimensions
        ~inside:
-         (let%sub image = component in
+         (let%sub { result = image; broadcast_event } =
+            Event.Private.register component
+          in
           let%arr image = image
           and set_dimensions = set_dimensions
-          and dimensions = dimensions in
-          { Result_spec.image; set_dimensions; dimensions }))
+          and dimensions = dimensions
+          and broadcast_event = broadcast_event in
+          { Result_spec.image; set_dimensions; dimensions; broadcast_event }))
 ;;
 
 let set_dimensions handle dimensions =
   Handle.do_actions handle [ Result_spec.Set_dimensions { dimensions } ]
+;;
+
+let send_event handle event =
+  Handle.do_actions handle [ Result_spec.Broadcast_event { event } ]
 ;;

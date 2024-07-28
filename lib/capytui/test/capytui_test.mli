@@ -4,13 +4,8 @@ open Bonsai_test
 open Capytui
 
 module Result_spec : sig
-  type t =
-    { image : Notty.image
-    ; set_dimensions : Dimensions.t -> unit Effect.t
-    ; dimensions : Dimensions.t
-    }
-
-  type incoming = Set_dimensions of { dimensions : Dimensions.t }
+  type t
+  type incoming
 end
 
 val create_handle
@@ -22,3 +17,5 @@ val set_dimensions
   :  (_, Result_spec.incoming) Handle.t
   -> Dimensions.t
   -> unit
+
+val send_event : (_, Result_spec.incoming) Handle.t -> Event.t -> unit

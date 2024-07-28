@@ -75,4 +75,35 @@ module Private = struct
         Effect.Ignore)
       ()
   ;;
+
+  type 'a handle =
+    { result : 'a
+    ; broadcast_event : t -> unit Effect.t
+    }
+
+  let apply_action _ (model : (t -> unit Effect.t) String.Map.t) = function
+    | On_change { callback; bonsai_path } ->
+      Core.Map.set model ~key:bonsai_path ~data:callback
+    | Deactivate { bonsai_path } -> Core.Map.remove model bonsai_path
+  ;;
+
+  let register app =
+    let open Bonsai.Let_syntax in
+    let%sub handlers, inject =
+      Bonsai.state_machine0 ~default_model:String.Map.empty ~apply_action ()
+    in
+    let%sub broadcast_event =
+      let%arr handlers = handlers in
+      fun event ->
+        Effect.all_unit
+          (List.map (Core.Map.data handlers) ~f:(fun handler ->
+             handler event))
+    in
+    let%sub result =
+      Bonsai.Dynamic_scope.set listener_registry_variable inject ~inside:app
+    in
+    let%arr result = result
+    and broadcast_event = broadcast_event in
+    { result; broadcast_event }
+  ;;
 end
