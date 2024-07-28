@@ -15,7 +15,7 @@ let clock_app =
     ~within:{ width; height }
 ;;
 
-let%expect_test "Testing the example app with attrs" =
+let%expect_test "Testing that the clock works (and is also testable!)" =
   let handle = Capytui_test.create_handle clock_app in
   Capytui_test.set_dimensions handle { width = 78; height = 10 };
   Handle.show handle;
