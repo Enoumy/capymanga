@@ -1,0 +1,5 @@
+(executables
+ (names main)
+ (libraries core_unix.command_unix capytui_counters_example)
+ (preprocess
+  (pps ppx_jane bonsai.ppx_bonsai)))

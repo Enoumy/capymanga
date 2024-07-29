@@ -1,0 +1,5 @@
+(library
+ (name capytui_counters_example)
+ (libraries capytui bonsai capytui_catpuccin)
+ (preprocess
+  (pps ppx_jane bonsai.ppx_bonsai)))
