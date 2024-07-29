@@ -5,6 +5,7 @@ type t = Notty.I.t
 let text ?(attrs = []) string = Notty.I.string (Attr.many attrs) string
 let vcat = Notty.I.vcat
 let hcat = Notty.I.hcat
+let zcat = Notty.I.zcat
 
 let sexp_for_debugging ?attrs sexp =
   vcat
