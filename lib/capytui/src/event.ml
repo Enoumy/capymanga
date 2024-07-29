@@ -95,6 +95,8 @@ module Private = struct
     let%sub broadcast_event =
       let%arr handlers = handlers in
       fun event ->
+        (* print_s [%message "" ~num_listeners:(Core.Map.length handlers :
+           int)]; *)
         Effect.all_unit
           (List.map (Core.Map.data handlers) ~f:(fun handler ->
              handler event))

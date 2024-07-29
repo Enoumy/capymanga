@@ -109,6 +109,7 @@ let focus_state_machine counters =
 
 let keyboard_handler ~inject_counters ~inject_focus ~focus =
   let%sub callback =
+    let%sub focus = Bonsai.yoink focus in
     let%arr inject_counters = inject_counters
     and inject_focus = inject_focus
     and focus = focus in
@@ -122,9 +123,13 @@ let keyboard_handler ~inject_counters ~inject_focus ~focus =
         inject_focus `Decrement
       | `Key (`ASCII '+', []) -> inject_counters `New
       | `Key (`ASCII 'l', []) | `Key (`Arrow `Right, []) ->
-        inject_counters (`Increment focus)
+        (match%bind.Effect focus with
+         | Inactive -> Effect.Ignore
+         | Active focus -> inject_counters (`Increment focus))
       | `Key (`ASCII 'h', []) | `Key (`Arrow `Left, []) ->
-        inject_counters (`Decrement focus)
+        (match%bind.Effect focus with
+         | Inactive -> Effect.Ignore
+         | Active focus -> inject_counters (`Decrement focus))
       | _ -> Effect.Ignore
   in
   Capytui.listen_to_events callback
