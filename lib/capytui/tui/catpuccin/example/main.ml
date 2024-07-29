@@ -118,7 +118,7 @@ let app =
 
 let command =
   Command.basic
-    ~summary:{|An actual capybara!!!|}
+    ~summary:{|Catpuccin colors demo!|}
     [%map_open.Command
       let () = return () in
       fun () -> Capytui.start app]
