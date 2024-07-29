@@ -25,3 +25,8 @@ let center t ~within:{ Dimensions.width; height } =
   let top = (height - h) / 2 in
   Notty.I.pad ~r:right ~l:right ~t:top ~b:top t
 ;;
+
+let pad : ?r:int -> ?l:int -> ?t:int -> ?b:int -> t -> t =
+  fun ?(r = 0) ?(l = 0) ?(t = 0) ?(b = 0) node ->
+  Notty.I.pad ~r ~l ~t ~b node
+;;
