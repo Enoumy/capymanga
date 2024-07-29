@@ -34,3 +34,5 @@ let listen_to_events callback =
   let%sub () = Bonsai.Edge.lifecycle ~on_activate ~on_deactivate () in
   Bonsai.const ()
 ;;
+
+let set_cursor_position = Cursor.set_cursor_position

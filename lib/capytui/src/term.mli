@@ -19,3 +19,4 @@ val next_event_or_wait_delay
 
 val image : t -> Node.t -> unit
 val release : t -> unit
+val cursor : t -> (int * int) option -> unit

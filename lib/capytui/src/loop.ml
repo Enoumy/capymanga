@@ -21,6 +21,7 @@ let start
     app
     |> State_management.For_dimensions.register dimensions_manager
     |> Event.Private.register
+    |> Cursor.register term
     |> Bonsai_driver.create ~optimize ~clock
   in
   Bonsai_driver.flush driver;

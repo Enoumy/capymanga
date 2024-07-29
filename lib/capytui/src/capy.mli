@@ -17,3 +17,6 @@ val start
 val listen_to_events
   :  (Event.t -> unit Effect.t) Value.t
   -> unit Computation.t
+
+val set_cursor_position
+  : (Position.t option -> unit Effect.t) Bonsai.Computation.t
