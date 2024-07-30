@@ -1,0 +1,5 @@
+(executables
+ (names main)
+ (libraries core core_unix.command_unix mangadex_api async)
+ (preprocess
+  (pps ppx_jane)))

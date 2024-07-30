@@ -1,0 +1,5 @@
+(library
+ (name mangadex_api)
+ (libraries core async cohttp-async yojson)
+ (preprocess
+  (pps ppx_jane ppx_yojson_conv)))
