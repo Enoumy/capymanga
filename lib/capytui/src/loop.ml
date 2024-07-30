@@ -26,13 +26,18 @@ let start
   in
   Bonsai_driver.flush driver;
   Bonsai_driver.trigger_lifecycles driver;
-  let rec go () =
+  let rec go is_first_frame =
+    let go () = go false in
     let frame_start_time = Time_ns.now () in
     let () = State_management.For_clock.advance_to clock frame_start_time
     and () = State_management.For_dimensions.update dimensions_manager in
+    let%tydi { result = prev_result; _ } = Bonsai_driver.result driver in
     Bonsai_driver.flush driver;
     let%tydi { result; broadcast_event } = Bonsai_driver.result driver in
-    Term.image term result;
+    (* TODO: Implement proper diffing + patching. This is only really needed
+       for high latency input devices (e.g. my WSL laptop). *)
+    if is_first_frame || not (phys_equal result prev_result)
+    then Term.image term result;
     Bonsai_driver.trigger_lifecycles driver;
     let time_taken = Time_ns.diff (Time_ns.now ()) frame_start_time in
     let delay = Time_ns.Span.(max zero (target_delay - time_taken)) in
@@ -60,7 +65,7 @@ let start
       go () [@tail]
     | `Timer -> go () [@tail]
   in
-  go ();
+  go true;
   Term.release term
 ;;
 
