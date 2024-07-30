@@ -1,5 +1,6 @@
 open! Core
 open Async
+open Mangadex_api.Types
 
 let command =
   Command.async_or_error
@@ -8,8 +9,8 @@ let command =
       let () = return () in
       fun () ->
         let open Deferred.Or_error.Let_syntax in
-        let%bind response = Mangadex_api.Search.search ~title:"" in
-        print_endline response;
+        let%bind response = Mangadex_api.Search.search ~title:"chainsaw" in
+        print_s [%message (response : Manga.t Collection.t)];
         Deferred.Or_error.return ()]
 ;;
 
