@@ -1,4 +1,4 @@
-(lang dune 3.12)
+(lang dune 3.9)
 
 (name capy)
 
