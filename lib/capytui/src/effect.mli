@@ -5,3 +5,8 @@ include module type of struct
 end
 
 type 'a t += Show_cursor : unit t | Hide_cursor : unit t
+
+val of_deferred_fun
+  :  ('query -> 'response Async.Deferred.t)
+  -> 'query
+  -> 'response t
