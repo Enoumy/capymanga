@@ -28,7 +28,7 @@ let sexp_for_debugging =
       sexp
 ;;
 
-let _image =
+let image =
   let%sub dimensions = Capytui.terminal_dimensions in
   let%sub () =
     Bonsai.Edge.on_change
@@ -83,13 +83,11 @@ let manga_list =
       let%bind.Effect response =
         Effect.of_deferred_fun
           (fun () ->
-            (* Result.ok_exn *)
-            (* @@ Async.Thread_safe.block_on_async (fun () -> *)
-            (* let _ : _ = assert false in *)
-            let%map.Async.Deferred x =
-              Mangadex_api.Search.search ~title:"chainsaw"
-            in
-            x)
+            (* let%map.Async.Deferred x = *)
+            (*   Mangadex_api.Search.search ~title:"chainsaw" *)
+            (* in *)
+            (* x *)
+            Async.Deferred.return (Error (Error.of_string "foooo")))
           ()
       in
       set_state (Some response)
@@ -106,12 +104,28 @@ let content =
   let%sub manga_list = manga_list in
   let%sub num_async_jobs = num_async_jobs in
   let%sub sexp_for_debugging = sexp_for_debugging in
+  let%sub () = image in
+  let%sub list =
+    match%sub manga_list with
+    | None -> Bonsai.const Node.none
+    | Some (Error error) ->
+      let%sub red = Catpuccin.color Red in
+      let%arr error = error
+      and sexp_for_debugging = sexp_for_debugging
+      and red = red in
+      sexp_for_debugging
+        ~attrs:[ Attr.foreground_color red ]
+        [%sexp (error : Error.t)]
+    | Some (Ok manga_collection) ->
+      let%arr manga_collection = manga_collection
+      and sexp_for_debugging = sexp_for_debugging in
+      sexp_for_debugging [%message (manga_collection : string)]
+  in
   let%arr text = text
   and mauve = mauve
   and spinner = spinner
-  and manga_list = manga_list
-  and num_async_jobs = num_async_jobs
-  and sexp_for_debugging = sexp_for_debugging in
+  and list = list
+  and num_async_jobs = num_async_jobs in
   let title =
     Node.hcat
       [ text ~attrs:[ Attr.foreground_color mauve; Attr.bold ] "Capymanga"
@@ -122,18 +136,7 @@ let content =
   Node.pad
     ~l:2
     ~t:1
-    (Node.vcat
-       [ title
-       ; Node.text ""
-       ; num_async_jobs
-       ; Node.text ""
-       ; sexp_for_debugging
-           [%sexp
-             (manga_list
-              : Mangadex_api.Types.Manga.t Mangadex_api.Types.Collection.t
-                  Or_error.t
-                  option)]
-       ])
+    (Node.vcat [ title; Node.text ""; num_async_jobs; Node.text ""; list ])
 ;;
 
 let app =

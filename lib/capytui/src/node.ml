@@ -31,3 +31,5 @@ let pad : ?r:int -> ?l:int -> ?t:int -> ?b:int -> t -> t =
   fun ?(r = 0) ?(l = 0) ?(t = 0) ?(b = 0) node ->
   Notty.I.pad ~r ~l ~t ~b node
 ;;
+
+let none = Notty.I.empty

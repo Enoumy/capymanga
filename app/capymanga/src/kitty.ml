@@ -6,14 +6,20 @@ let open_image
   -> unit Effect.t
   =
   fun ~dimensions:{ width; height } ~topleft:{ row; column } ~url ->
-  Capytui.Effect.of_sync_fun
+  Capytui.Effect.of_deferred_fun
     (fun () ->
-      let s =
-        [%string
-          {|kitty +kitten icat --place '%{width#Int}x%{height#Int}@%{column#Int}x%{row#Int}' --z-index 100 %{url}|}]
+      let open Async in
+      let args =
+        [ "+kitten"
+        ; "icat"
+        ; "--place"
+        ; [%string "%{width#Int}x%{height#Int}@%{column#Int}x%{row#Int}"]
+        ; "--z-index"
+        ; "100"
+        ; url
+        ]
       in
-      let _ : _ = failwith s in
-      let _ : int = Sys_unix.command s in
-      ())
+      let%bind _ : _ = Process.run ~prog:"kitty" ~args () in
+      return ())
     ()
 ;;
