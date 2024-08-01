@@ -28,7 +28,17 @@ let sexp_for_debugging =
       sexp
 ;;
 
-let image =
+let static_image dimensions =
+  { Image.url =
+      "https://mangadex.org/covers/a77742b1-befd-49a4-bff5-1ad4e6b0ef7b/bdd44bcd-c0dc-4f83-ba15-fc99e8790ed4.jpg"
+  ; row = 0
+  ; column = dimensions.Dimensions.width / 2
+  ; dimensions = { dimensions with width = dimensions.width / 2 }
+  ; scale = true
+  }
+;;
+
+let _image =
   let%sub dimensions = Capytui.terminal_dimensions in
   let%sub () =
     Bonsai.Edge.on_change
@@ -48,7 +58,7 @@ let image =
   Bonsai.const ()
 ;;
 
-let num_async_jobs =
+let _num_async_jobs =
   let%sub state, set_state = Bonsai.state_opt () in
   let%sub () =
     let%sub callback =
@@ -83,11 +93,11 @@ let manga_list =
       let%bind.Effect response =
         Effect.of_deferred_fun
           (fun () ->
-            (* let%map.Async.Deferred x = *)
-            (*   Mangadex_api.Search.search ~title:"chainsaw" *)
-            (* in *)
-            (* x *)
-            Async.Deferred.return (Error (Error.of_string "foooo")))
+            let%map.Async.Deferred x =
+              Mangadex_api.Search.search ~title:"chainsaw"
+            in
+            x
+            (* Async.Deferred.return (Error (Error.of_string "foooo")) *))
           ()
       in
       set_state (Some response)
@@ -100,11 +110,15 @@ let manga_list =
 let content =
   let%sub mauve = Capytui_catpuccin.color Mauve in
   let%sub text = Text.component in
-  let%sub spinner = Spinner.component ~kind:Dot (Value.return "") in
   let%sub manga_list = manga_list in
-  let%sub num_async_jobs = num_async_jobs in
+  let%sub spinner =
+    match%sub manga_list with
+    | None -> Spinner.component ~kind:Dot (Value.return "")
+    | Some _ -> Bonsai.const Node.none
+  in
+  (* let%sub num_async_jobs = num_async_jobs in *)
   let%sub sexp_for_debugging = sexp_for_debugging in
-  let%sub () = image in
+  (* let%sub () = image in *)
   let%sub list =
     match%sub manga_list with
     | None -> Bonsai.const Node.none
@@ -119,13 +133,16 @@ let content =
     | Some (Ok manga_collection) ->
       let%arr manga_collection = manga_collection
       and sexp_for_debugging = sexp_for_debugging in
-      sexp_for_debugging [%message (manga_collection : string)]
+      sexp_for_debugging
+        [%message
+          (manga_collection
+           : Mangadex_api.Types.Manga.t Mangadex_api.Types.Collection.t)]
   in
   let%arr text = text
   and mauve = mauve
   and spinner = spinner
-  and list = list
-  and num_async_jobs = num_async_jobs in
+  and list = list in
+  (* and num_async_jobs = num_async_jobs in *)
   let title =
     Node.hcat
       [ text ~attrs:[ Attr.foreground_color mauve; Attr.bold ] "Capymanga"
@@ -136,15 +153,22 @@ let content =
   Node.pad
     ~l:2
     ~t:1
-    (Node.vcat [ title; Node.text ""; num_async_jobs; Node.text ""; list ])
+    (Node.vcat
+       [ title; Node.text ""; (* num_async_jobs; *) Node.text ""; list ])
 ;;
 
 let app =
+  let%sub image =
+    let%sub dimensions = terminal_dimensions in
+    let%arr dimensions = dimensions in
+    static_image dimensions
+  in
   let%sub content = content in
   let%sub backdrop = backdrop in
   let%arr backdrop = backdrop
-  and content = content in
-  Node.zcat [ content; backdrop ]
+  and content = content
+  and image = image in
+  Node.zcat [ content; backdrop ], [ image ]
 ;;
 
 let command =
@@ -154,6 +178,6 @@ let command =
     [%map_open.Command
       let () = return () in
       fun () ->
-        let%bind () = Capytui.start app in
+        let%bind () = Capytui.start_with_images app in
         Deferred.return ()]
 ;;

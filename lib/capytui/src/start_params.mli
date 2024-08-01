@@ -8,7 +8,7 @@ type t = private
   ; bpaste : bool option
   ; optimize : bool
   ; target_frames_per_second : int
-  ; app : Node.t Computation.t
+  ; app : (Node.t * Image.t list) Computation.t
   }
 
 val create_exn
@@ -18,5 +18,5 @@ val create_exn
   -> bpaste:bool option
   -> optimize:bool
   -> target_frames_per_second:int
-  -> app:Node.t Computation.t
+  -> app:(Node.t * Image.t list) Computation.t
   -> t

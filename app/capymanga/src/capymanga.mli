@@ -1,5 +1,6 @@
 open! Core
 open Bonsai
+open Capytui
 
-val app : Notty.image Computation.t
+val app : (Node.t * Image.t list) Computation.t
 val command : Command.t

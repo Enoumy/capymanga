@@ -8,7 +8,7 @@ type t =
   ; bpaste : bool option
   ; optimize : bool
   ; target_frames_per_second : int
-  ; app : Node.t Computation.t
+  ; app : (Node.t * Image.t list) Computation.t
   }
 
 let sanity_check_exn

@@ -4,7 +4,7 @@ type t =
   { height : int
   ; width : int
   }
-[@@deriving sexp_of, equal]
+[@@deriving sexp, equal]
 
 module Private : sig
   val variable : t Bonsai.Dynamic_scope.t

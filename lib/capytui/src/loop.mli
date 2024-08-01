@@ -9,5 +9,5 @@ val start
   -> ?bpaste:bool
   -> ?optimize:bool
   -> ?target_frames_per_second:int
-  -> Node.t Computation.t
+  -> (Node.t * Image.t list) Computation.t
   -> unit Deferred.t

@@ -5,4 +5,5 @@ module Attr = Attr
 module Event = Event
 module Position = Position
 module Effect = Effect
+module Image = Image
 include Capy

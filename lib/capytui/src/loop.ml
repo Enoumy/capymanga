@@ -34,11 +34,53 @@ let start
     and () = State_management.For_dimensions.update dimensions_manager in
     let%tydi { result = prev_result; _ } = Bonsai_driver.result driver in
     Bonsai_driver.flush driver;
-    let%tydi { result; broadcast_event } = Bonsai_driver.result driver in
+    let%tydi { result = (node, images) as result; broadcast_event } =
+      Bonsai_driver.result driver
+    in
     (* TODO: Implement proper diffing + patching. This is only really needed
        for high latency input devices (e.g. my WSL laptop). *)
-    if is_first_frame || not (phys_equal result prev_result)
-    then Term.image term result;
+    let node_changed =
+      is_first_frame || not (phys_equal (fst result) (fst prev_result))
+    in
+    if node_changed then Term.image term node;
+    let%bind () =
+      if node_changed
+         || is_first_frame
+         || not ([%equal: Image.t list] (snd result) (snd prev_result))
+      then (
+        let%bind _ : _ =
+          Async.Sys.command
+            "kitten  icat --clear --silent >/dev/tty </dev/tty"
+        in
+        Deferred.List.iter
+          ~how:`Sequential
+          images
+          ~f:
+            (fun
+              { row; column; url; dimensions = { height; width }; scale } ->
+            Fn.ignore row;
+            Fn.ignore column;
+            Fn.ignore height;
+            Fn.ignore width;
+            let args =
+              List.concat
+                [ [ "kitten"; "icat"; "--silent" ]
+                ; (if scale then [ "--scale-up" ] else [])
+                ; [ "--place"
+                  ; [%string
+                      "%{width#Int}x%{height#Int}@%{column#Int}x%{row#Int}"]
+                  ; url
+                  ]
+                ]
+            in
+            let%bind _ : _ =
+              Async.Sys.command
+                (String.concat ~sep:" " args ^ " >/dev/tty </dev/tty")
+            in
+            (* print_s [%message (response : int)]; *)
+            return ()))
+      else Deferred.return ()
+    in
     Bonsai_driver.trigger_lifecycles driver;
     let%bind () = Async.Scheduler.yield () in
     let time_taken = Time_ns.diff (Time_ns.now ()) frame_start_time in
@@ -79,7 +121,7 @@ let start
   ?bpaste
   ?(optimize = true)
   ?(target_frames_per_second = 60)
-  (app : Node.t Computation.t)
+  (app : (Node.t * Image.t list) Computation.t)
   =
   let params =
     Start_params.create_exn

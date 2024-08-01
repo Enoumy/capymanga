@@ -14,6 +14,16 @@ val start
   -> Node.t Bonsai.Computation.t
   -> unit Async.Deferred.t
 
+val start_with_images
+  :  ?dispose:bool
+  -> ?nosig:bool
+  -> ?mouse:bool
+  -> ?bpaste:bool
+  -> ?optimize:bool
+  -> ?target_frames_per_second:int
+  -> (Node.t * Image.t list) Bonsai.Computation.t
+  -> unit Async.Deferred.t
+
 val listen_to_events
   :  (Event.t -> unit Effect.t) Value.t
   -> unit Computation.t

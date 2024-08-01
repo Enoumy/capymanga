@@ -5,7 +5,26 @@ let terminal_dimensions =
   Bonsai.Dynamic_scope.lookup Dimensions.Private.variable
 ;;
 
-let start = Loop.start
+let start_with_images = Loop.start
+
+let start
+  ?dispose
+  ?nosig
+  ?mouse
+  ?bpaste
+  ?optimize
+  ?target_frames_per_second
+  (app : Node.t Bonsai.Computation.t)
+  =
+  Loop.start
+    ?dispose
+    ?nosig
+    ?mouse
+    ?bpaste
+    ?optimize
+    ?target_frames_per_second
+    (Bonsai.Computation.map app ~f:(fun app -> app, []))
+;;
 
 let listen_to_events callback =
   let%sub bonsai_path = Bonsai.path_id in
