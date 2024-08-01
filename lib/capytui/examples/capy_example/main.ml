@@ -43,7 +43,7 @@ let app =
 ;;
 
 let command =
-  Command.basic
+  Async.Command.async
     ~summary:{|An actual capybara!!!|}
     [%map_open.Command
       let () = return () in

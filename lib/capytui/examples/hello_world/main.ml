@@ -10,7 +10,7 @@ let app =
 ;;
 
 let command =
-  Command.basic
+  Async.Command.async
     ~summary:{|Hello world!|}
     [%map_open.Command
       let () = return () in

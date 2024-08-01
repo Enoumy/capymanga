@@ -1,6 +1,7 @@
 open! Core
 open! Bonsai
 open! Capytui
+open Async
 open! Bonsai.Let_syntax
 
 let bg = Capytui_catpuccin.Crust
@@ -172,7 +173,7 @@ let app =
 ;;
 
 let command =
-  Command.basic
+  Command.async
     ~summary:{|Counters example!|}
     [%map_open.Command
       let () = return () in

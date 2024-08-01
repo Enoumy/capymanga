@@ -1,5 +1,6 @@
 open! Core
 open Bonsai
+open Async
 
 let start
   { Start_params.dispose
@@ -26,7 +27,7 @@ let start
   in
   Bonsai_driver.flush driver;
   Bonsai_driver.trigger_lifecycles driver;
-  let rec go is_first_frame =
+  let rec go is_first_frame : unit Deferred.t =
     let go () = go false in
     let frame_start_time = Time_ns.now () in
     let () = State_management.For_clock.advance_to clock frame_start_time
@@ -39,6 +40,7 @@ let start
     if is_first_frame || not (phys_equal result prev_result)
     then Term.image term result;
     Bonsai_driver.trigger_lifecycles driver;
+    let%bind () = Async.Scheduler.yield () in
     let time_taken = Time_ns.diff (Time_ns.now ()) frame_start_time in
     let delay = Time_ns.Span.(max zero (target_delay - time_taken)) in
     (* Consider queueing up all of these events and not doing stabilizations
@@ -50,23 +52,24 @@ let start
         , [ `Ctrl ]
           (* Consider having a way of overriding the close-on ctrl-c behavior
              dynamically. *) ) ->
-      ()
+      Deferred.return ()
     | `Key (`Uchar uchar, [ `Ctrl ])
       when Uchar.equal (Uchar.of_char 'C') uchar
            || Uchar.equal (Uchar.of_char 'c') uchar ->
-      ()
+      Deferred.return ()
     | `Resize (width, height) ->
       State_management.For_dimensions.set
         dimensions_manager
         { width; height };
-      go () [@tail]
+      go ()
     | (`Paste _ | `Mouse _ | `Key _) as event ->
       Effect.Expert.handle (broadcast_event (event : Event.t));
       go () [@tail]
     | `Timer -> go () [@tail]
   in
-  go true;
-  Term.release term
+  let%bind () = go true in
+  Term.release term;
+  Deferred.return ()
 ;;
 
 let start

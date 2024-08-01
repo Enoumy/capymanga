@@ -146,11 +146,11 @@ let app =
 
 let command =
   let open Async in
-  Command.async_or_error
+  Command.async
     ~summary:{|Capy manga!|}
     [%map_open.Command
       let () = return () in
       fun () ->
-        Capytui.start app;
-        Deferred.Or_error.return ()]
+        let%bind () = Capytui.start app in
+        Deferred.return ()]
 ;;

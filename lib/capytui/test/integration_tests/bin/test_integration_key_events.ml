@@ -71,7 +71,7 @@ let app =
 ;;
 
 let command =
-  Command.basic
+  Async.Command.async
     ~summary:{|A debug executable for testing key events.|}
     [%map_open.Command
       let () = return () in

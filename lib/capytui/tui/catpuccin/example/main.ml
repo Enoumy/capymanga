@@ -1,6 +1,7 @@
 open! Core
 open! Bonsai
 open! Capytui
+open Async
 open! Bonsai.Let_syntax
 module Catpuccin = Capytui_catpuccin
 
@@ -117,7 +118,7 @@ let app =
 ;;
 
 let command =
-  Command.basic
+  Command.async
     ~summary:{|Catpuccin colors demo!|}
     [%map_open.Command
       let () = return () in

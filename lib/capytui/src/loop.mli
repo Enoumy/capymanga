@@ -1,5 +1,6 @@
 open! Core
 open Bonsai
+open Async
 
 val start
   :  ?dispose:bool
@@ -9,4 +10,4 @@ val start
   -> ?optimize:bool
   -> ?target_frames_per_second:int
   -> Node.t Computation.t
-  -> unit
+  -> unit Deferred.t

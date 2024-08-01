@@ -12,7 +12,7 @@ val start
   -> ?optimize:bool
   -> ?target_frames_per_second:int
   -> Node.t Bonsai.Computation.t
-  -> unit
+  -> unit Async.Deferred.t
 
 val listen_to_events
   :  (Event.t -> unit Effect.t) Value.t
