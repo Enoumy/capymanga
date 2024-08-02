@@ -3,7 +3,9 @@ open Bonsai.Let_syntax
 open Capytui
 
 module Kind = struct
-  type t = Dot
+  type t =
+    | Dot
+    | Fixed
 end
 
 module Config = struct
@@ -16,6 +18,10 @@ module Config = struct
     | Dot ->
       { frames = [| "⣾ "; "⣽ "; "⣻ "; "⢿ "; "⡿ "; "⣟ "; "⣯ "; "⣷ " |]
       ; tick_every = Time_ns.Span.of_sec 0.1
+      }
+    | Fixed ->
+      { frames = [| "Loading..." |]
+      ; tick_every = Time_ns.Span.of_sec 1_000.0
       }
   ;;
 end

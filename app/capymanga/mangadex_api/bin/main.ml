@@ -9,7 +9,9 @@ let command =
       let () = return () in
       fun () ->
         let open Deferred.Or_error.Let_syntax in
-        let%bind response = Mangadex_api.Search.search ~title:"chainsaw" in
+        let%bind response =
+          Mangadex_api.Search.search ~title:"chainsaw" ~limit:10 ()
+        in
         print_s [%message (response : Manga.t Collection.t)];
         Deferred.Or_error.return ()]
 ;;
