@@ -7,6 +7,9 @@
 
 (rule
  (targets embedded_files.ml embedded_files.mli)
- (deps %{bin:ocaml-embed-file} ./dummy_search_response.json)
+ (deps
+  %{bin:ocaml-embed-file}
+  ./dummy_search_response.json
+  ./big_response.json)
  (action
   (bash "%{deps} -output embedded_files")))

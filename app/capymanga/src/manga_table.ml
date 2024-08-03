@@ -12,7 +12,11 @@ let manga_list =
       let%arr set_state = set_state in
       let%bind.Effect response =
         Effect.of_deferred_fun
-          (fun () -> Mangadex_api.Search.search ~limit:20 ())
+          (fun () ->
+            let%bind.Async.Deferred () =
+              Async.Clock_ns.after (Time_ns.Span.of_sec 2.0)
+            in
+            Mangadex_api.Search.search ~limit:100 ())
           ()
       in
       set_state (Some response)
@@ -120,7 +124,9 @@ let component =
   let%sub sexp_for_debugging = Util.sexp_for_debugging in
   let%sub manga_list = manga_list in
   match%sub manga_list with
-  | None -> Bonsai.const Node.none
+  | None ->
+    let%sub () = Loading_state.i_am_loading in
+    Bonsai.const Node.none
   | Some (Error error) ->
     let%sub red = Catpuccin.color Red in
     let%arr error = error

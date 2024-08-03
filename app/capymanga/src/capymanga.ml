@@ -16,23 +16,22 @@ let backdrop =
          (String.make width ' ')))
 ;;
 
-let static_image dimensions =
-  [ { Image.url =
-        "https://mangadex.org/covers/a77742b1-befd-49a4-bff5-1ad4e6b0ef7b/bdd44bcd-c0dc-4f83-ba15-fc99e8790ed4.jpg"
-    ; row = 0
-    ; column = dimensions.Dimensions.width / 2
-    ; dimensions =
-        { width = dimensions.width / 2; height = dimensions.height / 2 }
-    ; scale = true
-    }
+let static_image _dimensions =
+  [ (* { Image.url = *)
+    (* "https://mangadex.org/covers/a77742b1-befd-49a4-bff5-1ad4e6b0ef7b/bdd44bcd-c0dc-4f83-ba15-fc99e8790ed4.jpg" *)
+    (* ; row = 0 *)
+    (* ; column = dimensions.Dimensions.width / 2 *)
+    (* ; dimensions = *)
+    (*     { width = dimensions.width / 2; height = dimensions.height / 2 } *)
+    (* ; scale = true *)
+    (* } *)
     (* ; { Image.url = "~/pictures/pixel-art-capy.png" *)
     (*   ; row = dimensions.height / 2 *)
     (*   ; column = 0 *)
     (*   ; dimensions = *)
     (*       { width = dimensions.width / 2; height = dimensions.height / 2 } *)
     (*   ; scale = true *)
-    (*   } *)
-  ]
+    (*   } *) ]
 ;;
 
 let content =
@@ -42,7 +41,7 @@ let content =
     let%sub is_something_loading = Loading_state.is_something_loading in
     match%sub is_something_loading with
     | false -> Bonsai.const Node.none
-    | true -> Spinner.component ~kind:Spinner.Kind.Fixed (Value.return "")
+    | true -> Spinner.component ~kind:Spinner.Kind.Dot (Value.return "")
   in
   (* TODO: Add a spinner. Sadly this messes with the way images are shown, so
      you should probably implement diffing first... *)

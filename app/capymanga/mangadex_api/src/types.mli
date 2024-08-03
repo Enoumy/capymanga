@@ -69,8 +69,8 @@ module Manga : sig
       ; is_locked : bool
       ; links : Links.t
       ; original_language : string
-      ; last_volume : string
-      ; last_chapter : string
+      ; last_volume : string option
+      ; last_chapter : string option
       ; publication_demographic : string option
       ; status : string
       ; year : int option

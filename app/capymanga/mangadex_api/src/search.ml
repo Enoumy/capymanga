@@ -22,5 +22,15 @@ let search ?title ?limit ?offset () =
         Yojson.Safe.from_string string
         |> Collection.t_of_yojson Manga.t_of_yojson)
     in
+    let response =
+      match response with
+      | Ok _ -> response
+      | Error error ->
+        let string = Yojson.Safe.from_string string |> Yojson.Safe.show in
+        Error
+          (Error.tag_s
+             error
+             ~tag:[%message "Error while parsing response" (string : string)])
+    in
     Deferred.return response)
 ;;

@@ -48,7 +48,7 @@ let component ~kind message =
     let%arr current_frame = current_frame in
     frames.(current_frame % Array.length frames)
   in
-  let%sub mauve = Capytui_catpuccin.color Mauve in
+  let%sub mauve = Capytui_catpuccin.color Green in
   let%sub text = Text.component in
   let%arr text = text
   and message = message

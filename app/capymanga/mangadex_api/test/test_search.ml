@@ -32,7 +32,7 @@ let%expect_test "parsing a collection" =
            (((provider mu) (link 45aeoda))
             ((provider raw)
              (link https://comic.naver.com/webtoon/list?titleId=822931))))
-          (original_language ko) (last_volume "") (last_chapter "")
+          (original_language ko) (last_volume ("")) (last_chapter (""))
           (publication_demographic ()) (status ongoing) (year (2024))
           (content_rating safe)
           (tags
@@ -170,7 +170,7 @@ let%expect_test "parsing a collection" =
             ((provider engtl)
              (link
               https://www.tappytoon.com/comics/skeleton-soldier-failed-defend-dungeon))))
-          (original_language ko) (last_volume "") (last_chapter "")
+          (original_language ko) (last_volume ("")) (last_chapter (""))
           (publication_demographic ()) (status hiatus) (year (2018))
           (content_rating safe)
           (tags
@@ -258,7 +258,7 @@ let%expect_test "parsing a collection" =
             ((provider raw)
              (link
               https://flowercomics.jp/chapter/20962/viewer?utm_source=cheese&utm_medium=link&utm_campaign=tameshiyomi_vol1))))
-          (original_language ja) (last_volume "") (last_chapter "")
+          (original_language ja) (last_volume ("")) (last_chapter (""))
           (publication_demographic (josei)) (status ongoing) (year (2023))
           (content_rating safe)
           (tags
@@ -370,7 +370,7 @@ let%expect_test "parsing a collection" =
             ((provider engtl)
              (link
               https://inkr.com/title/1078-science-fell-in-love-so-i-tried-to-prove-it))))
-          (original_language ja) (last_volume "") (last_chapter "")
+          (original_language ja) (last_volume ("")) (last_chapter (""))
           (publication_demographic ()) (status ongoing) (year (2016))
           (content_rating safe)
           (tags
@@ -463,7 +463,7 @@ let%expect_test "parsing a collection" =
               https://www.shueisha.co.jp/books/items/contents.html?jdcn=08891184891184325501))
             ((provider engtl)
              (link https://yenpress.com/9781975345938/shadows-house-vol-1/))))
-          (original_language ja) (last_volume "") (last_chapter "")
+          (original_language ja) (last_volume ("")) (last_chapter (""))
           (publication_demographic (seinen)) (status ongoing) (year (2019))
           (content_rating safe)
           (tags
@@ -545,7 +545,7 @@ let%expect_test "parsing a collection" =
             ((provider mal) (link 139166))
             ((provider raw)
              (link https://comic-alive.jp/product/non-non-biyori/nonnonremember/))))
-          (original_language ja) (last_volume 1) (last_chapter 7)
+          (original_language ja) (last_volume (1)) (last_chapter (7))
           (publication_demographic (seinen)) (status completed) (year (2021))
           (content_rating safe)
           (tags
@@ -599,7 +599,7 @@ let%expect_test "parsing a collection" =
             ((provider mal) (link 166075))
             ((provider raw)
              (link https://www.kadokawa.co.jp/product/322204000461/))))
-          (original_language ja) (last_volume "") (last_chapter "")
+          (original_language ja) (last_volume ("")) (last_chapter (""))
           (publication_demographic (shounen)) (status ongoing) (year (2021))
           (content_rating safe)
           (tags
@@ -666,7 +666,7 @@ let%expect_test "parsing a collection" =
             ((provider ebj) (link https://ebookjapan.yahoo.co.jp/books/632727/))
             ((provider mal) (link 129410))
             ((provider raw) (link https://www.cmoa.jp/title/219459/))))
-          (original_language ja) (last_volume 3) (last_chapter 20)
+          (original_language ja) (last_volume (3)) (last_chapter (20))
           (publication_demographic (seinen)) (status cancelled) (year (2020))
           (content_rating safe)
           (tags
@@ -725,7 +725,7 @@ let%expect_test "parsing a collection" =
             ((provider ebj) (link https://ebookjapan.yahoo.co.jp/books/405431/))
             ((provider mal) (link 1512))
             ((provider raw) (link https://mangahot.jp/site/works/b_R0001))))
-          (original_language ja) (last_volume 33) (last_chapter 363)
+          (original_language ja) (last_volume (33)) (last_chapter (363))
           (publication_demographic (seinen)) (status completed) (year (2001))
           (content_rating safe)
           (tags
@@ -780,8 +780,8 @@ let%expect_test "parsing a collection" =
            (((language en)
              (string
               "The dominant omega \226\128\152Rael\226\128\153, who lived in the dark, plans to take the opportunity to take over the house of the Count when his brother gets into an accident. Rael secretly visits a perfumer named \226\128\152Hyde\226\128\153 to obtain an alpha pheromone perfume in order to mask his true scent. Rael pretends to be an Alpha in public, and all of this is thanks to Hyde\226\128\153s special perfume. But, Rael doesn\226\128\153t know the true identity of \226\128\152Hyde\226\128\153, a perfumer hidden behind a veil, even rumored to be hideous. But every time he comes into close contact with him, Rael feels something different\226\128\166 Then one day, the Count declares that if Rael cannot give birth to an Alpha within two years, the Count will hand over the position to someone else. So, Rael asks Hyde, the only person who knows his identity, for help."))))
-          (is_locked false) (links ()) (original_language ko) (last_volume "")
-          (last_chapter "") (publication_demographic ()) (status ongoing)
+          (is_locked false) (links ()) (original_language ko) (last_volume (""))
+          (last_chapter ("")) (publication_demographic ()) (status ongoing)
           (year ()) (content_rating erotica)
           (tags
            (((id 3e2b8dae-350e-4ab8-a8ce-016e844b9f0d)

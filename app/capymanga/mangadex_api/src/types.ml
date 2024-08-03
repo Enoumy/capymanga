@@ -117,8 +117,8 @@ module Manga = struct
       ; is_locked : bool [@key "isLocked"]
       ; links : Links.t
       ; original_language : string [@key "originalLanguage"]
-      ; last_volume : string [@key "lastVolume"]
-      ; last_chapter : string [@key "lastChapter"]
+      ; last_volume : string option [@key "lastVolume"]
+      ; last_chapter : string option [@key "lastChapter"]
       ; publication_demographic : string option
            [@key "publicationDemographic"]
       ; status : string
