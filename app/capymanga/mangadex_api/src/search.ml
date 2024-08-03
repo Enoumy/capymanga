@@ -26,11 +26,11 @@ let search ?title ?limit ?offset () =
       match response with
       | Ok _ -> response
       | Error error ->
-        let string = Yojson.Safe.from_string string |> Yojson.Safe.show in
+        let uri = Uri.to_string uri in
         Error
           (Error.tag_s
              error
-             ~tag:[%message "Error while parsing response" (string : string)])
+             ~tag:[%message "Error while hittin uri" (uri : string)])
     in
     Deferred.return response)
 ;;

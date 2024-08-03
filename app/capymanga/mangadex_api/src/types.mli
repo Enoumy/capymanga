@@ -69,7 +69,7 @@ module Manga : sig
       ; alt_titles : I18n_string.t list
       ; description : I18n_string.t
       ; is_locked : bool
-      ; links : Links.t
+      ; links : Links.t option
       ; original_language : string
       ; last_volume : string option
       ; last_chapter : string option

@@ -95,6 +95,7 @@ module Action = struct
   ;;
 end
 
+(* XXX: The textbox should not disappear if there's an error. *)
 let table
   ~set_textbox_focus
   ~textbox_is_focused
@@ -131,7 +132,7 @@ let table
         if textbox_is_focused
         then (
           match event with
-          | `Key (`Escape, []) -> set_textbox_focus false
+          | `Key (`Escape, []) | `Key (`Enter, []) -> set_textbox_focus false
           | _ -> textbox_handler event)
         else (
           match event with
@@ -196,7 +197,11 @@ let table
       :: manga
     else manga
   in
-  Node.vcat content, match image with None -> [] | Some x -> [ x ]
+  ( Node.vcat content
+  , match image with
+    | None -> []
+    | _ when textbox_is_focused -> []
+    | Some x -> [ x ] )
 ;;
 
 let component =

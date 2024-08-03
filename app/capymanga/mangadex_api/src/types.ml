@@ -117,7 +117,7 @@ module Manga = struct
       ; alt_titles : I18n_string.t list [@key "altTitles"]
       ; description : I18n_string.t
       ; is_locked : bool [@key "isLocked"]
-      ; links : Links.t
+      ; links : Links.t option
       ; original_language : string [@key "originalLanguage"]
       ; last_volume : string option [@key "lastVolume"]
       ; last_chapter : string option [@key "lastChapter"]
