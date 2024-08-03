@@ -12,7 +12,9 @@ module Type : sig
 end
 
 module Manga_id : sig
-  type t [@@deriving sexp, yojson]
+  type t [@@deriving sexp, yojson, equal]
+
+  val to_string : t -> string
 end
 
 module I18n_string : sig
@@ -103,6 +105,18 @@ module Manga : sig
   [@@deriving sexp, yojson]
 end
 
+module Cover : sig
+  module Attributes : sig
+    type t = { filename : string } [@@deriving sexp, yojson]
+  end
+
+  type t =
+    { id : string
+    ; attributes : Attributes.t
+    }
+  [@@deriving sexp, yojson]
+end
+
 module Collection : sig
   type 'a t =
     { data : 'a list
@@ -111,4 +125,8 @@ module Collection : sig
     ; total : int
     }
   [@@deriving sexp, yojson]
+end
+
+module Entity : sig
+  type 'a t = { data : 'a } [@@deriving sexp, yojson]
 end

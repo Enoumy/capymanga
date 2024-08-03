@@ -13,7 +13,9 @@ module Type = struct
 end
 
 module Manga_id = struct
-  type t = string [@@deriving sexp, yojson]
+  type t = string [@@deriving sexp, yojson, equal]
+
+  let to_string = Fn.id
 end
 
 module I18n_string = struct
@@ -155,6 +157,19 @@ module Manga = struct
   [@@deriving sexp, yojson] [@@yojson.allow_extra_fields]
 end
 
+module Cover = struct
+  module Attributes = struct
+    type t = { filename : string [@key "fileName"] }
+    [@@deriving sexp, yojson] [@@yojson.allow_extra_fields]
+  end
+
+  type t =
+    { id : string
+    ; attributes : Attributes.t
+    }
+  [@@deriving sexp, yojson] [@@yojson.allow_extra_fields]
+end
+
 module Collection = struct
   type 'a t =
     { data : 'a list
@@ -162,5 +177,10 @@ module Collection = struct
     ; offset : int
     ; total : int
     }
+  [@@deriving sexp, yojson] [@@yojson.allow_extra_fields]
+end
+
+module Entity = struct
+  type 'a t = { data : 'a }
   [@@deriving sexp, yojson] [@@yojson.allow_extra_fields]
 end

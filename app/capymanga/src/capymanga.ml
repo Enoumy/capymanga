@@ -48,7 +48,7 @@ let content =
   let%sub table = Manga_table.component in
   let%arr text = text
   and mauve = mauve
-  and table = table
+  and table, images = table
   and spinner = spinner in
   let title =
     Node.hcat
@@ -57,7 +57,7 @@ let content =
       ; spinner
       ]
   in
-  Node.pad ~l:2 ~t:1 (Node.vcat [ title; Node.text ""; table ])
+  Node.pad ~l:2 ~t:1 (Node.vcat [ title; Node.text ""; table ]), images
 ;;
 
 let app =
@@ -68,12 +68,13 @@ let app =
     let%arr dimensions = dimensions in
     static_image dimensions
   in
-  let%sub content = content in
+  let%sub content, images = content in
   let%sub backdrop = backdrop in
   let%arr backdrop = backdrop
+  and images = images
   and content = content
   and image = image in
-  Node.zcat [ content; backdrop ], image
+  Node.zcat [ content; backdrop ], image @ images
 ;;
 
 let command =

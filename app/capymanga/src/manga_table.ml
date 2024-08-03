@@ -147,6 +147,12 @@ let table
   let%sub text = Text.component in
   let%sub mauve = Catpuccin.color Green in
   let%sub salmon = Catpuccin.color Flamingo in
+  let%sub selected_manga =
+    let%arr manga_collection = manga_collection
+    and focus = focus in
+    List.nth manga_collection.data focus
+  in
+  let%sub image = Manga_cover.component selected_manga in
   let%arr manga_collection = manga_collection
   and focus = focus
   and text = text
@@ -154,7 +160,8 @@ let table
   and textbox_view = textbox_view
   and textbox_is_focused = textbox_is_focused
   and title = title
-  and salmon = salmon in
+  and salmon = salmon
+  and image = image in
   let manga =
     List.mapi manga_collection.data ~f:(fun i manga ->
       match manga.attributes.title with
@@ -189,7 +196,7 @@ let table
       :: manga
     else manga
   in
-  Node.vcat content
+  Node.vcat content, match image with None -> [] | Some x -> [ x ]
 ;;
 
 let component =
@@ -202,15 +209,16 @@ let component =
   match%sub manga_list with
   | None ->
     let%sub () = Loading_state.i_am_loading in
-    Bonsai.const Node.none
+    Bonsai.const (Node.none, [])
   | Some (Error error) ->
     let%sub red = Catpuccin.color Red in
     let%arr error = error
     and sexp_for_debugging = sexp_for_debugging
     and red = red in
-    sexp_for_debugging
-      ~attrs:[ Attr.foreground_color red ]
-      [%sexp (error : Error.t)]
+    ( sexp_for_debugging
+        ~attrs:[ Attr.foreground_color red ]
+        [%sexp (error : Error.t)]
+    , [] )
   | Some (Ok manga_collection) ->
     table
       ~set_textbox_focus
