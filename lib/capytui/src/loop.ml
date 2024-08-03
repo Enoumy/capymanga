@@ -2,6 +2,39 @@ open! Core
 open Bonsai
 open Async
 
+let clear_images () =
+  let%bind _ : _ =
+    Async.Sys.command "kitten  icat --clear --silent >/dev/tty </dev/tty"
+  in
+  Deferred.return ()
+;;
+
+let draw_images images =
+  (* TODO: Currently drawing images is really slow and blocks user input. *)
+  let%bind () = if false then clear_images () else Deferred.return () in
+  Deferred.List.iter
+    ~how:`Sequential
+    images
+    ~f:
+      (fun
+        { Image.row; column; url; dimensions = { height; width }; scale } ->
+      let args =
+        List.concat
+          [ [ "kitten"; "icat"; "--silent" ]
+          ; (if scale then [ "--scale-up" ] else [])
+          ; [ "--place"
+            ; [%string "%{width#Int}x%{height#Int}@%{column#Int}x%{row#Int}"]
+            ; url
+            ]
+          ]
+      in
+      let%bind _ : _ =
+        Async.Sys.command
+          (String.concat ~sep:" " args ^ " >/dev/tty </dev/tty")
+      in
+      return ())
+;;
+
 let start
   { Start_params.dispose
   ; nosig
@@ -47,38 +80,7 @@ let start
       if node_changed
          || is_first_frame
          || not ([%equal: Image.t list] (snd result) (snd prev_result))
-      then (
-        let%bind _ : _ =
-          Async.Sys.command
-            "kitten  icat --clear --silent >/dev/tty </dev/tty"
-        in
-        Deferred.List.iter
-          ~how:`Sequential
-          images
-          ~f:
-            (fun
-              { row; column; url; dimensions = { height; width }; scale } ->
-            Fn.ignore row;
-            Fn.ignore column;
-            Fn.ignore height;
-            Fn.ignore width;
-            let args =
-              List.concat
-                [ [ "kitten"; "icat"; "--silent" ]
-                ; (if scale then [ "--scale-up" ] else [])
-                ; [ "--place"
-                  ; [%string
-                      "%{width#Int}x%{height#Int}@%{column#Int}x%{row#Int}"]
-                  ; url
-                  ]
-                ]
-            in
-            let%bind _ : _ =
-              Async.Sys.command
-                (String.concat ~sep:" " args ^ " >/dev/tty </dev/tty")
-            in
-            (* print_s [%message (response : int)]; *)
-            return ()))
+      then draw_images images
       else Deferred.return ()
     in
     Bonsai_driver.trigger_lifecycles driver;
