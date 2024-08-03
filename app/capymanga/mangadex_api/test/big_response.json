@@ -227,11 +227,7 @@
         "createdAt": "2024-03-16T20:51:42+00:00",
         "updatedAt": "2024-07-14T21:00:56+00:00",
         "version": 7,
-        "availableTranslatedLanguages": [
-          "pt-br",
-          "es-la",
-          "en"
-        ],
+        "availableTranslatedLanguages": ["pt-br", "es-la", "en"],
         "latestUploadedChapter": "b19cd6d7-f153-4990-b885-9ca2dfac721f"
       },
       "relationships": [
@@ -386,10 +382,7 @@
         "createdAt": "2023-10-31T17:36:49+00:00",
         "updatedAt": "2024-07-13T09:31:28+00:00",
         "version": 21,
-        "availableTranslatedLanguages": [
-          "ru",
-          "en"
-        ],
+        "availableTranslatedLanguages": ["ru", "en"],
         "latestUploadedChapter": "a8ec13b5-91ad-471a-a2f0-4a15e6cea5d5"
       },
       "relationships": [
@@ -551,9 +544,7 @@
         "createdAt": "2024-07-31T09:51:20+00:00",
         "updatedAt": "2024-08-01T21:02:44+00:00",
         "version": 7,
-        "availableTranslatedLanguages": [
-          "en"
-        ],
+        "availableTranslatedLanguages": ["en"],
         "latestUploadedChapter": "f3f851a0-b923-4ee2-b6ee-024f61e2cd39"
       },
       "relationships": [
@@ -1875,9 +1866,7 @@
         "createdAt": "2024-05-29T16:52:21+00:00",
         "updatedAt": "2024-06-19T15:12:31+00:00",
         "version": 5,
-        "availableTranslatedLanguages": [
-          "en"
-        ],
+        "availableTranslatedLanguages": ["en"],
         "latestUploadedChapter": "52caba64-1537-41c6-9172-4bdce4166b01"
       },
       "relationships": [
@@ -2040,12 +2029,7 @@
         "createdAt": "2023-09-14T10:45:56+00:00",
         "updatedAt": "2024-07-17T05:59:21+00:00",
         "version": 21,
-        "availableTranslatedLanguages": [
-          "pt-br",
-          "fr",
-          "en",
-          "it"
-        ],
+        "availableTranslatedLanguages": ["pt-br", "fr", "en", "it"],
         "latestUploadedChapter": "751582b6-10df-4ada-bbde-831372947082"
       },
       "relationships": [
@@ -2178,9 +2162,7 @@
         "createdAt": "2023-08-08T01:49:05+00:00",
         "updatedAt": "2024-06-19T22:59:35+00:00",
         "version": 7,
-        "availableTranslatedLanguages": [
-          "en"
-        ],
+        "availableTranslatedLanguages": ["en"],
         "latestUploadedChapter": "015c0542-2b33-4b36-ab58-bea450c684a7"
       },
       "relationships": [
@@ -2302,12 +2284,7 @@
         "createdAt": "2019-03-12T10:51:36+00:00",
         "updatedAt": "2024-07-25T00:22:36+00:00",
         "version": 30,
-        "availableTranslatedLanguages": [
-          "ru",
-          "en",
-          "pt-br",
-          "es-la"
-        ],
+        "availableTranslatedLanguages": ["ru", "en", "pt-br", "es-la"],
         "latestUploadedChapter": "5f513a54-46af-4017-aac1-1a777b0bb1da"
       },
       "relationships": [
@@ -2564,10 +2541,7 @@
         "createdAt": "2018-03-26T08:49:13+00:00",
         "updatedAt": "2023-02-13T02:15:29+00:00",
         "version": 10,
-        "availableTranslatedLanguages": [
-          "en",
-          "pt-br"
-        ],
+        "availableTranslatedLanguages": ["en", "pt-br"],
         "latestUploadedChapter": "c73ea51b-3d18-42d7-8a56-686f41bd6c99"
       },
       "relationships": [
@@ -2797,9 +2771,7 @@
         "createdAt": "2023-02-25T05:03:17+00:00",
         "updatedAt": "2024-07-28T21:37:51+00:00",
         "version": 19,
-        "availableTranslatedLanguages": [
-          "en"
-        ],
+        "availableTranslatedLanguages": ["en"],
         "latestUploadedChapter": "27095c4e-f2c4-49c8-bbd4-1c83b4c706ea"
       },
       "relationships": [
@@ -2946,13 +2918,7 @@
         "createdAt": "2024-06-30T06:44:43+00:00",
         "updatedAt": "2024-07-27T20:21:02+00:00",
         "version": 10,
-        "availableTranslatedLanguages": [
-          "vi",
-          "en",
-          "pt-br",
-          "pl",
-          "tr"
-        ],
+        "availableTranslatedLanguages": ["vi", "en", "pt-br", "pl", "tr"],
         "latestUploadedChapter": "ea77063b-4c99-4300-a11f-b5cd93e19688"
       },
       "relationships": [
@@ -3111,9 +3077,7 @@
         "createdAt": "2024-07-27T12:05:32+00:00",
         "updatedAt": "2024-08-02T15:53:51+00:00",
         "version": 10,
-        "availableTranslatedLanguages": [
-          "en"
-        ],
+        "availableTranslatedLanguages": ["en"],
         "latestUploadedChapter": "6ea48035-39ba-481e-8496-14520cefdeea"
       },
       "relationships": [
@@ -3219,12 +3183,7 @@
         "createdAt": "2021-03-14T20:14:56+00:00",
         "updatedAt": "2024-05-02T22:10:06+00:00",
         "version": 26,
-        "availableTranslatedLanguages": [
-          "pt-br",
-          "ru",
-          "en",
-          "ko"
-        ],
+        "availableTranslatedLanguages": ["pt-br", "ru", "en", "ko"],
         "latestUploadedChapter": "3e52c4a4-cb98-4ae1-92db-a0c3547bbc10"
       },
       "relationships": [
@@ -3360,13 +3319,7 @@
         "createdAt": "2022-11-22T01:55:04+00:00",
         "updatedAt": "2024-07-30T21:09:21+00:00",
         "version": 24,
-        "availableTranslatedLanguages": [
-          "vi",
-          "en",
-          "mn",
-          "pt-br",
-          "he"
-        ],
+        "availableTranslatedLanguages": ["vi", "en", "mn", "pt-br", "he"],
         "latestUploadedChapter": "466621a3-c888-400e-b5fc-7503e50cd436"
       },
       "relationships": [
@@ -3516,9 +3469,7 @@
         "createdAt": "2022-09-07T10:54:40+00:00",
         "updatedAt": "2024-07-18T03:31:11+00:00",
         "version": 8,
-        "availableTranslatedLanguages": [
-          "en"
-        ],
+        "availableTranslatedLanguages": ["en"],
         "latestUploadedChapter": "3f34268f-8806-44a6-854c-98e1fc4efcb1"
       },
       "relationships": [
@@ -3697,12 +3648,7 @@
         "createdAt": "2024-01-05T19:34:47+00:00",
         "updatedAt": "2024-05-11T11:58:33+00:00",
         "version": 15,
-        "availableTranslatedLanguages": [
-          "fr",
-          "es-la",
-          "en",
-          "pt-br"
-        ],
+        "availableTranslatedLanguages": ["fr", "es-la", "en", "pt-br"],
         "latestUploadedChapter": "cbd69660-eb72-40a2-90e3-6d23cdf343f8"
       },
       "relationships": [
@@ -4180,11 +4126,7 @@
         "createdAt": "2019-06-25T14:14:21+00:00",
         "updatedAt": "2024-07-16T07:22:50+00:00",
         "version": 13,
-        "availableTranslatedLanguages": [
-          "en",
-          "es-la",
-          "ru"
-        ],
+        "availableTranslatedLanguages": ["en", "es-la", "ru"],
         "latestUploadedChapter": "e2253595-9cc1-4355-9a24-d7b4619c4d7c"
       },
       "relationships": [
@@ -4398,12 +4340,7 @@
         "createdAt": "2024-02-06T17:22:01+00:00",
         "updatedAt": "2024-07-28T07:45:56+00:00",
         "version": 16,
-        "availableTranslatedLanguages": [
-          "es-la",
-          "en",
-          "pl",
-          "pt-br"
-        ],
+        "availableTranslatedLanguages": ["es-la", "en", "pl", "pt-br"],
         "latestUploadedChapter": "2e4beb61-b7aa-4eb1-8967-a87819a269a5"
       },
       "relationships": [
@@ -4525,9 +4462,7 @@
         "createdAt": "2024-07-20T11:54:58+00:00",
         "updatedAt": "2024-07-31T22:53:42+00:00",
         "version": 3,
-        "availableTranslatedLanguages": [
-          "en"
-        ],
+        "availableTranslatedLanguages": ["en"],
         "latestUploadedChapter": "6edf2cf9-c79f-4815-9240-9ffe0c7246c6"
       },
       "relationships": [
@@ -4673,12 +4608,7 @@
         "createdAt": "2023-04-30T16:43:19+00:00",
         "updatedAt": "2024-04-11T23:55:17+00:00",
         "version": 12,
-        "availableTranslatedLanguages": [
-          "pt-br",
-          "ru",
-          "fr",
-          "en"
-        ],
+        "availableTranslatedLanguages": ["pt-br", "ru", "fr", "en"],
         "latestUploadedChapter": "2c1a17fb-a32d-4112-950b-d5c82ffe7892"
       },
       "relationships": [
@@ -5014,11 +4944,7 @@
         "createdAt": "2024-07-27T12:23:57+00:00",
         "updatedAt": "2024-07-28T11:58:54+00:00",
         "version": 6,
-        "availableTranslatedLanguages": [
-          "id",
-          "en",
-          "pt-br"
-        ],
+        "availableTranslatedLanguages": ["id", "en", "pt-br"],
         "latestUploadedChapter": "53afd9dc-2f01-4943-a8bf-04c964c29017"
       },
       "relationships": [
@@ -5176,9 +5102,7 @@
         "createdAt": "2024-07-14T19:36:51+00:00",
         "updatedAt": "2024-07-28T16:29:49+00:00",
         "version": 5,
-        "availableTranslatedLanguages": [
-          "pl"
-        ],
+        "availableTranslatedLanguages": ["pl"],
         "latestUploadedChapter": "77356dd8-9a50-41ea-a6c8-253a2569946e"
       },
       "relationships": [
@@ -5499,11 +5423,7 @@
         "createdAt": "2018-04-04T10:13:32+00:00",
         "updatedAt": "2023-08-06T10:18:06+00:00",
         "version": 6,
-        "availableTranslatedLanguages": [
-          "en",
-          "pl",
-          "pt-br"
-        ],
+        "availableTranslatedLanguages": ["en", "pl", "pt-br"],
         "latestUploadedChapter": "ce70bf0c-e00b-4428-b46f-8c6c832e2fd2"
       },
       "relationships": [
@@ -5989,10 +5909,7 @@
         "createdAt": "2024-02-07T14:11:55+00:00",
         "updatedAt": "2024-06-29T00:59:16+00:00",
         "version": 6,
-        "availableTranslatedLanguages": [
-          "en",
-          "es-la"
-        ],
+        "availableTranslatedLanguages": ["en", "es-la"],
         "latestUploadedChapter": "8df14c21-3155-4ffa-89d0-faf372b7b744"
       },
       "relationships": [
@@ -6586,11 +6503,7 @@
         "createdAt": "2023-07-03T20:23:35+00:00",
         "updatedAt": "2024-07-25T18:11:39+00:00",
         "version": 14,
-        "availableTranslatedLanguages": [
-          "en",
-          "zh-hk",
-          "es"
-        ],
+        "availableTranslatedLanguages": ["en", "zh-hk", "es"],
         "latestUploadedChapter": "2da228d9-7bfa-44fb-9c76-1e1af0e9790a"
       },
       "relationships": [
@@ -7075,9 +6988,7 @@
         "createdAt": "2023-06-20T15:22:35+00:00",
         "updatedAt": "2024-04-30T00:09:16+00:00",
         "version": 9,
-        "availableTranslatedLanguages": [
-          "en"
-        ],
+        "availableTranslatedLanguages": ["en"],
         "latestUploadedChapter": "8b582556-d615-4084-93e0-b43ae03382d5"
       },
       "relationships": [
@@ -7956,10 +7867,7 @@
         "createdAt": "2020-04-18T18:40:26+00:00",
         "updatedAt": "2023-05-16T03:42:17+00:00",
         "version": 14,
-        "availableTranslatedLanguages": [
-          "en",
-          "pt-br"
-        ],
+        "availableTranslatedLanguages": ["en", "pt-br"],
         "latestUploadedChapter": "9f09f0c5-b052-4f67-bd68-fabe69dc6c95"
       },
       "relationships": [
@@ -8139,11 +8047,7 @@
         "createdAt": "2020-11-06T19:33:06+00:00",
         "updatedAt": "2024-07-25T09:08:05+00:00",
         "version": 8,
-        "availableTranslatedLanguages": [
-          "en",
-          "pl",
-          "es-la"
-        ],
+        "availableTranslatedLanguages": ["en", "pl", "es-la"],
         "latestUploadedChapter": "7caf3f2e-4527-41cf-b7b8-e52bfb02eecf"
       },
       "relationships": [
@@ -8384,11 +8288,7 @@
         "createdAt": "2023-04-15T02:27:43+00:00",
         "updatedAt": "2024-04-01T02:02:41+00:00",
         "version": 8,
-        "availableTranslatedLanguages": [
-          "vi",
-          "en",
-          "fr"
-        ],
+        "availableTranslatedLanguages": ["vi", "en", "fr"],
         "latestUploadedChapter": "d5c25caa-d735-43e1-9930-7d26dbb8700b"
       },
       "relationships": [
@@ -8563,12 +8463,7 @@
         "createdAt": "2023-05-05T16:50:43+00:00",
         "updatedAt": "2023-09-25T06:54:46+00:00",
         "version": 14,
-        "availableTranslatedLanguages": [
-          "pl",
-          "en",
-          "id",
-          "ko"
-        ],
+        "availableTranslatedLanguages": ["pl", "en", "id", "ko"],
         "latestUploadedChapter": "26c95f59-2838-43e6-a9de-7724cb1fa30b"
       },
       "relationships": [
@@ -8746,11 +8641,7 @@
         "createdAt": "2024-06-30T18:27:34+00:00",
         "updatedAt": "2024-07-19T19:18:43+00:00",
         "version": 12,
-        "availableTranslatedLanguages": [
-          "en",
-          "es-la",
-          "pt-br"
-        ],
+        "availableTranslatedLanguages": ["en", "es-la", "pt-br"],
         "latestUploadedChapter": "b1e873b5-bdb3-433f-b5a1-730018e34508"
       },
       "relationships": [
@@ -9578,10 +9469,7 @@
         "createdAt": "2022-01-10T22:34:47+00:00",
         "updatedAt": "2023-07-28T13:04:44+00:00",
         "version": 7,
-        "availableTranslatedLanguages": [
-          "fr",
-          "en"
-        ],
+        "availableTranslatedLanguages": ["fr", "en"],
         "latestUploadedChapter": "271859e3-80de-41d5-8beb-33fc72836f36"
       },
       "relationships": [
@@ -9721,13 +9609,7 @@
         "createdAt": "2023-03-10T00:31:11+00:00",
         "updatedAt": "2024-07-11T15:54:41+00:00",
         "version": 30,
-        "availableTranslatedLanguages": [
-          "pt-br",
-          "en",
-          "ru",
-          "es-la",
-          "id"
-        ],
+        "availableTranslatedLanguages": ["pt-br", "en", "ru", "es-la", "id"],
         "latestUploadedChapter": "be17cebe-9a03-445f-852b-da2042a225c4"
       },
       "relationships": [
@@ -9873,10 +9755,7 @@
         "createdAt": "2020-06-20T17:25:48+00:00",
         "updatedAt": "2024-03-29T10:58:31+00:00",
         "version": 8,
-        "availableTranslatedLanguages": [
-          "ja",
-          "en"
-        ],
+        "availableTranslatedLanguages": ["ja", "en"],
         "latestUploadedChapter": "d42b0bdb-6089-4f65-9236-09b23a68cbd1"
       },
       "relationships": [
@@ -10033,11 +9912,7 @@
         "createdAt": "2024-05-03T19:11:11+00:00",
         "updatedAt": "2024-07-28T16:34:12+00:00",
         "version": 5,
-        "availableTranslatedLanguages": [
-          "en",
-          "pt-br",
-          "tr"
-        ],
+        "availableTranslatedLanguages": ["en", "pt-br", "tr"],
         "latestUploadedChapter": "f51dd145-bb42-4a71-b6d6-9063f65d4c0c"
       },
       "relationships": [
@@ -10133,10 +10008,7 @@
         "createdAt": "2023-09-18T21:53:13+00:00",
         "updatedAt": "2023-10-20T11:08:22+00:00",
         "version": 2,
-        "availableTranslatedLanguages": [
-          "en",
-          "pt-br"
-        ],
+        "availableTranslatedLanguages": ["en", "pt-br"],
         "latestUploadedChapter": "d08ecb80-76f1-4a79-8e17-2dfbe3f1fbfa"
       },
       "relationships": [
@@ -10845,14 +10717,7 @@
         "createdAt": "2020-12-01T23:44:54+00:00",
         "updatedAt": "2024-06-14T00:34:03+00:00",
         "version": 8,
-        "availableTranslatedLanguages": [
-          "pt-br",
-          "fr",
-          "ru",
-          "en",
-          "th",
-          "pl"
-        ],
+        "availableTranslatedLanguages": ["pt-br", "fr", "ru", "en", "th", "pl"],
         "latestUploadedChapter": "e536183f-116f-4bbf-af16-8480d546fead"
       },
       "relationships": [
@@ -11233,11 +11098,7 @@
         "createdAt": "2018-03-20T12:59:03+00:00",
         "updatedAt": "2023-11-23T12:53:27+00:00",
         "version": 3,
-        "availableTranslatedLanguages": [
-          "en",
-          "pt-br",
-          "pl"
-        ],
+        "availableTranslatedLanguages": ["en", "pt-br", "pl"],
         "latestUploadedChapter": "ebae4173-be7b-4d21-a7ee-3f814cf3f052"
       },
       "relationships": [
@@ -11363,9 +11224,7 @@
         "createdAt": "2023-07-23T14:55:00+00:00",
         "updatedAt": "2023-07-23T14:57:53+00:00",
         "version": 2,
-        "availableTranslatedLanguages": [
-          "pl"
-        ],
+        "availableTranslatedLanguages": ["pl"],
         "latestUploadedChapter": "c7c65f21-6c21-4a79-a5cf-4c8e49271774"
       },
       "relationships": [
@@ -11576,10 +11435,7 @@
         "createdAt": "2023-02-11T09:30:42+00:00",
         "updatedAt": "2024-05-29T19:01:31+00:00",
         "version": 10,
-        "availableTranslatedLanguages": [
-          "en",
-          "ru"
-        ],
+        "availableTranslatedLanguages": ["en", "ru"],
         "latestUploadedChapter": "0327f7ea-9585-4e7e-9a40-d247f48862e0"
       },
       "relationships": [
@@ -11765,9 +11621,7 @@
         "createdAt": "2022-08-15T20:28:58+00:00",
         "updatedAt": "2024-05-09T16:59:55+00:00",
         "version": 20,
-        "availableTranslatedLanguages": [
-          "en"
-        ],
+        "availableTranslatedLanguages": ["en"],
         "latestUploadedChapter": "e136e631-9a5f-423d-bf2a-e57343302757"
       },
       "relationships": [
@@ -11924,12 +11778,7 @@
         "createdAt": "2021-10-31T18:43:59+00:00",
         "updatedAt": "2024-06-04T06:49:48+00:00",
         "version": 28,
-        "availableTranslatedLanguages": [
-          "en",
-          "pt-br",
-          "vi",
-          "id"
-        ],
+        "availableTranslatedLanguages": ["en", "pt-br", "vi", "id"],
         "latestUploadedChapter": "5c35fef7-f731-403e-89bb-7e33e07d8bfe"
       },
       "relationships": [
@@ -12195,12 +12044,7 @@
         "createdAt": "2022-05-25T04:03:21+00:00",
         "updatedAt": "2024-08-01T10:27:23+00:00",
         "version": 11,
-        "availableTranslatedLanguages": [
-          "en",
-          "fr",
-          "pt-br",
-          "it"
-        ],
+        "availableTranslatedLanguages": ["en", "fr", "pt-br", "it"],
         "latestUploadedChapter": "a8a3e70c-8ff0-425a-8030-35de938ae560"
       },
       "relationships": [
@@ -12519,11 +12363,7 @@
         "createdAt": "2018-01-23T11:23:35+00:00",
         "updatedAt": "2023-12-24T16:57:05+00:00",
         "version": 11,
-        "availableTranslatedLanguages": [
-          "pt-br",
-          "en",
-          "pl"
-        ],
+        "availableTranslatedLanguages": ["pt-br", "en", "pl"],
         "latestUploadedChapter": "53d64bfd-5438-46c3-8aec-2954ab95e36c"
       },
       "relationships": [
@@ -12654,12 +12494,7 @@
         "createdAt": "2018-09-05T11:41:57+00:00",
         "updatedAt": "2024-07-12T15:53:05+00:00",
         "version": 19,
-        "availableTranslatedLanguages": [
-          "pt-br",
-          "en",
-          "pl",
-          "cs"
-        ],
+        "availableTranslatedLanguages": ["pt-br", "en", "pl", "cs"],
         "latestUploadedChapter": "50339464-5e07-4847-b12e-c617eecde607"
       },
       "relationships": [
@@ -12830,10 +12665,7 @@
         "createdAt": "2019-03-07T02:06:19+00:00",
         "updatedAt": "2024-07-21T19:52:44+00:00",
         "version": 6,
-        "availableTranslatedLanguages": [
-          "en",
-          "vi"
-        ],
+        "availableTranslatedLanguages": ["en", "vi"],
         "latestUploadedChapter": "1b11328f-2acd-4d94-9c9b-fc96f0e3533a"
       },
       "relationships": [
@@ -12973,9 +12805,7 @@
         "createdAt": "2018-11-23T14:49:47+00:00",
         "updatedAt": "2024-06-09T05:58:14+00:00",
         "version": 6,
-        "availableTranslatedLanguages": [
-          "en"
-        ],
+        "availableTranslatedLanguages": ["en"],
         "latestUploadedChapter": "0c1005dc-8c12-46f3-bf82-9cb8b74d2910"
       },
       "relationships": [
@@ -13106,10 +12936,7 @@
         "createdAt": "2023-04-05T16:15:37+00:00",
         "updatedAt": "2024-08-01T19:08:11+00:00",
         "version": 7,
-        "availableTranslatedLanguages": [
-          "en",
-          "es-la"
-        ],
+        "availableTranslatedLanguages": ["en", "es-la"],
         "latestUploadedChapter": "28ee4872-679d-40fb-a640-1789756d0934"
       },
       "relationships": [
@@ -13252,13 +13079,7 @@
         "createdAt": "2020-04-23T14:14:11+00:00",
         "updatedAt": "2024-05-25T07:55:50+00:00",
         "version": 10,
-        "availableTranslatedLanguages": [
-          "en",
-          "id",
-          "ru",
-          "pt-br",
-          "it"
-        ],
+        "availableTranslatedLanguages": ["en", "id", "ru", "pt-br", "it"],
         "latestUploadedChapter": "fede309a-6ab6-46b7-a4db-8ca5cdf2d12c"
       },
       "relationships": [
@@ -13351,9 +13172,7 @@
         "createdAt": "2021-02-07T08:02:28+00:00",
         "updatedAt": "2024-07-30T22:04:20+00:00",
         "version": 6,
-        "availableTranslatedLanguages": [
-          "en"
-        ],
+        "availableTranslatedLanguages": ["en"],
         "latestUploadedChapter": "d31bb2b4-21c4-4b25-8108-a08932a2bc09"
       },
       "relationships": [
@@ -13529,11 +13348,7 @@
         "createdAt": "2018-04-04T01:46:57+00:00",
         "updatedAt": "2024-05-03T20:26:16+00:00",
         "version": 8,
-        "availableTranslatedLanguages": [
-          "tr",
-          "en",
-          "pt-br"
-        ],
+        "availableTranslatedLanguages": ["tr", "en", "pt-br"],
         "latestUploadedChapter": "a1d5a1c2-d161-48b2-8e33-4c623090f67a"
       },
       "relationships": [
@@ -13745,12 +13560,7 @@
         "createdAt": "2021-10-25T20:08:12+00:00",
         "updatedAt": "2024-07-31T23:37:02+00:00",
         "version": 28,
-        "availableTranslatedLanguages": [
-          "es-la",
-          "fr",
-          "pt-br",
-          "en"
-        ],
+        "availableTranslatedLanguages": ["es-la", "fr", "pt-br", "en"],
         "latestUploadedChapter": "7f9d3064-82d6-4649-964a-b1e2200a11e3"
       },
       "relationships": [
@@ -13904,9 +13714,7 @@
         "createdAt": "2024-05-27T10:08:44+00:00",
         "updatedAt": "2024-07-05T23:31:05+00:00",
         "version": 4,
-        "availableTranslatedLanguages": [
-          "en"
-        ],
+        "availableTranslatedLanguages": ["en"],
         "latestUploadedChapter": "1cf4cba0-716e-478b-861b-a1437cacc32a"
       },
       "relationships": [
@@ -14098,9 +13906,7 @@
         "createdAt": "2019-01-11T02:53:53+00:00",
         "updatedAt": "2024-05-21T23:33:59+00:00",
         "version": 5,
-        "availableTranslatedLanguages": [
-          "en"
-        ],
+        "availableTranslatedLanguages": ["en"],
         "latestUploadedChapter": "cc310f81-51ee-4b78-bb4e-9abac734e17c"
       },
       "relationships": [
@@ -14238,12 +14044,7 @@
         "createdAt": "2024-07-12T14:45:50+00:00",
         "updatedAt": "2024-07-17T03:26:35+00:00",
         "version": 16,
-        "availableTranslatedLanguages": [
-          "es-la",
-          "en",
-          "vi",
-          "pt-br"
-        ],
+        "availableTranslatedLanguages": ["es-la", "en", "vi", "pt-br"],
         "latestUploadedChapter": "902d7530-d232-447f-8a9c-74bf1fdff527"
       },
       "relationships": [
@@ -14379,13 +14180,7 @@
         "createdAt": "2019-09-07T04:55:17+00:00",
         "updatedAt": "2023-06-11T18:55:18+00:00",
         "version": 7,
-        "availableTranslatedLanguages": [
-          "pt-br",
-          "es",
-          "ru",
-          "en",
-          "fr"
-        ],
+        "availableTranslatedLanguages": ["pt-br", "es", "ru", "en", "fr"],
         "latestUploadedChapter": "f33fc59b-1a51-4bd3-9663-f174baaf5663"
       },
       "relationships": [
@@ -14529,10 +14324,7 @@
         "createdAt": "2024-07-13T00:35:05+00:00",
         "updatedAt": "2024-08-01T04:49:27+00:00",
         "version": 5,
-        "availableTranslatedLanguages": [
-          "en",
-          "pl"
-        ],
+        "availableTranslatedLanguages": ["en", "pl"],
         "latestUploadedChapter": "4671c388-d21a-4013-863f-97e0fa32c36d"
       },
       "relationships": [
@@ -14953,13 +14745,7 @@
         "createdAt": "2021-03-04T00:06:04+00:00",
         "updatedAt": "2024-07-14T02:24:46+00:00",
         "version": 20,
-        "availableTranslatedLanguages": [
-          "en",
-          "pt-br",
-          "it",
-          "pl",
-          "fr"
-        ],
+        "availableTranslatedLanguages": ["en", "pt-br", "it", "pl", "fr"],
         "latestUploadedChapter": "76548be6-a9bc-4be3-95f0-e02caf85b481"
       },
       "relationships": [
@@ -15098,12 +14884,7 @@
         "createdAt": "2023-08-18T20:42:34+00:00",
         "updatedAt": "2024-07-22T14:54:33+00:00",
         "version": 18,
-        "availableTranslatedLanguages": [
-          "pt-br",
-          "es-la",
-          "id",
-          "en"
-        ],
+        "availableTranslatedLanguages": ["pt-br", "es-la", "id", "en"],
         "latestUploadedChapter": "cade1d02-5923-4434-9cc6-501fecb9c7d7"
       },
       "relationships": [
@@ -15288,9 +15069,7 @@
         "createdAt": "2021-01-24T05:47:47+00:00",
         "updatedAt": "2023-07-15T08:02:42+00:00",
         "version": 6,
-        "availableTranslatedLanguages": [
-          "en"
-        ],
+        "availableTranslatedLanguages": ["en"],
         "latestUploadedChapter": "fbec881b-f807-41da-863a-0cd6919e2ea9"
       },
       "relationships": [
@@ -15670,11 +15449,7 @@
         "createdAt": "2022-07-04T04:58:42+00:00",
         "updatedAt": "2024-05-30T23:21:39+00:00",
         "version": 18,
-        "availableTranslatedLanguages": [
-          "es-la",
-          "pl",
-          "en"
-        ],
+        "availableTranslatedLanguages": ["es-la", "pl", "en"],
         "latestUploadedChapter": "67656222-58e1-4c46-b2c3-09c7398b8498"
       },
       "relationships": [
@@ -15847,10 +15622,7 @@
         "createdAt": "2022-10-28T18:18:34+00:00",
         "updatedAt": "2023-03-17T06:38:59+00:00",
         "version": 6,
-        "availableTranslatedLanguages": [
-          "en",
-          "es"
-        ],
+        "availableTranslatedLanguages": ["en", "es"],
         "latestUploadedChapter": "b870a521-885a-48b8-9ba7-162a8a8415b0"
       },
       "relationships": [
@@ -16250,14 +16022,7 @@
         "createdAt": "2018-07-05T07:56:23+00:00",
         "updatedAt": "2024-05-01T19:55:35+00:00",
         "version": 15,
-        "availableTranslatedLanguages": [
-          "en",
-          "pt-br",
-          "es",
-          "pl",
-          "de",
-          "tr"
-        ],
+        "availableTranslatedLanguages": ["en", "pt-br", "es", "pl", "de", "tr"],
         "latestUploadedChapter": "897f3b7a-a268-45dc-8ce2-dadb6e2aeb87"
       },
       "relationships": [
@@ -16665,9 +16430,7 @@
         "createdAt": "2024-07-21T17:07:10+00:00",
         "updatedAt": "2024-07-22T14:02:25+00:00",
         "version": 5,
-        "availableTranslatedLanguages": [
-          "en"
-        ],
+        "availableTranslatedLanguages": ["en"],
         "latestUploadedChapter": "de8056c9-4986-481a-a187-7d3be128ec04"
       },
       "relationships": [
@@ -16799,10 +16562,7 @@
         "createdAt": "2021-12-11T22:33:49+00:00",
         "updatedAt": "2024-04-29T06:22:37+00:00",
         "version": 15,
-        "availableTranslatedLanguages": [
-          "en",
-          "pt-br"
-        ],
+        "availableTranslatedLanguages": ["en", "pt-br"],
         "latestUploadedChapter": "1fbb37b6-994b-4dc8-ba93-9af4f623aa83"
       },
       "relationships": [
@@ -16928,13 +16688,7 @@
         "createdAt": "2022-11-16T20:53:33+00:00",
         "updatedAt": "2024-07-05T21:37:26+00:00",
         "version": 31,
-        "availableTranslatedLanguages": [
-          "fr",
-          "es-la",
-          "en",
-          "vi",
-          "id"
-        ],
+        "availableTranslatedLanguages": ["fr", "es-la", "en", "vi", "id"],
         "latestUploadedChapter": "03976226-2935-4136-9081-fd8edc08a66f"
       },
       "relationships": [
@@ -17109,12 +16863,7 @@
         "createdAt": "2020-04-09T16:12:48+00:00",
         "updatedAt": "2023-10-29T21:59:39+00:00",
         "version": 18,
-        "availableTranslatedLanguages": [
-          "en",
-          "es-la",
-          "pt-br",
-          "th"
-        ],
+        "availableTranslatedLanguages": ["en", "es-la", "pt-br", "th"],
         "latestUploadedChapter": "12d5a6a3-d8e6-4438-ba24-4d4b5a957793"
       },
       "relationships": [
@@ -17254,11 +17003,7 @@
         "createdAt": "2023-12-04T10:36:47+00:00",
         "updatedAt": "2024-06-07T19:52:54+00:00",
         "version": 9,
-        "availableTranslatedLanguages": [
-          "ru",
-          "es",
-          "en"
-        ],
+        "availableTranslatedLanguages": ["ru", "es", "en"],
         "latestUploadedChapter": "1ead4f09-9921-4d89-a772-1513010a92da"
       },
       "relationships": [
@@ -17415,11 +17160,7 @@
         "createdAt": "2021-12-25T06:32:47+00:00",
         "updatedAt": "2024-01-22T06:15:55+00:00",
         "version": 17,
-        "availableTranslatedLanguages": [
-          "en",
-          "vi",
-          "pt-br"
-        ],
+        "availableTranslatedLanguages": ["en", "vi", "pt-br"],
         "latestUploadedChapter": "8d374981-6179-473a-a1ed-fc1e06fb4b33"
       },
       "relationships": [
@@ -17585,9 +17326,7 @@
         "createdAt": "2020-11-27T22:07:38+00:00",
         "updatedAt": "2024-06-19T20:10:22+00:00",
         "version": 3,
-        "availableTranslatedLanguages": [
-          "fr"
-        ],
+        "availableTranslatedLanguages": ["fr"],
         "latestUploadedChapter": "c28cf7ed-8be5-4629-927b-dd92ca28a8a9"
       },
       "relationships": [
@@ -17737,10 +17476,7 @@
         "createdAt": "2021-10-16T04:18:23+00:00",
         "updatedAt": "2024-07-27T18:51:04+00:00",
         "version": 8,
-        "availableTranslatedLanguages": [
-          "en",
-          "fr"
-        ],
+        "availableTranslatedLanguages": ["en", "fr"],
         "latestUploadedChapter": "22ecd044-4466-4a4d-b21f-73e1576039bf"
       },
       "relationships": [
@@ -18208,12 +17944,7 @@
         "createdAt": "2018-06-29T18:26:10+00:00",
         "updatedAt": "2024-02-25T23:06:16+00:00",
         "version": 23,
-        "availableTranslatedLanguages": [
-          "ru",
-          "pt-br",
-          "pl",
-          "en"
-        ],
+        "availableTranslatedLanguages": ["ru", "pt-br", "pl", "en"],
         "latestUploadedChapter": "8dfd5af7-d88b-494a-8f03-17c6bf75ecd8"
       },
       "relationships": [
@@ -18582,9 +18313,7 @@
         "createdAt": "2019-06-19T06:47:39+00:00",
         "updatedAt": "2024-08-02T18:06:19+00:00",
         "version": 7,
-        "availableTranslatedLanguages": [
-          "en"
-        ],
+        "availableTranslatedLanguages": ["en"],
         "latestUploadedChapter": "00bb2a44-7df9-4800-9b88-927dc83cea22"
       },
       "relationships": [
@@ -18719,11 +18448,7 @@
         "createdAt": "2024-07-20T14:07:44+00:00",
         "updatedAt": "2024-08-01T02:28:39+00:00",
         "version": 10,
-        "availableTranslatedLanguages": [
-          "en",
-          "pl",
-          "pt-br"
-        ],
+        "availableTranslatedLanguages": ["en", "pl", "pt-br"],
         "latestUploadedChapter": "20d03b90-2499-4ebd-a1ab-868b35aafdcf"
       },
       "relationships": [
@@ -18861,9 +18586,7 @@
         "createdAt": "2024-06-06T18:55:54+00:00",
         "updatedAt": "2024-07-03T17:15:49+00:00",
         "version": 9,
-        "availableTranslatedLanguages": [
-          "en"
-        ],
+        "availableTranslatedLanguages": ["en"],
         "latestUploadedChapter": "b7934afd-f067-4609-a22e-b95f2a3b215a"
       },
       "relationships": [
@@ -19015,13 +18738,7 @@
         "createdAt": "2021-01-15T02:16:49+00:00",
         "updatedAt": "2024-05-09T17:42:40+00:00",
         "version": 16,
-        "availableTranslatedLanguages": [
-          "id",
-          "th",
-          "en",
-          "ru",
-          "es-la"
-        ],
+        "availableTranslatedLanguages": ["id", "th", "en", "ru", "es-la"],
         "latestUploadedChapter": "3b7b1a88-940b-46df-960c-727249b43b55"
       },
       "relationships": [
@@ -19229,11 +18946,7 @@
         "createdAt": "2020-08-31T01:13:59+00:00",
         "updatedAt": "2024-05-12T07:55:24+00:00",
         "version": 13,
-        "availableTranslatedLanguages": [
-          "en",
-          "id",
-          "es-la"
-        ],
+        "availableTranslatedLanguages": ["en", "id", "es-la"],
         "latestUploadedChapter": "177d3e54-f7ff-4162-b69b-00ebd01e949c"
       },
       "relationships": [
@@ -19390,10 +19103,7 @@
         "createdAt": "2022-02-11T11:37:05+00:00",
         "updatedAt": "2024-01-31T22:30:59+00:00",
         "version": 23,
-        "availableTranslatedLanguages": [
-          "pt-br",
-          "en"
-        ],
+        "availableTranslatedLanguages": ["pt-br", "en"],
         "latestUploadedChapter": "d274b1e3-9d5a-4cc9-83f0-1a0634d125ac"
       },
       "relationships": [

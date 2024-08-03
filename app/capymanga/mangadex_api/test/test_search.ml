@@ -63,7 +63,7 @@ let%expect_test "parsing a collection" =
           (created_at 2024-07-30T00:43:33+00:00)
           (updated_at 2024-07-30T00:44:29+00:00) (version 4)
           (available_translated_languages (en))
-          (latest_uploaded_chapter e566506e-35a4-4b48-8780-664f29943455)))
+          (latest_uploaded_chapter (e566506e-35a4-4b48-8780-664f29943455))))
         (relationships
          (((id 3e0899f2-ac89-4ebb-963a-80118e3f5b3a) (type_ author))
           ((id 3e0899f2-ac89-4ebb-963a-80118e3f5b3a) (type_ artist))
@@ -218,7 +218,7 @@ let%expect_test "parsing a collection" =
           (created_at 2019-07-03T12:12:18+00:00)
           (updated_at 2024-07-04T06:26:36+00:00) (version 30)
           (available_translated_languages (pt-br es-la it en pl ru fa cs fr id))
-          (latest_uploaded_chapter dc6d19cb-309c-4aa8-8145-e599183c5a7f)))
+          (latest_uploaded_chapter (dc6d19cb-309c-4aa8-8145-e599183c5a7f))))
         (relationships
          (((id b0cbb5da-37d9-4b38-b41b-2ee56ef0fae3) (type_ author))
           ((id 1c157033-eb0a-494e-95bc-6bf98ca466ca) (type_ artist))
@@ -293,7 +293,7 @@ let%expect_test "parsing a collection" =
           (created_at 2024-07-29T11:37:13+00:00)
           (updated_at 2024-07-29T17:15:31+00:00) (version 4)
           (available_translated_languages (en))
-          (latest_uploaded_chapter 71f08be8-feeb-4afc-b516-1f31bd481ab9)))
+          (latest_uploaded_chapter (71f08be8-feeb-4afc-b516-1f31bd481ab9))))
         (relationships
          (((id ad4d444a-77ff-4fe0-be2e-6c43d4ce16c7) (type_ author))
           ((id ad4d444a-77ff-4fe0-be2e-6c43d4ce16c7) (type_ artist))
@@ -398,7 +398,7 @@ let%expect_test "parsing a collection" =
           (created_at 2019-01-05T22:53:34+00:00)
           (updated_at 2024-07-13T15:50:09+00:00) (version 26)
           (available_translated_languages (en es-la ru pt-br es fr))
-          (latest_uploaded_chapter 01f9026e-95de-4f96-bfc5-3d4aba301884)))
+          (latest_uploaded_chapter (01f9026e-95de-4f96-bfc5-3d4aba301884))))
         (relationships
          (((id ab3269ab-8ac1-439f-b87e-a9870ef6d0a9) (type_ author))
           ((id ab3269ab-8ac1-439f-b87e-a9870ef6d0a9) (type_ artist))
@@ -510,7 +510,7 @@ let%expect_test "parsing a collection" =
           (created_at 2019-09-23T05:04:28+00:00)
           (updated_at 2024-07-09T02:42:17+00:00) (version 79)
           (available_translated_languages (pt-br en vi ru es id tr fr es-la it))
-          (latest_uploaded_chapter dfc9eff7-5926-4770-984a-2e8da97e0e26)))
+          (latest_uploaded_chapter (dfc9eff7-5926-4770-984a-2e8da97e0e26))))
         (relationships
          (((id 5e6ad669-80d4-4818-bb8c-dfad9464b32a) (type_ author))
           ((id 5e6ad669-80d4-4818-bb8c-dfad9464b32a) (type_ artist))
@@ -565,7 +565,7 @@ let%expect_test "parsing a collection" =
           (created_at 2021-12-25T06:24:38+00:00)
           (updated_at 2024-07-30T00:58:35+00:00) (version 17)
           (available_translated_languages (id en))
-          (latest_uploaded_chapter 191111c8-bc94-4548-9842-9a24326046bd)))
+          (latest_uploaded_chapter (191111c8-bc94-4548-9842-9a24326046bd))))
         (relationships
          (((id 074f389a-7f7c-49d2-aa5c-a140379ba91c) (type_ author))
           ((id 074f389a-7f7c-49d2-aa5c-a140379ba91c) (type_ artist))
@@ -637,7 +637,7 @@ let%expect_test "parsing a collection" =
           (created_at 2022-12-03T16:02:37+00:00)
           (updated_at 2024-02-25T01:04:19+00:00) (version 7)
           (available_translated_languages (en))
-          (latest_uploaded_chapter 2f9cfed3-6c7c-4ff1-bb35-e9b1e3355590)))
+          (latest_uploaded_chapter (2f9cfed3-6c7c-4ff1-bb35-e9b1e3355590))))
         (relationships
          (((id ef03e12d-8ada-490e-86bd-a4f1a2277aa2) (type_ author))
           ((id ef03e12d-8ada-490e-86bd-a4f1a2277aa2) (type_ artist))
@@ -678,7 +678,7 @@ let%expect_test "parsing a collection" =
           (created_at 2022-08-17T21:10:18+00:00)
           (updated_at 2024-06-21T14:58:32+00:00) (version 5)
           (available_translated_languages (en))
-          (latest_uploaded_chapter 43d028ab-c23e-4572-8324-d8d643db710b)))
+          (latest_uploaded_chapter (43d028ab-c23e-4572-8324-d8d643db710b))))
         (relationships
          (((id caaeb4af-791e-43c0-8931-4f33be1001ab) (type_ author))
           ((id caaeb4af-791e-43c0-8931-4f33be1001ab) (type_ artist))
@@ -762,7 +762,7 @@ let%expect_test "parsing a collection" =
           (created_at 2018-01-25T16:09:41+00:00)
           (updated_at 2024-07-08T23:41:47+00:00) (version 22)
           (available_translated_languages (en es-la))
-          (latest_uploaded_chapter dd71d129-994d-4c5e-abdd-ec4d1371e655)))
+          (latest_uploaded_chapter (dd71d129-994d-4c5e-abdd-ec4d1371e655))))
         (relationships
          (((id bdd3b599-48be-49d2-8bea-877e38704ad6) (type_ author))
           ((id bdd3b599-48be-49d2-8bea-877e38704ad6) (type_ artist))
@@ -804,7 +804,7 @@ let%expect_test "parsing a collection" =
           (created_at 2022-09-30T05:20:59+00:00)
           (updated_at 2023-04-17T01:25:33+00:00) (version 6)
           (available_translated_languages (pl))
-          (latest_uploaded_chapter 753c309d-ca36-440c-b7f9-c1ab72c6943e)))
+          (latest_uploaded_chapter (753c309d-ca36-440c-b7f9-c1ab72c6943e))))
         (relationships
          (((id 8dd49acf-6a2e-449e-ac3c-166669616292) (type_ author))
           ((id 3377cbdf-18b6-42f7-b904-9a5323b6eb17) (type_ artist))

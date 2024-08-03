@@ -33,3 +33,4 @@ val italic : t
 val underline : t
 val blink : t
 val reverse : t
+val empty : t

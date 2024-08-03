@@ -1,0 +1,2228 @@
+{
+  "result": "ok",
+  "response": "collection",
+  "data": [
+    {
+      "id": "a77742b1-befd-49a4-bff5-1ad4e6b0ef7b",
+      "type": "manga",
+      "attributes": {
+        "title": {
+          "en": "Chainsaw Man"
+        },
+        "altTitles": [
+          {
+            "uk": "Людина-бензопила"
+          },
+          {
+            "ru": "Человек-бензопила"
+          },
+          {
+            "ja": "チェンソーマン"
+          },
+          {
+            "zh": "电锯人"
+          },
+          {
+            "zh-hk": "鏈鋸人"
+          },
+          {
+            "zh-hk": "電鋸人"
+          },
+          {
+            "tr": "Testere Adam"
+          },
+          {
+            "kk": "Шынжырлы ара адам"
+          }
+        ],
+        "description": {
+          "en": "Broke young man + chainsaw dog demon = Chainsaw Man!  \n  \nThe name says it all! Denji's life of poverty is changed forever when he merges with his pet chainsaw dog, Pochita! Now he's living in the big city and an official Devil Hunter. But he's got a lot to learn about his new job and chainsaw powers!",
+          "fr": "Pour rembourser ses dettes, Denji, jeune homme dans la dèche la plus totale, est exploité en tant que Devil Hunter avec son chien-démon-tronçonneuse, “Pochita”. Mais suite à une cruelle trahison, il voit enfin une possibilité de se tirer des bas-fonds où il croupit ! Devenu surpuissant après sa fusion avec Pochita, Denji est recruté par une organisation et part à la chasse aux démons…\n\n---\n\nMaison d'édition FR : **Kazé / Crunchyroll**"
+        },
+        "isLocked": true,
+        "links": {
+          "al": "105778",
+          "ap": "chainsaw-man",
+          "bw": "series/191172",
+          "kt": "54139",
+          "mu": "151847",
+          "amz": "https://www.amazon.co.jp/-/en/dp/B09P3Y9JYK",
+          "cdj": "http://www.cdjapan.co.jp/searches?term.cat_id=UD-14-02-01&page=&agg_use=cat_ids_hierarchal_treeish_foldable&term.media_format=&q=チェンソーマン",
+          "ebj": "https://ebookjapan.yahoo.co.jp/books/527520/",
+          "mal": "116778",
+          "raw": "https://shonenjumpplus.com/episode/10834108156650024834",
+          "engtl": "https://mangaplus.shueisha.co.jp/titles/100037"
+        },
+        "originalLanguage": "ja",
+        "lastVolume": "",
+        "lastChapter": "",
+        "publicationDemographic": "shounen",
+        "status": "ongoing",
+        "year": 2018,
+        "contentRating": "suggestive",
+        "tags": [
+          {
+            "id": "0a39b5a1-b235-4886-a747-1d05d216532d",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Award Winning"
+              },
+              "description": {},
+              "group": "format",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "36fd93ea-e8b8-445e-b836-358f02b3d33d",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Monsters"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "391b0423-d847-456f-aff0-8b0cfc03066b",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Action"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "39730448-9a5f-48a2-85b0-a70db87b1233",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Demons"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "4d32cc48-9f00-4cca-9b5a-a839f0764984",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Comedy"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "b29d6a3d-1569-4e7a-8caf-7557bc92cd5d",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Gore"
+              },
+              "description": {},
+              "group": "content",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "cdad7e68-1419-41dd-bdce-27753074a640",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Horror"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "eabc5b4c-6aff-42f3-b657-3e90cbd00b75",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Supernatural"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          }
+        ],
+        "state": "published",
+        "chapterNumbersResetOnNewVolume": false,
+        "createdAt": "2019-09-10T13:07:45+00:00",
+        "updatedAt": "2024-06-12T17:38:56+00:00",
+        "version": 108,
+        "availableTranslatedLanguages": [
+          "fa",
+          "hu",
+          "cs",
+          "en",
+          "it",
+          "pt-br",
+          "es-la",
+          "uk",
+          "es",
+          "ru",
+          "pl",
+          "id",
+          "fi",
+          "kk",
+          "fr",
+          "zh-hk",
+          "mn",
+          "tr",
+          "sr",
+          "de",
+          "bg",
+          "ms",
+          "ar",
+          "th",
+          "hr",
+          "tl",
+          "vi",
+          "el",
+          "sv"
+        ],
+        "latestUploadedChapter": "6374208f-0e31-459b-bc86-e47e56133109"
+      },
+      "relationships": [
+        {
+          "id": "f85a5b93-3c87-4c61-9032-07ceacbb9e64",
+          "type": "author"
+        },
+        {
+          "id": "f85a5b93-3c87-4c61-9032-07ceacbb9e64",
+          "type": "artist"
+        },
+        {
+          "id": "c862f594-aa07-4df2-a2c8-361640f7a3ff",
+          "type": "cover_art"
+        },
+        {
+          "id": "61325e33-e80b-443d-9b81-53b857b6ecdb",
+          "type": "manga",
+          "related": "doujinshi"
+        },
+        {
+          "id": "8d5d7c3b-eb95-4e58-838f-4da6c2cbee1f",
+          "type": "manga",
+          "related": "doujinshi"
+        },
+        {
+          "id": "94e1bcf0-4c18-4a4f-8843-d1039bd5d6b4",
+          "type": "manga",
+          "related": "doujinshi"
+        },
+        {
+          "id": "a0d05d57-4a2c-4d4b-9aa6-7b99bed425ca",
+          "type": "manga",
+          "related": "doujinshi"
+        },
+        {
+          "id": "b1d12720-49d7-4730-9945-1cd8737d97e4",
+          "type": "manga",
+          "related": "doujinshi"
+        },
+        {
+          "id": "c63e5e58-f6b1-422f-bd41-1efaca70476b",
+          "type": "manga",
+          "related": "doujinshi"
+        },
+        {
+          "id": "e896c48c-3150-437d-ba57-d8567eb399ae",
+          "type": "manga",
+          "related": "colored"
+        }
+      ]
+    },
+    {
+      "id": "e896c48c-3150-437d-ba57-d8567eb399ae",
+      "type": "manga",
+      "attributes": {
+        "title": {
+          "en": "Chainsaw Man (Official Colored)"
+        },
+        "altTitles": [
+          {
+            "en": "Chainsaw Man - Digital Colored Comics"
+          },
+          {
+            "fr": "Chainsaw Man (Couleur Officielle)"
+          },
+          {
+            "kk": "Шынжыра адам (Түрлі Түсті)"
+          },
+          {
+            "ja": "チェンソーマン カラー版"
+          },
+          {
+            "kk": "Шынжара жан (Түрлі түсті)"
+          }
+        ],
+        "description": {
+          "en": "Broke young man + chainsaw demon = Chainsaw Man!   Denji was a small-time devil hunter just trying to survive in a harsh world. After being killed on a job, he is revived by his pet devil-dog Pochita and becomes something new and dangerous—Chainsaw Man!",
+          "fr": "Jeune homme fauché + démon-chien-tronçonneuse = Chainsaw Man!\n\nTout est dans le titre! La vie précaire de Denji change à jamais quand il fusionne avec son chien-tronçonneuse de compagnie, Pochita! Maintenant, il vit en centre-ville et est un Devil Hunter officiel. Mais il a beaucoup à apprendre de son nouveau job et de ses pouvoirs de tronçonneuse!\nMaintenant en couleur!",
+          "kk": "«Мен әрқашан қарапайым өмір сүруді армандадым: жылы төсекте ұйықтау, таңертең тосаппен нан жеу, қызыммен кездесуге бару және күнде күлімдеу. Әкемнің өлімімен кейін бәрі өзгерді - енді, Почита, өлтіретін кез келді!» - бұл сөзбен  Денжи өзінің шынжырлы иті Почитамен бірге басқа шартқа аттанады, өйткені олар сайтан аулаушылар. Күн сайын олар ақша үшін өлтіреді, оны Денджи бір якудзаға беруі керек, әйтпесе ол марқұм әкесінің қарызын өз өмірімен өтеуі керек. Бірақ Дэнджи барлық қарызын өтеген кезде оны не күтіп тұр: ол қарапайым өмір сүре ме, әлде әлемді сайтандардан құтқара ма? Мүмкін тағдырдың кейіпкерге қатысты өз жоспарлары бар шығар?",
+          "pt-br": "Quando seu pai morreu, Denji ficou preso com uma dívida que era incapaz de pagar. Mas graças à ajuda de um cachorro demônio que ele salvou chamado Pochita, Denji é capaz de sobreviver como caçador de demônios de aluguel. Os poderes de serra elétrica do Pochita são bem poderosos contra estes demônios. E então, quando o Denji acaba sendo morto por um demônio, o Pochita desiste de sua vida para revivê-lo. Mas, agora o Denji renasceu como um hibrido de demônio com humano... Agora ele é o \"Chainsaw Man\"!"
+        },
+        "isLocked": false,
+        "links": {
+          "al": "105778",
+          "ap": "chainsaw-man",
+          "bw": "series/333770/list",
+          "kt": "chainsawman",
+          "mu": "151847",
+          "amz": "https://www.amazon.co.jp/dp/B07RL4GB9T",
+          "ebj": "https://ebookjapan.yahoo.co.jp/books/671821/",
+          "mal": "116778",
+          "raw": "https://www.shueisha.co.jp/books/search/search.html?seriesid=87774"
+        },
+        "originalLanguage": "ja",
+        "lastVolume": "",
+        "lastChapter": "",
+        "publicationDemographic": "shounen",
+        "status": "ongoing",
+        "year": 2021,
+        "contentRating": "suggestive",
+        "tags": [
+          {
+            "id": "320831a8-4026-470b-94f6-8353740e6f04",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Official Colored"
+              },
+              "description": {},
+              "group": "format",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "36fd93ea-e8b8-445e-b836-358f02b3d33d",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Monsters"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "391b0423-d847-456f-aff0-8b0cfc03066b",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Action"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "39730448-9a5f-48a2-85b0-a70db87b1233",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Demons"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "4d32cc48-9f00-4cca-9b5a-a839f0764984",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Comedy"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "5fff9cde-849c-4d78-aab0-0d52b2ee1d25",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Survival"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "b29d6a3d-1569-4e7a-8caf-7557bc92cd5d",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Gore"
+              },
+              "description": {},
+              "group": "content",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "cdad7e68-1419-41dd-bdce-27753074a640",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Horror"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "dd1f77c5-dea9-4e2b-97ae-224af09caf99",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Monster Girls"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "df33b754-73a3-4c54-80e6-1a74a8058539",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Police"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "eabc5b4c-6aff-42f3-b657-3e90cbd00b75",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Supernatural"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          }
+        ],
+        "state": "published",
+        "chapterNumbersResetOnNewVolume": false,
+        "createdAt": "2020-12-29T07:39:30+00:00",
+        "updatedAt": "2024-07-09T03:54:28+00:00",
+        "version": 18,
+        "availableTranslatedLanguages": [
+          "pt-br",
+          "it",
+          "en",
+          "tr",
+          "es-la",
+          "fr",
+          "kk",
+          "fa",
+          "ro",
+          "uk",
+          "ta",
+          "id"
+        ],
+        "latestUploadedChapter": "a4d7443a-ee1a-456c-b1ff-9105ff8a4bb2"
+      },
+      "relationships": [
+        {
+          "id": "f85a5b93-3c87-4c61-9032-07ceacbb9e64",
+          "type": "author"
+        },
+        {
+          "id": "f85a5b93-3c87-4c61-9032-07ceacbb9e64",
+          "type": "artist"
+        },
+        {
+          "id": "4b599b92-fb4c-4baa-a6c9-02c0976232e4",
+          "type": "cover_art"
+        },
+        {
+          "id": "a77742b1-befd-49a4-bff5-1ad4e6b0ef7b",
+          "type": "manga",
+          "related": "monochrome"
+        }
+      ]
+    },
+    {
+      "id": "268f5da0-d158-4c95-bc2b-b4d962c2f325",
+      "type": "manga",
+      "attributes": {
+        "title": {
+          "en": "Chainsaw Man - The Hayakawa Family (Doujinshi)"
+        },
+        "altTitles": [
+          {
+            "ja": "連続テレビ小説　はやかわ家！"
+          },
+          {
+            "ja-ro": "Renzoku terebi shōsetsu　Hayakawa ie!"
+          },
+          {
+            "en": "Serial TV Novel: The Hayakawa Family!"
+          },
+          {
+            "en": "Chainsaw Man dj - The Hayakawa Family"
+          }
+        ],
+        "description": {},
+        "isLocked": false,
+        "links": {
+          "raw": "https://www.pixiv.net/en/artworks/113453222"
+        },
+        "originalLanguage": "ja",
+        "lastVolume": "",
+        "lastChapter": "",
+        "publicationDemographic": null,
+        "status": "completed",
+        "year": 2023,
+        "contentRating": "safe",
+        "tags": [
+          {
+            "id": "0234a31e-a729-4e28-9d6a-3f87c4966b9e",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Oneshot"
+              },
+              "description": {},
+              "group": "format",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "4d32cc48-9f00-4cca-9b5a-a839f0764984",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Comedy"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "b13b2a48-c720-44a9-9c77-39c9979373fb",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Doujinshi"
+              },
+              "description": {},
+              "group": "format",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "e5301a23-ebd9-49dd-a0cb-2add944c7fe9",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Slice of Life"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          }
+        ],
+        "state": "published",
+        "chapterNumbersResetOnNewVolume": false,
+        "createdAt": "2024-02-16T15:42:38+00:00",
+        "updatedAt": "2024-03-31T04:37:19+00:00",
+        "version": 9,
+        "availableTranslatedLanguages": [
+          "en"
+        ],
+        "latestUploadedChapter": "0e85d6b6-25e0-4526-941f-17efff8c92f0"
+      },
+      "relationships": [
+        {
+          "id": "f0f70a25-3ed6-4e4b-ae52-c49d1244a487",
+          "type": "author"
+        },
+        {
+          "id": "f0f70a25-3ed6-4e4b-ae52-c49d1244a487",
+          "type": "artist"
+        },
+        {
+          "id": "1776ab78-1d5d-4acd-9659-232c2409288b",
+          "type": "cover_art"
+        },
+        {
+          "id": "ca1c734e-5798-46d8-94f9-cd2e8393c2ed",
+          "type": "creator"
+        }
+      ]
+    },
+    {
+      "id": "8d0046c8-626b-4284-9b2a-d8eb86d2b2d4",
+      "type": "manga",
+      "attributes": {
+        "title": {
+          "en": "Negative Happy Chainsaw Edge"
+        },
+        "altTitles": [
+          {
+            "ja": "ネガティブ・ハッピー・チェーンソーエッヂ"
+          },
+          {
+            "zh": "消极的快乐、电锯的边缘"
+          }
+        ],
+        "description": {
+          "en": "Eri Yukizaki, is a girl locked in battle with a chain-saw wielding incarnation of true evil. But like the demons that boil inside her heart, the 'Chainsaw Man' doesn't seem to die no matter how much she stabs him. As she fights, a young man, Yamamoto watches, love-struck, wishing he could be more than just her useless bicycle courier. An action-packed romance, digging into the human psyche, exploring the demons that buries us in sadness and misery. Hilarious, action-packed, romantic, thrilling, cute, and dramatic!",
+          "pt-br": "Eri Yukizaki, é uma garota travada em batalha com uma serra elétrica empunhando a encarnação do verdadeiro mal. Mas como os demônios que fervem dentro de seu coração, o 'Homem da Serra Elétrica' não parece morrer, não importa o quanto ela o esfaqueie.\n\nYamamoto é um rapaz pessimista, com uma vida frustrada e sem sentido, uma noite, enquanto pensa na sua vida Yamamoto ve a Eri lutando então ele decide juntar à bela moça, numa busca pelo verdadeiro sentido da sua vida.\n\nUm romance cheio de ação, cavando a psique humana, explorando os demônios que nos enterram na tristeza e na miséria."
+        },
+        "isLocked": false,
+        "links": {
+          "al": "35674",
+          "ap": "negative-happy-chainsaw-edge",
+          "kt": "12487",
+          "mu": "19674",
+          "mal": "5674"
+        },
+        "originalLanguage": "ja",
+        "lastVolume": "2",
+        "lastChapter": "8",
+        "publicationDemographic": "shounen",
+        "status": "completed",
+        "year": 2007,
+        "contentRating": "suggestive",
+        "tags": [
+          {
+            "id": "391b0423-d847-456f-aff0-8b0cfc03066b",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Action"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "3b60b75c-a2d7-4860-ab56-05f391bb889c",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Psychological"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "423e2eae-a7a2-4a8b-ac03-a8351462d71d",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Romance"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "4d32cc48-9f00-4cca-9b5a-a839f0764984",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Comedy"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "b9af3a63-f058-46de-a9a0-e0c13906197a",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Drama"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          }
+        ],
+        "state": "published",
+        "chapterNumbersResetOnNewVolume": false,
+        "createdAt": "2018-02-11T01:48:46+00:00",
+        "updatedAt": "2024-03-24T13:43:10+00:00",
+        "version": 5,
+        "availableTranslatedLanguages": [
+          "pt-br",
+          "en",
+          "it",
+          "pl"
+        ],
+        "latestUploadedChapter": "90958f9e-2365-43d7-89f0-42a4203fe223"
+      },
+      "relationships": [
+        {
+          "id": "49941260-1e4c-4b6e-a080-687e12534c0d",
+          "type": "author"
+        },
+        {
+          "id": "934b3e47-2963-4b5e-b144-f6eb1ba952f5",
+          "type": "artist"
+        },
+        {
+          "id": "ab7199c7-bfa3-4ff2-a638-0d55951b0e66",
+          "type": "cover_art"
+        }
+      ]
+    },
+    {
+      "id": "94e1bcf0-4c18-4a4f-8843-d1039bd5d6b4",
+      "type": "manga",
+      "attributes": {
+        "title": {
+          "en": "Chainsaw Man - Yoru had ONE job (Doujinshi)"
+        },
+        "altTitles": [
+          {
+            "en": "Yoru had ONE job"
+          }
+        ],
+        "description": {},
+        "isLocked": false,
+        "links": {
+          "raw": "https://www.pixiv.net/en/artworks/104981487"
+        },
+        "originalLanguage": "en",
+        "lastVolume": "",
+        "lastChapter": "",
+        "publicationDemographic": null,
+        "status": "completed",
+        "year": 2023,
+        "contentRating": "safe",
+        "tags": [
+          {
+            "id": "0234a31e-a729-4e28-9d6a-3f87c4966b9e",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Oneshot"
+              },
+              "description": {},
+              "group": "format",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "b13b2a48-c720-44a9-9c77-39c9979373fb",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Doujinshi"
+              },
+              "description": {},
+              "group": "format",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "e197df38-d0e7-43b5-9b09-2842d0c326dd",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Web Comic"
+              },
+              "description": {},
+              "group": "format",
+              "version": 1
+            },
+            "relationships": []
+          }
+        ],
+        "state": "published",
+        "chapterNumbersResetOnNewVolume": false,
+        "createdAt": "2023-08-15T13:46:09+00:00",
+        "updatedAt": "2023-08-15T13:46:25+00:00",
+        "version": 2,
+        "availableTranslatedLanguages": [
+          "pt-br"
+        ],
+        "latestUploadedChapter": "b22908e2-9741-4ad2-9d88-46251865b3d1"
+      },
+      "relationships": [
+        {
+          "id": "d4841445-2197-46f5-967b-8c4c3b949568",
+          "type": "author"
+        },
+        {
+          "id": "d4841445-2197-46f5-967b-8c4c3b949568",
+          "type": "artist"
+        },
+        {
+          "id": "55083d61-fd37-4fb7-b0e3-af6a3b2a822b",
+          "type": "cover_art"
+        },
+        {
+          "id": "a77742b1-befd-49a4-bff5-1ad4e6b0ef7b",
+          "type": "manga",
+          "related": "based_on"
+        },
+        {
+          "id": "f319d314-4310-4610-bcea-98c0128def1d",
+          "type": "creator"
+        }
+      ]
+    },
+    {
+      "id": "a0d05d57-4a2c-4d4b-9aa6-7b99bed425ca",
+      "type": "manga",
+      "attributes": {
+        "title": {
+          "en": "Chainsaw Man - \"Big Smoke\" Fami (Doujinshi)"
+        },
+        "altTitles": [
+          {
+            "en": "\"Big Smoke\" Fami"
+          }
+        ],
+        "description": {
+          "en": "**Links:**\n- Alternative Official English - [X (Formerly Twitter)](https://twitter.com/ibumuc/status/1635626877283966979), [DeviantArt](https://www.deviantart.com/ibumuc/art/Big-Smoke-Fami-953575170)"
+        },
+        "isLocked": false,
+        "links": {
+          "engtl": "https://www.pixiv.net/en/artworks/106218143"
+        },
+        "originalLanguage": "en",
+        "lastVolume": "",
+        "lastChapter": "",
+        "publicationDemographic": null,
+        "status": "completed",
+        "year": 2023,
+        "contentRating": "safe",
+        "tags": [
+          {
+            "id": "0234a31e-a729-4e28-9d6a-3f87c4966b9e",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Oneshot"
+              },
+              "description": {},
+              "group": "format",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "b13b2a48-c720-44a9-9c77-39c9979373fb",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Doujinshi"
+              },
+              "description": {},
+              "group": "format",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "e197df38-d0e7-43b5-9b09-2842d0c326dd",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Web Comic"
+              },
+              "description": {},
+              "group": "format",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "f5ba408b-0e7a-484d-8d49-4e9125ac96de",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Full Color"
+              },
+              "description": {},
+              "group": "format",
+              "version": 1
+            },
+            "relationships": []
+          }
+        ],
+        "state": "published",
+        "chapterNumbersResetOnNewVolume": false,
+        "createdAt": "2023-08-10T08:09:13+00:00",
+        "updatedAt": "2024-04-17T17:11:05+00:00",
+        "version": 8,
+        "availableTranslatedLanguages": [
+          "pt-br"
+        ],
+        "latestUploadedChapter": "e2803114-0dcb-47c9-9aa5-4ad8c89b681a"
+      },
+      "relationships": [
+        {
+          "id": "d4841445-2197-46f5-967b-8c4c3b949568",
+          "type": "author"
+        },
+        {
+          "id": "d4841445-2197-46f5-967b-8c4c3b949568",
+          "type": "artist"
+        },
+        {
+          "id": "51252aa4-3aba-4f9b-8d6d-2353a8a06ea5",
+          "type": "cover_art"
+        },
+        {
+          "id": "a77742b1-befd-49a4-bff5-1ad4e6b0ef7b",
+          "type": "manga",
+          "related": "based_on"
+        },
+        {
+          "id": "f319d314-4310-4610-bcea-98c0128def1d",
+          "type": "creator"
+        }
+      ]
+    },
+    {
+      "id": "b1d12720-49d7-4730-9945-1cd8737d97e4",
+      "type": "manga",
+      "attributes": {
+        "title": {
+          "en": "Chainsaw Man - Nayuta tries the Grimace Shake (Doujinshi)"
+        },
+        "altTitles": [
+          {
+            "en": "Nayuta tries the Grimace Shake"
+          }
+        ],
+        "description": {
+          "en": "**Links:**\n- Alternative Official English - [X (Formerly Twitter)](https://twitter.com/ibumuc/status/1674455307379163136), [DeviantArt](https://www.deviantart.com/ibumuc/art/Nayuta-tries-the-Grimace-Shake-969460733)"
+        },
+        "isLocked": false,
+        "links": {
+          "engtl": "https://www.pixiv.net/en/artworks/109460984"
+        },
+        "originalLanguage": "en",
+        "lastVolume": "",
+        "lastChapter": "",
+        "publicationDemographic": null,
+        "status": "completed",
+        "year": 2023,
+        "contentRating": "safe",
+        "tags": [
+          {
+            "id": "0234a31e-a729-4e28-9d6a-3f87c4966b9e",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Oneshot"
+              },
+              "description": {},
+              "group": "format",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "b13b2a48-c720-44a9-9c77-39c9979373fb",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Doujinshi"
+              },
+              "description": {},
+              "group": "format",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "e197df38-d0e7-43b5-9b09-2842d0c326dd",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Web Comic"
+              },
+              "description": {},
+              "group": "format",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "f5ba408b-0e7a-484d-8d49-4e9125ac96de",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Full Color"
+              },
+              "description": {},
+              "group": "format",
+              "version": 1
+            },
+            "relationships": []
+          }
+        ],
+        "state": "published",
+        "chapterNumbersResetOnNewVolume": false,
+        "createdAt": "2023-08-10T09:52:43+00:00",
+        "updatedAt": "2024-04-17T17:08:21+00:00",
+        "version": 5,
+        "availableTranslatedLanguages": [
+          "pt-br"
+        ],
+        "latestUploadedChapter": "0c983695-15e1-4fd2-89f4-8c46d171e143"
+      },
+      "relationships": [
+        {
+          "id": "d4841445-2197-46f5-967b-8c4c3b949568",
+          "type": "author"
+        },
+        {
+          "id": "d4841445-2197-46f5-967b-8c4c3b949568",
+          "type": "artist"
+        },
+        {
+          "id": "e40361c0-0d95-4cbc-8255-5e6409351ded",
+          "type": "cover_art"
+        },
+        {
+          "id": "a77742b1-befd-49a4-bff5-1ad4e6b0ef7b",
+          "type": "manga",
+          "related": "based_on"
+        },
+        {
+          "id": "f319d314-4310-4610-bcea-98c0128def1d",
+          "type": "creator"
+        }
+      ]
+    },
+    {
+      "id": "991e9f15-8368-4843-a78a-5605918f9c3e",
+      "type": "manga",
+      "attributes": {
+        "title": {
+          "en": "Tatsuki Fujimoto Short Story Collection"
+        },
+        "altTitles": [
+          {
+            "en": "Tatsuki Fujimoto Short Stories"
+          },
+          {
+            "ja-ro": "Fujimoto Tatsuki Tanpenshuu: 17-21"
+          },
+          {
+            "ja-ro": "Fujimoto Tatsuki Tanpenshuu: 22-26"
+          },
+          {
+            "ja-ro": "Fujimoto Tatsuki Tanpenshuu"
+          },
+          {
+            "ru": "Болезнь \"Когда я проснулся, то стал девочкой\""
+          },
+          {
+            "ru": "Рапсодия русалки"
+          },
+          {
+            "ko": "여동생의 언니"
+          },
+          {
+            "ja": "シカク"
+          },
+          {
+            "ja": "予言のナユタ"
+          },
+          {
+            "ja": "人魚ラプソディ"
+          },
+          {
+            "ja": "妺の姉"
+          },
+          {
+            "ja": "佐々木くんが銃弾止めた"
+          },
+          {
+            "ja": "庭には二羽ニワトリがいた。"
+          },
+          {
+            "ja": "恋は盲目"
+          },
+          {
+            "ja": "目が覚めたら女の子になっていた病"
+          },
+          {
+            "ja": "藤本タツキ短編集"
+          },
+          {
+            "fr": "Nayuta, l'enfant de la prophétie"
+          },
+          {
+            "id": "Nayuta Si Anak Nubuat"
+          },
+          {
+            "zh": "妹妹的姐姐"
+          },
+          {
+            "uk": "Старша сестра меншої сестри"
+          },
+          {
+            "zh": "院子里曾有两只鸡"
+          },
+          {
+            "en": "\"When I Woke Up I had Become a Girl\" Disease"
+          },
+          {
+            "ja-ro": "Niwa ni wa Niwa Niwatori ga Ita"
+          },
+          {
+            "ja-ro": "Sasaki-kun ga Judan Tometa"
+          },
+          {
+            "ja-ro": "Koi wa Moumoku"
+          },
+          {
+            "ja-ro": "Shikaku"
+          },
+          {
+            "ja-ro": "Ningyo Rhapsody"
+          },
+          {
+            "ja-ro": "Me wo Sametara Onnanoko ni Natteita Byou"
+          },
+          {
+            "ja-ro": "Yogen no Nayuta"
+          },
+          {
+            "ja-ro": "Imouto no Ane"
+          },
+          {
+            "en": "There were Two Chickens in the Garden"
+          },
+          {
+            "en": "Sasaki-kun Has Stopped the Bullet"
+          },
+          {
+            "en": "Love is Blind"
+          },
+          {
+            "en": "Siren Rhapsody"
+          },
+          {
+            "en": "Nayuta of the Prophecy"
+          },
+          {
+            "en": "Little Sister's Elder Sister"
+          },
+          {
+            "en": "Tatsuki Fujimoto Before Chainsaw Man: 17-21, 22-26"
+          },
+          {
+            "ro": "Tatsuki Fujimoto Înainte de Chainsaw Man"
+          }
+        ],
+        "description": {
+          "en": "Collection of oneshots from author Tatsuki Fujimoto.\n\nVolume 1: 17-21\n\n- Chapter 1. **There were Two Chickens in the Garden (Niwa ni wa Niwa Niwatori ga Ita, 庭には二羽ニワトリがいた。)**\nA strange world where aliens have taken over the human world, and only two humans are left which are apparently disguising themselves as mere chickens.\n\n- Chapter 2. **Sasaki-kun Has Stopped the Bullet (Sasaki-kun ga Judan Tometa, 佐々木くんが銃弾止めた)**\nTo Sasaki, his teacher Kawaguchi is God. She taught him not to be ashamed of his own dreams and made him feel fully capable to forge forward and make them come true, no matter how low the odds. Yet one day, trouble from Kawaguchi's past follows her into the classroom. With his god in danger of total humiliation, Sasaki sets out to protect his teacher using her very own teachings: to strive for the impossible.\n\n- Chapter 3. **Love is Blind (Koi wa Moumoku, 恋は盲目)**\nA one-shot story about a boy that is blind to everything but love. Can he confess to his crush?\n\n- Chapter 4. **Shikaku (シカク)**\nA notorious hit-man bites off more than they can chew when their newest target turns out to be holding a supernatural secret. Bullets fly and love is in the air.\n\nVolume 2: 22-26\n\n- Chapter 1. **Siren Rhapsody (Ningyo Rhapsody, 人魚ラプソディ)**\nIn a world where sirens are common, the protagonist is a hybrid of a human father and a mermaid mother. He's always playing the piano under the sea, when a strange siren approaches him…\n\n- Chapter 2. **\"When I Woke Up I had Become a Girl\" Disease (Me wo Sametara Onnanoko ni Natteita Byou, 目が覚めたら女の子になっていた病)**\nA boy wakes up to discover he has become a girl! How will this affect his daily life?!\n\n- Chapter 3. **Nayuta of the Prophecy (Yogen no Nayuta, 予言のナユタ)**\nA tale about a prophecy involving a girl with horns who is said to bring destruction upon the world, and her brother.\n\n- Chapter 4. **Little Sister's Elder Sister (Imouto no Ane, 妹の姉)**\nA story about sisters aspiring to be artists."
+        },
+        "isLocked": false,
+        "links": {
+          "al": "139855",
+          "ap": "fujimoto-tatsuki-tanpenshuu-17-21",
+          "bw": "series/322921",
+          "mu": "190368",
+          "amz": "https://www.amazon.co.jp/dp/B09DK7YSHP",
+          "ebj": "https://ebookjapan.yahoo.co.jp/books/658635/",
+          "mal": "141214",
+          "engtl": "https://www.viz.com/read/manga/tatsuki-fujimoto-before-chainsaw-man/all"
+        },
+        "originalLanguage": "ja",
+        "lastVolume": "2",
+        "lastChapter": "4",
+        "publicationDemographic": "shounen",
+        "status": "completed",
+        "year": 2021,
+        "contentRating": "suggestive",
+        "tags": [
+          {
+            "id": "256c8bd9-4904-4360-bf4f-508a76d67183",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Sci-Fi"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "2bd2e8d0-f146-434a-9b51-fc9ff2c5fe6a",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Genderswap"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "391b0423-d847-456f-aff0-8b0cfc03066b",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Action"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "3b60b75c-a2d7-4860-ab56-05f391bb889c",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Psychological"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "423e2eae-a7a2-4a8b-ac03-a8351462d71d",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Romance"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "4d32cc48-9f00-4cca-9b5a-a839f0764984",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Comedy"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "51d83883-4103-437c-b4b1-731cb73d786c",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Anthology"
+              },
+              "description": {},
+              "group": "format",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "b1e97889-25b4-4258-b28b-cd7f4d28ea9b",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Philosophical"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "b9af3a63-f058-46de-a9a0-e0c13906197a",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Drama"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "caaa44eb-cd40-4177-b930-79d3ef2afe87",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "School Life"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "e64f6742-c834-471d-8d72-dd51fc02b835",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Aliens"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "eabc5b4c-6aff-42f3-b657-3e90cbd00b75",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Supernatural"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          }
+        ],
+        "state": "published",
+        "chapterNumbersResetOnNewVolume": false,
+        "createdAt": "2022-02-12T10:14:03+00:00",
+        "updatedAt": "2023-06-29T16:36:43+00:00",
+        "version": 15,
+        "availableTranslatedLanguages": [
+          "en",
+          "it",
+          "uk",
+          "fr",
+          "ro",
+          "ru",
+          "zh",
+          "zh-hk",
+          "pt-br",
+          "id",
+          "ar",
+          "es-la",
+          "sr"
+        ],
+        "latestUploadedChapter": "29ee2003-8503-4a1b-aa08-697616407607"
+      },
+      "relationships": [
+        {
+          "id": "f85a5b93-3c87-4c61-9032-07ceacbb9e64",
+          "type": "author"
+        },
+        {
+          "id": "f85a5b93-3c87-4c61-9032-07ceacbb9e64",
+          "type": "artist"
+        },
+        {
+          "id": "64c17e60-2abf-4d08-882a-1274b8216164",
+          "type": "cover_art"
+        },
+        {
+          "id": "62aa2303-0f49-4a49-bcb5-9d3fa7bcbc75",
+          "type": "creator"
+        }
+      ]
+    },
+    {
+      "id": "192b2c21-e762-4927-8261-dc96adf11b0c",
+      "type": "manga",
+      "attributes": {
+        "title": {
+          "en": "Chainsaw Bomb"
+        },
+        "altTitles": [],
+        "description": {},
+        "isLocked": false,
+        "links": {
+          "engtl": " twitter.com/xyanaid/status/1581616105109749760"
+        },
+        "originalLanguage": "en",
+        "lastVolume": "",
+        "lastChapter": "",
+        "publicationDemographic": null,
+        "status": "ongoing",
+        "year": null,
+        "contentRating": "safe",
+        "tags": [
+          {
+            "id": "423e2eae-a7a2-4a8b-ac03-a8351462d71d",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Romance"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "92d6d951-ca5e-429c-ac78-451071cbf064",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Office Workers"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "b13b2a48-c720-44a9-9c77-39c9979373fb",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Doujinshi"
+              },
+              "description": {},
+              "group": "format",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "b9af3a63-f058-46de-a9a0-e0c13906197a",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Drama"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "e197df38-d0e7-43b5-9b09-2842d0c326dd",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Web Comic"
+              },
+              "description": {},
+              "group": "format",
+              "version": 1
+            },
+            "relationships": []
+          }
+        ],
+        "state": "published",
+        "chapterNumbersResetOnNewVolume": false,
+        "createdAt": "2023-04-11T14:12:02+00:00",
+        "updatedAt": "2023-06-30T21:20:02+00:00",
+        "version": 9,
+        "availableTranslatedLanguages": [
+          "pt-br"
+        ],
+        "latestUploadedChapter": "55d7a5b1-43c0-4a2f-ba0f-46e0d0f9e97d"
+      },
+      "relationships": [
+        {
+          "id": "acd072a8-0dfa-41ee-9a54-e7089ec7e469",
+          "type": "author"
+        },
+        {
+          "id": "acd072a8-0dfa-41ee-9a54-e7089ec7e469",
+          "type": "artist"
+        },
+        {
+          "id": "e4575166-d266-4a19-9c73-b8afce42703b",
+          "type": "cover_art"
+        },
+        {
+          "id": "53840f5d-892d-4b0e-972d-1a20aa185a25",
+          "type": "creator"
+        }
+      ]
+    },
+    {
+      "id": "8d5d7c3b-eb95-4e58-838f-4da6c2cbee1f",
+      "type": "manga",
+      "attributes": {
+        "title": {
+          "en": "Chainsaw Man - The Story of Himeno, Aki and Tobacco (Doujinshi)"
+        },
+        "altTitles": [
+          {
+            "en": "The Story of Himeno, Aki and Tobacco"
+          },
+          {
+            "uk": "Історія Хімено, Акі та Тютюну"
+          },
+          {
+            "fr": "L'histoire d'Himeno, Aki et le Tabac"
+          }
+        ],
+        "description": {
+          "en": "A short comic by ebanoniwa detailing the relationship between Himeno and Aki from the series Chainsaw Man",
+          "fr": "Une histoire courte par ebaniniwa détaillant la relation entre Himeno et Aki de Chainsaw Man"
+        },
+        "isLocked": false,
+        "links": {},
+        "originalLanguage": "ja",
+        "lastVolume": "",
+        "lastChapter": "",
+        "publicationDemographic": null,
+        "status": "completed",
+        "year": null,
+        "contentRating": "safe",
+        "tags": [
+          {
+            "id": "0234a31e-a729-4e28-9d6a-3f87c4966b9e",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Oneshot"
+              },
+              "description": {},
+              "group": "format",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "4d32cc48-9f00-4cca-9b5a-a839f0764984",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Comedy"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "b13b2a48-c720-44a9-9c77-39c9979373fb",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Doujinshi"
+              },
+              "description": {},
+              "group": "format",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "b9af3a63-f058-46de-a9a0-e0c13906197a",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Drama"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "dd1f77c5-dea9-4e2b-97ae-224af09caf99",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Monster Girls"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "df33b754-73a3-4c54-80e6-1a74a8058539",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Police"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "eabc5b4c-6aff-42f3-b657-3e90cbd00b75",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Supernatural"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          }
+        ],
+        "state": "published",
+        "chapterNumbersResetOnNewVolume": false,
+        "createdAt": "2020-08-01T20:28:13+00:00",
+        "updatedAt": "2024-03-29T11:02:44+00:00",
+        "version": 4,
+        "availableTranslatedLanguages": [
+          "en",
+          "pt-br",
+          "fr"
+        ],
+        "latestUploadedChapter": "b6bc5ec9-c78d-4f0d-a035-3555bb0283ea"
+      },
+      "relationships": [
+        {
+          "id": "bc4b28b0-c6c8-4f0f-a89b-3883c5989e6e",
+          "type": "author"
+        },
+        {
+          "id": "bc4b28b0-c6c8-4f0f-a89b-3883c5989e6e",
+          "type": "artist"
+        },
+        {
+          "id": "0b739bbc-a1b0-4f8e-baa0-40615c7c2a94",
+          "type": "cover_art"
+        },
+        {
+          "id": "a77742b1-befd-49a4-bff5-1ad4e6b0ef7b",
+          "type": "manga",
+          "related": "based_on"
+        }
+      ]
+    },
+    {
+      "id": "cbc6ca3b-e658-48d0-a19c-4acd28c95a54",
+      "type": "manga",
+      "attributes": {
+        "title": {
+          "en": "Chimamire Sukeban Chainsaw: reflesh"
+        },
+        "altTitles": [
+          {
+            "ja": "血まみれスケバンチェーンソーreflesh"
+          }
+        ],
+        "description": {
+          "en": "The sequel to Chimamire Sukeban Chainsaw."
+        },
+        "isLocked": false,
+        "links": {
+          "al": "111331",
+          "ap": "chimamire-sukeban-chainsaw-reflesh",
+          "bw": "series/191796",
+          "kt": "57294",
+          "mu": "149911",
+          "amz": "https://www.amazon.co.jp/%E8%A1%80%E3%81%BE%E3%81%BF%E3%82%8C%E3%82%B9%E3%82%B1%E3%83%90%E3%83%B3%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%82%BD%E3%83%BCreflesh-1-%E3%83%93%E3%83%BC%E3%83%A0%E3%82%B3%E3%83%9F%E3%83%83%E3%82%AF%E3%82%B9-%E4%B8%89%E5%AE%B6%E6%9C%AC-%E7%A4%BC/dp/4047355305",
+          "mal": "114988"
+        },
+        "originalLanguage": "ja",
+        "lastVolume": "2",
+        "lastChapter": "13",
+        "publicationDemographic": "seinen",
+        "status": "completed",
+        "year": 2018,
+        "contentRating": "suggestive",
+        "tags": [
+          {
+            "id": "391b0423-d847-456f-aff0-8b0cfc03066b",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Action"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "4d32cc48-9f00-4cca-9b5a-a839f0764984",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Comedy"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "b9af3a63-f058-46de-a9a0-e0c13906197a",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Drama"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "caaa44eb-cd40-4177-b930-79d3ef2afe87",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "School Life"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "cdad7e68-1419-41dd-bdce-27753074a640",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Horror"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "eabc5b4c-6aff-42f3-b657-3e90cbd00b75",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Supernatural"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          }
+        ],
+        "state": "published",
+        "chapterNumbersResetOnNewVolume": false,
+        "createdAt": "2019-07-18T22:38:18+00:00",
+        "updatedAt": "2023-07-01T16:08:22+00:00",
+        "version": 4,
+        "availableTranslatedLanguages": [
+          "es",
+          "en"
+        ],
+        "latestUploadedChapter": "0dc9c5d7-5e82-422c-aa26-430b29f1b749"
+      },
+      "relationships": [
+        {
+          "id": "75771336-6930-4099-89fb-2bd828352be5",
+          "type": "author"
+        },
+        {
+          "id": "75771336-6930-4099-89fb-2bd828352be5",
+          "type": "artist"
+        },
+        {
+          "id": "213fd677-25c9-4f37-9f14-e909adeac17e",
+          "type": "cover_art"
+        },
+        {
+          "id": "a617aa30-0977-4b3f-8234-72dea955e326",
+          "type": "manga",
+          "related": "prequel"
+        }
+      ]
+    },
+    {
+      "id": "a617aa30-0977-4b3f-8234-72dea955e326",
+      "type": "manga",
+      "attributes": {
+        "title": {
+          "en": "Chimamire Sukeban Chainsaw"
+        },
+        "altTitles": [
+          {
+            "en": "Bloody Delinquent Chainsaw"
+          },
+          {
+            "en": "Bloody Delinquent Girl Chainsaw"
+          },
+          {
+            "en": "The Bloody Sukeban Chainsaw"
+          },
+          {
+            "ja": "血まみれスケバンチェーンソー"
+          }
+        ],
+        "description": {
+          "en": "Geeko's weird, creepy, friendless classmate Nero has destroyed all of their mutual classmates, perverting them into her grotesque, monstrous minions. Now she's sending them after Geeko, the only survivor. However, Geeko is setting out, dressed in her skimpy school uniform and armed with a big chainsaw, to end Nero's mad science, no matter how many undead former friends she has to saw down on the way.  \n  \nInspired two live action films."
+        },
+        "isLocked": false,
+        "links": {
+          "al": "87407",
+          "ap": "chimamire-sukeban-chainsaw",
+          "bw": "series/17288",
+          "kt": "37754",
+          "mu": "48700",
+          "amz": "https://www.amazon.co.jp/dp/B00KYFFD3A/",
+          "cdj": "http://www.cdjapan.co.jp/product/NEOBK-718398",
+          "ebj": "https://ebookjapan.yahoo.co.jp/books/247629/A000279191/",
+          "mal": "92933"
+        },
+        "originalLanguage": "ja",
+        "lastVolume": "13",
+        "lastChapter": "89",
+        "publicationDemographic": "seinen",
+        "status": "completed",
+        "year": 2009,
+        "contentRating": "suggestive",
+        "tags": [
+          {
+            "id": "391b0423-d847-456f-aff0-8b0cfc03066b",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Action"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "4d32cc48-9f00-4cca-9b5a-a839f0764984",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Comedy"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "631ef465-9aba-4afb-b0fc-ea10efe274a8",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Zombies"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "b9af3a63-f058-46de-a9a0-e0c13906197a",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Drama"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "caaa44eb-cd40-4177-b930-79d3ef2afe87",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "School Life"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "cdad7e68-1419-41dd-bdce-27753074a640",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Horror"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "eabc5b4c-6aff-42f3-b657-3e90cbd00b75",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Supernatural"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          }
+        ],
+        "state": "published",
+        "chapterNumbersResetOnNewVolume": false,
+        "createdAt": "2018-11-29T12:46:35+00:00",
+        "updatedAt": "2023-07-01T16:11:18+00:00",
+        "version": 4,
+        "availableTranslatedLanguages": [
+          "en",
+          "es"
+        ],
+        "latestUploadedChapter": "272748a2-c542-4cb4-ba2a-39d1a685934a"
+      },
+      "relationships": [
+        {
+          "id": "75771336-6930-4099-89fb-2bd828352be5",
+          "type": "author"
+        },
+        {
+          "id": "75771336-6930-4099-89fb-2bd828352be5",
+          "type": "artist"
+        },
+        {
+          "id": "1a9436a0-1944-4f46-bf72-57da24b92bd1",
+          "type": "cover_art"
+        },
+        {
+          "id": "cbc6ca3b-e658-48d0-a19c-4acd28c95a54",
+          "type": "manga",
+          "related": "sequel"
+        }
+      ]
+    },
+    {
+      "id": "c46455c3-86ec-420d-90f6-4c60a3c6cc93",
+      "type": "manga",
+      "attributes": {
+        "title": {
+          "en": "Saitama Chainsaw Girl"
+        },
+        "altTitles": [
+          {
+            "ja-ro": "Saitama Chainsaw Shoujo"
+          },
+          {
+            "ja": "さいたまチェーンソー少女"
+          },
+          {
+            "en": "Saitama Chainsaw Massacre"
+          },
+          {
+            "uk": "Дівчинка з бензопилою Сайтама"
+          }
+        ],
+        "description": {
+          "en": "Kirisaki Fumio's just a highschool girl in love... but then she finds out that the guy she's fallen for happens to love someone else. So she decides to go out and get a chainsaw. And take it to school. And then many things happen."
+        },
+        "isLocked": false,
+        "links": {
+          "al": "42672",
+          "ap": "saitama-chainsaw-shoujo",
+          "bw": "series/2703",
+          "kt": "23078",
+          "mu": "31393",
+          "amz": "https://www.amazon.co.jp/dp/B071JXTJQ9",
+          "ebj": "https://ebookjapan.yahoo.co.jp/books/210027/A000218403/",
+          "mal": "12672"
+        },
+        "originalLanguage": "ja",
+        "lastVolume": "1",
+        "lastChapter": "6",
+        "publicationDemographic": "shounen",
+        "status": "completed",
+        "year": 2008,
+        "contentRating": "safe",
+        "tags": [
+          {
+            "id": "391b0423-d847-456f-aff0-8b0cfc03066b",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Action"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "3b60b75c-a2d7-4860-ab56-05f391bb889c",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Psychological"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "4d32cc48-9f00-4cca-9b5a-a839f0764984",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Comedy"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "b9af3a63-f058-46de-a9a0-e0c13906197a",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Drama"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "caaa44eb-cd40-4177-b930-79d3ef2afe87",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "School Life"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "e64f6742-c834-471d-8d72-dd51fc02b835",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Aliens"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          }
+        ],
+        "state": "published",
+        "chapterNumbersResetOnNewVolume": false,
+        "createdAt": "2018-01-29T00:53:48+00:00",
+        "updatedAt": "2022-08-12T11:34:01+00:00",
+        "version": 5,
+        "availableTranslatedLanguages": [
+          "pt-br",
+          "en",
+          "pl"
+        ],
+        "latestUploadedChapter": "b7127cbd-4356-4d5b-9c4d-2b009a53f2cd"
+      },
+      "relationships": [
+        {
+          "id": "45b03d27-379e-4867-bfbc-e6dfa21ae25d",
+          "type": "author"
+        },
+        {
+          "id": "83debbf9-1d08-449c-9fb3-d952fdb280cf",
+          "type": "artist"
+        },
+        {
+          "id": "dfcb2a59-6ef9-4fe5-96f6-a595ca26fbea",
+          "type": "cover_art"
+        }
+      ]
+    },
+    {
+      "id": "e14995ea-47c5-4a0c-8438-4ce184d3353c",
+      "type": "manga",
+      "attributes": {
+        "title": {
+          "en": "Lollipop Chainsaw"
+        },
+        "altTitles": [
+          {
+            "ja": "ロリポップチェーンソー"
+          }
+        ],
+        "description": {},
+        "isLocked": false,
+        "links": {
+          "mu": "81054",
+          "amz": "https://www.amazon.co.jp/dp/4047287172",
+          "cdj": "https://www.cdjapan.co.jp/product/NEOBK-1409355",
+          "raw": "https://www.kadokawa.co.jp/product/201212000044/"
+        },
+        "originalLanguage": "ja",
+        "lastVolume": "",
+        "lastChapter": "",
+        "publicationDemographic": "shounen",
+        "status": "completed",
+        "year": 2013,
+        "contentRating": "suggestive",
+        "tags": [
+          {
+            "id": "391b0423-d847-456f-aff0-8b0cfc03066b",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Action"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "cdad7e68-1419-41dd-bdce-27753074a640",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Horror"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          }
+        ],
+        "state": "published",
+        "chapterNumbersResetOnNewVolume": false,
+        "createdAt": "2018-09-08T22:32:44+00:00",
+        "updatedAt": "2023-09-20T02:40:33+00:00",
+        "version": 6,
+        "availableTranslatedLanguages": [],
+        "latestUploadedChapter": null
+      },
+      "relationships": [
+        {
+          "id": "20cd56ee-a717-4ff2-a345-d079fe1fb456",
+          "type": "author"
+        },
+        {
+          "id": "79d4c1a3-77eb-4537-8b97-11790308db33",
+          "type": "author"
+        },
+        {
+          "id": "d849f1cb-b8b4-4a21-8dcd-5dad343b627e",
+          "type": "author"
+        },
+        {
+          "id": "c8e7743d-522e-476e-842d-2c5e90d5d702",
+          "type": "artist"
+        },
+        {
+          "id": "5d6acf2e-d446-4c9e-b438-32323c274783",
+          "type": "cover_art"
+        }
+      ]
+    }
+  ],
+  "limit": 100,
+  "offset": 0,
+  "total": 14
+}

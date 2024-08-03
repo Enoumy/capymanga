@@ -10,7 +10,8 @@ let%expect_test "parsing a big search collection" =
       (Yojson.Safe.from_string Embedded_files.big_response_dot_json)
   in
   print_s [%sexp (collection : Manga.t Collection.t)];
-  [%expect {|
+  [%expect
+    {|
     ((data
       (((id b1629d65-f177-418a-a04f-ae4ee6929f90)
         (attributes
@@ -142,7 +143,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2024-03-16T20:51:42+00:00)
           (updated_at 2024-07-14T21:00:56+00:00) (version 7)
           (available_translated_languages (pt-br es-la en))
-          (latest_uploaded_chapter b19cd6d7-f153-4990-b885-9ca2dfac721f)))
+          (latest_uploaded_chapter (b19cd6d7-f153-4990-b885-9ca2dfac721f))))
         (relationships
          (((id f7787b05-5835-45c7-a16d-eb1db4fcddd1) (type_ author))
           ((id c930dee5-a26d-41b2-91f7-26fbc33b3f18) (type_ artist))
@@ -218,7 +219,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2023-10-31T17:36:49+00:00)
           (updated_at 2024-07-13T09:31:28+00:00) (version 21)
           (available_translated_languages (ru en))
-          (latest_uploaded_chapter a8ec13b5-91ad-471a-a2f0-4a15e6cea5d5)))
+          (latest_uploaded_chapter (a8ec13b5-91ad-471a-a2f0-4a15e6cea5d5))))
         (relationships
          (((id 47ee56af-df3d-4062-8a05-3cfff2d428b6) (type_ author))
           ((id a8e8702f-0123-4dc7-8a1c-34097a4f649a) (type_ artist))
@@ -277,7 +278,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2024-07-31T09:51:20+00:00)
           (updated_at 2024-08-01T21:02:44+00:00) (version 7)
           (available_translated_languages (en))
-          (latest_uploaded_chapter f3f851a0-b923-4ee2-b6ee-024f61e2cd39)))
+          (latest_uploaded_chapter (f3f851a0-b923-4ee2-b6ee-024f61e2cd39))))
         (relationships
          (((id b9dc6b55-5ced-4631-969d-5956c9e3411a) (type_ author))
           ((id b9dc6b55-5ced-4631-969d-5956c9e3411a) (type_ artist))
@@ -398,7 +399,7 @@ let%expect_test "parsing a big search collection" =
           (updated_at 2024-06-27T05:07:49+00:00) (version 31)
           (available_translated_languages
            (es id tr ru en de zh-hk es-la pt-br pl fr hi))
-          (latest_uploaded_chapter 1e82307d-7295-4c3c-9e76-440f6baeca5c)))
+          (latest_uploaded_chapter (1e82307d-7295-4c3c-9e76-440f6baeca5c))))
         (relationships
          (((id 4eb91858-2c93-41b3-953c-5bd59ea369f7) (type_ author))
           ((id 4eb91858-2c93-41b3-953c-5bd59ea369f7) (type_ artist))
@@ -707,7 +708,7 @@ let%expect_test "parsing a big search collection" =
           (updated_at 2024-05-26T17:15:28+00:00) (version 132)
           (available_translated_languages
            (pt-br ru hu es-la en pl es uk ar zh-hk kk it tr id fr))
-          (latest_uploaded_chapter eef732ff-c85a-4537-91cf-946ab67a3c2e)))
+          (latest_uploaded_chapter (eef732ff-c85a-4537-91cf-946ab67a3c2e))))
         (relationships
          (((id 31e059c9-6040-4765-b7bd-40a16d657a94) (type_ author))
           ((id 31e059c9-6040-4765-b7bd-40a16d657a94) (type_ artist))
@@ -862,7 +863,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2024-05-29T16:52:21+00:00)
           (updated_at 2024-06-19T15:12:31+00:00) (version 5)
           (available_translated_languages (en))
-          (latest_uploaded_chapter 52caba64-1537-41c6-9172-4bdce4166b01)))
+          (latest_uploaded_chapter (52caba64-1537-41c6-9172-4bdce4166b01))))
         (relationships
          (((id 5a37f84f-9cb9-46bc-bd16-eddb4bec5264) (type_ author))
           ((id c2aaa0d6-cc6a-4b82-88cf-2eb87e1bfc05) (type_ artist))
@@ -937,7 +938,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2023-09-14T10:45:56+00:00)
           (updated_at 2024-07-17T05:59:21+00:00) (version 21)
           (available_translated_languages (pt-br fr en it))
-          (latest_uploaded_chapter 751582b6-10df-4ada-bbde-831372947082)))
+          (latest_uploaded_chapter (751582b6-10df-4ada-bbde-831372947082))))
         (relationships
          (((id 16f7720b-72ff-447f-9d1e-a47dfcd691bd) (type_ author))
           ((id 173eca5d-f302-425e-8e3b-2b156cb3fc31) (type_ author))
@@ -1000,7 +1001,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2023-08-08T01:49:05+00:00)
           (updated_at 2024-06-19T22:59:35+00:00) (version 7)
           (available_translated_languages (en))
-          (latest_uploaded_chapter 015c0542-2b33-4b36-ab58-bea450c684a7)))
+          (latest_uploaded_chapter (015c0542-2b33-4b36-ab58-bea450c684a7))))
         (relationships
          (((id 8779c21e-df67-4c30-b495-cd36441d3695) (type_ author))
           ((id 8566319d-b856-4774-8d26-c53a7a49cab6) (type_ artist))
@@ -1071,7 +1072,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2019-03-12T10:51:36+00:00)
           (updated_at 2024-07-25T00:22:36+00:00) (version 30)
           (available_translated_languages (ru en pt-br es-la))
-          (latest_uploaded_chapter 5f513a54-46af-4017-aac1-1a777b0bb1da)))
+          (latest_uploaded_chapter (5f513a54-46af-4017-aac1-1a777b0bb1da))))
         (relationships
          (((id a65240dd-d451-4e2f-94c5-0eb10fe34cb7) (type_ author))
           ((id a65240dd-d451-4e2f-94c5-0eb10fe34cb7) (type_ artist))
@@ -1201,7 +1202,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2018-03-26T08:49:13+00:00)
           (updated_at 2023-02-13T02:15:29+00:00) (version 10)
           (available_translated_languages (en pt-br))
-          (latest_uploaded_chapter c73ea51b-3d18-42d7-8a56-686f41bd6c99)))
+          (latest_uploaded_chapter (c73ea51b-3d18-42d7-8a56-686f41bd6c99))))
         (relationships
          (((id 36f5f595-0196-4d0a-aae1-0f730679d10a) (type_ author))
           ((id 36f5f595-0196-4d0a-aae1-0f730679d10a) (type_ artist))
@@ -1281,7 +1282,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2023-02-25T05:03:17+00:00)
           (updated_at 2024-07-28T21:37:51+00:00) (version 19)
           (available_translated_languages (en))
-          (latest_uploaded_chapter 27095c4e-f2c4-49c8-bbd4-1c83b4c706ea)))
+          (latest_uploaded_chapter (27095c4e-f2c4-49c8-bbd4-1c83b4c706ea))))
         (relationships
          (((id ac65c24e-3ec1-412f-9d43-0266e7e8f29b) (type_ author))
           ((id ac65c24e-3ec1-412f-9d43-0266e7e8f29b) (type_ artist))
@@ -1347,7 +1348,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2024-06-30T06:44:43+00:00)
           (updated_at 2024-07-27T20:21:02+00:00) (version 10)
           (available_translated_languages (vi en pt-br pl tr))
-          (latest_uploaded_chapter ea77063b-4c99-4300-a11f-b5cd93e19688)))
+          (latest_uploaded_chapter (ea77063b-4c99-4300-a11f-b5cd93e19688))))
         (relationships
          (((id f8914b4d-2da3-415c-8caa-5a3c3ab8571e) (type_ author))
           ((id f8914b4d-2da3-415c-8caa-5a3c3ab8571e) (type_ artist))
@@ -1413,7 +1414,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2024-07-27T12:05:32+00:00)
           (updated_at 2024-08-02T15:53:51+00:00) (version 10)
           (available_translated_languages (en))
-          (latest_uploaded_chapter 6ea48035-39ba-481e-8496-14520cefdeea)))
+          (latest_uploaded_chapter (6ea48035-39ba-481e-8496-14520cefdeea))))
         (relationships
          (((id 7476bd93-03ac-4629-aca8-c3cc55053189) (type_ author))
           ((id 7476bd93-03ac-4629-aca8-c3cc55053189) (type_ artist))
@@ -1474,7 +1475,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2021-03-14T20:14:56+00:00)
           (updated_at 2024-05-02T22:10:06+00:00) (version 26)
           (available_translated_languages (pt-br ru en ko))
-          (latest_uploaded_chapter 3e52c4a4-cb98-4ae1-92db-a0c3547bbc10)))
+          (latest_uploaded_chapter (3e52c4a4-cb98-4ae1-92db-a0c3547bbc10))))
         (relationships
          (((id c2ca88ef-48b9-4550-b491-7cad348e690f) (type_ author))
           ((id c2ca88ef-48b9-4550-b491-7cad348e690f) (type_ artist))
@@ -1542,7 +1543,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2022-11-22T01:55:04+00:00)
           (updated_at 2024-07-30T21:09:21+00:00) (version 24)
           (available_translated_languages (vi en mn pt-br he))
-          (latest_uploaded_chapter 466621a3-c888-400e-b5fc-7503e50cd436)))
+          (latest_uploaded_chapter (466621a3-c888-400e-b5fc-7503e50cd436))))
         (relationships
          (((id 0e9b0c2e-07c0-4e54-8b80-099c616afb22) (type_ author))
           ((id 0e9b0c2e-07c0-4e54-8b80-099c616afb22) (type_ artist))
@@ -1608,7 +1609,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2022-09-07T10:54:40+00:00)
           (updated_at 2024-07-18T03:31:11+00:00) (version 8)
           (available_translated_languages (en))
-          (latest_uploaded_chapter 3f34268f-8806-44a6-854c-98e1fc4efcb1)))
+          (latest_uploaded_chapter (3f34268f-8806-44a6-854c-98e1fc4efcb1))))
         (relationships
          (((id 77250122-e63b-4de5-b85e-009a48fed98e) (type_ author))
           ((id 77250122-e63b-4de5-b85e-009a48fed98e) (type_ artist))
@@ -1706,7 +1707,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2024-01-05T19:34:47+00:00)
           (updated_at 2024-05-11T11:58:33+00:00) (version 15)
           (available_translated_languages (fr es-la en pt-br))
-          (latest_uploaded_chapter cbd69660-eb72-40a2-90e3-6d23cdf343f8)))
+          (latest_uploaded_chapter (cbd69660-eb72-40a2-90e3-6d23cdf343f8))))
         (relationships
          (((id ff392266-c7e9-42f0-b316-9c295ebe6c90) (type_ author))
           ((id 7b0e219f-b42e-4ff0-9cea-03be18a5de77) (type_ artist))
@@ -1869,7 +1870,7 @@ let%expect_test "parsing a big search collection" =
           (updated_at 2024-03-22T02:45:11+00:00) (version 65)
           (available_translated_languages
            (es-la ru pt-br zh it de en fa fr tr pl ar))
-          (latest_uploaded_chapter 0bc65ad0-48e4-40cb-becf-54b58f341789)))
+          (latest_uploaded_chapter (0bc65ad0-48e4-40cb-becf-54b58f341789))))
         (relationships
          (((id 36f68557-b7f0-44f9-8bda-2596552b372a) (type_ author))
           ((id 4237fb2e-44ee-45df-8da6-7a9ec47e6766) (type_ artist))
@@ -1967,7 +1968,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2019-06-25T14:14:21+00:00)
           (updated_at 2024-07-16T07:22:50+00:00) (version 13)
           (available_translated_languages (en es-la ru))
-          (latest_uploaded_chapter e2253595-9cc1-4355-9a24-d7b4619c4d7c)))
+          (latest_uploaded_chapter (e2253595-9cc1-4355-9a24-d7b4619c4d7c))))
         (relationships
          (((id 258c21b7-cc91-4e2c-a4b0-f4c6a1e6e0ea) (type_ author))
           ((id 258c21b7-cc91-4e2c-a4b0-f4c6a1e6e0ea) (type_ artist))
@@ -2129,7 +2130,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2024-02-06T17:22:01+00:00)
           (updated_at 2024-07-28T07:45:56+00:00) (version 16)
           (available_translated_languages (es-la en pl pt-br))
-          (latest_uploaded_chapter 2e4beb61-b7aa-4eb1-8967-a87819a269a5)))
+          (latest_uploaded_chapter (2e4beb61-b7aa-4eb1-8967-a87819a269a5))))
         (relationships
          (((id 370581cf-18bd-4666-bd47-55ebfa124753) (type_ author))
           ((id a2515197-d763-4710-bb21-6ebb3ab7a449) (type_ author))
@@ -2177,7 +2178,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2024-07-20T11:54:58+00:00)
           (updated_at 2024-07-31T22:53:42+00:00) (version 3)
           (available_translated_languages (en))
-          (latest_uploaded_chapter 6edf2cf9-c79f-4815-9240-9ffe0c7246c6)))
+          (latest_uploaded_chapter (6edf2cf9-c79f-4815-9240-9ffe0c7246c6))))
         (relationships
          (((id 508249f6-f257-44ed-b9ee-9742b8d0041c) (type_ author))
           ((id eeee8ce2-5cf2-4dd1-93ab-431074454e6b) (type_ author))
@@ -2246,7 +2247,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2023-04-30T16:43:19+00:00)
           (updated_at 2024-04-11T23:55:17+00:00) (version 12)
           (available_translated_languages (pt-br ru fr en))
-          (latest_uploaded_chapter 2c1a17fb-a32d-4112-950b-d5c82ffe7892)))
+          (latest_uploaded_chapter (2c1a17fb-a32d-4112-950b-d5c82ffe7892))))
         (relationships
          (((id 8ea90421-0c39-4bcc-b09f-4a0f927f61df) (type_ author))
           ((id a7ebbfc0-d870-4f01-bb6a-3c346d7e4487) (type_ artist))
@@ -2333,7 +2334,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2019-08-20T23:13:05+00:00)
           (updated_at 2024-05-04T01:28:11+00:00) (version 39)
           (available_translated_languages (es-la vi fr pt-br en ru ar))
-          (latest_uploaded_chapter 843a5511-2452-4220-aa75-d5663b4c24fd)))
+          (latest_uploaded_chapter (843a5511-2452-4220-aa75-d5663b4c24fd))))
         (relationships
          (((id 8dc6fd08-d237-47ac-babf-aba740aacbf0) (type_ author))
           ((id 8dc6fd08-d237-47ac-babf-aba740aacbf0) (type_ artist))
@@ -2396,7 +2397,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2024-07-27T12:23:57+00:00)
           (updated_at 2024-07-28T11:58:54+00:00) (version 6)
           (available_translated_languages (id en pt-br))
-          (latest_uploaded_chapter 53afd9dc-2f01-4943-a8bf-04c964c29017)))
+          (latest_uploaded_chapter (53afd9dc-2f01-4943-a8bf-04c964c29017))))
         (relationships
          (((id af6e66cd-296e-4e3a-9d50-331d2cb9b186) (type_ author))
           ((id f58432c8-f8f2-4914-a108-18373611342c) (type_ artist))
@@ -2449,7 +2450,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2024-07-14T19:36:51+00:00)
           (updated_at 2024-07-28T16:29:49+00:00) (version 5)
           (available_translated_languages (pl))
-          (latest_uploaded_chapter 77356dd8-9a50-41ea-a6c8-253a2569946e)))
+          (latest_uploaded_chapter (77356dd8-9a50-41ea-a6c8-253a2569946e))))
         (relationships
          (((id 3e4e312a-e8eb-422e-bd4e-93fa1864fbd9) (type_ author))
           ((id d5b9bb37-1c4b-41bd-82b0-d07fd3e6250e) (type_ author))
@@ -2518,7 +2519,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2023-12-01T11:15:27+00:00)
           (updated_at 2024-06-06T14:31:25+00:00) (version 12)
           (available_translated_languages (en pt-br vi ru es-la id))
-          (latest_uploaded_chapter ccc7ed16-6389-4bc9-bd90-4f5976658673)))
+          (latest_uploaded_chapter (ccc7ed16-6389-4bc9-bd90-4f5976658673))))
         (relationships
          (((id 0edd2663-49bc-48d6-a05c-c92a655b9c13) (type_ author))
           ((id c3748421-5c52-4dfe-87a1-0d2f82a8c90b) (type_ artist))
@@ -2590,7 +2591,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2018-04-04T10:13:32+00:00)
           (updated_at 2023-08-06T10:18:06+00:00) (version 6)
           (available_translated_languages (en pl pt-br))
-          (latest_uploaded_chapter ce70bf0c-e00b-4428-b46f-8c6c832e2fd2)))
+          (latest_uploaded_chapter (ce70bf0c-e00b-4428-b46f-8c6c832e2fd2))))
         (relationships
          (((id 048c3679-7fd9-4cfa-ac0a-a5f21f84bd55) (type_ author))
           ((id 048c3679-7fd9-4cfa-ac0a-a5f21f84bd55) (type_ artist))
@@ -2862,7 +2863,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2020-12-08T05:36:37+00:00)
           (updated_at 2024-01-30T23:47:15+00:00) (version 35)
           (available_translated_languages (en es-la pl it pt-br fr id hu ar))
-          (latest_uploaded_chapter 92388ba8-6082-4bdc-87df-d1972808c2ba)))
+          (latest_uploaded_chapter (92388ba8-6082-4bdc-87df-d1972808c2ba))))
         (relationships
          (((id d09ea72d-1230-41b5-bc84-0160b330ee40) (type_ author))
           ((id fc488488-ceb0-4d36-addd-29b482e043b2) (type_ artist))
@@ -2962,7 +2963,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2024-02-07T14:11:55+00:00)
           (updated_at 2024-06-29T00:59:16+00:00) (version 6)
           (available_translated_languages (en es-la))
-          (latest_uploaded_chapter 8df14c21-3155-4ffa-89d0-faf372b7b744)))
+          (latest_uploaded_chapter (8df14c21-3155-4ffa-89d0-faf372b7b744))))
         (relationships
          (((id 6a88e9e6-cccb-4567-9e4b-1c251d0636b6) (type_ author))
           ((id e02ad90a-d357-46a0-8121-b0d2bd61411f) (type_ author))
@@ -3100,7 +3101,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2019-11-26T03:02:55+00:00)
           (updated_at 2024-06-01T21:43:44+00:00) (version 104)
           (available_translated_languages (es-la en ar pt-br uk fr id tr ru hu))
-          (latest_uploaded_chapter dd7d5c17-5e1f-4a44-8c92-303e2049f0d0)))
+          (latest_uploaded_chapter (dd7d5c17-5e1f-4a44-8c92-303e2049f0d0))))
         (relationships
          (((id 576570d9-01cc-4a29-a6e1-d9f0c0c5b647) (type_ author))
           ((id 576570d9-01cc-4a29-a6e1-d9f0c0c5b647) (type_ artist))
@@ -3211,7 +3212,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2019-10-12T20:49:23+00:00)
           (updated_at 2024-05-01T19:47:22+00:00) (version 41)
           (available_translated_languages (it en fr pt-br es ru id tr))
-          (latest_uploaded_chapter 27277102-deb6-46f9-adc7-9d638016d7fe)))
+          (latest_uploaded_chapter (27277102-deb6-46f9-adc7-9d638016d7fe))))
         (relationships
          (((id b77fe548-6f64-4380-8cca-faee8891a7d3) (type_ author))
           ((id b77fe548-6f64-4380-8cca-faee8891a7d3) (type_ artist))
@@ -3275,7 +3276,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2023-07-03T20:23:35+00:00)
           (updated_at 2024-07-25T18:11:39+00:00) (version 14)
           (available_translated_languages (en zh-hk es))
-          (latest_uploaded_chapter 2da228d9-7bfa-44fb-9c76-1e1af0e9790a)))
+          (latest_uploaded_chapter (2da228d9-7bfa-44fb-9c76-1e1af0e9790a))))
         (relationships
          (((id 57626153-e846-4e6a-b27e-97208a050e8d) (type_ author))
           ((id 57626153-e846-4e6a-b27e-97208a050e8d) (type_ artist))
@@ -3368,7 +3369,7 @@ let%expect_test "parsing a big search collection" =
           (updated_at 2024-07-21T07:26:52+00:00) (version 38)
           (available_translated_languages
            (pt-br it ru en tr ar es-la sr th fr id pl es bn fa))
-          (latest_uploaded_chapter 01b50b5c-0fa9-438b-88af-69289f7ec686)))
+          (latest_uploaded_chapter (01b50b5c-0fa9-438b-88af-69289f7ec686))))
         (relationships
          (((id 1db239cc-9392-43f7-9806-f6fcb9ca4e9d) (type_ author))
           ((id 1db239cc-9392-43f7-9806-f6fcb9ca4e9d) (type_ artist))
@@ -3434,7 +3435,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2024-03-13T09:01:41+00:00)
           (updated_at 2024-06-27T14:47:24+00:00) (version 18)
           (available_translated_languages (pt-br ru id es-la en pl ro tr vi))
-          (latest_uploaded_chapter 304c7887-f012-4d7b-a90c-bdb2099af8c5)))
+          (latest_uploaded_chapter (304c7887-f012-4d7b-a90c-bdb2099af8c5))))
         (relationships
          (((id 8b910458-1344-4b6a-ae5c-935240cd3027) (type_ author))
           ((id 8b910458-1344-4b6a-ae5c-935240cd3027) (type_ artist))
@@ -3489,7 +3490,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2023-06-20T15:22:35+00:00)
           (updated_at 2024-04-30T00:09:16+00:00) (version 9)
           (available_translated_languages (en))
-          (latest_uploaded_chapter 8b582556-d615-4084-93e0-b43ae03382d5)))
+          (latest_uploaded_chapter (8b582556-d615-4084-93e0-b43ae03382d5))))
         (relationships
          (((id 145a4f10-ffe8-4e2e-a564-fd30305b186e) (type_ author))
           ((id 145a4f10-ffe8-4e2e-a564-fd30305b186e) (type_ artist))
@@ -3587,7 +3588,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2020-04-25T21:38:36+00:00)
           (updated_at 2024-06-18T16:50:39+00:00) (version 68)
           (available_translated_languages (pt-br tr ru en es-la id fr))
-          (latest_uploaded_chapter c9ef6065-7f6d-40a3-b5bf-61a1343c0660)))
+          (latest_uploaded_chapter (c9ef6065-7f6d-40a3-b5bf-61a1343c0660))))
         (relationships
          (((id 60d04d03-fc3e-4f14-8c32-588a88be48a3) (type_ author))
           ((id c7e718cf-feaf-406c-85af-a369199b7f2e) (type_ artist))
@@ -3690,7 +3691,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2019-02-16T08:31:10+00:00)
           (updated_at 2024-06-12T16:53:50+00:00) (version 16)
           (available_translated_languages (en tr es-la ru pt-br fr))
-          (latest_uploaded_chapter 9c34c6ee-9fa6-4329-b213-2f807549a9de)))
+          (latest_uploaded_chapter (9c34c6ee-9fa6-4329-b213-2f807549a9de))))
         (relationships
          (((id 37f6d7e4-a13c-4769-9927-408ef544f53b) (type_ author))
           ((id 37f6d7e4-a13c-4769-9927-408ef544f53b) (type_ artist))
@@ -3839,7 +3840,7 @@ let%expect_test "parsing a big search collection" =
           (updated_at 2024-07-18T06:11:09+00:00) (version 61)
           (available_translated_languages
            (it mn vi ru fr en id es-la tr pt-br pl de my))
-          (latest_uploaded_chapter a25900f8-46a3-49d9-9969-7d26be8a9b33)))
+          (latest_uploaded_chapter (a25900f8-46a3-49d9-9969-7d26be8a9b33))))
         (relationships
          (((id f880ad14-e3e2-4006-b247-cbff8d8b33b2) (type_ author))
           ((id 82bfa7dc-5521-4458-8b7f-3ac08c650db0) (type_ artist))
@@ -3930,7 +3931,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2020-04-18T18:40:26+00:00)
           (updated_at 2023-05-16T03:42:17+00:00) (version 14)
           (available_translated_languages (en pt-br))
-          (latest_uploaded_chapter 9f09f0c5-b052-4f67-bd68-fabe69dc6c95)))
+          (latest_uploaded_chapter (9f09f0c5-b052-4f67-bd68-fabe69dc6c95))))
         (relationships
          (((id 61f2a43e-81ed-478e-8070-d035e8950fbc) (type_ author))
           ((id 61f2a43e-81ed-478e-8070-d035e8950fbc) (type_ artist))
@@ -3994,7 +3995,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2020-11-06T19:33:06+00:00)
           (updated_at 2024-07-25T09:08:05+00:00) (version 8)
           (available_translated_languages (en pl es-la))
-          (latest_uploaded_chapter 7caf3f2e-4527-41cf-b7b8-e52bfb02eecf)))
+          (latest_uploaded_chapter (7caf3f2e-4527-41cf-b7b8-e52bfb02eecf))))
         (relationships
          (((id 43bb8e22-7e23-4805-a47e-e66fdab05eff) (type_ author))
           ((id a7e43f35-57b6-46a3-8bc4-5706be97455e) (type_ author))
@@ -4087,7 +4088,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2023-04-15T02:27:43+00:00)
           (updated_at 2024-04-01T02:02:41+00:00) (version 8)
           (available_translated_languages (vi en fr))
-          (latest_uploaded_chapter d5c25caa-d735-43e1-9930-7d26dbb8700b)))
+          (latest_uploaded_chapter (d5c25caa-d735-43e1-9930-7d26dbb8700b))))
         (relationships
          (((id 35e84afb-7db2-4633-a1c3-db5e9bae4795) (type_ author))
           ((id fc2bcc6e-487a-4686-8e68-39b65b126b2c) (type_ artist))
@@ -4160,7 +4161,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2023-05-05T16:50:43+00:00)
           (updated_at 2023-09-25T06:54:46+00:00) (version 14)
           (available_translated_languages (pl en id ko))
-          (latest_uploaded_chapter 26c95f59-2838-43e6-a9de-7724cb1fa30b)))
+          (latest_uploaded_chapter (26c95f59-2838-43e6-a9de-7724cb1fa30b))))
         (relationships
          (((id b2afa258-bb77-49ae-8299-2b700af15bb1) (type_ author))
           ((id b2afa258-bb77-49ae-8299-2b700af15bb1) (type_ artist))
@@ -4239,7 +4240,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2024-06-30T18:27:34+00:00)
           (updated_at 2024-07-19T19:18:43+00:00) (version 12)
           (available_translated_languages (en es-la pt-br))
-          (latest_uploaded_chapter b1e873b5-bdb3-433f-b5a1-730018e34508)))
+          (latest_uploaded_chapter (b1e873b5-bdb3-433f-b5a1-730018e34508))))
         (relationships
          (((id 714cd71e-85ad-497b-94f9-3c5c375f2bd4) (type_ author))
           ((id 78c2be12-4045-4be4-a715-ee6122dcd638) (type_ author))
@@ -4691,7 +4692,7 @@ let%expect_test "parsing a big search collection" =
           (updated_at 2023-07-15T15:10:35+00:00) (version 34)
           (available_translated_languages
            (es-la it pt-br en id pl th tr de ru vi uk hu bg fr es ar he))
-          (latest_uploaded_chapter 4b5910bc-7337-4510-99e2-4c54da40f273)))
+          (latest_uploaded_chapter (4b5910bc-7337-4510-99e2-4c54da40f273))))
         (relationships
          (((id 385c7225-4a07-4f78-bb5e-8f79fb802bbd) (type_ author))
           ((id b117b481-a835-4a00-80e4-865d1b21717c) (type_ author))
@@ -4812,7 +4813,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2018-09-13T00:41:40+00:00)
           (updated_at 2024-07-19T16:04:16+00:00) (version 42)
           (available_translated_languages (id es pl pt-br ru de en fr uk it))
-          (latest_uploaded_chapter ff39a915-5518-4849-b140-f97f68df327d)))
+          (latest_uploaded_chapter (ff39a915-5518-4849-b140-f97f68df327d))))
         (relationships
          (((id f7480af7-0db7-4ed6-a168-c7fa41cd7dc3) (type_ author))
           ((id 53f12797-f9d3-45e4-a7fa-6a43252a4c98) (type_ artist))
@@ -4879,7 +4880,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2022-01-10T22:34:47+00:00)
           (updated_at 2023-07-28T13:04:44+00:00) (version 7)
           (available_translated_languages (fr en))
-          (latest_uploaded_chapter 271859e3-80de-41d5-8beb-33fc72836f36)))
+          (latest_uploaded_chapter (271859e3-80de-41d5-8beb-33fc72836f36))))
         (relationships
          (((id c1f8c851-1184-4f06-8c3b-ffb09c0d2865) (type_ author))
           ((id c1f8c851-1184-4f06-8c3b-ffb09c0d2865) (type_ artist))
@@ -4950,7 +4951,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2023-03-10T00:31:11+00:00)
           (updated_at 2024-07-11T15:54:41+00:00) (version 30)
           (available_translated_languages (pt-br en ru es-la id))
-          (latest_uploaded_chapter be17cebe-9a03-445f-852b-da2042a225c4)))
+          (latest_uploaded_chapter (be17cebe-9a03-445f-852b-da2042a225c4))))
         (relationships
          (((id a4e52ff0-c7d4-4e2f-84a1-016904004b07) (type_ author))
           ((id a4e52ff0-c7d4-4e2f-84a1-016904004b07) (type_ artist))
@@ -5009,7 +5010,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2020-06-20T17:25:48+00:00)
           (updated_at 2024-03-29T10:58:31+00:00) (version 8)
           (available_translated_languages (ja en))
-          (latest_uploaded_chapter d42b0bdb-6089-4f65-9236-09b23a68cbd1)))
+          (latest_uploaded_chapter (d42b0bdb-6089-4f65-9236-09b23a68cbd1))))
         (relationships
          (((id c7785ee5-1b6a-405b-9305-3337eaba12e4) (type_ author))
           ((id c7785ee5-1b6a-405b-9305-3337eaba12e4) (type_ artist))
@@ -5126,7 +5127,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2024-05-03T19:11:11+00:00)
           (updated_at 2024-07-28T16:34:12+00:00) (version 5)
           (available_translated_languages (en pt-br tr))
-          (latest_uploaded_chapter f51dd145-bb42-4a71-b6d6-9063f65d4c0c)))
+          (latest_uploaded_chapter (f51dd145-bb42-4a71-b6d6-9063f65d4c0c))))
         (relationships
          (((id 05f3cab9-c87c-42eb-99f6-f95f60174676) (type_ author))
           ((id 7cb686db-4040-4ffa-842c-6ab1300babfe) (type_ author))
@@ -5164,7 +5165,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2023-09-18T21:53:13+00:00)
           (updated_at 2023-10-20T11:08:22+00:00) (version 2)
           (available_translated_languages (en pt-br))
-          (latest_uploaded_chapter d08ecb80-76f1-4a79-8e17-2dfbe3f1fbfa)))
+          (latest_uploaded_chapter (d08ecb80-76f1-4a79-8e17-2dfbe3f1fbfa))))
         (relationships
          (((id 87ffb9a0-fb94-43af-9ecf-dab61c8fbce3) (type_ author))
           ((id 87ffb9a0-fb94-43af-9ecf-dab61c8fbce3) (type_ artist))
@@ -5253,7 +5254,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2022-05-14T15:51:09+00:00)
           (updated_at 2024-07-19T08:35:54+00:00) (version 42)
           (available_translated_languages (vi fr ru id pl en pt-br uk es-la))
-          (latest_uploaded_chapter 682fd5fe-af5a-40bf-a047-49fb8d4d0a3a)))
+          (latest_uploaded_chapter (682fd5fe-af5a-40bf-a047-49fb8d4d0a3a))))
         (relationships
          (((id 66895a0b-5a77-4e00-bcb6-d0be5b991a10) (type_ author))
           ((id 66895a0b-5a77-4e00-bcb6-d0be5b991a10) (type_ artist))
@@ -5362,7 +5363,7 @@ let%expect_test "parsing a big search collection" =
           (updated_at 2024-05-01T03:47:44+00:00) (version 25)
           (available_translated_languages
            (fr zh-hk it es-la es ru vi fa tr uk de cs pt-br th en))
-          (latest_uploaded_chapter d62852df-7ece-41f5-b229-62cfea4f994a)))
+          (latest_uploaded_chapter (d62852df-7ece-41f5-b229-62cfea4f994a))))
         (relationships
          (((id 801b900b-c364-450a-923a-76aba1bf010f) (type_ author))
           ((id 801b900b-c364-450a-923a-76aba1bf010f) (type_ artist))
@@ -5456,7 +5457,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2020-12-01T23:44:54+00:00)
           (updated_at 2024-06-14T00:34:03+00:00) (version 8)
           (available_translated_languages (pt-br fr ru en th pl))
-          (latest_uploaded_chapter e536183f-116f-4bbf-af16-8480d546fead)))
+          (latest_uploaded_chapter (e536183f-116f-4bbf-af16-8480d546fead))))
         (relationships
          (((id c4dcdbb2-9ce3-492e-9870-4b79407a28c5) (type_ author))
           ((id c4dcdbb2-9ce3-492e-9870-4b79407a28c5) (type_ artist))
@@ -5642,7 +5643,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2020-06-08T07:17:21+00:00)
           (updated_at 2024-07-14T21:00:08+00:00) (version 24)
           (available_translated_languages (fa en ru pl es-la it id de tr pt-br))
-          (latest_uploaded_chapter 17acadff-18ed-4a02-a719-51422afe5b82)))
+          (latest_uploaded_chapter (17acadff-18ed-4a02-a719-51422afe5b82))))
         (relationships
          (((id 7d4fee3b-c2b9-41fb-bccc-4f3013375b72) (type_ author))
           ((id f07f34f5-a17e-48b9-9ee1-359acc1aab84) (type_ author))
@@ -5695,7 +5696,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2018-03-20T12:59:03+00:00)
           (updated_at 2023-11-23T12:53:27+00:00) (version 3)
           (available_translated_languages (en pt-br pl))
-          (latest_uploaded_chapter ebae4173-be7b-4d21-a7ee-3f814cf3f052)))
+          (latest_uploaded_chapter (ebae4173-be7b-4d21-a7ee-3f814cf3f052))))
         (relationships
          (((id b1ffa33f-72ab-48d5-a805-36861a8ee272) (type_ author))
           ((id b1ffa33f-72ab-48d5-a805-36861a8ee272) (type_ artist))
@@ -5749,7 +5750,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2023-07-23T14:55:00+00:00)
           (updated_at 2023-07-23T14:57:53+00:00) (version 2)
           (available_translated_languages (pl))
-          (latest_uploaded_chapter c7c65f21-6c21-4a79-a5cf-4c8e49271774)))
+          (latest_uploaded_chapter (c7c65f21-6c21-4a79-a5cf-4c8e49271774))))
         (relationships
          (((id 0b59098f-13c0-41cb-a110-9cbcec72dc0c) (type_ author))
           ((id 0b59098f-13c0-41cb-a110-9cbcec72dc0c) (type_ artist))
@@ -5853,7 +5854,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2023-02-11T09:30:42+00:00)
           (updated_at 2024-05-29T19:01:31+00:00) (version 10)
           (available_translated_languages (en ru))
-          (latest_uploaded_chapter 0327f7ea-9585-4e7e-9a40-d247f48862e0)))
+          (latest_uploaded_chapter (0327f7ea-9585-4e7e-9a40-d247f48862e0))))
         (relationships
          (((id a38b91b3-aede-455d-a444-ad53802e15af) (type_ author))
           ((id 83f85b14-d75c-4605-a380-adcc2bad6f72) (type_ artist))
@@ -5941,7 +5942,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2022-08-15T20:28:58+00:00)
           (updated_at 2024-05-09T16:59:55+00:00) (version 20)
           (available_translated_languages (en))
-          (latest_uploaded_chapter e136e631-9a5f-423d-bf2a-e57343302757)))
+          (latest_uploaded_chapter (e136e631-9a5f-423d-bf2a-e57343302757))))
         (relationships
          (((id dfa9b0e4-5994-433e-8085-befcdcf7574e) (type_ author))
           ((id aab9b61a-95ee-423a-9c2b-39732ee9f64b) (type_ artist))
@@ -6010,7 +6011,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2021-10-31T18:43:59+00:00)
           (updated_at 2024-06-04T06:49:48+00:00) (version 28)
           (available_translated_languages (en pt-br vi id))
-          (latest_uploaded_chapter 5c35fef7-f731-403e-89bb-7e33e07d8bfe)))
+          (latest_uploaded_chapter (5c35fef7-f731-403e-89bb-7e33e07d8bfe))))
         (relationships
          (((id e2943882-62e9-47b9-9ca9-4f810c17acc5) (type_ author))
           ((id e2943882-62e9-47b9-9ca9-4f810c17acc5) (type_ artist))
@@ -6108,7 +6109,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2022-05-25T04:03:21+00:00)
           (updated_at 2024-08-01T10:27:23+00:00) (version 11)
           (available_translated_languages (en fr pt-br it))
-          (latest_uploaded_chapter a8a3e70c-8ff0-425a-8030-35de938ae560)))
+          (latest_uploaded_chapter (a8a3e70c-8ff0-425a-8030-35de938ae560))))
         (relationships
          (((id 63200b97-bbf8-4dab-8522-a158fec3afad) (type_ author))
           ((id 63200b97-bbf8-4dab-8522-a158fec3afad) (type_ artist))
@@ -6185,7 +6186,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2021-12-24T15:48:07+00:00)
           (updated_at 2024-03-26T11:57:47+00:00) (version 21)
           (available_translated_languages (fr vi id pt-br en ru fi ar es es-la))
-          (latest_uploaded_chapter 893da2c4-91a4-400f-976f-5f1003e3b274)))
+          (latest_uploaded_chapter (893da2c4-91a4-400f-976f-5f1003e3b274))))
         (relationships
          (((id 7295d6da-7fd4-46b9-88dc-5723cc8da29f) (type_ author))
           ((id e6e93bd9-2f7f-494f-9b02-4f0ee816f10c) (type_ artist))
@@ -6266,7 +6267,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2018-01-23T11:23:35+00:00)
           (updated_at 2023-12-24T16:57:05+00:00) (version 11)
           (available_translated_languages (pt-br en pl))
-          (latest_uploaded_chapter 53d64bfd-5438-46c3-8aec-2954ab95e36c)))
+          (latest_uploaded_chapter (53d64bfd-5438-46c3-8aec-2954ab95e36c))))
         (relationships
          (((id ec768aea-fa7f-40c3-a67f-4c1b95cafb45) (type_ author))
           ((id ec768aea-fa7f-40c3-a67f-4c1b95cafb45) (type_ artist))
@@ -6331,7 +6332,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2018-09-05T11:41:57+00:00)
           (updated_at 2024-07-12T15:53:05+00:00) (version 19)
           (available_translated_languages (pt-br en pl cs))
-          (latest_uploaded_chapter 50339464-5e07-4847-b12e-c617eecde607)))
+          (latest_uploaded_chapter (50339464-5e07-4847-b12e-c617eecde607))))
         (relationships
          (((id ef2fd5a1-9299-4a82-8daf-2b97335f9868) (type_ author))
           ((id ef2fd5a1-9299-4a82-8daf-2b97335f9868) (type_ artist))
@@ -6403,7 +6404,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2019-03-07T02:06:19+00:00)
           (updated_at 2024-07-21T19:52:44+00:00) (version 6)
           (available_translated_languages (en vi))
-          (latest_uploaded_chapter 1b11328f-2acd-4d94-9c9b-fc96f0e3533a)))
+          (latest_uploaded_chapter (1b11328f-2acd-4d94-9c9b-fc96f0e3533a))))
         (relationships
          (((id 76bc5e4b-1785-4ece-b3e8-2daa2ab82c9e) (type_ author))
           ((id 76bc5e4b-1785-4ece-b3e8-2daa2ab82c9e) (type_ artist))
@@ -6468,7 +6469,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2018-11-23T14:49:47+00:00)
           (updated_at 2024-06-09T05:58:14+00:00) (version 6)
           (available_translated_languages (en))
-          (latest_uploaded_chapter 0c1005dc-8c12-46f3-bf82-9cb8b74d2910)))
+          (latest_uploaded_chapter (0c1005dc-8c12-46f3-bf82-9cb8b74d2910))))
         (relationships
          (((id 40eb840d-f121-41f6-b291-497f877e7585) (type_ author))
           ((id 40eb840d-f121-41f6-b291-497f877e7585) (type_ artist))
@@ -6520,7 +6521,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2023-04-05T16:15:37+00:00)
           (updated_at 2024-08-01T19:08:11+00:00) (version 7)
           (available_translated_languages (en es-la))
-          (latest_uploaded_chapter 28ee4872-679d-40fb-a640-1789756d0934)))
+          (latest_uploaded_chapter (28ee4872-679d-40fb-a640-1789756d0934))))
         (relationships
          (((id 53c89376-b005-4a99-ad46-f88fe2f9de1c) (type_ author))
           ((id 53c89376-b005-4a99-ad46-f88fe2f9de1c) (type_ artist))
@@ -6582,7 +6583,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2020-04-23T14:14:11+00:00)
           (updated_at 2024-05-25T07:55:50+00:00) (version 10)
           (available_translated_languages (en id ru pt-br it))
-          (latest_uploaded_chapter fede309a-6ab6-46b7-a4db-8ca5cdf2d12c)))
+          (latest_uploaded_chapter (fede309a-6ab6-46b7-a4db-8ca5cdf2d12c))))
         (relationships
          (((id c78d2464-10a7-4f1c-a3fd-674ac03930cb) (type_ author))
           ((id c78d2464-10a7-4f1c-a3fd-674ac03930cb) (type_ artist))
@@ -6633,7 +6634,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2021-02-07T08:02:28+00:00)
           (updated_at 2024-07-30T22:04:20+00:00) (version 6)
           (available_translated_languages (en))
-          (latest_uploaded_chapter d31bb2b4-21c4-4b25-8108-a08932a2bc09)))
+          (latest_uploaded_chapter (d31bb2b4-21c4-4b25-8108-a08932a2bc09))))
         (relationships
          (((id c6cc603b-8c33-462d-82e6-bc1e0165c6b1) (type_ author))
           ((id c6cc603b-8c33-462d-82e6-bc1e0165c6b1) (type_ artist))
@@ -6719,7 +6720,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2018-04-04T01:46:57+00:00)
           (updated_at 2024-05-03T20:26:16+00:00) (version 8)
           (available_translated_languages (tr en pt-br))
-          (latest_uploaded_chapter a1d5a1c2-d161-48b2-8e33-4c623090f67a)))
+          (latest_uploaded_chapter (a1d5a1c2-d161-48b2-8e33-4c623090f67a))))
         (relationships
          (((id d162127e-7665-4956-b756-c618ced56ef9) (type_ author))
           ((id d162127e-7665-4956-b756-c618ced56ef9) (type_ artist))
@@ -6829,7 +6830,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2021-10-25T20:08:12+00:00)
           (updated_at 2024-07-31T23:37:02+00:00) (version 28)
           (available_translated_languages (es-la fr pt-br en))
-          (latest_uploaded_chapter 7f9d3064-82d6-4649-964a-b1e2200a11e3)))
+          (latest_uploaded_chapter (7f9d3064-82d6-4649-964a-b1e2200a11e3))))
         (relationships
          (((id 1e55f58a-4a99-4ff7-8a04-a1322756d7b6) (type_ author))
           ((id 68a3d559-06dd-4f0b-be70-096bbd571117) (type_ author))
@@ -6888,7 +6889,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2024-05-27T10:08:44+00:00)
           (updated_at 2024-07-05T23:31:05+00:00) (version 4)
           (available_translated_languages (en))
-          (latest_uploaded_chapter 1cf4cba0-716e-478b-861b-a1437cacc32a)))
+          (latest_uploaded_chapter (1cf4cba0-716e-478b-861b-a1437cacc32a))))
         (relationships
          (((id 6b6ef4df-b39b-4549-8d03-464856b9d489) (type_ author))
           ((id 6b6ef4df-b39b-4549-8d03-464856b9d489) (type_ artist))
@@ -6963,7 +6964,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2019-01-11T02:53:53+00:00)
           (updated_at 2024-05-21T23:33:59+00:00) (version 5)
           (available_translated_languages (en))
-          (latest_uploaded_chapter cc310f81-51ee-4b78-bb4e-9abac734e17c)))
+          (latest_uploaded_chapter (cc310f81-51ee-4b78-bb4e-9abac734e17c))))
         (relationships
          (((id 0b7b70db-9af1-4b52-a1ae-9931daf4b1e3) (type_ author))
           ((id 566f01de-6433-4fff-915c-e5e8ba7b982d) (type_ artist))
@@ -7035,7 +7036,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2024-07-12T14:45:50+00:00)
           (updated_at 2024-07-17T03:26:35+00:00) (version 16)
           (available_translated_languages (es-la en vi pt-br))
-          (latest_uploaded_chapter 902d7530-d232-447f-8a9c-74bf1fdff527)))
+          (latest_uploaded_chapter (902d7530-d232-447f-8a9c-74bf1fdff527))))
         (relationships
          (((id 5b65c885-8ce1-42c9-96fd-1cdcf89c8749) (type_ author))
           ((id 5b65c885-8ce1-42c9-96fd-1cdcf89c8749) (type_ artist))
@@ -7099,7 +7100,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2019-09-07T04:55:17+00:00)
           (updated_at 2023-06-11T18:55:18+00:00) (version 7)
           (available_translated_languages (pt-br es ru en fr))
-          (latest_uploaded_chapter f33fc59b-1a51-4bd3-9663-f174baaf5663)))
+          (latest_uploaded_chapter (f33fc59b-1a51-4bd3-9663-f174baaf5663))))
         (relationships
          (((id 17a9f7bb-8288-49f1-8ada-c5174d0c0a7c) (type_ author))
           ((id 99fa07d1-863a-43ab-af81-9cf874ec83ea) (type_ artist))
@@ -7179,7 +7180,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2024-07-13T00:35:05+00:00)
           (updated_at 2024-08-01T04:49:27+00:00) (version 5)
           (available_translated_languages (en pl))
-          (latest_uploaded_chapter 4671c388-d21a-4013-863f-97e0fa32c36d)))
+          (latest_uploaded_chapter (4671c388-d21a-4013-863f-97e0fa32c36d))))
         (relationships
          (((id 5209f518-467d-481c-b094-3d4455dfc156) (type_ author))
           ((id afb10fa2-28a9-4bc4-a70a-f3d0342b6552) (type_ author))
@@ -7292,7 +7293,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2021-11-10T17:30:57+00:00)
           (updated_at 2024-06-28T11:16:12+00:00) (version 58)
           (available_translated_languages (pt-br ru en fr vi id es-la ar he))
-          (latest_uploaded_chapter 6632082d-03ac-436f-92c0-271cb99cb803)))
+          (latest_uploaded_chapter (6632082d-03ac-436f-92c0-271cb99cb803))))
         (relationships
          (((id 3d3ec54f-2eb7-4fb7-b2eb-0372c9f1b92e) (type_ author))
           ((id 3d3ec54f-2eb7-4fb7-b2eb-0372c9f1b92e) (type_ artist))
@@ -7449,7 +7450,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2021-03-04T00:06:04+00:00)
           (updated_at 2024-07-14T02:24:46+00:00) (version 20)
           (available_translated_languages (en pt-br it pl fr))
-          (latest_uploaded_chapter 76548be6-a9bc-4be3-95f0-e02caf85b481)))
+          (latest_uploaded_chapter (76548be6-a9bc-4be3-95f0-e02caf85b481))))
         (relationships
          (((id a5fc67b9-5af1-48f5-ba17-aa56f448a0ab) (type_ author))
           ((id a7984ee7-d798-4d98-8f97-f0ffd848d9cf) (type_ artist))
@@ -7519,7 +7520,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2023-08-18T20:42:34+00:00)
           (updated_at 2024-07-22T14:54:33+00:00) (version 18)
           (available_translated_languages (pt-br es-la id en))
-          (latest_uploaded_chapter cade1d02-5923-4434-9cc6-501fecb9c7d7)))
+          (latest_uploaded_chapter (cade1d02-5923-4434-9cc6-501fecb9c7d7))))
         (relationships
          (((id 5baa3098-acb5-4434-9f40-8e4b83686281) (type_ author))
           ((id 5baa3098-acb5-4434-9f40-8e4b83686281) (type_ artist))
@@ -7585,7 +7586,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2021-01-24T05:47:47+00:00)
           (updated_at 2023-07-15T08:02:42+00:00) (version 6)
           (available_translated_languages (en))
-          (latest_uploaded_chapter fbec881b-f807-41da-863a-0cd6919e2ea9)))
+          (latest_uploaded_chapter (fbec881b-f807-41da-863a-0cd6919e2ea9))))
         (relationships
          (((id c5df8b6f-6571-4c59-8289-3fb990aff2da) (type_ author))
           ((id c5df8b6f-6571-4c59-8289-3fb990aff2da) (type_ artist))
@@ -7657,7 +7658,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2024-01-27T00:45:13+00:00)
           (updated_at 2024-07-21T22:57:17+00:00) (version 31)
           (available_translated_languages (en pl es-la id pt-br ru))
-          (latest_uploaded_chapter 414166b4-6f49-45fc-bf20-85de9cee17f4)))
+          (latest_uploaded_chapter (414166b4-6f49-45fc-bf20-85de9cee17f4))))
         (relationships
          (((id 9f5d1a87-2e1f-4751-ab30-1930b0a644ac) (type_ author))
           ((id 9f5d1a87-2e1f-4751-ab30-1930b0a644ac) (type_ artist))
@@ -7834,7 +7835,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2022-07-04T04:58:42+00:00)
           (updated_at 2024-05-30T23:21:39+00:00) (version 18)
           (available_translated_languages (es-la pl en))
-          (latest_uploaded_chapter 67656222-58e1-4c46-b2c3-09c7398b8498)))
+          (latest_uploaded_chapter (67656222-58e1-4c46-b2c3-09c7398b8498))))
         (relationships
          (((id 2a3e7c22-ae33-4837-8398-10c96b2a9b1d) (type_ author))
           ((id c37a4ebd-cc06-4968-9b7c-987abe7fb86f) (type_ author))
@@ -7909,7 +7910,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2022-10-28T18:18:34+00:00)
           (updated_at 2023-03-17T06:38:59+00:00) (version 6)
           (available_translated_languages (en es))
-          (latest_uploaded_chapter b870a521-885a-48b8-9ba7-162a8a8415b0)))
+          (latest_uploaded_chapter (b870a521-885a-48b8-9ba7-162a8a8415b0))))
         (relationships
          (((id 4d229aa9-b05d-453b-86a1-a133e2c69e3a) (type_ author))
           ((id ea5aeede-1192-41b2-8866-ddaf0aee5ae4) (type_ author))
@@ -7988,7 +7989,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2020-03-11T14:37:00+00:00)
           (updated_at 2024-07-09T02:46:27+00:00) (version 14)
           (available_translated_languages (en ru fr pt-br pl ar es-la vi))
-          (latest_uploaded_chapter b7e443d0-3e6d-4d81-a273-061dacdb7e68)))
+          (latest_uploaded_chapter (b7e443d0-3e6d-4d81-a273-061dacdb7e68))))
         (relationships
          (((id 00345ac8-e515-458d-a11d-56cfd1cb253b) (type_ author))
           ((id 00345ac8-e515-458d-a11d-56cfd1cb253b) (type_ artist))
@@ -8084,7 +8085,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2018-07-05T07:56:23+00:00)
           (updated_at 2024-05-01T19:55:35+00:00) (version 15)
           (available_translated_languages (en pt-br es pl de tr))
-          (latest_uploaded_chapter 897f3b7a-a268-45dc-8ce2-dadb6e2aeb87)))
+          (latest_uploaded_chapter (897f3b7a-a268-45dc-8ce2-dadb6e2aeb87))))
         (relationships
          (((id 57767ced-894c-4d46-a847-b2c2694392bb) (type_ author))
           ((id 57767ced-894c-4d46-a847-b2c2694392bb) (type_ artist))
@@ -8245,7 +8246,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2020-05-23T20:51:21+00:00)
           (updated_at 2024-06-15T11:56:00+00:00) (version 25)
           (available_translated_languages (en it fa pl th es-la uk hu ar id))
-          (latest_uploaded_chapter 34779a25-7428-46e5-8ef6-ae8a0d9412a8)))
+          (latest_uploaded_chapter (34779a25-7428-46e5-8ef6-ae8a0d9412a8))))
         (relationships
          (((id 1c157033-eb0a-494e-95bc-6bf98ca466ca) (type_ author))
           ((id 376a4fbd-f696-495a-bc1f-d8b1b812793c) (type_ author))
@@ -8293,7 +8294,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2024-07-21T17:07:10+00:00)
           (updated_at 2024-07-22T14:02:25+00:00) (version 5)
           (available_translated_languages (en))
-          (latest_uploaded_chapter de8056c9-4986-481a-a187-7d3be128ec04)))
+          (latest_uploaded_chapter (de8056c9-4986-481a-a187-7d3be128ec04))))
         (relationships
          (((id 7dcd1fda-4979-4e41-9bb5-46f28911ecab) (type_ author))
           ((id 7dcd1fda-4979-4e41-9bb5-46f28911ecab) (type_ artist))
@@ -8354,7 +8355,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2021-12-11T22:33:49+00:00)
           (updated_at 2024-04-29T06:22:37+00:00) (version 15)
           (available_translated_languages (en pt-br))
-          (latest_uploaded_chapter 1fbb37b6-994b-4dc8-ba93-9af4f623aa83)))
+          (latest_uploaded_chapter (1fbb37b6-994b-4dc8-ba93-9af4f623aa83))))
         (relationships
          (((id 86de657e-feb4-4f74-8669-fb2a48101799) (type_ author))
           ((id 86de657e-feb4-4f74-8669-fb2a48101799) (type_ artist))
@@ -8416,7 +8417,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2022-11-16T20:53:33+00:00)
           (updated_at 2024-07-05T21:37:26+00:00) (version 31)
           (available_translated_languages (fr es-la en vi id))
-          (latest_uploaded_chapter 03976226-2935-4136-9081-fd8edc08a66f)))
+          (latest_uploaded_chapter (03976226-2935-4136-9081-fd8edc08a66f))))
         (relationships
          (((id f9a2f107-5a50-4a06-849d-233260819a8c) (type_ author))
           ((id f9a2f107-5a50-4a06-849d-233260819a8c) (type_ artist))
@@ -8505,7 +8506,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2020-04-09T16:12:48+00:00)
           (updated_at 2023-10-29T21:59:39+00:00) (version 18)
           (available_translated_languages (en es-la pt-br th))
-          (latest_uploaded_chapter 12d5a6a3-d8e6-4438-ba24-4d4b5a957793)))
+          (latest_uploaded_chapter (12d5a6a3-d8e6-4438-ba24-4d4b5a957793))))
         (relationships
          (((id e86a0b11-3596-4342-9233-3520f895d43b) (type_ author))
           ((id 905dea3e-e77c-4b12-833a-c5ebcadd5736) (type_ artist))
@@ -8578,7 +8579,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2023-12-04T10:36:47+00:00)
           (updated_at 2024-06-07T19:52:54+00:00) (version 9)
           (available_translated_languages (ru es en))
-          (latest_uploaded_chapter 1ead4f09-9921-4d89-a772-1513010a92da)))
+          (latest_uploaded_chapter (1ead4f09-9921-4d89-a772-1513010a92da))))
         (relationships
          (((id 784da853-ef1d-4e17-904c-fcecfd31c27c) (type_ author))
           ((id 784da853-ef1d-4e17-904c-fcecfd31c27c) (type_ artist))
@@ -8642,7 +8643,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2021-12-25T06:32:47+00:00)
           (updated_at 2024-01-22T06:15:55+00:00) (version 17)
           (available_translated_languages (en vi pt-br))
-          (latest_uploaded_chapter 8d374981-6179-473a-a1ed-fc1e06fb4b33)))
+          (latest_uploaded_chapter (8d374981-6179-473a-a1ed-fc1e06fb4b33))))
         (relationships
          (((id 96eb3d6a-c20c-42b2-97ee-cfd6074e1773) (type_ author))
           ((id 96eb3d6a-c20c-42b2-97ee-cfd6074e1773) (type_ artist))
@@ -8710,7 +8711,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2020-11-27T22:07:38+00:00)
           (updated_at 2024-06-19T20:10:22+00:00) (version 3)
           (available_translated_languages (fr))
-          (latest_uploaded_chapter c28cf7ed-8be5-4629-927b-dd92ca28a8a9)))
+          (latest_uploaded_chapter (c28cf7ed-8be5-4629-927b-dd92ca28a8a9))))
         (relationships
          (((id d5038d9e-0f0e-40e8-bcf3-aeb1d429f346) (type_ author))
           ((id a8546f48-49c6-4d53-b90e-de4d5ce8b1c9) (type_ artist))
@@ -8778,7 +8779,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2021-10-16T04:18:23+00:00)
           (updated_at 2024-07-27T18:51:04+00:00) (version 8)
           (available_translated_languages (en fr))
-          (latest_uploaded_chapter 22ecd044-4466-4a4d-b21f-73e1576039bf)))
+          (latest_uploaded_chapter (22ecd044-4466-4a4d-b21f-73e1576039bf))))
         (relationships
          (((id 8e9c75c2-e967-4fb9-a803-d8462b53a068) (type_ author))
           ((id 9512b9ac-c1e2-4b81-8d43-be6b5116e3c9) (type_ author))
@@ -8953,7 +8954,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2018-06-29T18:26:10+00:00)
           (updated_at 2024-02-25T23:06:16+00:00) (version 23)
           (available_translated_languages (ru pt-br pl en))
-          (latest_uploaded_chapter 8dfd5af7-d88b-494a-8f03-17c6bf75ecd8)))
+          (latest_uploaded_chapter (8dfd5af7-d88b-494a-8f03-17c6bf75ecd8))))
         (relationships
          (((id 3510d7c1-4252-409e-aefb-b1e1ab27368c) (type_ author))
           ((id 3510d7c1-4252-409e-aefb-b1e1ab27368c) (type_ artist))
@@ -9080,7 +9081,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2019-06-19T06:47:39+00:00)
           (updated_at 2024-08-02T18:06:19+00:00) (version 7)
           (available_translated_languages (en))
-          (latest_uploaded_chapter 00bb2a44-7df9-4800-9b88-927dc83cea22)))
+          (latest_uploaded_chapter (00bb2a44-7df9-4800-9b88-927dc83cea22))))
         (relationships
          (((id 3e726f5a-fd4e-4e7e-ab43-3f58deee8230) (type_ author))
           ((id 3e726f5a-fd4e-4e7e-ab43-3f58deee8230) (type_ artist))
@@ -9148,7 +9149,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2024-07-20T14:07:44+00:00)
           (updated_at 2024-08-01T02:28:39+00:00) (version 10)
           (available_translated_languages (en pl pt-br))
-          (latest_uploaded_chapter 20d03b90-2499-4ebd-a1ab-868b35aafdcf)))
+          (latest_uploaded_chapter (20d03b90-2499-4ebd-a1ab-868b35aafdcf))))
         (relationships
          (((id 376a4fbd-f696-495a-bc1f-d8b1b812793c) (type_ author))
           ((id 50200613-ef62-4ec8-b879-6d9ecd022e66) (type_ artist))
@@ -9210,7 +9211,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2024-06-06T18:55:54+00:00)
           (updated_at 2024-07-03T17:15:49+00:00) (version 9)
           (available_translated_languages (en))
-          (latest_uploaded_chapter b7934afd-f067-4609-a22e-b95f2a3b215a)))
+          (latest_uploaded_chapter (b7934afd-f067-4609-a22e-b95f2a3b215a))))
         (relationships
          (((id 5982fcd2-3cae-4392-b586-d3a6422df375) (type_ author))
           ((id 5982fcd2-3cae-4392-b586-d3a6422df375) (type_ artist))
@@ -9282,7 +9283,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2021-01-15T02:16:49+00:00)
           (updated_at 2024-05-09T17:42:40+00:00) (version 16)
           (available_translated_languages (id th en ru es-la))
-          (latest_uploaded_chapter 3b7b1a88-940b-46df-960c-727249b43b55)))
+          (latest_uploaded_chapter (3b7b1a88-940b-46df-960c-727249b43b55))))
         (relationships
          (((id 27569e2d-2b27-44c4-9ee6-4d25449c7b17) (type_ author))
           ((id 6dc3b150-b84e-47fd-8e3d-44ef5c5f7668) (type_ artist))
@@ -9373,7 +9374,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2020-08-31T01:13:59+00:00)
           (updated_at 2024-05-12T07:55:24+00:00) (version 13)
           (available_translated_languages (en id es-la))
-          (latest_uploaded_chapter 177d3e54-f7ff-4162-b69b-00ebd01e949c)))
+          (latest_uploaded_chapter (177d3e54-f7ff-4162-b69b-00ebd01e949c))))
         (relationships
          (((id 35772c2a-279b-4dcb-b206-59d1672c8068) (type_ author))
           ((id 2132109c-ea85-4472-b5c8-16a1d45b2c19) (type_ artist))
@@ -9443,7 +9444,7 @@ let%expect_test "parsing a big search collection" =
           (created_at 2022-02-11T11:37:05+00:00)
           (updated_at 2024-01-31T22:30:59+00:00) (version 23)
           (available_translated_languages (pt-br en))
-          (latest_uploaded_chapter d274b1e3-9d5a-4cc9-83f0-1a0634d125ac)))
+          (latest_uploaded_chapter (d274b1e3-9d5a-4cc9-83f0-1a0634d125ac))))
         (relationships
          (((id 9a1f4548-9773-4011-9b3b-97ab71746b13) (type_ author))
           ((id 9a1f4548-9773-4011-9b3b-97ab71746b13) (type_ artist))
@@ -9451,5 +9452,957 @@ let%expect_test "parsing a big search collection" =
           ((id 23ebf5ec-719c-4f96-9a53-be0cea15ff90) (type_ manga))
           ((id d5a06942-1433-4ce5-97f5-d234fa1db4a5) (type_ creator)))))))
      (limit 100) (offset 0) (total 77858))
+    |}]
+;;
+
+let%expect_test "parsing a big search collection" =
+  (* This test just showcases that we are able to parse the json of a
+     request... *)
+  let collection =
+    Collection.t_of_yojson
+      Manga.t_of_yojson
+      (Yojson.Safe.from_string Embedded_files.big_response2_dot_json)
+  in
+  print_s [%sexp (collection : Manga.t Collection.t)];
+  [%expect
+    {|
+    ((data
+      (((id a77742b1-befd-49a4-bff5-1ad4e6b0ef7b)
+        (attributes
+         ((title (((language en) (string "Chainsaw Man"))))
+          (alt_titles
+           ((((language uk)
+              (string
+               "\208\155\209\142\208\180\208\184\208\189\208\176-\208\177\208\181\208\189\208\183\208\190\208\191\208\184\208\187\208\176")))
+            (((language ru)
+              (string
+               "\208\167\208\181\208\187\208\190\208\178\208\181\208\186-\208\177\208\181\208\189\208\183\208\190\208\191\208\184\208\187\208\176")))
+            (((language ja)
+              (string
+               "\227\131\129\227\130\167\227\131\179\227\130\189\227\131\188\227\131\158\227\131\179")))
+            (((language zh) (string "\231\148\181\233\148\175\228\186\186")))
+            (((language zh-hk) (string "\233\143\136\233\139\184\228\186\186")))
+            (((language zh-hk) (string "\233\155\187\233\139\184\228\186\186")))
+            (((language tr) (string "Testere Adam")))
+            (((language kk)
+              (string
+               "\208\168\209\139\208\189\208\182\209\139\209\128\208\187\209\139 \208\176\209\128\208\176 \208\176\208\180\208\176\208\188")))))
+          (description
+           (((language en)
+             (string
+               "Broke young man + chainsaw dog demon = Chainsaw Man!  \
+              \n  \
+              \nThe name says it all! Denji's life of poverty is changed forever when he merges with his pet chainsaw dog, Pochita! Now he's living in the big city and an official Devil Hunter. But he's got a lot to learn about his new job and chainsaw powers!"))
+            ((language fr)
+             (string
+               "Pour rembourser ses dettes, Denji, jeune homme dans la d\195\168che la plus totale, est exploit\195\169 en tant que Devil Hunter avec son chien-d\195\169mon-tron\195\167onneuse, \226\128\156Pochita\226\128\157. Mais suite \195\160 une cruelle trahison, il voit enfin une possibilit\195\169 de se tirer des bas-fonds o\195\185 il croupit ! Devenu surpuissant apr\195\168s sa fusion avec Pochita, Denji est recrut\195\169 par une organisation et part \195\160 la chasse aux d\195\169mons\226\128\166\
+              \n\
+              \n---\
+              \n\
+              \nMaison d'\195\169dition FR : **Kaz\195\169 / Crunchyroll**"))))
+          (is_locked true)
+          (links
+           (((provider al) (link 105778)) ((provider ap) (link chainsaw-man))
+            ((provider bw) (link series/191172)) ((provider kt) (link 54139))
+            ((provider mu) (link 151847))
+            ((provider amz) (link https://www.amazon.co.jp/-/en/dp/B09P3Y9JYK))
+            ((provider cdj)
+             (link
+              "http://www.cdjapan.co.jp/searches?term.cat_id=UD-14-02-01&page=&agg_use=cat_ids_hierarchal_treeish_foldable&term.media_format=&q=\227\131\129\227\130\167\227\131\179\227\130\189\227\131\188\227\131\158\227\131\179"))
+            ((provider ebj) (link https://ebookjapan.yahoo.co.jp/books/527520/))
+            ((provider mal) (link 116778))
+            ((provider raw)
+             (link https://shonenjumpplus.com/episode/10834108156650024834))
+            ((provider engtl)
+             (link https://mangaplus.shueisha.co.jp/titles/100037))))
+          (original_language ja) (last_volume ("")) (last_chapter (""))
+          (publication_demographic (shounen)) (status ongoing) (year (2018))
+          (content_rating suggestive)
+          (tags
+           (((id 0a39b5a1-b235-4886-a747-1d05d216532d)
+             (attributes
+              ((name (((language en) (string "Award Winning")))) (group format)
+               (version 1))))
+            ((id 36fd93ea-e8b8-445e-b836-358f02b3d33d)
+             (attributes
+              ((name (((language en) (string Monsters)))) (group theme)
+               (version 1))))
+            ((id 391b0423-d847-456f-aff0-8b0cfc03066b)
+             (attributes
+              ((name (((language en) (string Action)))) (group genre)
+               (version 1))))
+            ((id 39730448-9a5f-48a2-85b0-a70db87b1233)
+             (attributes
+              ((name (((language en) (string Demons)))) (group theme)
+               (version 1))))
+            ((id 4d32cc48-9f00-4cca-9b5a-a839f0764984)
+             (attributes
+              ((name (((language en) (string Comedy)))) (group genre)
+               (version 1))))
+            ((id b29d6a3d-1569-4e7a-8caf-7557bc92cd5d)
+             (attributes
+              ((name (((language en) (string Gore)))) (group content)
+               (version 1))))
+            ((id cdad7e68-1419-41dd-bdce-27753074a640)
+             (attributes
+              ((name (((language en) (string Horror)))) (group genre)
+               (version 1))))
+            ((id eabc5b4c-6aff-42f3-b657-3e90cbd00b75)
+             (attributes
+              ((name (((language en) (string Supernatural)))) (group theme)
+               (version 1))))))
+          (state published) (chapter_numbers_reset_on_new_volume false)
+          (created_at 2019-09-10T13:07:45+00:00)
+          (updated_at 2024-06-12T17:38:56+00:00) (version 108)
+          (available_translated_languages
+           (fa hu cs en it pt-br es-la uk es ru pl id fi kk fr zh-hk mn tr sr de
+            bg ms ar th hr tl vi el sv))
+          (latest_uploaded_chapter (6374208f-0e31-459b-bc86-e47e56133109))))
+        (relationships
+         (((id f85a5b93-3c87-4c61-9032-07ceacbb9e64) (type_ author))
+          ((id f85a5b93-3c87-4c61-9032-07ceacbb9e64) (type_ artist))
+          ((id c862f594-aa07-4df2-a2c8-361640f7a3ff) (type_ cover_art))
+          ((id 61325e33-e80b-443d-9b81-53b857b6ecdb) (type_ manga))
+          ((id 8d5d7c3b-eb95-4e58-838f-4da6c2cbee1f) (type_ manga))
+          ((id 94e1bcf0-4c18-4a4f-8843-d1039bd5d6b4) (type_ manga))
+          ((id a0d05d57-4a2c-4d4b-9aa6-7b99bed425ca) (type_ manga))
+          ((id b1d12720-49d7-4730-9945-1cd8737d97e4) (type_ manga))
+          ((id c63e5e58-f6b1-422f-bd41-1efaca70476b) (type_ manga))
+          ((id e896c48c-3150-437d-ba57-d8567eb399ae) (type_ manga)))))
+       ((id e896c48c-3150-437d-ba57-d8567eb399ae)
+        (attributes
+         ((title (((language en) (string "Chainsaw Man (Official Colored)"))))
+          (alt_titles
+           ((((language en) (string "Chainsaw Man - Digital Colored Comics")))
+            (((language fr) (string "Chainsaw Man (Couleur Officielle)")))
+            (((language kk)
+              (string
+               "\208\168\209\139\208\189\208\182\209\139\209\128\208\176 \208\176\208\180\208\176\208\188 (\208\162\210\175\209\128\208\187\209\150 \208\162\210\175\209\129\209\130\209\150)")))
+            (((language ja)
+              (string
+               "\227\131\129\227\130\167\227\131\179\227\130\189\227\131\188\227\131\158\227\131\179 \227\130\171\227\131\169\227\131\188\231\137\136")))
+            (((language kk)
+              (string
+               "\208\168\209\139\208\189\208\182\208\176\209\128\208\176 \208\182\208\176\208\189 (\208\162\210\175\209\128\208\187\209\150 \209\130\210\175\209\129\209\130\209\150)")))))
+          (description
+           (((language en)
+             (string
+              "Broke young man + chainsaw demon = Chainsaw Man!   Denji was a small-time devil hunter just trying to survive in a harsh world. After being killed on a job, he is revived by his pet devil-dog Pochita and becomes something new and dangerous\226\128\148Chainsaw Man!"))
+            ((language fr)
+             (string
+               "Jeune homme fauch\195\169 + d\195\169mon-chien-tron\195\167onneuse = Chainsaw Man!\
+              \n\
+              \nTout est dans le titre! La vie pr\195\169caire de Denji change \195\160 jamais quand il fusionne avec son chien-tron\195\167onneuse de compagnie, Pochita! Maintenant, il vit en centre-ville et est un Devil Hunter officiel. Mais il a beaucoup \195\160 apprendre de son nouveau job et de ses pouvoirs de tron\195\167onneuse!\
+              \nMaintenant en couleur!"))
+            ((language kk)
+             (string
+              "\194\171\208\156\208\181\208\189 \211\153\209\128\210\155\208\176\209\136\208\176\208\189 \210\155\208\176\209\128\208\176\208\191\208\176\208\185\209\139\208\188 \211\169\208\188\209\150\209\128 \209\129\210\175\209\128\209\131\208\180\209\150 \208\176\209\128\208\188\208\176\208\189\208\180\208\176\208\180\209\139\208\188: \208\182\209\139\208\187\209\139 \209\130\211\169\209\129\208\181\208\186\209\130\208\181 \210\177\208\185\209\139\210\155\209\130\208\176\209\131, \209\130\208\176\210\163\208\181\209\128\209\130\208\181\210\163 \209\130\208\190\209\129\208\176\208\191\208\191\208\181\208\189 \208\189\208\176\208\189 \208\182\208\181\209\131, \210\155\209\139\208\183\209\139\208\188\208\188\208\181\208\189 \208\186\208\181\208\183\208\180\208\181\209\129\209\131\208\179\208\181 \208\177\208\176\209\128\209\131 \208\182\211\153\208\189\208\181 \208\186\210\175\208\189\208\180\208\181 \208\186\210\175\208\187\209\150\208\188\208\180\208\181\209\131. \211\152\208\186\208\181\208\188\208\189\209\150\210\163 \211\169\208\187\209\150\208\188\209\150\208\188\208\181\208\189 \208\186\208\181\208\185\209\150\208\189 \208\177\211\153\209\128\209\150 \211\169\208\183\208\179\208\181\209\128\208\180\209\150 - \208\181\208\189\208\180\209\150, \208\159\208\190\209\135\208\184\209\130\208\176, \211\169\208\187\209\130\209\150\209\128\208\181\209\130\209\150\208\189 \208\186\208\181\208\183 \208\186\208\181\208\187\208\180\209\150!\194\187 - \208\177\210\177\208\187 \209\129\211\169\208\183\208\177\208\181\208\189  \208\148\208\181\208\189\208\182\208\184 \211\169\208\183\209\150\208\189\209\150\210\163 \209\136\209\139\208\189\208\182\209\139\209\128\208\187\209\139 \208\184\209\130\209\150 \208\159\208\190\209\135\208\184\209\130\208\176\208\188\208\181\208\189 \208\177\209\150\209\128\208\179\208\181 \208\177\208\176\209\129\210\155\208\176 \209\136\208\176\209\128\209\130\210\155\208\176 \208\176\209\130\209\130\208\176\208\189\208\176\208\180\209\139, \211\169\208\185\209\130\208\186\208\181\208\189\209\150 \208\190\208\187\208\176\209\128 \209\129\208\176\208\185\209\130\208\176\208\189 \208\176\209\131\208\187\208\176\209\131\209\136\209\139\208\187\208\176\209\128. \208\154\210\175\208\189 \209\129\208\176\208\185\209\139\208\189 \208\190\208\187\208\176\209\128 \208\176\210\155\209\136\208\176 \210\175\209\136\209\150\208\189 \211\169\208\187\209\130\209\150\209\128\208\181\208\180\209\150, \208\190\208\189\209\139 \208\148\208\181\208\189\208\180\208\182\208\184 \208\177\209\150\209\128 \209\143\208\186\209\131\208\180\208\183\208\176\210\147\208\176 \208\177\208\181\209\128\209\131\209\150 \208\186\208\181\209\128\208\181\208\186, \211\153\208\185\209\130\208\191\208\181\209\129\208\181 \208\190\208\187 \208\188\208\176\209\128\210\155\210\177\208\188 \211\153\208\186\208\181\209\129\209\150\208\189\209\150\210\163 \210\155\208\176\209\128\209\139\208\183\209\139\208\189 \211\169\208\183 \211\169\208\188\209\150\209\128\209\150\208\188\208\181\208\189 \211\169\209\130\208\181\209\131\209\150 \208\186\208\181\209\128\208\181\208\186. \208\145\209\150\209\128\208\176\210\155 \208\148\209\141\208\189\208\180\208\182\208\184 \208\177\208\176\209\128\208\187\209\139\210\155 \210\155\208\176\209\128\209\139\208\183\209\139\208\189 \211\169\209\130\208\181\208\179\208\181\208\189 \208\186\208\181\208\183\208\180\208\181 \208\190\208\189\209\139 \208\189\208\181 \208\186\210\175\209\130\209\150\208\191 \209\130\210\177\209\128: \208\190\208\187 \210\155\208\176\209\128\208\176\208\191\208\176\208\185\209\139\208\188 \211\169\208\188\209\150\209\128 \209\129\210\175\209\128\208\181 \208\188\208\181, \211\153\208\187\208\180\208\181 \211\153\208\187\208\181\208\188\208\180\209\150 \209\129\208\176\208\185\209\130\208\176\208\189\208\180\208\176\209\128\208\180\208\176\208\189 \210\155\210\177\209\130\210\155\208\176\209\128\208\176 \208\188\208\176? \208\156\210\175\208\188\208\186\209\150\208\189 \209\130\208\176\210\147\208\180\209\139\209\128\208\180\209\139\210\163 \208\186\208\181\208\185\209\150\208\191\208\186\208\181\209\128\208\179\208\181 \210\155\208\176\209\130\209\139\209\129\209\130\209\139 \211\169\208\183 \208\182\208\190\209\129\208\191\208\176\209\128\208\187\208\176\209\128\209\139 \208\177\208\176\209\128 \209\136\209\139\210\147\208\176\209\128?"))
+            ((language pt-br)
+             (string
+              "Quando seu pai morreu, Denji ficou preso com uma d\195\173vida que era incapaz de pagar. Mas gra\195\167as \195\160 ajuda de um cachorro dem\195\180nio que ele salvou chamado Pochita, Denji \195\169 capaz de sobreviver como ca\195\167ador de dem\195\180nios de aluguel. Os poderes de serra el\195\169trica do Pochita s\195\163o bem poderosos contra estes dem\195\180nios. E ent\195\163o, quando o Denji acaba sendo morto por um dem\195\180nio, o Pochita desiste de sua vida para reviv\195\170-lo. Mas, agora o Denji renasceu como um hibrido de dem\195\180nio com humano... Agora ele \195\169 o \"Chainsaw Man\"!"))))
+          (is_locked false)
+          (links
+           (((provider al) (link 105778)) ((provider ap) (link chainsaw-man))
+            ((provider bw) (link series/333770/list))
+            ((provider kt) (link chainsawman)) ((provider mu) (link 151847))
+            ((provider amz) (link https://www.amazon.co.jp/dp/B07RL4GB9T))
+            ((provider ebj) (link https://ebookjapan.yahoo.co.jp/books/671821/))
+            ((provider mal) (link 116778))
+            ((provider raw)
+             (link
+              https://www.shueisha.co.jp/books/search/search.html?seriesid=87774))))
+          (original_language ja) (last_volume ("")) (last_chapter (""))
+          (publication_demographic (shounen)) (status ongoing) (year (2021))
+          (content_rating suggestive)
+          (tags
+           (((id 320831a8-4026-470b-94f6-8353740e6f04)
+             (attributes
+              ((name (((language en) (string "Official Colored"))))
+               (group format) (version 1))))
+            ((id 36fd93ea-e8b8-445e-b836-358f02b3d33d)
+             (attributes
+              ((name (((language en) (string Monsters)))) (group theme)
+               (version 1))))
+            ((id 391b0423-d847-456f-aff0-8b0cfc03066b)
+             (attributes
+              ((name (((language en) (string Action)))) (group genre)
+               (version 1))))
+            ((id 39730448-9a5f-48a2-85b0-a70db87b1233)
+             (attributes
+              ((name (((language en) (string Demons)))) (group theme)
+               (version 1))))
+            ((id 4d32cc48-9f00-4cca-9b5a-a839f0764984)
+             (attributes
+              ((name (((language en) (string Comedy)))) (group genre)
+               (version 1))))
+            ((id 5fff9cde-849c-4d78-aab0-0d52b2ee1d25)
+             (attributes
+              ((name (((language en) (string Survival)))) (group theme)
+               (version 1))))
+            ((id b29d6a3d-1569-4e7a-8caf-7557bc92cd5d)
+             (attributes
+              ((name (((language en) (string Gore)))) (group content)
+               (version 1))))
+            ((id cdad7e68-1419-41dd-bdce-27753074a640)
+             (attributes
+              ((name (((language en) (string Horror)))) (group genre)
+               (version 1))))
+            ((id dd1f77c5-dea9-4e2b-97ae-224af09caf99)
+             (attributes
+              ((name (((language en) (string "Monster Girls")))) (group theme)
+               (version 1))))
+            ((id df33b754-73a3-4c54-80e6-1a74a8058539)
+             (attributes
+              ((name (((language en) (string Police)))) (group theme)
+               (version 1))))
+            ((id eabc5b4c-6aff-42f3-b657-3e90cbd00b75)
+             (attributes
+              ((name (((language en) (string Supernatural)))) (group theme)
+               (version 1))))))
+          (state published) (chapter_numbers_reset_on_new_volume false)
+          (created_at 2020-12-29T07:39:30+00:00)
+          (updated_at 2024-07-09T03:54:28+00:00) (version 18)
+          (available_translated_languages
+           (pt-br it en tr es-la fr kk fa ro uk ta id))
+          (latest_uploaded_chapter (a4d7443a-ee1a-456c-b1ff-9105ff8a4bb2))))
+        (relationships
+         (((id f85a5b93-3c87-4c61-9032-07ceacbb9e64) (type_ author))
+          ((id f85a5b93-3c87-4c61-9032-07ceacbb9e64) (type_ artist))
+          ((id 4b599b92-fb4c-4baa-a6c9-02c0976232e4) (type_ cover_art))
+          ((id a77742b1-befd-49a4-bff5-1ad4e6b0ef7b) (type_ manga)))))
+       ((id 268f5da0-d158-4c95-bc2b-b4d962c2f325)
+        (attributes
+         ((title
+           (((language en)
+             (string "Chainsaw Man - The Hayakawa Family (Doujinshi)"))))
+          (alt_titles
+           ((((language ja)
+              (string
+               "\233\128\163\231\182\154\227\131\134\227\131\172\227\131\147\229\176\143\232\170\172\227\128\128\227\129\175\227\130\132\227\129\139\227\130\143\229\174\182\239\188\129")))
+            (((language ja-ro)
+              (string "Renzoku terebi sh\197\141setsu\227\128\128Hayakawa ie!")))
+            (((language en) (string "Serial TV Novel: The Hayakawa Family!")))
+            (((language en) (string "Chainsaw Man dj - The Hayakawa Family")))))
+          (description ()) (is_locked false)
+          (links
+           (((provider raw) (link https://www.pixiv.net/en/artworks/113453222))))
+          (original_language ja) (last_volume ("")) (last_chapter (""))
+          (publication_demographic ()) (status completed) (year (2023))
+          (content_rating safe)
+          (tags
+           (((id 0234a31e-a729-4e28-9d6a-3f87c4966b9e)
+             (attributes
+              ((name (((language en) (string Oneshot)))) (group format)
+               (version 1))))
+            ((id 4d32cc48-9f00-4cca-9b5a-a839f0764984)
+             (attributes
+              ((name (((language en) (string Comedy)))) (group genre)
+               (version 1))))
+            ((id b13b2a48-c720-44a9-9c77-39c9979373fb)
+             (attributes
+              ((name (((language en) (string Doujinshi)))) (group format)
+               (version 1))))
+            ((id e5301a23-ebd9-49dd-a0cb-2add944c7fe9)
+             (attributes
+              ((name (((language en) (string "Slice of Life")))) (group genre)
+               (version 1))))))
+          (state published) (chapter_numbers_reset_on_new_volume false)
+          (created_at 2024-02-16T15:42:38+00:00)
+          (updated_at 2024-03-31T04:37:19+00:00) (version 9)
+          (available_translated_languages (en))
+          (latest_uploaded_chapter (0e85d6b6-25e0-4526-941f-17efff8c92f0))))
+        (relationships
+         (((id f0f70a25-3ed6-4e4b-ae52-c49d1244a487) (type_ author))
+          ((id f0f70a25-3ed6-4e4b-ae52-c49d1244a487) (type_ artist))
+          ((id 1776ab78-1d5d-4acd-9659-232c2409288b) (type_ cover_art))
+          ((id ca1c734e-5798-46d8-94f9-cd2e8393c2ed) (type_ creator)))))
+       ((id 8d0046c8-626b-4284-9b2a-d8eb86d2b2d4)
+        (attributes
+         ((title (((language en) (string "Negative Happy Chainsaw Edge"))))
+          (alt_titles
+           ((((language ja)
+              (string
+               "\227\131\141\227\130\172\227\131\134\227\130\163\227\131\150\227\131\187\227\131\143\227\131\131\227\131\148\227\131\188\227\131\187\227\131\129\227\130\167\227\131\188\227\131\179\227\130\189\227\131\188\227\130\168\227\131\131\227\131\130")))
+            (((language zh)
+              (string
+               "\230\182\136\230\158\129\231\154\132\229\191\171\228\185\144\227\128\129\231\148\181\233\148\175\231\154\132\232\190\185\231\188\152")))))
+          (description
+           (((language en)
+             (string
+              "Eri Yukizaki, is a girl locked in battle with a chain-saw wielding incarnation of true evil. But like the demons that boil inside her heart, the 'Chainsaw Man' doesn't seem to die no matter how much she stabs him. As she fights, a young man, Yamamoto watches, love-struck, wishing he could be more than just her useless bicycle courier. An action-packed romance, digging into the human psyche, exploring the demons that buries us in sadness and misery. Hilarious, action-packed, romantic, thrilling, cute, and dramatic!"))
+            ((language pt-br)
+             (string
+               "Eri Yukizaki, \195\169 uma garota travada em batalha com uma serra el\195\169trica empunhando a encarna\195\167\195\163o do verdadeiro mal. Mas como os dem\195\180nios que fervem dentro de seu cora\195\167\195\163o, o 'Homem da Serra El\195\169trica' n\195\163o parece morrer, n\195\163o importa o quanto ela o esfaqueie.\
+              \n\
+              \nYamamoto \195\169 um rapaz pessimista, com uma vida frustrada e sem sentido, uma noite, enquanto pensa na sua vida Yamamoto ve a Eri lutando ent\195\163o ele decide juntar \195\160 bela mo\195\167a, numa busca pelo verdadeiro sentido da sua vida.\
+              \n\
+              \nUm romance cheio de a\195\167\195\163o, cavando a psique humana, explorando os dem\195\180nios que nos enterram na tristeza e na mis\195\169ria."))))
+          (is_locked false)
+          (links
+           (((provider al) (link 35674))
+            ((provider ap) (link negative-happy-chainsaw-edge))
+            ((provider kt) (link 12487)) ((provider mu) (link 19674))
+            ((provider mal) (link 5674))))
+          (original_language ja) (last_volume (2)) (last_chapter (8))
+          (publication_demographic (shounen)) (status completed) (year (2007))
+          (content_rating suggestive)
+          (tags
+           (((id 391b0423-d847-456f-aff0-8b0cfc03066b)
+             (attributes
+              ((name (((language en) (string Action)))) (group genre)
+               (version 1))))
+            ((id 3b60b75c-a2d7-4860-ab56-05f391bb889c)
+             (attributes
+              ((name (((language en) (string Psychological)))) (group genre)
+               (version 1))))
+            ((id 423e2eae-a7a2-4a8b-ac03-a8351462d71d)
+             (attributes
+              ((name (((language en) (string Romance)))) (group genre)
+               (version 1))))
+            ((id 4d32cc48-9f00-4cca-9b5a-a839f0764984)
+             (attributes
+              ((name (((language en) (string Comedy)))) (group genre)
+               (version 1))))
+            ((id b9af3a63-f058-46de-a9a0-e0c13906197a)
+             (attributes
+              ((name (((language en) (string Drama)))) (group genre) (version 1))))))
+          (state published) (chapter_numbers_reset_on_new_volume false)
+          (created_at 2018-02-11T01:48:46+00:00)
+          (updated_at 2024-03-24T13:43:10+00:00) (version 5)
+          (available_translated_languages (pt-br en it pl))
+          (latest_uploaded_chapter (90958f9e-2365-43d7-89f0-42a4203fe223))))
+        (relationships
+         (((id 49941260-1e4c-4b6e-a080-687e12534c0d) (type_ author))
+          ((id 934b3e47-2963-4b5e-b144-f6eb1ba952f5) (type_ artist))
+          ((id ab7199c7-bfa3-4ff2-a638-0d55951b0e66) (type_ cover_art)))))
+       ((id 94e1bcf0-4c18-4a4f-8843-d1039bd5d6b4)
+        (attributes
+         ((title
+           (((language en)
+             (string "Chainsaw Man - Yoru had ONE job (Doujinshi)"))))
+          (alt_titles ((((language en) (string "Yoru had ONE job")))))
+          (description ()) (is_locked false)
+          (links
+           (((provider raw) (link https://www.pixiv.net/en/artworks/104981487))))
+          (original_language en) (last_volume ("")) (last_chapter (""))
+          (publication_demographic ()) (status completed) (year (2023))
+          (content_rating safe)
+          (tags
+           (((id 0234a31e-a729-4e28-9d6a-3f87c4966b9e)
+             (attributes
+              ((name (((language en) (string Oneshot)))) (group format)
+               (version 1))))
+            ((id b13b2a48-c720-44a9-9c77-39c9979373fb)
+             (attributes
+              ((name (((language en) (string Doujinshi)))) (group format)
+               (version 1))))
+            ((id e197df38-d0e7-43b5-9b09-2842d0c326dd)
+             (attributes
+              ((name (((language en) (string "Web Comic")))) (group format)
+               (version 1))))))
+          (state published) (chapter_numbers_reset_on_new_volume false)
+          (created_at 2023-08-15T13:46:09+00:00)
+          (updated_at 2023-08-15T13:46:25+00:00) (version 2)
+          (available_translated_languages (pt-br))
+          (latest_uploaded_chapter (b22908e2-9741-4ad2-9d88-46251865b3d1))))
+        (relationships
+         (((id d4841445-2197-46f5-967b-8c4c3b949568) (type_ author))
+          ((id d4841445-2197-46f5-967b-8c4c3b949568) (type_ artist))
+          ((id 55083d61-fd37-4fb7-b0e3-af6a3b2a822b) (type_ cover_art))
+          ((id a77742b1-befd-49a4-bff5-1ad4e6b0ef7b) (type_ manga))
+          ((id f319d314-4310-4610-bcea-98c0128def1d) (type_ creator)))))
+       ((id a0d05d57-4a2c-4d4b-9aa6-7b99bed425ca)
+        (attributes
+         ((title
+           (((language en)
+             (string "Chainsaw Man - \"Big Smoke\" Fami (Doujinshi)"))))
+          (alt_titles ((((language en) (string "\"Big Smoke\" Fami")))))
+          (description
+           (((language en)
+             (string
+               "**Links:**\
+              \n- Alternative Official English - [X (Formerly Twitter)](https://twitter.com/ibumuc/status/1635626877283966979), [DeviantArt](https://www.deviantart.com/ibumuc/art/Big-Smoke-Fami-953575170)"))))
+          (is_locked false)
+          (links
+           (((provider engtl) (link https://www.pixiv.net/en/artworks/106218143))))
+          (original_language en) (last_volume ("")) (last_chapter (""))
+          (publication_demographic ()) (status completed) (year (2023))
+          (content_rating safe)
+          (tags
+           (((id 0234a31e-a729-4e28-9d6a-3f87c4966b9e)
+             (attributes
+              ((name (((language en) (string Oneshot)))) (group format)
+               (version 1))))
+            ((id b13b2a48-c720-44a9-9c77-39c9979373fb)
+             (attributes
+              ((name (((language en) (string Doujinshi)))) (group format)
+               (version 1))))
+            ((id e197df38-d0e7-43b5-9b09-2842d0c326dd)
+             (attributes
+              ((name (((language en) (string "Web Comic")))) (group format)
+               (version 1))))
+            ((id f5ba408b-0e7a-484d-8d49-4e9125ac96de)
+             (attributes
+              ((name (((language en) (string "Full Color")))) (group format)
+               (version 1))))))
+          (state published) (chapter_numbers_reset_on_new_volume false)
+          (created_at 2023-08-10T08:09:13+00:00)
+          (updated_at 2024-04-17T17:11:05+00:00) (version 8)
+          (available_translated_languages (pt-br))
+          (latest_uploaded_chapter (e2803114-0dcb-47c9-9aa5-4ad8c89b681a))))
+        (relationships
+         (((id d4841445-2197-46f5-967b-8c4c3b949568) (type_ author))
+          ((id d4841445-2197-46f5-967b-8c4c3b949568) (type_ artist))
+          ((id 51252aa4-3aba-4f9b-8d6d-2353a8a06ea5) (type_ cover_art))
+          ((id a77742b1-befd-49a4-bff5-1ad4e6b0ef7b) (type_ manga))
+          ((id f319d314-4310-4610-bcea-98c0128def1d) (type_ creator)))))
+       ((id b1d12720-49d7-4730-9945-1cd8737d97e4)
+        (attributes
+         ((title
+           (((language en)
+             (string "Chainsaw Man - Nayuta tries the Grimace Shake (Doujinshi)"))))
+          (alt_titles
+           ((((language en) (string "Nayuta tries the Grimace Shake")))))
+          (description
+           (((language en)
+             (string
+               "**Links:**\
+              \n- Alternative Official English - [X (Formerly Twitter)](https://twitter.com/ibumuc/status/1674455307379163136), [DeviantArt](https://www.deviantart.com/ibumuc/art/Nayuta-tries-the-Grimace-Shake-969460733)"))))
+          (is_locked false)
+          (links
+           (((provider engtl) (link https://www.pixiv.net/en/artworks/109460984))))
+          (original_language en) (last_volume ("")) (last_chapter (""))
+          (publication_demographic ()) (status completed) (year (2023))
+          (content_rating safe)
+          (tags
+           (((id 0234a31e-a729-4e28-9d6a-3f87c4966b9e)
+             (attributes
+              ((name (((language en) (string Oneshot)))) (group format)
+               (version 1))))
+            ((id b13b2a48-c720-44a9-9c77-39c9979373fb)
+             (attributes
+              ((name (((language en) (string Doujinshi)))) (group format)
+               (version 1))))
+            ((id e197df38-d0e7-43b5-9b09-2842d0c326dd)
+             (attributes
+              ((name (((language en) (string "Web Comic")))) (group format)
+               (version 1))))
+            ((id f5ba408b-0e7a-484d-8d49-4e9125ac96de)
+             (attributes
+              ((name (((language en) (string "Full Color")))) (group format)
+               (version 1))))))
+          (state published) (chapter_numbers_reset_on_new_volume false)
+          (created_at 2023-08-10T09:52:43+00:00)
+          (updated_at 2024-04-17T17:08:21+00:00) (version 5)
+          (available_translated_languages (pt-br))
+          (latest_uploaded_chapter (0c983695-15e1-4fd2-89f4-8c46d171e143))))
+        (relationships
+         (((id d4841445-2197-46f5-967b-8c4c3b949568) (type_ author))
+          ((id d4841445-2197-46f5-967b-8c4c3b949568) (type_ artist))
+          ((id e40361c0-0d95-4cbc-8255-5e6409351ded) (type_ cover_art))
+          ((id a77742b1-befd-49a4-bff5-1ad4e6b0ef7b) (type_ manga))
+          ((id f319d314-4310-4610-bcea-98c0128def1d) (type_ creator)))))
+       ((id 991e9f15-8368-4843-a78a-5605918f9c3e)
+        (attributes
+         ((title
+           (((language en) (string "Tatsuki Fujimoto Short Story Collection"))))
+          (alt_titles
+           ((((language en) (string "Tatsuki Fujimoto Short Stories")))
+            (((language ja-ro) (string "Fujimoto Tatsuki Tanpenshuu: 17-21")))
+            (((language ja-ro) (string "Fujimoto Tatsuki Tanpenshuu: 22-26")))
+            (((language ja-ro) (string "Fujimoto Tatsuki Tanpenshuu")))
+            (((language ru)
+              (string
+               "\208\145\208\190\208\187\208\181\208\183\208\189\209\140 \"\208\154\208\190\208\179\208\180\208\176 \209\143 \208\191\209\128\208\190\209\129\208\189\209\131\208\187\209\129\209\143, \209\130\208\190 \209\129\209\130\208\176\208\187 \208\180\208\181\208\178\208\190\209\135\208\186\208\190\208\184\204\134\"")))
+            (((language ru)
+              (string
+               "\208\160\208\176\208\191\209\129\208\190\208\180\208\184\209\143 \209\128\209\131\209\129\208\176\208\187\208\186\208\184")))
+            (((language ko)
+              (string
+               "\225\132\139\225\133\167\225\132\131\225\133\169\225\134\188\225\132\137\225\133\162\225\134\188\225\132\139\225\133\180 \225\132\139\225\133\165\225\134\171\225\132\130\225\133\181")))
+            (((language ja) (string "\227\130\183\227\130\171\227\130\175")))
+            (((language ja)
+              (string
+               "\228\186\136\232\168\128\227\129\174\227\131\138\227\131\166\227\130\191")))
+            (((language ja)
+              (string
+               "\228\186\186\233\173\154\227\131\169\227\131\149\227\130\154\227\130\189\227\131\134\227\130\153\227\130\163")))
+            (((language ja) (string "\229\166\186\227\129\174\229\167\137")))
+            (((language ja)
+              (string
+               "\228\189\144\227\128\133\230\156\168\227\129\143\227\130\147\227\129\139\227\130\153\233\138\131\229\188\190\230\173\162\227\130\129\227\129\159")))
+            (((language ja)
+              (string
+               "\229\186\173\227\129\171\227\129\175\228\186\140\231\190\189\227\131\139\227\131\175\227\131\136\227\131\170\227\129\139\227\130\153\227\129\132\227\129\159\227\128\130")))
+            (((language ja)
+              (string "\230\129\139\227\129\175\231\155\178\231\155\174")))
+            (((language ja)
+              (string
+               "\231\155\174\227\129\139\227\130\153\232\166\154\227\130\129\227\129\159\227\130\137\229\165\179\227\129\174\229\173\144\227\129\171\227\129\170\227\129\163\227\129\166\227\129\132\227\129\159\231\151\133")))
+            (((language ja)
+              (string
+               "\232\151\164\230\156\172\227\130\191\227\131\132\227\130\173\231\159\173\231\183\168\233\155\134")))
+            (((language fr) (string "Nayuta, l'enfant de la proph\195\169tie")))
+            (((language id) (string "Nayuta Si Anak Nubuat")))
+            (((language zh)
+              (string
+               "\229\166\185\229\166\185\231\154\132\229\167\144\229\167\144")))
+            (((language uk)
+              (string
+               "\208\161\209\130\208\176\209\128\209\136\208\176 \209\129\208\181\209\129\209\130\209\128\208\176 \208\188\208\181\208\189\209\136\208\190\209\151 \209\129\208\181\209\129\209\130\209\128\208\184")))
+            (((language zh)
+              (string
+               "\233\153\162\229\173\144\233\135\140\230\155\190\230\156\137\228\184\164\229\143\170\233\184\161")))
+            (((language en)
+              (string "\"When I Woke Up I had Become a Girl\" Disease")))
+            (((language ja-ro) (string "Niwa ni wa Niwa Niwatori ga Ita")))
+            (((language ja-ro) (string "Sasaki-kun ga Judan Tometa")))
+            (((language ja-ro) (string "Koi wa Moumoku")))
+            (((language ja-ro) (string Shikaku)))
+            (((language ja-ro) (string "Ningyo Rhapsody")))
+            (((language ja-ro)
+              (string "Me wo Sametara Onnanoko ni Natteita Byou")))
+            (((language ja-ro) (string "Yogen no Nayuta")))
+            (((language ja-ro) (string "Imouto no Ane")))
+            (((language en) (string "There were Two Chickens in the Garden")))
+            (((language en) (string "Sasaki-kun Has Stopped the Bullet")))
+            (((language en) (string "Love is Blind")))
+            (((language en) (string "Siren Rhapsody")))
+            (((language en) (string "Nayuta of the Prophecy")))
+            (((language en) (string "Little Sister's Elder Sister")))
+            (((language en)
+              (string "Tatsuki Fujimoto Before Chainsaw Man: 17-21, 22-26")))
+            (((language ro)
+              (string "Tatsuki Fujimoto \195\142nainte de Chainsaw Man")))))
+          (description
+           (((language en)
+             (string
+               "Collection of oneshots from author Tatsuki Fujimoto.\
+              \n\
+              \nVolume 1: 17-21\
+              \n\
+              \n- Chapter 1. **There were Two Chickens in the Garden (Niwa ni wa Niwa Niwatori ga Ita, \229\186\173\227\129\171\227\129\175\228\186\140\231\190\189\227\131\139\227\131\175\227\131\136\227\131\170\227\129\140\227\129\132\227\129\159\227\128\130)**\
+              \nA strange world where aliens have taken over the human world, and only two humans are left which are apparently disguising themselves as mere chickens.\
+              \n\
+              \n- Chapter 2. **Sasaki-kun Has Stopped the Bullet (Sasaki-kun ga Judan Tometa, \228\189\144\227\128\133\230\156\168\227\129\143\227\130\147\227\129\140\233\138\131\229\188\190\230\173\162\227\130\129\227\129\159)**\
+              \nTo Sasaki, his teacher Kawaguchi is God. She taught him not to be ashamed of his own dreams and made him feel fully capable to forge forward and make them come true, no matter how low the odds. Yet one day, trouble from Kawaguchi's past follows her into the classroom. With his god in danger of total humiliation, Sasaki sets out to protect his teacher using her very own teachings: to strive for the impossible.\
+              \n\
+              \n- Chapter 3. **Love is Blind (Koi wa Moumoku, \230\129\139\227\129\175\231\155\178\231\155\174)**\
+              \nA one-shot story about a boy that is blind to everything but love. Can he confess to his crush?\
+              \n\
+              \n- Chapter 4. **Shikaku (\227\130\183\227\130\171\227\130\175)**\
+              \nA notorious hit-man bites off more than they can chew when their newest target turns out to be holding a supernatural secret. Bullets fly and love is in the air.\
+              \n\
+              \nVolume 2: 22-26\
+              \n\
+              \n- Chapter 1. **Siren Rhapsody (Ningyo Rhapsody, \228\186\186\233\173\154\227\131\169\227\131\151\227\130\189\227\131\135\227\130\163)**\
+              \nIn a world where sirens are common, the protagonist is a hybrid of a human father and a mermaid mother. He's always playing the piano under the sea, when a strange siren approaches him\226\128\166\
+              \n\
+              \n- Chapter 2. **\"When I Woke Up I had Become a Girl\" Disease (Me wo Sametara Onnanoko ni Natteita Byou, \231\155\174\227\129\140\232\166\154\227\130\129\227\129\159\227\130\137\229\165\179\227\129\174\229\173\144\227\129\171\227\129\170\227\129\163\227\129\166\227\129\132\227\129\159\231\151\133)**\
+              \nA boy wakes up to discover he has become a girl! How will this affect his daily life?!\
+              \n\
+              \n- Chapter 3. **Nayuta of the Prophecy (Yogen no Nayuta, \228\186\136\232\168\128\227\129\174\227\131\138\227\131\166\227\130\191)**\
+              \nA tale about a prophecy involving a girl with horns who is said to bring destruction upon the world, and her brother.\
+              \n\
+              \n- Chapter 4. **Little Sister's Elder Sister (Imouto no Ane, \229\166\185\227\129\174\229\167\137)**\
+              \nA story about sisters aspiring to be artists."))))
+          (is_locked false)
+          (links
+           (((provider al) (link 139855))
+            ((provider ap) (link fujimoto-tatsuki-tanpenshuu-17-21))
+            ((provider bw) (link series/322921)) ((provider mu) (link 190368))
+            ((provider amz) (link https://www.amazon.co.jp/dp/B09DK7YSHP))
+            ((provider ebj) (link https://ebookjapan.yahoo.co.jp/books/658635/))
+            ((provider mal) (link 141214))
+            ((provider engtl)
+             (link
+              https://www.viz.com/read/manga/tatsuki-fujimoto-before-chainsaw-man/all))))
+          (original_language ja) (last_volume (2)) (last_chapter (4))
+          (publication_demographic (shounen)) (status completed) (year (2021))
+          (content_rating suggestive)
+          (tags
+           (((id 256c8bd9-4904-4360-bf4f-508a76d67183)
+             (attributes
+              ((name (((language en) (string Sci-Fi)))) (group genre)
+               (version 1))))
+            ((id 2bd2e8d0-f146-434a-9b51-fc9ff2c5fe6a)
+             (attributes
+              ((name (((language en) (string Genderswap)))) (group theme)
+               (version 1))))
+            ((id 391b0423-d847-456f-aff0-8b0cfc03066b)
+             (attributes
+              ((name (((language en) (string Action)))) (group genre)
+               (version 1))))
+            ((id 3b60b75c-a2d7-4860-ab56-05f391bb889c)
+             (attributes
+              ((name (((language en) (string Psychological)))) (group genre)
+               (version 1))))
+            ((id 423e2eae-a7a2-4a8b-ac03-a8351462d71d)
+             (attributes
+              ((name (((language en) (string Romance)))) (group genre)
+               (version 1))))
+            ((id 4d32cc48-9f00-4cca-9b5a-a839f0764984)
+             (attributes
+              ((name (((language en) (string Comedy)))) (group genre)
+               (version 1))))
+            ((id 51d83883-4103-437c-b4b1-731cb73d786c)
+             (attributes
+              ((name (((language en) (string Anthology)))) (group format)
+               (version 1))))
+            ((id b1e97889-25b4-4258-b28b-cd7f4d28ea9b)
+             (attributes
+              ((name (((language en) (string Philosophical)))) (group genre)
+               (version 1))))
+            ((id b9af3a63-f058-46de-a9a0-e0c13906197a)
+             (attributes
+              ((name (((language en) (string Drama)))) (group genre) (version 1))))
+            ((id caaa44eb-cd40-4177-b930-79d3ef2afe87)
+             (attributes
+              ((name (((language en) (string "School Life")))) (group theme)
+               (version 1))))
+            ((id e64f6742-c834-471d-8d72-dd51fc02b835)
+             (attributes
+              ((name (((language en) (string Aliens)))) (group theme)
+               (version 1))))
+            ((id eabc5b4c-6aff-42f3-b657-3e90cbd00b75)
+             (attributes
+              ((name (((language en) (string Supernatural)))) (group theme)
+               (version 1))))))
+          (state published) (chapter_numbers_reset_on_new_volume false)
+          (created_at 2022-02-12T10:14:03+00:00)
+          (updated_at 2023-06-29T16:36:43+00:00) (version 15)
+          (available_translated_languages
+           (en it uk fr ro ru zh zh-hk pt-br id ar es-la sr))
+          (latest_uploaded_chapter (29ee2003-8503-4a1b-aa08-697616407607))))
+        (relationships
+         (((id f85a5b93-3c87-4c61-9032-07ceacbb9e64) (type_ author))
+          ((id f85a5b93-3c87-4c61-9032-07ceacbb9e64) (type_ artist))
+          ((id 64c17e60-2abf-4d08-882a-1274b8216164) (type_ cover_art))
+          ((id 62aa2303-0f49-4a49-bcb5-9d3fa7bcbc75) (type_ creator)))))
+       ((id 192b2c21-e762-4927-8261-dc96adf11b0c)
+        (attributes
+         ((title (((language en) (string "Chainsaw Bomb")))) (alt_titles ())
+          (description ()) (is_locked false)
+          (links
+           (((provider engtl)
+             (link " twitter.com/xyanaid/status/1581616105109749760"))))
+          (original_language en) (last_volume ("")) (last_chapter (""))
+          (publication_demographic ()) (status ongoing) (year ())
+          (content_rating safe)
+          (tags
+           (((id 423e2eae-a7a2-4a8b-ac03-a8351462d71d)
+             (attributes
+              ((name (((language en) (string Romance)))) (group genre)
+               (version 1))))
+            ((id 92d6d951-ca5e-429c-ac78-451071cbf064)
+             (attributes
+              ((name (((language en) (string "Office Workers")))) (group theme)
+               (version 1))))
+            ((id b13b2a48-c720-44a9-9c77-39c9979373fb)
+             (attributes
+              ((name (((language en) (string Doujinshi)))) (group format)
+               (version 1))))
+            ((id b9af3a63-f058-46de-a9a0-e0c13906197a)
+             (attributes
+              ((name (((language en) (string Drama)))) (group genre) (version 1))))
+            ((id e197df38-d0e7-43b5-9b09-2842d0c326dd)
+             (attributes
+              ((name (((language en) (string "Web Comic")))) (group format)
+               (version 1))))))
+          (state published) (chapter_numbers_reset_on_new_volume false)
+          (created_at 2023-04-11T14:12:02+00:00)
+          (updated_at 2023-06-30T21:20:02+00:00) (version 9)
+          (available_translated_languages (pt-br))
+          (latest_uploaded_chapter (55d7a5b1-43c0-4a2f-ba0f-46e0d0f9e97d))))
+        (relationships
+         (((id acd072a8-0dfa-41ee-9a54-e7089ec7e469) (type_ author))
+          ((id acd072a8-0dfa-41ee-9a54-e7089ec7e469) (type_ artist))
+          ((id e4575166-d266-4a19-9c73-b8afce42703b) (type_ cover_art))
+          ((id 53840f5d-892d-4b0e-972d-1a20aa185a25) (type_ creator)))))
+       ((id 8d5d7c3b-eb95-4e58-838f-4da6c2cbee1f)
+        (attributes
+         ((title
+           (((language en)
+             (string
+              "Chainsaw Man - The Story of Himeno, Aki and Tobacco (Doujinshi)"))))
+          (alt_titles
+           ((((language en) (string "The Story of Himeno, Aki and Tobacco")))
+            (((language uk)
+              (string
+               "\208\134\209\129\209\130\208\190\209\128\209\150\209\143 \208\165\209\150\208\188\208\181\208\189\208\190, \208\144\208\186\209\150 \209\130\208\176 \208\162\209\142\209\130\209\142\208\189\209\131")))
+            (((language fr) (string "L'histoire d'Himeno, Aki et le Tabac")))))
+          (description
+           (((language en)
+             (string
+              "A short comic by ebanoniwa detailing the relationship between Himeno and Aki from the series Chainsaw Man"))
+            ((language fr)
+             (string
+              "Une histoire courte par ebaniniwa d\195\169taillant la relation entre Himeno et Aki de Chainsaw Man"))))
+          (is_locked false) (links ()) (original_language ja) (last_volume (""))
+          (last_chapter ("")) (publication_demographic ()) (status completed)
+          (year ()) (content_rating safe)
+          (tags
+           (((id 0234a31e-a729-4e28-9d6a-3f87c4966b9e)
+             (attributes
+              ((name (((language en) (string Oneshot)))) (group format)
+               (version 1))))
+            ((id 4d32cc48-9f00-4cca-9b5a-a839f0764984)
+             (attributes
+              ((name (((language en) (string Comedy)))) (group genre)
+               (version 1))))
+            ((id b13b2a48-c720-44a9-9c77-39c9979373fb)
+             (attributes
+              ((name (((language en) (string Doujinshi)))) (group format)
+               (version 1))))
+            ((id b9af3a63-f058-46de-a9a0-e0c13906197a)
+             (attributes
+              ((name (((language en) (string Drama)))) (group genre) (version 1))))
+            ((id dd1f77c5-dea9-4e2b-97ae-224af09caf99)
+             (attributes
+              ((name (((language en) (string "Monster Girls")))) (group theme)
+               (version 1))))
+            ((id df33b754-73a3-4c54-80e6-1a74a8058539)
+             (attributes
+              ((name (((language en) (string Police)))) (group theme)
+               (version 1))))
+            ((id eabc5b4c-6aff-42f3-b657-3e90cbd00b75)
+             (attributes
+              ((name (((language en) (string Supernatural)))) (group theme)
+               (version 1))))))
+          (state published) (chapter_numbers_reset_on_new_volume false)
+          (created_at 2020-08-01T20:28:13+00:00)
+          (updated_at 2024-03-29T11:02:44+00:00) (version 4)
+          (available_translated_languages (en pt-br fr))
+          (latest_uploaded_chapter (b6bc5ec9-c78d-4f0d-a035-3555bb0283ea))))
+        (relationships
+         (((id bc4b28b0-c6c8-4f0f-a89b-3883c5989e6e) (type_ author))
+          ((id bc4b28b0-c6c8-4f0f-a89b-3883c5989e6e) (type_ artist))
+          ((id 0b739bbc-a1b0-4f8e-baa0-40615c7c2a94) (type_ cover_art))
+          ((id a77742b1-befd-49a4-bff5-1ad4e6b0ef7b) (type_ manga)))))
+       ((id cbc6ca3b-e658-48d0-a19c-4acd28c95a54)
+        (attributes
+         ((title
+           (((language en) (string "Chimamire Sukeban Chainsaw: reflesh"))))
+          (alt_titles
+           ((((language ja)
+              (string
+               "\232\161\128\227\129\190\227\129\191\227\130\140\227\130\185\227\130\177\227\131\144\227\131\179\227\131\129\227\130\167\227\131\188\227\131\179\227\130\189\227\131\188reflesh")))))
+          (description
+           (((language en) (string "The sequel to Chimamire Sukeban Chainsaw."))))
+          (is_locked false)
+          (links
+           (((provider al) (link 111331))
+            ((provider ap) (link chimamire-sukeban-chainsaw-reflesh))
+            ((provider bw) (link series/191796)) ((provider kt) (link 57294))
+            ((provider mu) (link 149911))
+            ((provider amz)
+             (link
+              https://www.amazon.co.jp/%E8%A1%80%E3%81%BE%E3%81%BF%E3%82%8C%E3%82%B9%E3%82%B1%E3%83%90%E3%83%B3%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%82%BD%E3%83%BCreflesh-1-%E3%83%93%E3%83%BC%E3%83%A0%E3%82%B3%E3%83%9F%E3%83%83%E3%82%AF%E3%82%B9-%E4%B8%89%E5%AE%B6%E6%9C%AC-%E7%A4%BC/dp/4047355305))
+            ((provider mal) (link 114988))))
+          (original_language ja) (last_volume (2)) (last_chapter (13))
+          (publication_demographic (seinen)) (status completed) (year (2018))
+          (content_rating suggestive)
+          (tags
+           (((id 391b0423-d847-456f-aff0-8b0cfc03066b)
+             (attributes
+              ((name (((language en) (string Action)))) (group genre)
+               (version 1))))
+            ((id 4d32cc48-9f00-4cca-9b5a-a839f0764984)
+             (attributes
+              ((name (((language en) (string Comedy)))) (group genre)
+               (version 1))))
+            ((id b9af3a63-f058-46de-a9a0-e0c13906197a)
+             (attributes
+              ((name (((language en) (string Drama)))) (group genre) (version 1))))
+            ((id caaa44eb-cd40-4177-b930-79d3ef2afe87)
+             (attributes
+              ((name (((language en) (string "School Life")))) (group theme)
+               (version 1))))
+            ((id cdad7e68-1419-41dd-bdce-27753074a640)
+             (attributes
+              ((name (((language en) (string Horror)))) (group genre)
+               (version 1))))
+            ((id eabc5b4c-6aff-42f3-b657-3e90cbd00b75)
+             (attributes
+              ((name (((language en) (string Supernatural)))) (group theme)
+               (version 1))))))
+          (state published) (chapter_numbers_reset_on_new_volume false)
+          (created_at 2019-07-18T22:38:18+00:00)
+          (updated_at 2023-07-01T16:08:22+00:00) (version 4)
+          (available_translated_languages (es en))
+          (latest_uploaded_chapter (0dc9c5d7-5e82-422c-aa26-430b29f1b749))))
+        (relationships
+         (((id 75771336-6930-4099-89fb-2bd828352be5) (type_ author))
+          ((id 75771336-6930-4099-89fb-2bd828352be5) (type_ artist))
+          ((id 213fd677-25c9-4f37-9f14-e909adeac17e) (type_ cover_art))
+          ((id a617aa30-0977-4b3f-8234-72dea955e326) (type_ manga)))))
+       ((id a617aa30-0977-4b3f-8234-72dea955e326)
+        (attributes
+         ((title (((language en) (string "Chimamire Sukeban Chainsaw"))))
+          (alt_titles
+           ((((language en) (string "Bloody Delinquent Chainsaw")))
+            (((language en) (string "Bloody Delinquent Girl Chainsaw")))
+            (((language en) (string "The Bloody Sukeban Chainsaw")))
+            (((language ja)
+              (string
+               "\232\161\128\227\129\190\227\129\191\227\130\140\227\130\185\227\130\177\227\131\144\227\131\179\227\131\129\227\130\167\227\131\188\227\131\179\227\130\189\227\131\188")))))
+          (description
+           (((language en)
+             (string
+               "Geeko's weird, creepy, friendless classmate Nero has destroyed all of their mutual classmates, perverting them into her grotesque, monstrous minions. Now she's sending them after Geeko, the only survivor. However, Geeko is setting out, dressed in her skimpy school uniform and armed with a big chainsaw, to end Nero's mad science, no matter how many undead former friends she has to saw down on the way.  \
+              \n  \
+              \nInspired two live action films."))))
+          (is_locked false)
+          (links
+           (((provider al) (link 87407))
+            ((provider ap) (link chimamire-sukeban-chainsaw))
+            ((provider bw) (link series/17288)) ((provider kt) (link 37754))
+            ((provider mu) (link 48700))
+            ((provider amz) (link https://www.amazon.co.jp/dp/B00KYFFD3A/))
+            ((provider cdj) (link http://www.cdjapan.co.jp/product/NEOBK-718398))
+            ((provider ebj)
+             (link https://ebookjapan.yahoo.co.jp/books/247629/A000279191/))
+            ((provider mal) (link 92933))))
+          (original_language ja) (last_volume (13)) (last_chapter (89))
+          (publication_demographic (seinen)) (status completed) (year (2009))
+          (content_rating suggestive)
+          (tags
+           (((id 391b0423-d847-456f-aff0-8b0cfc03066b)
+             (attributes
+              ((name (((language en) (string Action)))) (group genre)
+               (version 1))))
+            ((id 4d32cc48-9f00-4cca-9b5a-a839f0764984)
+             (attributes
+              ((name (((language en) (string Comedy)))) (group genre)
+               (version 1))))
+            ((id 631ef465-9aba-4afb-b0fc-ea10efe274a8)
+             (attributes
+              ((name (((language en) (string Zombies)))) (group theme)
+               (version 1))))
+            ((id b9af3a63-f058-46de-a9a0-e0c13906197a)
+             (attributes
+              ((name (((language en) (string Drama)))) (group genre) (version 1))))
+            ((id caaa44eb-cd40-4177-b930-79d3ef2afe87)
+             (attributes
+              ((name (((language en) (string "School Life")))) (group theme)
+               (version 1))))
+            ((id cdad7e68-1419-41dd-bdce-27753074a640)
+             (attributes
+              ((name (((language en) (string Horror)))) (group genre)
+               (version 1))))
+            ((id eabc5b4c-6aff-42f3-b657-3e90cbd00b75)
+             (attributes
+              ((name (((language en) (string Supernatural)))) (group theme)
+               (version 1))))))
+          (state published) (chapter_numbers_reset_on_new_volume false)
+          (created_at 2018-11-29T12:46:35+00:00)
+          (updated_at 2023-07-01T16:11:18+00:00) (version 4)
+          (available_translated_languages (en es))
+          (latest_uploaded_chapter (272748a2-c542-4cb4-ba2a-39d1a685934a))))
+        (relationships
+         (((id 75771336-6930-4099-89fb-2bd828352be5) (type_ author))
+          ((id 75771336-6930-4099-89fb-2bd828352be5) (type_ artist))
+          ((id 1a9436a0-1944-4f46-bf72-57da24b92bd1) (type_ cover_art))
+          ((id cbc6ca3b-e658-48d0-a19c-4acd28c95a54) (type_ manga)))))
+       ((id c46455c3-86ec-420d-90f6-4c60a3c6cc93)
+        (attributes
+         ((title (((language en) (string "Saitama Chainsaw Girl"))))
+          (alt_titles
+           ((((language ja-ro) (string "Saitama Chainsaw Shoujo")))
+            (((language ja)
+              (string
+               "\227\129\149\227\129\132\227\129\159\227\129\190\227\131\129\227\130\167\227\131\188\227\131\179\227\130\189\227\131\188\229\176\145\229\165\179")))
+            (((language en) (string "Saitama Chainsaw Massacre")))
+            (((language uk)
+              (string
+               "\208\148\209\150\208\178\209\135\208\184\208\189\208\186\208\176 \208\183 \208\177\208\181\208\189\208\183\208\190\208\191\208\184\208\187\208\190\209\142 \208\161\208\176\208\185\209\130\208\176\208\188\208\176")))))
+          (description
+           (((language en)
+             (string
+              "Kirisaki Fumio's just a highschool girl in love... but then she finds out that the guy she's fallen for happens to love someone else. So she decides to go out and get a chainsaw. And take it to school. And then many things happen."))))
+          (is_locked false)
+          (links
+           (((provider al) (link 42672))
+            ((provider ap) (link saitama-chainsaw-shoujo))
+            ((provider bw) (link series/2703)) ((provider kt) (link 23078))
+            ((provider mu) (link 31393))
+            ((provider amz) (link https://www.amazon.co.jp/dp/B071JXTJQ9))
+            ((provider ebj)
+             (link https://ebookjapan.yahoo.co.jp/books/210027/A000218403/))
+            ((provider mal) (link 12672))))
+          (original_language ja) (last_volume (1)) (last_chapter (6))
+          (publication_demographic (shounen)) (status completed) (year (2008))
+          (content_rating safe)
+          (tags
+           (((id 391b0423-d847-456f-aff0-8b0cfc03066b)
+             (attributes
+              ((name (((language en) (string Action)))) (group genre)
+               (version 1))))
+            ((id 3b60b75c-a2d7-4860-ab56-05f391bb889c)
+             (attributes
+              ((name (((language en) (string Psychological)))) (group genre)
+               (version 1))))
+            ((id 4d32cc48-9f00-4cca-9b5a-a839f0764984)
+             (attributes
+              ((name (((language en) (string Comedy)))) (group genre)
+               (version 1))))
+            ((id b9af3a63-f058-46de-a9a0-e0c13906197a)
+             (attributes
+              ((name (((language en) (string Drama)))) (group genre) (version 1))))
+            ((id caaa44eb-cd40-4177-b930-79d3ef2afe87)
+             (attributes
+              ((name (((language en) (string "School Life")))) (group theme)
+               (version 1))))
+            ((id e64f6742-c834-471d-8d72-dd51fc02b835)
+             (attributes
+              ((name (((language en) (string Aliens)))) (group theme)
+               (version 1))))))
+          (state published) (chapter_numbers_reset_on_new_volume false)
+          (created_at 2018-01-29T00:53:48+00:00)
+          (updated_at 2022-08-12T11:34:01+00:00) (version 5)
+          (available_translated_languages (pt-br en pl))
+          (latest_uploaded_chapter (b7127cbd-4356-4d5b-9c4d-2b009a53f2cd))))
+        (relationships
+         (((id 45b03d27-379e-4867-bfbc-e6dfa21ae25d) (type_ author))
+          ((id 83debbf9-1d08-449c-9fb3-d952fdb280cf) (type_ artist))
+          ((id dfcb2a59-6ef9-4fe5-96f6-a595ca26fbea) (type_ cover_art)))))
+       ((id e14995ea-47c5-4a0c-8438-4ce184d3353c)
+        (attributes
+         ((title (((language en) (string "Lollipop Chainsaw"))))
+          (alt_titles
+           ((((language ja)
+              (string
+               "\227\131\173\227\131\170\227\131\157\227\131\131\227\131\151\227\131\129\227\130\167\227\131\188\227\131\179\227\130\189\227\131\188")))))
+          (description ()) (is_locked false)
+          (links
+           (((provider mu) (link 81054))
+            ((provider amz) (link https://www.amazon.co.jp/dp/4047287172))
+            ((provider cdj)
+             (link https://www.cdjapan.co.jp/product/NEOBK-1409355))
+            ((provider raw)
+             (link https://www.kadokawa.co.jp/product/201212000044/))))
+          (original_language ja) (last_volume ("")) (last_chapter (""))
+          (publication_demographic (shounen)) (status completed) (year (2013))
+          (content_rating suggestive)
+          (tags
+           (((id 391b0423-d847-456f-aff0-8b0cfc03066b)
+             (attributes
+              ((name (((language en) (string Action)))) (group genre)
+               (version 1))))
+            ((id cdad7e68-1419-41dd-bdce-27753074a640)
+             (attributes
+              ((name (((language en) (string Horror)))) (group genre)
+               (version 1))))))
+          (state published) (chapter_numbers_reset_on_new_volume false)
+          (created_at 2018-09-08T22:32:44+00:00)
+          (updated_at 2023-09-20T02:40:33+00:00) (version 6)
+          (available_translated_languages ()) (latest_uploaded_chapter ())))
+        (relationships
+         (((id 20cd56ee-a717-4ff2-a345-d079fe1fb456) (type_ author))
+          ((id 79d4c1a3-77eb-4537-8b97-11790308db33) (type_ author))
+          ((id d849f1cb-b8b4-4a21-8dcd-5dad343b627e) (type_ author))
+          ((id c8e7743d-522e-476e-842d-2c5e90d5d702) (type_ artist))
+          ((id 5d6acf2e-d446-4c9e-b438-32323c274783) (type_ cover_art)))))))
+     (limit 100) (offset 0) (total 14))
     |}]
 ;;

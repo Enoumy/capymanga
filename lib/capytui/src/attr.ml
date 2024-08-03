@@ -8,6 +8,7 @@ let italic = Notty.A.st Notty.A.italic
 let underline = Notty.A.st Notty.A.underline
 let blink = Notty.A.st Notty.A.blink
 let reverse = Notty.A.st Notty.A.reverse
+let empty = many []
 
 module Color = struct
   type t = Notty.A.color

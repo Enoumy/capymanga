@@ -133,7 +133,8 @@ module Manga = struct
       ; version : int
       ; available_translated_languages : string list
            [@key "availableTranslatedLanguages"]
-      ; latest_uploaded_chapter : Chapter_id.t [@key "latestUploadedChapter"]
+      ; latest_uploaded_chapter : Chapter_id.t option
+           [@key "latestUploadedChapter"]
       }
     [@@deriving sexp, yojson] [@@yojson.allow_extra_fields]
   end

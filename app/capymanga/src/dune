@@ -1,5 +1,12 @@
 (library
  (name capymanga)
- (libraries core bonsai notty capytui capytui_catpuccin mangadex_api)
+ (libraries
+  core
+  bonsai
+  notty
+  capytui
+  capytui_catpuccin
+  mangadex_api
+  bonsai.extra)
  (preprocess
   (pps ppx_jane bonsai.ppx_bonsai)))
