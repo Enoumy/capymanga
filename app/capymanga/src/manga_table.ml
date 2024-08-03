@@ -114,9 +114,15 @@ let table ~textbox_is_focused manga_collection =
     fun (event : Event.t) ->
       (* TODO: Implement a page scroller, maybe with an offset. *)
       match event with
-      | `Mouse _ | `Paste _ -> Effect.Ignore
-      | `Key (`ASCII 'k', []) | `Key (`Arrow `Up, []) -> inject_focus Up
-      | `Key (`ASCII 'j', []) | `Key (`Arrow `Down, []) -> inject_focus Down
+      | `Key (`ASCII 'k', [])
+      | `Key (`Arrow `Up, [])
+      | `Mouse (`Press (`Scroll `Up), _, _) ->
+        (* TODO: Implement mouse support... *)
+        inject_focus Up
+      | `Key (`ASCII 'j', [])
+      | `Key (`Arrow `Down, [])
+      | `Mouse (`Press (`Scroll `Down), _, _) ->
+        inject_focus Down
       | `Key (`ASCII 'G', []) -> inject_focus Bottom
       | `Key (`ASCII 'g', []) -> inject_focus Top
       | _ -> inject_focus Other_key_pressed

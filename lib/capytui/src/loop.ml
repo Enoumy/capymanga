@@ -6,7 +6,8 @@ open Async
 
 let clear_images () =
   let _ : _ =
-    Sys_unix.command "kitten  icat --clear --silent >/dev/tty </dev/tty"
+    Sys_unix.command
+      "kitten  icat --clear --silent >/dev/tty </dev/tty 2>/dev/null"
   in
   ()
 ;;
@@ -24,7 +25,7 @@ let draw_command_for_image
         ]
       ]
   in
-  String.concat ~sep:" " args ^ " >/dev/tty </dev/tty"
+  String.concat ~sep:" " args ^ " >/dev/tty </dev/tty 2>/dev/null"
 ;;
 
 let draw_images images =
