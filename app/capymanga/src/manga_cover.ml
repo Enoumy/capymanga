@@ -69,6 +69,7 @@ let component
           let%arr filename = filename
           and manga_id = manga_id
           and dimensions = dimensions in
+          (* let _ : _ = *)
           Some
             { Image.url =
                 [%string
@@ -76,10 +77,10 @@ let component
             ; row = 0
             ; column = dimensions.Dimensions.width / 2
             ; dimensions =
-                { width = dimensions.width / 2
-                ; height = dimensions.height / 2
-                }
+                { width = dimensions.width / 2; height = dimensions.height }
             ; scale = true
             }
+        (* in *)
+        (* None *)
         | _ -> Bonsai.const None))
 ;;
