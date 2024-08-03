@@ -5,19 +5,6 @@ open Bonsai.Let_syntax
 open Mangadex_api.Types
 
 let cover_filename ~cover_id =
-  let%sub cover_id =
-    let%sub bounced =
-      Bonsai_extra.value_stability
-        ~equal:[%equal: string]
-        ~time_to_stable:(Value.return (Time_ns.Span.of_sec 0.2))
-        cover_id
-    in
-    match%sub bounced with
-    | Stable x -> Bonsai.read x
-    | Unstable { previously_stable = Some x; _ } -> Bonsai.read x
-    | Unstable { previously_stable = None; unstable_value } ->
-      Bonsai.read unstable_value
-  in
   let%sub state, set_state = Bonsai.state_opt () in
   let%sub effect =
     Bonsai.const

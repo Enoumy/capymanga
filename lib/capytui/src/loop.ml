@@ -1,40 +1,46 @@
+let _exit = Unix._exit
+
 open! Core
 open Bonsai
 open Async
 
 let clear_images () =
-  let%bind _ : _ =
-    Async.Sys.command
+  let _ : _ =
+    Sys_unix.command
       "kitten  icat --clear --silent >/dev/tty </dev/tty 2>/dev/null"
   in
-  Deferred.return ()
+  ()
+;;
+
+let draw_command_for_image
+  { Image.row; column; url; dimensions = { height; width }; scale }
+  =
+  let args =
+    List.concat
+      [ [ "kitten"; "icat"; "--silent" ]
+      ; (if scale then [ "--scale-up" ] else [])
+      ; [ "--place"
+        ; [%string "'%{width#Int}x%{height#Int}@%{column#Int}x%{row#Int}'"]
+        ; [%string "'%{url}'"]
+        ]
+      ]
+  in
+  String.concat ~sep:" " args ^ " >/dev/tty </dev/tty 2>/dev/null"
 ;;
 
 let draw_images images =
   (* TODO: Currently drawing images is really slow and blocks user input. *)
-  let%bind () = if true then clear_images () else Deferred.return () in
-  Deferred.List.iter
-    ~how:`Sequential
-    images
-    ~f:
-      (fun
-        { Image.row; column; url; dimensions = { height; width }; scale } ->
-      let args =
-        List.concat
-          [ [ "kitten"; "icat"; "--silent" ]
-          ; (if scale then [ "--scale-up" ] else [])
-          ; [ "--place"
-            ; [%string
-                "'%{width#Int}x%{height#Int}@%{column#Int}x%{row#Int}'"]
-            ; [%string "'%{url}'"]
-            ]
-          ]
-      in
-      let%bind _ : _ =
-        Async.Sys.command
-          (String.concat ~sep:" " args ^ " >/dev/tty </dev/tty 2>/dev/null")
-      in
-      return ())
+  if true then clear_images ();
+  match images with
+  | [] -> None
+  | images ->
+    (* (match Core_unix.fork () with *)
+    (*  | `In_the_parent pid -> Some pid *)
+    (*  | `In_the_child -> *)
+    List.iter images ~f:(fun image ->
+      let _ : _ = Sys_unix.command (draw_command_for_image image) in
+      ());
+    None
 ;;
 
 let start
@@ -62,8 +68,8 @@ let start
   in
   Bonsai_driver.flush driver;
   Bonsai_driver.trigger_lifecycles driver;
-  let rec go is_first_frame : unit Deferred.t =
-    let go () = go false in
+  let rec go ~is_first_frame ~draw_process_pid : unit Deferred.t =
+    let go ~draw_process_pid = go ~is_first_frame:false ~draw_process_pid in
     let frame_start_time = Time_ns.now () in
     let () = State_management.For_clock.advance_to clock frame_start_time
     and () = State_management.For_dimensions.update dimensions_manager in
@@ -72,19 +78,23 @@ let start
     let%tydi { result = (node, images) as result; broadcast_event } =
       Bonsai_driver.result driver
     in
+    Option.iter draw_process_pid ~f:(fun draw_process_pid ->
+      let _ : _ = Signal_unix.send Signal.kill (`Pid draw_process_pid) in
+      ());
     (* TODO: Implement proper diffing + patching. This is only really needed
        for high latency input devices (e.g. my WSL laptop). *)
     let node_changed =
       is_first_frame || not (phys_equal (fst result) (fst prev_result))
     in
     if node_changed then Term.image term node;
-    let%bind () =
+    let draw_process_pid : Pid.t option =
       if node_changed
          || is_first_frame
          || not ([%equal: Image.t list] (snd result) (snd prev_result))
       then draw_images images
-      else Deferred.return ()
+      else None
     in
+    let go () = go ~draw_process_pid in
     Bonsai_driver.trigger_lifecycles driver;
     let%bind () = Async.Scheduler.yield () in
     let time_taken = Time_ns.diff (Time_ns.now ()) frame_start_time in
@@ -113,7 +123,7 @@ let start
       go () [@tail]
     | `Timer -> go () [@tail]
   in
-  let%bind () = go true in
+  let%bind () = go ~is_first_frame:true ~draw_process_pid:None in
   Term.release term;
   Deferred.return ()
 ;;
