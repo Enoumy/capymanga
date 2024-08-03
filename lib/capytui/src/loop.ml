@@ -43,6 +43,8 @@ let draw_images images =
     None
 ;;
 
+(* _exit 0) *)
+
 let start
   { Start_params.dispose
   ; nosig
@@ -74,7 +76,15 @@ let start
     let () = State_management.For_clock.advance_to clock frame_start_time
     and () = State_management.For_dimensions.update dimensions_manager in
     let%tydi { result = prev_result; _ } = Bonsai_driver.result driver in
+    (* XXX: AAAAAAH This makes images faster?? *)
     Bonsai_driver.flush driver;
+    Bonsai_driver.trigger_lifecycles driver;
+    Bonsai_driver.flush driver;
+    Bonsai_driver.trigger_lifecycles driver;
+    Bonsai_driver.flush driver;
+    Bonsai_driver.trigger_lifecycles driver;
+    Bonsai_driver.flush driver;
+    Bonsai_driver.trigger_lifecycles driver;
     let%tydi { result = (node, images) as result; broadcast_event } =
       Bonsai_driver.result driver
     in
@@ -95,7 +105,6 @@ let start
       else None
     in
     let go () = go ~draw_process_pid in
-    Bonsai_driver.trigger_lifecycles driver;
     let%bind () = Async.Scheduler.yield () in
     let time_taken = Time_ns.diff (Time_ns.now ()) frame_start_time in
     let delay = Time_ns.Span.(max zero (target_delay - time_taken)) in
