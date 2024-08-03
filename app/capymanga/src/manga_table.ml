@@ -101,7 +101,6 @@ module Action = struct
   ;;
 end
 
-(* XXX: The textbox should not disappear if there's an error. *)
 let table ~textbox_is_focused manga_collection =
   let%sub { Action.focus; last_top_press = _ }, inject_focus =
     let%sub time_source = Bonsai.Incr.with_clock Ui_incr.return in
