@@ -83,7 +83,7 @@ module Manga : sig
       ; created_at : string
       ; updated_at : string
       ; version : int
-      ; available_translated_languages : string list
+      ; available_translated_languages : string option list
       ; latest_uploaded_chapter : Chapter_id.t option
       }
     [@@deriving sexp, yojson]

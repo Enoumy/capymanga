@@ -11,7 +11,7 @@ let clear_images () =
 
 let draw_images images =
   (* TODO: Currently drawing images is really slow and blocks user input. *)
-  let%bind () = if false then clear_images () else Deferred.return () in
+  let%bind () = if true then clear_images () else Deferred.return () in
   Deferred.List.iter
     ~how:`Sequential
     images

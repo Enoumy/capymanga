@@ -2,4 +2,13 @@ open! Core
 open Bonsai
 open Capytui
 
-val component : (Node.t * Image.t list) Computation.t
+type t =
+  { view : Node.t
+  ; images : Image.t list
+  ; handler : Event.t -> unit Effect.t
+  }
+
+val component
+  :  textbox_is_focused:bool Value.t
+  -> manga_title:string Value.t
+  -> t Computation.t

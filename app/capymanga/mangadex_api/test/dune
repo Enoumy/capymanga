@@ -11,6 +11,7 @@
   %{bin:ocaml-embed-file}
   ./dummy_search_response.json
   ./big_response.json
-  ./big_response2.json)
+  ./big_response2.json
+  ./big_response3.json)
  (action
   (bash "%{deps} -output embedded_files")))

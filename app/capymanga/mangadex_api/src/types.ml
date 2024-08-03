@@ -133,7 +133,7 @@ module Manga = struct
       ; created_at : string [@key "createdAt"]
       ; updated_at : string [@key "updatedAt"]
       ; version : int
-      ; available_translated_languages : string list
+      ; available_translated_languages : string option list
            [@key "availableTranslatedLanguages"]
       ; latest_uploaded_chapter : Chapter_id.t option
            [@key "latestUploadedChapter"]

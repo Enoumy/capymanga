@@ -15,7 +15,7 @@ type action =
   | Backspace
   | Clear
 
-let component ~is_focused =
+let component ?(extra_attrs = Value.return []) ~is_focused =
   let%sub string, inject =
     Bonsai.state_machine0 (* TODO: Implement cursor. *)
       ~default_model:""
@@ -51,10 +51,13 @@ let component ~is_focused =
     let%sub text = Text.component in
     let%arr string = string
     and text = text
-    and is_focused = is_focused in
+    and is_focused = is_focused
+    and extra_attrs = extra_attrs in
     Node.hcat
-      [ text string
-      ; (if is_focused then text ~attrs:[ Attr.reverse ] " " else Node.none)
+      [ text ~attrs:extra_attrs string
+      ; (if is_focused
+         then text ~attrs:[ Attr.reverse; Attr.blink ] " "
+         else Node.none)
       ]
   in
   let%arr string = string

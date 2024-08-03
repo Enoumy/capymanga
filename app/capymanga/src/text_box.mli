@@ -8,4 +8,7 @@ type t =
   ; handler : Event.t -> unit Effect.t
   }
 
-val component : is_focused:bool Value.t -> t Computation.t
+val component
+  :  ?extra_attrs:Attr.t list Value.t
+  -> is_focused:bool Value.t
+  -> t Computation.t

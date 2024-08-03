@@ -5,6 +5,12 @@ open Bonsai.Let_syntax
 module Catpuccin = Capytui_catpuccin
 open Mangadex_api.Types
 
+type t =
+  { view : Node.t
+  ; images : Image.t list
+  ; handler : Event.t -> unit Effect.t
+  }
+
 let manga_list title =
   let%sub title =
     let%sub bounced =
@@ -96,14 +102,7 @@ module Action = struct
 end
 
 (* XXX: The textbox should not disappear if there's an error. *)
-let table
-  ~set_textbox_focus
-  ~textbox_is_focused
-  ~textbox_view
-  ~textbox_handler
-  ~title
-  manga_collection
-  =
+let table ~textbox_is_focused manga_collection =
   let%sub { Action.focus; last_top_press = _ }, inject_focus =
     let%sub time_source = Bonsai.Incr.with_clock Ui_incr.return in
     Bonsai.state_machine1
@@ -111,43 +110,20 @@ let table
       ~apply_action:Action.apply_action
       (Value.both manga_collection time_source)
   in
-  let%sub () =
-    let%sub callback =
-      let%arr inject_focus = inject_focus
-      and textbox_is_focused = textbox_is_focused
-      and textbox_handler = textbox_handler
-      and set_textbox_focus = set_textbox_focus in
-      let normal_handler (event : Event.t) =
-        (* TODO: Implement a page scroller, maybe with an offset. *)
-        match event with
-        | `Mouse _ | `Paste _ -> Effect.Ignore
-        | `Key (`ASCII 'k', []) | `Key (`Arrow `Up, []) -> inject_focus Up
-        | `Key (`ASCII 'j', []) | `Key (`Arrow `Down, []) ->
-          inject_focus Down
-        | `Key (`ASCII 'G', []) -> inject_focus Bottom
-        | `Key (`ASCII 'g', []) -> inject_focus Top
-        | _ -> inject_focus Other_key_pressed
-      in
-      fun event ->
-        if textbox_is_focused
-        then (
-          match event with
-          | `Key (`Escape, []) | `Key (`Enter, []) -> set_textbox_focus false
-          | _ -> textbox_handler event)
-        else (
-          match event with
-          | `Key (`ASCII '/', []) | `Key (`ASCII ('s' | 'S'), [ `Ctrl ]) ->
-            set_textbox_focus true
-          | _ -> normal_handler event)
-    in
-    (* TODO: Make this be a global handler that nicely keeps track of the
-       active keybindings and shows a nice menu with them. Maybe a higher
-       level library. *)
-    Capytui.listen_to_events callback
+  let%sub handler =
+    let%arr inject_focus = inject_focus in
+    fun (event : Event.t) ->
+      (* TODO: Implement a page scroller, maybe with an offset. *)
+      match event with
+      | `Mouse _ | `Paste _ -> Effect.Ignore
+      | `Key (`ASCII 'k', []) | `Key (`Arrow `Up, []) -> inject_focus Up
+      | `Key (`ASCII 'j', []) | `Key (`Arrow `Down, []) -> inject_focus Down
+      | `Key (`ASCII 'G', []) -> inject_focus Bottom
+      | `Key (`ASCII 'g', []) -> inject_focus Top
+      | _ -> inject_focus Other_key_pressed
   in
   let%sub text = Text.component in
   let%sub mauve = Catpuccin.color Green in
-  let%sub salmon = Catpuccin.color Flamingo in
   let%sub selected_manga =
     let%arr manga_collection = manga_collection
     and focus = focus in
@@ -158,11 +134,9 @@ let table
   and focus = focus
   and text = text
   and mauve = mauve
-  and textbox_view = textbox_view
   and textbox_is_focused = textbox_is_focused
-  and title = title
-  and salmon = salmon
-  and image = image in
+  and image = image
+  and handler = handler in
   let manga =
     List.mapi manga_collection.data ~f:(fun i manga ->
       match manga.attributes.title with
@@ -180,56 +154,35 @@ let table
         in
         text ~attrs string)
   in
-  let content =
-    if textbox_is_focused || String.length title > 0
-    then
-      Node.hcat
-        [ text
-            ~attrs:
-              [ (if textbox_is_focused
-                 then Attr.foreground_color mauve
-                 else Attr.foreground_color salmon)
-              ]
-            "Title search: "
-        ; textbox_view
-        ]
-      :: text ""
-      :: manga
-    else manga
-  in
-  ( Node.vcat content
-  , match image with
+  let view = Node.vcat manga in
+  let images =
+    match image with
     | None -> []
     | _ when textbox_is_focused -> []
-    | Some x -> [ x ] )
+    | Some x -> [ x ]
+  in
+  { view; images; handler }
 ;;
 
-let component =
-  let%sub textbox_is_focused, set_textbox_focus = Bonsai.state false in
-  let%sub { view = textbox_view; string = title; handler = textbox_handler } =
-    Text_box.component ~is_focused:textbox_is_focused
-  in
-  let%sub manga_list = manga_list title in
+let component ~textbox_is_focused ~manga_title =
+  let%sub manga_list = manga_list manga_title in
   let%sub sexp_for_debugging = Util.sexp_for_debugging in
   match%sub manga_list with
   | None ->
     let%sub () = Loading_state.i_am_loading in
-    Bonsai.const (Node.none, [])
+    Bonsai.const
+      { view = Node.none; images = []; handler = (fun _ -> Effect.Ignore) }
   | Some (Error error) ->
     let%sub red = Catpuccin.color Red in
     let%arr error = error
     and sexp_for_debugging = sexp_for_debugging
     and red = red in
-    ( sexp_for_debugging
-        ~attrs:[ Attr.foreground_color red ]
-        [%sexp (error : Error.t)]
-    , [] )
-  | Some (Ok manga_collection) ->
-    table
-      ~set_textbox_focus
-      ~textbox_is_focused
-      ~textbox_view
-      ~textbox_handler
-      ~title
-      manga_collection
+    { view =
+        sexp_for_debugging
+          ~attrs:[ Attr.foreground_color red ]
+          [%sexp (error : Error.t)]
+    ; images = []
+    ; handler = (fun _ -> Effect.Ignore)
+    }
+  | Some (Ok manga_collection) -> table ~textbox_is_focused manga_collection
 ;;
