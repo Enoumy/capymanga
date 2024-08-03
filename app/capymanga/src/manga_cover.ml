@@ -47,13 +47,28 @@ let component
     (match%sub cover_id with
      | None -> Bonsai.const None
      | Some cover_id ->
+       (* I am pretty sure that there is a bug for a frame when an
+          out-of-sync manga and cover_are seen. *)
+       let%sub manga_id =
+         let%arr manga = manga in
+         manga.id
+       in
+       let%sub cover_id, manga_id =
+         let%sub bounced =
+           Bonsai_extra.value_stability
+             ~equal:[%equal: string * Manga_id.t]
+             ~time_to_stable:(Value.return (Time_ns.Span.of_sec 0.3))
+             (Value.both cover_id manga_id)
+         in
+         match%sub bounced with
+         | Stable x -> Bonsai.read x
+         | Unstable { previously_stable = Some x; _ } -> Bonsai.read x
+         | Unstable { previously_stable = None; unstable_value } ->
+           Bonsai.read unstable_value
+       in
        let%sub filename = cover_filename ~cover_id in
        (match%sub filename with
         | Some (Ok { data = { attributes = { filename; _ }; _ } }) ->
-          let%sub manga_id =
-            let%arr manga = manga in
-            manga.id
-          in
           let%sub dimensions = Capytui.terminal_dimensions in
           let%arr filename = filename
           and manga_id = manga_id

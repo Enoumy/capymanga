@@ -6,8 +6,7 @@ open Async
 
 let clear_images () =
   let _ : _ =
-    Sys_unix.command
-      "kitten  icat --clear --silent >/dev/tty </dev/tty 2>/dev/null"
+    Sys_unix.command "kitten  icat --clear --silent >/dev/tty </dev/tty"
   in
   ()
 ;;
@@ -25,7 +24,7 @@ let draw_command_for_image
         ]
       ]
   in
-  String.concat ~sep:" " args ^ " >/dev/tty </dev/tty 2>/dev/null"
+  String.concat ~sep:" " args ^ " >/dev/tty </dev/tty"
 ;;
 
 let draw_images images =
@@ -98,8 +97,7 @@ let start
     in
     if node_changed then Term.image term node;
     let draw_process_pid : Pid.t option =
-      if node_changed
-         || is_first_frame
+      if is_first_frame
          || not ([%equal: Image.t list] (snd result) (snd prev_result))
       then draw_images images
       else None
