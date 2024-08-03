@@ -85,6 +85,7 @@ let table manga_collection =
     let%sub callback =
       let%arr inject_focus = inject_focus in
       fun (event : Event.t) ->
+        (* TODO: Implement a page scroller, maybe with an offset. *)
         match event with
         | `Mouse _ | `Paste _ -> Effect.Ignore
         | `Key (`ASCII 'k', []) | `Key (`Arrow `Up, []) -> inject_focus Up
