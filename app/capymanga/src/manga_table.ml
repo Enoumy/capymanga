@@ -158,7 +158,7 @@ let table ~textbox_is_focused manga_collection =
     match image with
     | None -> []
     | _ when textbox_is_focused -> []
-    | Some x -> [ x ]
+    | Some (x, _) -> [ x ]
   in
   { view; images; handler }
 ;;

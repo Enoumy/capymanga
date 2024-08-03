@@ -4,7 +4,8 @@ open Async
 
 let clear_images () =
   let%bind _ : _ =
-    Async.Sys.command "kitten  icat --clear --silent >/dev/tty </dev/tty"
+    Async.Sys.command
+      "kitten  icat --clear --silent >/dev/tty </dev/tty 2>/dev/null"
   in
   Deferred.return ()
 ;;
@@ -23,14 +24,15 @@ let draw_images images =
           [ [ "kitten"; "icat"; "--silent" ]
           ; (if scale then [ "--scale-up" ] else [])
           ; [ "--place"
-            ; [%string "%{width#Int}x%{height#Int}@%{column#Int}x%{row#Int}"]
-            ; url
+            ; [%string
+                "'%{width#Int}x%{height#Int}@%{column#Int}x%{row#Int}'"]
+            ; [%string "'%{url}'"]
             ]
           ]
       in
       let%bind _ : _ =
         Async.Sys.command
-          (String.concat ~sep:" " args ^ " >/dev/tty </dev/tty")
+          (String.concat ~sep:" " args ^ " >/dev/tty </dev/tty 2>/dev/null")
       in
       return ())
 ;;

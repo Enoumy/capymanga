@@ -67,11 +67,15 @@ let global_key_handler
       if textbox_is_focused
       then (
         match event with
-        | `Key (`Escape, []) | `Key (`Enter, []) -> set_textbox_focus false
+        | `Key (`Escape, []) | `Key (`Enter, []) | `Key (`Tab, []) ->
+          set_textbox_focus false
         | _ -> textbox_handler event)
       else (
         match event with
-        | `Key (`ASCII '/', []) | `Key (`ASCII ('s' | 'S'), [ `Ctrl ]) ->
+        | `Key (`ASCII '/', [])
+        | `Key (`ASCII ('s' | 'S'), [ `Ctrl ])
+        | `Key (`ASCII ('l' | 'L'), [ `Ctrl ])
+        | `Key (`ASCII ('f' | 'F'), [ `Ctrl ]) ->
           set_textbox_focus true
         | _ -> table_handler event)
   in

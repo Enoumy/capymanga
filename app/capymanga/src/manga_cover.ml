@@ -44,7 +44,8 @@ let cover_filename ~cover_id =
 ;;
 
 let component
-  : Mangadex_api.Types.Manga.t option Value.t -> Image.t option Computation.t
+  :  Mangadex_api.Types.Manga.t option Value.t
+  -> (Image.t * string) option Computation.t
   =
   fun manga ->
   match%sub manga with
@@ -70,17 +71,22 @@ let component
           let%arr filename = filename
           and manga_id = manga_id
           and dimensions = dimensions in
+          let url =
+            [%string
+              "https://mangadex.org/covers/%{manga_id#Manga_id}/%{filename}"]
+          in
           (* let _ : _ = *)
           Some
-            { Image.url =
-                [%string
-                  "https://mangadex.org/covers/%{manga_id#Manga_id}/%{filename}"]
-            ; row = 0
-            ; column = dimensions.Dimensions.width / 2
-            ; dimensions =
-                { width = dimensions.width / 2; height = dimensions.height }
-            ; scale = true
-            }
+            ( { Image.url
+              ; row = 0
+              ; column = dimensions.Dimensions.width / 2
+              ; dimensions =
+                  { width = dimensions.width / 2
+                  ; height = dimensions.height
+                  }
+              ; scale = true
+              }
+            , url )
         (* in *)
         (* None *)
         | _ -> Bonsai.const None))
