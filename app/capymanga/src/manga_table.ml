@@ -154,20 +154,22 @@ let table ~manga_title ~textbox_is_focused manga_collection =
 
 let component ~textbox_is_focused ~manga_title =
   let%sub manga_title =
-    match%sub textbox_is_focused with
-    | false -> return manga_title
-    | true ->
+    let%sub bounced =
       let%sub bounced =
         Bonsai_extra.value_stability
           ~equal:[%equal: string]
           ~time_to_stable:(Value.return (Time_ns.Span.of_sec 1.0))
           manga_title
       in
-      (match%sub bounced with
-       | Stable x -> Bonsai.read x
-       | Unstable { previously_stable = Some x; _ } -> Bonsai.read x
-       | Unstable { previously_stable = None; unstable_value } ->
-         Bonsai.read unstable_value)
+      match%sub bounced with
+      | Stable x -> Bonsai.read x
+      | Unstable { previously_stable = Some x; _ } -> Bonsai.read x
+      | Unstable { previously_stable = None; unstable_value } ->
+        Bonsai.read unstable_value
+    in
+    match%sub textbox_is_focused with
+    | false -> return manga_title
+    | true -> return bounced
   in
   let%sub manga_list = manga_list manga_title in
   let%sub sexp_for_debugging = Util.sexp_for_debugging in
