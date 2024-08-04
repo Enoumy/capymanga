@@ -11,19 +11,22 @@ type t =
   ; handler : Event.t -> unit Effect.t
   }
 
-let manga_list title =
+let manga_list ~textbox_is_focused title =
   let%sub title =
-    let%sub bounced =
-      Bonsai_extra.value_stability
-        ~equal:[%equal: string]
-        ~time_to_stable:(Value.return (Time_ns.Span.of_sec 1.0))
-        title
-    in
-    match%sub bounced with
-    | Stable x -> Bonsai.read x
-    | Unstable { previously_stable = Some x; _ } -> Bonsai.read x
-    | Unstable { previously_stable = None; unstable_value } ->
-      Bonsai.read unstable_value
+    match%sub textbox_is_focused with
+    | false -> return title
+    | true ->
+      let%sub bounced =
+        Bonsai_extra.value_stability
+          ~equal:[%equal: string]
+          ~time_to_stable:(Value.return (Time_ns.Span.of_sec 1.0))
+          title
+      in
+      (match%sub bounced with
+       | Stable x -> Bonsai.read x
+       | Unstable { previously_stable = Some x; _ } -> Bonsai.read x
+       | Unstable { previously_stable = None; unstable_value } ->
+         Bonsai.read unstable_value)
   in
   let%sub state, set_state = Bonsai.state_opt () in
   let%sub effect =
@@ -101,13 +104,14 @@ module Action = struct
   ;;
 end
 
-let table ~textbox_is_focused manga_collection =
+let table ~manga_title ~textbox_is_focused manga_collection =
   let%sub { Action.focus; last_top_press = _ }, inject_focus =
     let%sub time_source = Bonsai.Incr.with_clock Ui_incr.return in
-    Bonsai.state_machine1
-      ~default_model:{ Action.focus = 0; last_top_press = None }
-      ~apply_action:Action.apply_action
-      (Value.both manga_collection time_source)
+    Bonsai.scope_model (module String) ~on:manga_title
+    @@ Bonsai.state_machine1
+         ~default_model:{ Action.focus = 0; last_top_press = None }
+         ~apply_action:Action.apply_action
+         (Value.both manga_collection time_source)
   in
   let%sub handler =
     let%arr inject_focus = inject_focus in
@@ -165,7 +169,7 @@ let table ~textbox_is_focused manga_collection =
 ;;
 
 let component ~textbox_is_focused ~manga_title =
-  let%sub manga_list = manga_list manga_title in
+  let%sub manga_list = manga_list ~textbox_is_focused manga_title in
   let%sub sexp_for_debugging = Util.sexp_for_debugging in
   match%sub manga_list with
   | None ->
@@ -184,5 +188,6 @@ let component ~textbox_is_focused ~manga_title =
     ; images = []
     ; handler = (fun _ -> Effect.Ignore)
     }
-  | Some (Ok manga_collection) -> table ~textbox_is_focused manga_collection
+  | Some (Ok manga_collection) ->
+    table ~manga_title ~textbox_is_focused manga_collection
 ;;
