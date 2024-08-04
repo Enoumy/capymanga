@@ -125,8 +125,7 @@ let component ~dimensions =
     and flavor = flavor
     and spinner = spinner
     and instructions = instructions
-    and search_bar = search_bar
-    and dimensions = dimensions in
+    and search_bar = search_bar in
     Node.hcat
       [ Node.hcat
           [ text
@@ -141,8 +140,6 @@ let component ~dimensions =
           ; instructions
           ]
       ; search_bar
-      ; text " "
-      ; Node.sexp_for_debugging [%message (dimensions : Dimensions.t)]
       ]
   in
   let%sub view =

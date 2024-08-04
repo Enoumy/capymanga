@@ -48,6 +48,8 @@ module Action = struct
     | Top
     | Bottom
     | Other_key_pressed
+    | Up_half_page
+    | Down_half_page
 
   type model =
     { focus : int
@@ -58,6 +60,7 @@ module Action = struct
     { time_source : Bonsai.Time_source.t
     ; manga_collection : Manga.t Collection.t
     ; scroll_into_view : int -> unit Effect.t
+    ; dimensions : Dimensions.t
     }
 
   let apply_action
@@ -68,7 +71,9 @@ module Action = struct
     =
     match input with
     | Inactive -> model
-    | Active { manga_collection; time_source; scroll_into_view } ->
+    | Active { manga_collection; time_source; scroll_into_view; dimensions }
+      ->
+      let bottom_most = List.length manga_collection.data - 1 in
       let new_model =
         match action with
         | Down ->
@@ -91,9 +96,14 @@ module Action = struct
               with
               | true -> { last_top_press = None; focus = 0 }
               | false -> { last_top_press = Some now; focus }))
-        | Bottom ->
+        | Bottom -> { last_top_press = None; focus = bottom_most }
+        | Down_half_page ->
           { last_top_press = None
-          ; focus = List.length manga_collection.data - 1
+          ; focus = Int.min bottom_most (focus + (dimensions.height / 2))
+          }
+        | Up_half_page ->
+          { last_top_press = None
+          ; focus = Int.max 0 (focus - (dimensions.height / 2))
           }
       in
       if not (focus = new_model.focus)
@@ -105,20 +115,63 @@ module Action = struct
   ;;
 end
 
+module Scroll_into_view = struct
+  type action =
+    | Scroll_to of int
+    | Up
+    | Down
+
+  type input =
+    { dimensions : Dimensions.t
+    ; manga_collection_count : int
+    }
+
+  let apply_action _ input offset action =
+    match input with
+    | Bonsai.Computation_status.Inactive -> offset
+    | Active
+        { dimensions = { Dimensions.height; width = _ }
+        ; manga_collection_count
+        } ->
+      (match action with
+       | Scroll_to scroll_to ->
+         let min = offset in
+         let max = offset + height - 1 in
+         if scroll_to >= min && scroll_to <= max
+         then offset
+         else if scroll_to > max
+         then offset + (scroll_to - max)
+         else scroll_to
+       | Up -> Int.max 0 (offset - 1)
+       | Down -> Int.min (manga_collection_count - height) (offset + 1))
+  ;;
+end
+
 let table ~dimensions ~manga_title ~textbox_is_focused manga_collection =
-  let%sub offset, scroll_into_view =
+  let%sub offset, inject_offset =
+    let%sub input =
+      let%sub manga_collection_count =
+        let%arr manga_collection = manga_collection in
+        List.length manga_collection.Collection.data
+      in
+      let%arr dimensions = dimensions
+      and manga_collection_count = manga_collection_count in
+      { Scroll_into_view.dimensions; manga_collection_count }
+    in
     Bonsai.state_machine1
       ~default_model:0
-      ~apply_action:(fun _ _ offset _ -> offset)
-      dimensions
+      ~apply_action:Scroll_into_view.apply_action
+      input
   in
   let%sub { Action.focus; last_top_press = _ }, inject_focus =
     let%sub time_source = Bonsai.Incr.with_clock Ui_incr.return in
     let%sub input =
       let%arr time_source = time_source
       and manga_collection = manga_collection
-      and scroll_into_view = scroll_into_view in
-      { Action.time_source; manga_collection; scroll_into_view }
+      and inject_offset = inject_offset
+      and dimensions = dimensions in
+      let scroll_into_view index = inject_offset (Scroll_to index) in
+      { Action.time_source; manga_collection; scroll_into_view; dimensions }
     in
     Bonsai.scope_model (module String) ~on:manga_title
     @@ Bonsai.state_machine1
@@ -127,7 +180,8 @@ let table ~dimensions ~manga_title ~textbox_is_focused manga_collection =
          input
   in
   let%sub handler =
-    let%arr inject_focus = inject_focus in
+    let%arr inject_focus = inject_focus
+    and inject_offset = inject_offset in
     fun (event : Event.t) ->
       (* TODO: Implement a page scroller, maybe with an offset. *)
       match event with
@@ -136,6 +190,14 @@ let table ~dimensions ~manga_title ~textbox_is_focused manga_collection =
       | `Mouse (`Press (`Scroll `Up), _, _) ->
         (* TODO: Implement mouse support... *)
         inject_focus Up
+      | `Key (`ASCII ('d' | 'D'), ([ `Ctrl ] | [])) ->
+        inject_focus Down_half_page
+      | `Key (`ASCII ('u' | 'U'), ([ `Ctrl ] | [])) ->
+        inject_focus Up_half_page
+      | `Key (`ASCII ('e' | 'E'), [ `Ctrl ]) ->
+        Effect.all_unit [ inject_offset Down; inject_focus Down ]
+      | `Key (`ASCII ('y' | 'Y'), [ `Ctrl ]) ->
+        Effect.all_unit [ inject_offset Up; inject_focus Up ]
       | `Key (`ASCII 'j', [])
       | `Key (`Arrow `Down, [])
       | `Mouse (`Press (`Scroll `Down), _, _) ->
