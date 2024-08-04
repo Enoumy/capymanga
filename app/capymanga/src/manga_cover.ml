@@ -52,8 +52,8 @@ let component
     (match%sub cover_id with
      | None -> Bonsai.const None
      | Some cover_id ->
-       (* I am pretty sure that there is a bug for a frame when an
-          out-of-sync manga and cover_are seen. *)
+       Bonsai.scope_model (module String) ~on:cover_id
+       @@
        let%sub manga_id =
          let%arr manga = manga in
          manga.id
