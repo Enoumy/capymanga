@@ -11,23 +11,7 @@ type t =
   ; handler : Event.t -> unit Effect.t
   }
 
-let manga_list ~textbox_is_focused title =
-  let%sub title =
-    match%sub textbox_is_focused with
-    | false -> return title
-    | true ->
-      let%sub bounced =
-        Bonsai_extra.value_stability
-          ~equal:[%equal: string]
-          ~time_to_stable:(Value.return (Time_ns.Span.of_sec 1.0))
-          title
-      in
-      (match%sub bounced with
-       | Stable x -> Bonsai.read x
-       | Unstable { previously_stable = Some x; _ } -> Bonsai.read x
-       | Unstable { previously_stable = None; unstable_value } ->
-         Bonsai.read unstable_value)
-  in
+let manga_list title =
   let%sub state, set_state = Bonsai.state_opt () in
   let%sub effect =
     Bonsai.const
@@ -169,7 +153,23 @@ let table ~manga_title ~textbox_is_focused manga_collection =
 ;;
 
 let component ~textbox_is_focused ~manga_title =
-  let%sub manga_list = manga_list ~textbox_is_focused manga_title in
+  let%sub manga_title =
+    match%sub textbox_is_focused with
+    | false -> return manga_title
+    | true ->
+      let%sub bounced =
+        Bonsai_extra.value_stability
+          ~equal:[%equal: string]
+          ~time_to_stable:(Value.return (Time_ns.Span.of_sec 1.0))
+          manga_title
+      in
+      (match%sub bounced with
+       | Stable x -> Bonsai.read x
+       | Unstable { previously_stable = Some x; _ } -> Bonsai.read x
+       | Unstable { previously_stable = None; unstable_value } ->
+         Bonsai.read unstable_value)
+  in
+  let%sub manga_list = manga_list manga_title in
   let%sub sexp_for_debugging = Util.sexp_for_debugging in
   match%sub manga_list with
   | None ->
