@@ -32,4 +32,7 @@ let pad : ?r:int -> ?l:int -> ?t:int -> ?b:int -> t -> t =
   Notty.I.pad ~r ~l ~t ~b node
 ;;
 
+let crop = Notty.I.crop
 let none = Notty.I.empty
+let height = Notty.I.height
+let width = Notty.I.width

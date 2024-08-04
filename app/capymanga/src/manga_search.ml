@@ -40,6 +40,35 @@ let key_handler
   return callback
 ;;
 
+let search_bar ~textbox_is_focused ~manga_title ~textbox_view =
+  let%sub text = Text.component in
+  let%sub flavor = Catpuccin.flavor in
+  let%arr textbox_is_focused = textbox_is_focused
+  and manga_title = manga_title
+  and text = text
+  and flavor = flavor
+  and textbox_view = textbox_view in
+  if textbox_is_focused || String.length manga_title > 0
+  then
+    Node.hcat
+      [ text " "
+      ; text
+          ~attrs:
+            [ (if textbox_is_focused
+               then
+                 Attr.many
+                   [ Attr.foreground_color (Catpuccin.color ~flavor Green)
+                   ; Attr.bold
+                   ]
+               else Attr.foreground_color (Catpuccin.color ~flavor Flamingo))
+            ; Attr.background_color (Catpuccin.color ~flavor Surface0)
+            ]
+          " Search: "
+      ; textbox_view
+      ]
+  else Node.none
+;;
+
 let component ~dimensions =
   let%sub flavor = Catpuccin.flavor in
   let%sub text = Text.component in
@@ -72,6 +101,12 @@ let component ~dimensions =
     { input with view = Node.hcat [ space; input.view; space ] }
   in
   let%sub { view = table; images; handler = table_handler } =
+    let%sub dimensions =
+      let%arr { Dimensions.height; width } = dimensions in
+      let height = height - 3
+      and width = width - 1 in
+      { Dimensions.height; width }
+    in
     Manga_table.component ~dimensions ~textbox_is_focused ~manga_title
   in
   let%sub handler =
@@ -81,56 +116,39 @@ let component ~dimensions =
       ~textbox_is_focused
       ~set_textbox_focus
   in
-  let%sub view =
+  let%sub top_bar =
+    let%sub search_bar =
+      search_bar ~textbox_is_focused ~manga_title ~textbox_view
+    in
     let%sub instructions = Instructions.component in
-    let%arr instructions = instructions
-    and text = text
+    let%arr text = text
+    and flavor = flavor
     and spinner = spinner
-    and textbox_is_focused = textbox_is_focused
-    and manga_title = manga_title
-    and textbox_view = textbox_view
-    and table = table
-    and flavor = flavor in
-    let heading =
-      Node.hcat
-        [ text
-            ~attrs:
-              [ Attr.foreground_color (Catpuccin.color ~flavor Mauve)
-              ; Attr.bold
-              ]
-            "Capymanga"
-        ; text " "
-        ; spinner
-        ; text " "
-        ; instructions
-        ]
-    in
-    let textbox_view =
-      if textbox_is_focused || String.length manga_title > 0
-      then
-        Node.hcat
-          [ text " "
-          ; text
+    and instructions = instructions
+    and search_bar = search_bar
+    and dimensions = dimensions in
+    Node.hcat
+      [ Node.hcat
+          [ text
               ~attrs:
-                [ (if textbox_is_focused
-                   then
-                     Attr.many
-                       [ Attr.foreground_color
-                           (Catpuccin.color ~flavor Green)
-                       ; Attr.bold
-                       ]
-                   else
-                     Attr.foreground_color (Catpuccin.color ~flavor Flamingo))
-                ; Attr.background_color (Catpuccin.color ~flavor Surface0)
+                [ Attr.foreground_color (Catpuccin.color ~flavor Mauve)
+                ; Attr.bold
                 ]
-              " Search: "
-          ; textbox_view
+              "Capymanga"
+          ; text " "
+          ; spinner
+          ; text " "
+          ; instructions
           ]
-      else Node.none
-    in
-    let left_pane =
-      Node.vcat [ Node.hcat [ heading; textbox_view ]; Node.text ""; table ]
-    in
+      ; search_bar
+      ; text " "
+      ; Node.sexp_for_debugging [%message (dimensions : Dimensions.t)]
+      ]
+  in
+  let%sub view =
+    let%arr top_bar = top_bar
+    and table = table in
+    let left_pane = Node.vcat [ top_bar; Node.text ""; table ] in
     Node.pad ~l:2 ~t:1 left_pane
   in
   let%arr view = view

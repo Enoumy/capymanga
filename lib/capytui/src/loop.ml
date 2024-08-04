@@ -33,6 +33,12 @@ let draw_images images =
   if true then clear_images ();
   match images with
   | [] -> None
+  (* TODO: This was an attempt at making a cancellable image renderer. The
+     cancelling worked, but sadly kitty sending image commands were
+     incorrectly interpreted as user input, so we can't both listen to user
+     input and also render an image at the same time. I think this can be
+     fixed by changing notty to "ignore" the "kitty graphics escape code"
+     described here: https://sw.kovidgoyal.net/kitty/graphics-protocol/ *)
   | images ->
     (* (match Core_unix.fork () with *)
     (*  | `In_the_parent pid -> Some pid *)

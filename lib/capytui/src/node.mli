@@ -10,4 +10,7 @@ val dimensions : t -> Dimensions.t
 val sexp_for_debugging : ?attrs:Attr.t list -> Sexp.t -> t
 val center : t -> within:Dimensions.t -> t
 val pad : ?r:int -> ?l:int -> ?t:int -> ?b:int -> t -> t
+val crop : ?l:int -> ?r:int -> ?t:int -> ?b:int -> t -> t
 val none : t
+val height : t -> int
+val width : t -> int

@@ -54,48 +54,77 @@ module Action = struct
     ; last_top_press : Time_ns.t option
     }
 
+  type input =
+    { time_source : Bonsai.Time_source.t
+    ; manga_collection : Manga.t Collection.t
+    ; scroll_into_view : int -> unit Effect.t
+    }
+
   let apply_action
-    _
-    (input :
-      (Manga.t Collection.t * Bonsai.Time_source.t)
-        Bonsai.Computation_status.t)
+    context
+    (input : input Bonsai.Computation_status.t)
     ({ focus; last_top_press } as model : model)
     (action : t)
     =
     match input with
     | Inactive -> model
-    | Active (input, time_source) ->
-      (match action with
-       | Down ->
-         if focus >= List.length input.data - 1
-         then { last_top_press = None; focus = List.length input.data - 1 }
-         else { last_top_press = None; focus = focus + 1 }
-       | Up -> { last_top_press = None; focus = Int.max 0 (focus - 1) }
-       | Other_key_pressed -> { last_top_press = None; focus }
-       | Top ->
-         let now = Bonsai.Time_source.now time_source in
-         (match last_top_press with
-          | None -> { last_top_press = Some now; focus }
-          | Some last_top_press ->
-            (match
-               Time_ns.Span.O.(
-                 Time_ns.diff now last_top_press < Time_ns.Span.of_sec 0.3)
-             with
-             | true -> { last_top_press = None; focus = 0 }
-             | false -> { last_top_press = Some now; focus }))
-       | Bottom ->
-         { last_top_press = None; focus = List.length input.data - 1 })
+    | Active { manga_collection; time_source; scroll_into_view } ->
+      let new_model =
+        match action with
+        | Down ->
+          if focus >= List.length manga_collection.data - 1
+          then
+            { last_top_press = None
+            ; focus = List.length manga_collection.data - 1
+            }
+          else { last_top_press = None; focus = focus + 1 }
+        | Up -> { last_top_press = None; focus = Int.max 0 (focus - 1) }
+        | Other_key_pressed -> { last_top_press = None; focus }
+        | Top ->
+          let now = Bonsai.Time_source.now time_source in
+          (match last_top_press with
+           | None -> { last_top_press = Some now; focus }
+           | Some last_top_press ->
+             (match
+                Time_ns.Span.O.(
+                  Time_ns.diff now last_top_press < Time_ns.Span.of_sec 0.3)
+              with
+              | true -> { last_top_press = None; focus = 0 }
+              | false -> { last_top_press = Some now; focus }))
+        | Bottom ->
+          { last_top_press = None
+          ; focus = List.length manga_collection.data - 1
+          }
+      in
+      if not (focus = new_model.focus)
+      then
+        Bonsai.Apply_action_context.schedule_event
+          context
+          (scroll_into_view new_model.focus);
+      new_model
   ;;
 end
 
-let table ~manga_title ~textbox_is_focused manga_collection =
+let table ~dimensions ~manga_title ~textbox_is_focused manga_collection =
+  let%sub offset, scroll_into_view =
+    Bonsai.state_machine1
+      ~default_model:0
+      ~apply_action:(fun _ _ offset _ -> offset)
+      dimensions
+  in
   let%sub { Action.focus; last_top_press = _ }, inject_focus =
     let%sub time_source = Bonsai.Incr.with_clock Ui_incr.return in
+    let%sub input =
+      let%arr time_source = time_source
+      and manga_collection = manga_collection
+      and scroll_into_view = scroll_into_view in
+      { Action.time_source; manga_collection; scroll_into_view }
+    in
     Bonsai.scope_model (module String) ~on:manga_title
     @@ Bonsai.state_machine1
          ~default_model:{ Action.focus = 0; last_top_press = None }
          ~apply_action:Action.apply_action
-         (Value.both manga_collection time_source)
+         input
   in
   let%sub handler =
     let%arr inject_focus = inject_focus in
@@ -123,36 +152,52 @@ let table ~manga_title ~textbox_is_focused manga_collection =
     List.nth manga_collection.data focus
   in
   let%sub image = Manga_cover.component selected_manga in
-  let%arr manga_collection = manga_collection
-  and focus = focus
-  and text = text
-  and flavor = flavor
-  and textbox_is_focused = textbox_is_focused
+  let%sub view =
+    let%arr manga_collection = manga_collection
+    and text = text
+    and focus = focus
+    and flavor = flavor
+    and textbox_is_focused = textbox_is_focused
+    and offset = offset
+    and dimensions = dimensions in
+    let manga =
+      List.mapi manga_collection.data ~f:(fun i manga ->
+        match manga.attributes.title with
+        | [] -> text "Unknown title"
+        | { string; language = _ } :: _ ->
+          let attrs =
+            if i = focus
+            then
+              [ Attr.bold
+              ; (if not textbox_is_focused
+                 then Attr.foreground_color (Catpuccin.color ~flavor Green)
+                 else Attr.empty)
+              ]
+            else []
+          in
+          text ~attrs string)
+    in
+    let view =
+      Node.vcat
+        (*  Node.sexp_for_debugging *)
+        (*   [%message (dimensions : Dimensions.t) (offset : int)] *)
+        (* :: *)
+        manga
+    in
+    let view = Node.crop ~t:offset view in
+    let curr_height = Node.height view in
+    Node.crop
+      ~b:(Int.max 0 (curr_height - dimensions.Dimensions.height))
+      view
+  in
+  let%arr view = view
   and image = image
   and handler = handler in
-  let manga =
-    List.mapi manga_collection.data ~f:(fun i manga ->
-      match manga.attributes.title with
-      | [] -> text "Unknown title"
-      | { string; language = _ } :: _ ->
-        let attrs =
-          if i = focus
-          then
-            [ Attr.bold
-            ; (if not textbox_is_focused
-               then Attr.foreground_color (Catpuccin.color ~flavor Green)
-               else Attr.empty)
-            ]
-          else []
-        in
-        text ~attrs string)
-  in
-  let view = Node.vcat manga in
   let images = match image with None -> [] | Some (x, _) -> [ x ] in
   { view; images; handler }
 ;;
 
-let component ~dimensions:_ ~textbox_is_focused ~manga_title =
+let component ~dimensions ~textbox_is_focused ~manga_title =
   let%sub manga_title =
     let%sub bounced =
       let%sub bounced =
@@ -191,5 +236,5 @@ let component ~dimensions:_ ~textbox_is_focused ~manga_title =
     ; handler = (fun _ -> Effect.Ignore)
     }
   | Some (Ok manga_collection) ->
-    table ~manga_title ~textbox_is_focused manga_collection
+    table ~dimensions ~manga_title ~textbox_is_focused manga_collection
 ;;
