@@ -6,10 +6,10 @@ open! Bonsai.Let_syntax
 module Catpuccin = Capytui_catpuccin
 
 let all_colors =
-  Catpuccin.all
-  |> List.map ~f:(fun color -> color, Catpuccin.color color)
-  |> Catpuccin.Map.of_alist_exn
-  |> Computation.all_map
+  Computation.map Catpuccin.flavor ~f:(fun flavor ->
+    Catpuccin.all
+    |> List.map ~f:(fun color -> color, Catpuccin.color ~flavor color)
+    |> Catpuccin.Map.of_alist_exn)
 ;;
 
 let all_flavors = Core.Array.of_list Catpuccin.Flavor.all

@@ -40,8 +40,8 @@ let key_handler
   return callback
 ;;
 
-let component =
-  let%sub mauve = Capytui_catpuccin.color Mauve in
+let component ~dimensions =
+  let%sub flavor = Catpuccin.flavor in
   let%sub text = Text.component in
   let%sub spinner =
     let%sub is_something_loading = Loading_state.is_something_loading in
@@ -57,25 +57,22 @@ let component =
           ; handler = textbox_handler
           }
     =
-    let%sub base = Catpuccin.color Base in
     let%sub extra_attrs =
-      let%arr base = base in
-      [ Attr.background_color base ]
+      let%arr flavor = flavor in
+      [ Attr.background_color (Catpuccin.color ~flavor Base) ]
     in
     let%map.Computation input =
       Text_box.component ~extra_attrs ~is_focused:textbox_is_focused
-    and base = return base in
-    { input with
-      view =
-        Node.hcat
-          [ Node.text ~attrs:[ Attr.background_color base ] " "
-          ; input.view
-          ; Node.text ~attrs:[ Attr.background_color base ] " "
-          ]
-    }
+    and flavor = return flavor in
+    let space =
+      Node.text
+        ~attrs:[ Attr.background_color (Catpuccin.color ~flavor Base) ]
+        " "
+    in
+    { input with view = Node.hcat [ space; input.view; space ] }
   in
   let%sub { view = table; images; handler = table_handler } =
-    Manga_table.component ~textbox_is_focused ~manga_title
+    Manga_table.component ~dimensions ~textbox_is_focused ~manga_title
   in
   let%sub handler =
     key_handler
@@ -84,27 +81,24 @@ let component =
       ~textbox_is_focused
       ~set_textbox_focus
   in
-  let%sub instructions = Instructions.component in
-  let%sub flamingo = Catpuccin.color Flamingo in
-  let%sub green = Catpuccin.color Green in
-  let%sub surface0 = Catpuccin.color Surface0 in
-  let%arr text = text
-  and mauve = mauve
-  and table = table
-  and images = images
-  and spinner = spinner
-  and instructions = instructions
-  and textbox_is_focused = textbox_is_focused
-  and textbox_view = textbox_view
-  and manga_title = manga_title
-  and flamingo = flamingo
-  and green = green
-  and surface0 = surface0
-  and handler = handler in
-  let view =
+  let%sub view =
+    let%sub instructions = Instructions.component in
+    let%arr instructions = instructions
+    and text = text
+    and spinner = spinner
+    and textbox_is_focused = textbox_is_focused
+    and manga_title = manga_title
+    and textbox_view = textbox_view
+    and table = table
+    and flavor = flavor in
     let heading =
       Node.hcat
-        [ text ~attrs:[ Attr.foreground_color mauve; Attr.bold ] "Capymanga"
+        [ text
+            ~attrs:
+              [ Attr.foreground_color (Catpuccin.color ~flavor Mauve)
+              ; Attr.bold
+              ]
+            "Capymanga"
         ; text " "
         ; spinner
         ; text " "
@@ -119,9 +113,15 @@ let component =
           ; text
               ~attrs:
                 [ (if textbox_is_focused
-                   then Attr.many [ Attr.foreground_color green; Attr.bold ]
-                   else Attr.foreground_color flamingo)
-                ; Attr.background_color surface0
+                   then
+                     Attr.many
+                       [ Attr.foreground_color
+                           (Catpuccin.color ~flavor Green)
+                       ; Attr.bold
+                       ]
+                   else
+                     Attr.foreground_color (Catpuccin.color ~flavor Flamingo))
+                ; Attr.background_color (Catpuccin.color ~flavor Surface0)
                 ]
               " Search: "
           ; textbox_view
@@ -133,5 +133,8 @@ let component =
     in
     Node.pad ~l:2 ~t:1 left_pane
   in
+  let%arr view = view
+  and images = images
+  and handler = handler in
   { view; images; handler }
 ;;

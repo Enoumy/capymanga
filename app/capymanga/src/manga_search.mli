@@ -8,4 +8,4 @@ type t =
   ; handler : Event.t -> unit Effect.t
   }
 
-val component : t Computation.t
+val component : dimensions:Dimensions.t Value.t -> t Computation.t

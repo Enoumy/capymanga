@@ -3,10 +3,10 @@ open Bonsai.Let_syntax
 open Capytui
 
 let component =
-  let%sub crust = Capytui_catpuccin.color Crust in
-  let%sub text = Capytui_catpuccin.color Text in
-  let%arr crust = crust
-  and text = text in
+  let%sub flavor = Capytui_catpuccin.flavor in
+  let%arr flavor = flavor in
+  let crust = Capytui_catpuccin.color ~flavor Crust in
+  let text = Capytui_catpuccin.color ~flavor Text in
   fun ?(attrs = []) string ->
     Node.text
       ~attrs:

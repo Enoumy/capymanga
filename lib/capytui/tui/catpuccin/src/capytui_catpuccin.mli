@@ -49,8 +49,9 @@ end
 
 include Comparable.S_plain with type t := t
 
-val color : t -> Attr.Color.t Computation.t
+val color : flavor:Flavor.t -> t -> Attr.Color.t
 val color' : t Value.t -> Attr.Color.t Computation.t
+val flavor : Flavor.t Computation.t
 
 val set_flavor_within
   :  Flavor.t Value.t

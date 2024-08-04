@@ -5,19 +5,21 @@ module Catpuccin = Capytui_catpuccin
 
 let backdrop =
   let%sub dimensions = Capytui.terminal_dimensions in
-  let%sub crust = Capytui_catpuccin.color Crust in
+  let%sub flavor = Catpuccin.flavor in
   let%arr { height; width } = dimensions
-  and crust = crust in
+  and flavor = flavor in
   Node.vcat
     (List.init height ~f:(fun _ ->
        Node.text
-         ~attrs:[ Attr.background_color crust ]
+         ~attrs:[ Attr.background_color (Catpuccin.color ~flavor Crust) ]
          (String.make width ' ')))
 ;;
 
 let content ~page =
+  let%sub dimensions = Capytui.terminal_dimensions in
   let%sub { view; images; handler } =
-    match%sub page with Page.Manga_search -> Manga_search.component
+    match%sub page with
+    | Page.Manga_search -> Manga_search.component ~dimensions
   in
   let%sub () = Capytui.listen_to_events handler in
   let%arr view = view

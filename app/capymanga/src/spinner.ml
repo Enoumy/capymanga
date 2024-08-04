@@ -48,12 +48,17 @@ let component ~kind message =
     let%arr current_frame = current_frame in
     frames.(current_frame % Array.length frames)
   in
-  let%sub mauve = Capytui_catpuccin.color Green in
+  let%sub flavor = Capytui_catpuccin.flavor in
   let%sub text = Text.component in
   let%arr text = text
   and message = message
   and frame = frame
-  and mauve = mauve in
+  and flavor = flavor in
   Node.hcat
-    [ text ~attrs:[ Attr.foreground_color mauve ] frame; text message ]
+    [ text
+        ~attrs:
+          [ Attr.foreground_color (Capytui_catpuccin.color ~flavor Green) ]
+        frame
+    ; text message
+    ]
 ;;

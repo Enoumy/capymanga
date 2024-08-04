@@ -3,25 +3,26 @@ open! Bonsai
 open! Capytui
 open Async
 open! Bonsai.Let_syntax
+module Catpuccin = Capytui_catpuccin
 
 let bg = Capytui_catpuccin.Crust
 
 let backdrop (dimensions : Dimensions.t Value.t) =
-  let%sub bg_color = Capytui_catpuccin.color bg in
+  let%sub flavor = Catpuccin.flavor in
   let%arr { height; width } = dimensions
-  and bg_color = bg_color in
+  and flavor = flavor in
   List.init height ~f:(fun _ ->
     Node.text
-      ~attrs:[ Attr.background_color bg_color ]
+      ~attrs:[ Attr.background_color (Catpuccin.color ~flavor Crust) ]
       (String.make width ' '))
   |> Node.vcat
 ;;
 
 let text =
-  let%sub text_color = Capytui_catpuccin.color Text in
-  let%sub crust = Capytui_catpuccin.color bg in
-  let%arr text_color = text_color
-  and crust = crust in
+  let%sub flavor = Catpuccin.flavor in
+  let%arr flavor = flavor in
+  let text_color = Capytui_catpuccin.color ~flavor Text in
+  let crust = Capytui_catpuccin.color ~flavor bg in
   fun ?(attrs = []) text ->
     Node.text
       ~attrs:
@@ -31,12 +32,11 @@ let text =
 ;;
 
 let render_instruction key action =
-  let%sub text = Capytui_catpuccin.color Text in
-  let%sub subtext = Capytui_catpuccin.color Subtext0 in
-  let%sub crust = Capytui_catpuccin.color bg in
-  let%arr text = text
-  and subtext = subtext
-  and crust = crust in
+  let%sub flavor = Catpuccin.flavor in
+  let%arr flavor = flavor in
+  let text = Capytui_catpuccin.color ~flavor Text in
+  let subtext = Capytui_catpuccin.color ~flavor Subtext0 in
+  let crust = Capytui_catpuccin.color ~flavor bg in
   Node.hcat
     [ Node.text
         ~attrs:
@@ -70,12 +70,13 @@ let instructions =
 ;;
 
 let top_bar =
-  let%sub mauve = Capytui_catpuccin.color Mauve in
+  let%sub flavor = Catpuccin.flavor in
   let%sub text = text in
   let%sub instructions = instructions in
   let%arr text = text
-  and mauve = mauve
-  and instructions = instructions in
+  and instructions = instructions
+  and flavor = flavor in
+  let mauve = Capytui_catpuccin.color ~flavor Mauve in
   Node.hcat
     [ text ~attrs:[ Attr.foreground_color mauve; Attr.bold ] "Counters!  "
     ; instructions
@@ -143,11 +144,12 @@ let counters =
   let%sub () = keyboard_handler ~inject_counters ~inject_focus ~focus in
   let%sub counters_view =
     let%sub text = text in
-    let%sub mauve = Capytui_catpuccin.color Mauve in
+    let%sub flavor = Catpuccin.flavor in
     let%arr counters = counters
     and focus = focus
     and text = text
-    and mauve = mauve in
+    and flavor = flavor in
+    let mauve = Capytui_catpuccin.color ~flavor Mauve in
     List.map (Core.Map.to_alist counters) ~f:(fun (counter_id, count) ->
       Node.hcat
         [ text

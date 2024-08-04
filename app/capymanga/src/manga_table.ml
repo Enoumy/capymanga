@@ -116,7 +116,7 @@ let table ~manga_title ~textbox_is_focused manga_collection =
       | _ -> inject_focus Other_key_pressed
   in
   let%sub text = Text.component in
-  let%sub mauve = Catpuccin.color Green in
+  let%sub flavor = Catpuccin.flavor in
   let%sub selected_manga =
     let%arr manga_collection = manga_collection
     and focus = focus in
@@ -126,7 +126,7 @@ let table ~manga_title ~textbox_is_focused manga_collection =
   let%arr manga_collection = manga_collection
   and focus = focus
   and text = text
-  and mauve = mauve
+  and flavor = flavor
   and textbox_is_focused = textbox_is_focused
   and image = image
   and handler = handler in
@@ -140,7 +140,7 @@ let table ~manga_title ~textbox_is_focused manga_collection =
           then
             [ Attr.bold
             ; (if not textbox_is_focused
-               then Attr.foreground_color mauve
+               then Attr.foreground_color (Catpuccin.color ~flavor Green)
                else Attr.empty)
             ]
           else []
@@ -152,7 +152,7 @@ let table ~manga_title ~textbox_is_focused manga_collection =
   { view; images; handler }
 ;;
 
-let component ~textbox_is_focused ~manga_title =
+let component ~dimensions:_ ~textbox_is_focused ~manga_title =
   let%sub manga_title =
     let%sub bounced =
       let%sub bounced =
@@ -173,19 +173,19 @@ let component ~textbox_is_focused ~manga_title =
   in
   let%sub manga_list = manga_list manga_title in
   let%sub sexp_for_debugging = Util.sexp_for_debugging in
+  let%sub flavor = Catpuccin.flavor in
   match%sub manga_list with
   | None ->
     let%sub () = Loading_state.i_am_loading in
     Bonsai.const
       { view = Node.none; images = []; handler = (fun _ -> Effect.Ignore) }
   | Some (Error error) ->
-    let%sub red = Catpuccin.color Red in
     let%arr error = error
     and sexp_for_debugging = sexp_for_debugging
-    and red = red in
+    and flavor = flavor in
     { view =
         sexp_for_debugging
-          ~attrs:[ Attr.foreground_color red ]
+          ~attrs:[ Attr.foreground_color (Catpuccin.color ~flavor Red) ]
           [%sexp (error : Error.t)]
     ; images = []
     ; handler = (fun _ -> Effect.Ignore)

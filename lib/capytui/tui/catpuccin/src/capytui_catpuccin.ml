@@ -202,7 +202,8 @@ let color' c =
   Flavor.color flavor c
 ;;
 
-let color c = color' (Bonsai.Value.return c)
+let color ~flavor c = Flavor.color flavor c
+let flavor = Bonsai.Dynamic_scope.lookup variable
 
 let set_flavor_within flavor inside =
   Bonsai.Dynamic_scope.set variable flavor ~inside

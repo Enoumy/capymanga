@@ -5,12 +5,11 @@ open Bonsai.Let_syntax
 module Catpuccin = Capytui_catpuccin
 
 let render_instruction key action =
-  let%sub text = Capytui_catpuccin.color Text in
-  let%sub subtext = Capytui_catpuccin.color Subtext0 in
-  let%sub crust = Capytui_catpuccin.color Crust in
-  let%arr text = text
-  and subtext = subtext
-  and crust = crust in
+  let%sub flavor = Catpuccin.flavor in
+  let%arr flavor = flavor in
+  let text = Capytui_catpuccin.color ~flavor Text in
+  let subtext = Capytui_catpuccin.color ~flavor Subtext0 in
+  let crust = Capytui_catpuccin.color ~flavor Crust in
   Node.hcat
     [ Node.text
         ~attrs:
