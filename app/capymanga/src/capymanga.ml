@@ -88,7 +88,9 @@ let content =
   let%sub spinner =
     let%sub is_something_loading = Loading_state.is_something_loading in
     match%sub is_something_loading with
-    | false -> Bonsai.const Node.none
+    | false ->
+      let%arr text = text in
+      text "  "
     | true -> Spinner.component ~kind:Spinner.Kind.Dot (Value.return "")
   in
   let%sub textbox_is_focused, set_textbox_focus = Bonsai.state false in

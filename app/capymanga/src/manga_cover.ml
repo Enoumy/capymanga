@@ -6,6 +6,11 @@ open Mangadex_api.Types
 
 let cover_filename ~cover_id =
   let%sub state, set_state = Bonsai.state_opt () in
+  let%sub () =
+    match%sub state with
+    | None -> Loading_state.i_am_loading
+    | Some _ -> Bonsai.const ()
+  in
   let%sub effect =
     Bonsai.const
     @@ fun cover_id ->

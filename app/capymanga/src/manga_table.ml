@@ -160,12 +160,7 @@ let table ~textbox_is_focused manga_collection =
         text ~attrs string)
   in
   let view = Node.vcat manga in
-  let images =
-    match image with
-    | None -> []
-    | _ when textbox_is_focused -> []
-    | Some (x, _) -> [ x ]
-  in
+  let images = match image with None -> [] | Some (x, _) -> [ x ] in
   { view; images; handler }
 ;;
 
