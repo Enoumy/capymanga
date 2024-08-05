@@ -115,38 +115,6 @@ module Action = struct
   ;;
 end
 
-module Scroll_into_view = struct
-  type action =
-    | Scroll_to of int
-    | Up
-    | Down
-
-  type input =
-    { dimensions : Dimensions.t
-    ; manga_collection_count : int
-    }
-
-  let apply_action _ input offset action =
-    match input with
-    | Bonsai.Computation_status.Inactive -> offset
-    | Active
-        { dimensions = { Dimensions.height; width = _ }
-        ; manga_collection_count
-        } ->
-      (match action with
-       | Scroll_to scroll_to ->
-         let min = offset in
-         let max = offset + height - 1 in
-         if scroll_to >= min && scroll_to <= max
-         then offset
-         else if scroll_to > max
-         then offset + (scroll_to - max)
-         else scroll_to
-       | Up -> Int.max 0 (offset - 1)
-       | Down -> Int.min (manga_collection_count - 1) (offset + 1))
-  ;;
-end
-
 let table
   ~dimensions
   ~manga_title
@@ -154,29 +122,19 @@ let table
   ~set_page
   manga_collection
   =
-  let%sub offset, inject_offset =
-    let%sub input =
-      let%sub manga_collection_count =
-        let%arr manga_collection = manga_collection in
-        List.length manga_collection.Collection.data
-      in
-      let%arr dimensions = dimensions
-      and manga_collection_count = manga_collection_count in
-      { Scroll_into_view.dimensions; manga_collection_count }
-    in
-    Bonsai.state_machine1
-      ~default_model:0
-      ~apply_action:Scroll_into_view.apply_action
-      input
-  in
+  let%sub inject_scroller, set_inject_scroller = Bonsai.state_opt () in
   let%sub { Action.focus; last_top_press = _ }, inject_focus =
     let%sub time_source = Bonsai.Incr.with_clock Ui_incr.return in
     let%sub input =
       let%arr time_source = time_source
       and manga_collection = manga_collection
-      and inject_offset = inject_offset
-      and dimensions = dimensions in
-      let scroll_into_view index = inject_offset (Scroll_to index) in
+      and dimensions = dimensions
+      and inject_scroller = inject_scroller in
+      let scroll_into_view index =
+        match inject_scroller with
+        | None -> Effect.Ignore
+        | Some inject_scroller -> inject_scroller (Scroller.Scroll_to index)
+      in
       { Action.time_source; manga_collection; scroll_into_view; dimensions }
     in
     Bonsai.scope_model (module String) ~on:manga_title
@@ -184,47 +142,6 @@ let table
          ~default_model:{ Action.focus = 0; last_top_press = None }
          ~apply_action:Action.apply_action
          input
-  in
-  let%sub handler =
-    let%sub manga_collection = Bonsai.yoink manga_collection in
-    let%sub focus = Bonsai.yoink focus in
-    let%arr inject_focus = inject_focus
-    and inject_offset = inject_offset
-    and manga_collection = manga_collection
-    and focus = focus
-    and set_page = set_page in
-    fun (event : Event.t) ->
-      (* TODO: Implement a page scroller, maybe with an offset. *)
-      match event with
-      | `Key (`Enter, []) ->
-        let%bind.Effect focus = focus
-        and manga_collection = manga_collection in
-        (match focus, manga_collection with
-         | Active focus, Active manga_collection ->
-           (match List.nth manga_collection.data focus with
-            | None -> Effect.Ignore
-            | Some manga -> set_page (Page.Manga_view { manga }))
-         | _ -> Effect.Ignore)
-      | `Key (`ASCII 'k', [])
-      | `Key (`Arrow `Up, [])
-      | `Mouse (`Press (`Scroll `Up), _, _) ->
-        (* TODO: Implement mouse support... *)
-        inject_focus Up
-      | `Key (`ASCII ('d' | 'D'), ([ `Ctrl ] | [])) ->
-        inject_focus Down_half_page
-      | `Key (`ASCII ('u' | 'U'), ([ `Ctrl ] | [])) ->
-        inject_focus Up_half_page
-      | `Key (`ASCII ('e' | 'E'), [ `Ctrl ]) ->
-        Effect.all_unit [ inject_offset Down; inject_focus Down ]
-      | `Key (`ASCII ('y' | 'Y'), [ `Ctrl ]) ->
-        Effect.all_unit [ inject_offset Up; inject_focus Up ]
-      | `Key (`ASCII 'j', [])
-      | `Key (`Arrow `Down, [])
-      | `Mouse (`Press (`Scroll `Down), _, _) ->
-        inject_focus Down
-      | `Key (`ASCII 'G', []) -> inject_focus Bottom
-      | `Key (`ASCII 'g', []) -> inject_focus Top
-      | _ -> inject_focus Other_key_pressed
   in
   let%sub text = Text.component in
   let%sub flavor = Catpuccin.flavor in
@@ -239,9 +156,7 @@ let table
     and text = text
     and focus = focus
     and flavor = flavor
-    and textbox_is_focused = textbox_is_focused
-    and offset = offset
-    and dimensions = dimensions in
+    and textbox_is_focused = textbox_is_focused in
     let manga =
       List.mapi manga_collection.data ~f:(fun i manga ->
         match manga.attributes.title with
@@ -259,12 +174,57 @@ let table
           in
           text ~attrs string)
     in
-    let view = Node.vcat manga in
-    let view = Node.crop ~t:offset view in
-    let curr_height = Node.height view in
-    Node.crop
-      ~b:(Int.max 0 (curr_height - dimensions.Dimensions.height))
-      view
+    Node.vcat manga
+  in
+  let%sub { view; inject = inject_scroller } =
+    Scroller.component ~dimensions view
+  in
+  let%sub () =
+    let%sub on_activate =
+      let%arr inject_scroller = inject_scroller
+      and set_inject_scroller = set_inject_scroller in
+      set_inject_scroller (Some inject_scroller)
+    in
+    Bonsai.Edge.lifecycle ~on_activate ()
+  in
+  let%sub handler =
+    let%sub manga_collection = Bonsai.yoink manga_collection in
+    let%sub focus = Bonsai.yoink focus in
+    let%arr inject_focus = inject_focus
+    and inject_scroller = inject_scroller
+    and manga_collection = manga_collection
+    and focus = focus
+    and set_page = set_page in
+    fun (event : Event.t) ->
+      match event with
+      | `Key (`Enter, []) ->
+        let%bind.Effect focus = focus
+        and manga_collection = manga_collection in
+        (match focus, manga_collection with
+         | Active focus, Active manga_collection ->
+           (match List.nth manga_collection.data focus with
+            | None -> Effect.Ignore
+            | Some manga -> set_page (Page.Manga_view { manga }))
+         | _ -> Effect.Ignore)
+      | `Key (`ASCII 'k', [])
+      | `Key (`Arrow `Up, [])
+      | `Mouse (`Press (`Scroll `Up), _, _) ->
+        inject_focus Up
+      | `Key (`ASCII ('d' | 'D'), ([ `Ctrl ] | [])) ->
+        inject_focus Down_half_page
+      | `Key (`ASCII ('u' | 'U'), ([ `Ctrl ] | [])) ->
+        inject_focus Up_half_page
+      | `Key (`ASCII ('e' | 'E'), [ `Ctrl ]) ->
+        Effect.all_unit [ inject_scroller Down; inject_focus Down ]
+      | `Key (`ASCII ('y' | 'Y'), [ `Ctrl ]) ->
+        Effect.all_unit [ inject_scroller Up; inject_focus Up ]
+      | `Key (`ASCII 'j', [])
+      | `Key (`Arrow `Down, [])
+      | `Mouse (`Press (`Scroll `Down), _, _) ->
+        inject_focus Down
+      | `Key (`ASCII 'G', []) -> inject_focus Bottom
+      | `Key (`ASCII 'g', []) -> inject_focus Top
+      | _ -> inject_focus Other_key_pressed
   in
   let%arr view = view
   and image = image

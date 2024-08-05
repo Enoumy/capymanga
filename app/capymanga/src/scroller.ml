@@ -55,7 +55,7 @@ let component ~dimensions node =
     and dimensions = dimensions in
     let view = Node.crop ~t:offset node in
     Node.crop
-      ~b:(Int.max 0 (content_height - dimensions.Dimensions.height))
+      ~b:(Int.max 0 (content_height - dimensions.Dimensions.height - offset))
       view
   in
   let%arr view = view
