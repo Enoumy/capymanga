@@ -3,7 +3,10 @@ open Bonsai.Let_syntax
 open Capytui
 
 type action =
-  | Scroll_to of int
+  | Scroll_to of
+      { bottom : int
+      ; top : int
+      }
   | Up
   | Down
   | Top
@@ -45,14 +48,17 @@ let apply_action _ input { offset; last_time_g_was_pressed } action =
     let now = Bonsai.Time_source.now time_source in
     let offset =
       match action with
-      | Public_action (Scroll_to scroll_to) ->
-        let min = offset in
-        let max = offset + height - 1 in
-        if scroll_to >= min && scroll_to <= max
+      | Public_action (Scroll_to { bottom; top }) ->
+        (* NOTE: I am unsure if defaulting to always scrolling to the top
+           when the element is bigger than the viewport is totally
+           correct... *)
+        let min_visible = offset in
+        let max_visible = offset + height - 1 in
+        if bottom >= min_visible && top <= max_visible
         then offset
-        else if scroll_to > max
-        then offset + (scroll_to - max)
-        else scroll_to
+        else if bottom < max_visible
+        then top
+        else offset + (bottom - max_visible)
       | Public_action Up -> Int.max 0 (offset - 1)
       | Public_action Up_half_screen -> Int.max 0 (offset - (height / 2))
       | Public_action Down -> Int.min (content_height - 1) (offset + 1)

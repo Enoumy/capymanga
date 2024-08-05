@@ -3,7 +3,10 @@ open Bonsai
 open Capytui
 
 type action =
-  | Scroll_to of int
+  | Scroll_to of
+      { bottom : int
+      ; top : int
+      }
   | Up
   | Down
   | Top

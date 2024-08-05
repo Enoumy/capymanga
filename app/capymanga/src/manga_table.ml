@@ -133,7 +133,9 @@ let table
       let scroll_into_view index =
         match inject_scroller with
         | None -> Effect.Ignore
-        | Some inject_scroller -> inject_scroller (Scroller.Scroll_to index)
+        | Some inject_scroller ->
+          inject_scroller
+            (Scroller.Scroll_to { top = index; bottom = index })
       in
       { Action.time_source; manga_collection; scroll_into_view; dimensions }
     in
