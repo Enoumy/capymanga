@@ -259,13 +259,7 @@ let table
           in
           text ~attrs string)
     in
-    let view =
-      Node.vcat
-        (*  Node.sexp_for_debugging *)
-        (*   [%message (dimensions : Dimensions.t) (offset : int)] *)
-        (* :: *)
-        manga
-    in
+    let view = Node.vcat manga in
     let view = Node.crop ~t:offset view in
     let curr_height = Node.height view in
     Node.crop
