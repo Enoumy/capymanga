@@ -7,13 +7,32 @@ module Catpuccin = Capytui_catpuccin
 
 let component ~dimensions ~(manga : Manga.t Value.t) ~set_page =
   let%sub sexp_for_debugging = Util.sexp_for_debugging in
+  let%sub top_bar = Top_bar.component ~instructions:(Value.return []) in
+  let%sub flavor = Catpuccin.flavor in
   let%sub view =
     let%arr manga = manga
-    and sexp_for_debugging = sexp_for_debugging in
-    sexp_for_debugging [%message (manga : Manga.t)]
+    and sexp_for_debugging = sexp_for_debugging
+    and flavor = flavor in
+    sexp_for_debugging
+      ~attrs:[ Attr.foreground_color (Catpuccin.color ~flavor Flamingo) ]
+      [%message (manga : Manga.t)]
   in
   let%sub { view; inject = _; less_keybindings_handler } =
+    let%sub dimensions =
+      let%arr dimensions = dimensions in
+      let height = dimensions.Dimensions.height - 3 in
+      let width = dimensions.height in
+      { Dimensions.height; width }
+    in
     Scroller.component ~dimensions view
+  in
+  let%sub view =
+    let%arr view = view
+    and top_bar = top_bar in
+    Node.pad
+      ~l:2
+      ~t:1
+      (Node.vcat [ top_bar; Node.text ""; view; Node.text "" ])
   in
   let%sub handler =
     let%arr set_page = set_page

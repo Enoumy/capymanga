@@ -1,4 +1,5 @@
 open! Core
+open Bonsai
 open Bonsai.Let_syntax
 open Capytui
 module Catpuccin = Capytui_catpuccin
@@ -15,13 +16,14 @@ let backdrop =
          (String.make width ' ')))
 ;;
 
-let content ~page ~set_page =
+let content ~(page : Page.t Value.t) ~set_page =
   let%sub dimensions = Capytui.terminal_dimensions in
   let%sub { view; images; handler } =
     match%sub page with
-    | Page.Manga_search -> Manga_search.component ~dimensions ~set_page
-    | Page.Manga_view { manga } ->
+    | Manga_search -> Manga_search.component ~dimensions ~set_page
+    | Manga_view { manga } ->
       Manga_viewer.component ~dimensions ~manga ~set_page
+    | About_page -> About.component ~set_page
   in
   let%sub () = Capytui.listen_to_events handler in
   let%arr view = view

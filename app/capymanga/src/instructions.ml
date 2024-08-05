@@ -1,12 +1,9 @@
 open! Core
 open Capytui
-open Bonsai
 open Bonsai.Let_syntax
 module Catpuccin = Capytui_catpuccin
 
-let render_instruction key action =
-  let%sub flavor = Catpuccin.flavor in
-  let%arr flavor = flavor in
+let render_instruction flavor key action =
   let text = Capytui_catpuccin.color ~flavor Text in
   let subtext = Capytui_catpuccin.color ~flavor Subtext0 in
   let crust = Capytui_catpuccin.color ~flavor Crust in
@@ -25,11 +22,13 @@ let render_instruction key action =
     ]
 ;;
 
-let component =
+let component instructions =
+  let%sub flavor = Catpuccin.flavor in
   let%sub instructions =
-    [ "/", "Search"; "j", "Down"; "k", "Up" ]
-    |> List.map ~f:(fun (key, action) -> render_instruction key action)
-    |> Computation.all
+    let%arr instructions = instructions
+    and flavor = flavor in
+    List.map instructions ~f:(fun (key, action) ->
+      render_instruction flavor key action)
   in
   let%sub text = Text.component in
   let%arr instructions = instructions

@@ -9,12 +9,14 @@ let key_handler
   ~table_handler
   ~textbox_is_focused
   ~set_textbox_focus
+  ~set_page
   =
   let%sub callback =
     let%arr textbox_is_focused = textbox_is_focused
     and textbox_handler = textbox_handler
     and set_textbox_focus = set_textbox_focus
-    and table_handler = table_handler in
+    and table_handler = table_handler
+    and set_page = set_page in
     fun event ->
       if textbox_is_focused
       then (
@@ -29,6 +31,7 @@ let key_handler
         | `Key (`ASCII ('l' | 'L'), [ `Ctrl ])
         | `Key (`ASCII ('f' | 'F'), [ `Ctrl ]) ->
           set_textbox_focus true
+        | `Key (`ASCII '?', []) -> set_page Page.About_page
         | _ -> table_handler event)
   in
   return callback
@@ -65,15 +68,6 @@ let search_bar ~textbox_is_focused ~manga_title ~textbox_view =
 
 let component ~dimensions ~set_page =
   let%sub flavor = Catpuccin.flavor in
-  let%sub text = Text.component in
-  let%sub spinner =
-    let%sub is_something_loading = Loading_state.is_something_loading in
-    match%sub is_something_loading with
-    | false ->
-      let%arr text = text in
-      text "  "
-    | true -> Spinner.component ~kind:Spinner.Kind.Dot (Value.return "")
-  in
   let%sub textbox_is_focused, set_textbox_focus = Bonsai.state false in
   let%sub { view = textbox_view
           ; string = manga_title
@@ -113,32 +107,22 @@ let component ~dimensions ~set_page =
       ~table_handler
       ~textbox_is_focused
       ~set_textbox_focus
+      ~set_page
   in
   let%sub top_bar =
     let%sub search_bar =
       search_bar ~textbox_is_focused ~manga_title ~textbox_view
     in
-    let%sub instructions = Instructions.component in
-    let%arr text = text
-    and flavor = flavor
-    and spinner = spinner
-    and instructions = instructions
+    let%sub instructions =
+      let%arr textbox_is_focused = textbox_is_focused in
+      match textbox_is_focused with
+      | false -> [ "/", "Search"; "j", "Down"; "k", "Up" ]
+      | true -> []
+    in
+    let%sub top_bar = Top_bar.component ~instructions in
+    let%arr top_bar = top_bar
     and search_bar = search_bar in
-    Node.hcat
-      [ Node.hcat
-          [ text
-              ~attrs:
-                [ Attr.foreground_color (Catpuccin.color ~flavor Mauve)
-                ; Attr.bold
-                ]
-              "Capymanga"
-          ; text " "
-          ; spinner
-          ; text " "
-          ; instructions
-          ]
-      ; search_bar
-      ]
+    Node.hcat [ top_bar; search_bar ]
   in
   let%sub view =
     let%arr top_bar = top_bar
