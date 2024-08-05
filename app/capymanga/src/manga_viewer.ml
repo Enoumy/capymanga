@@ -6,6 +6,12 @@ open Mangadex_api.Types
 module Catpuccin = Capytui_catpuccin
 
 let component ~dimensions ~(manga : Manga.t Value.t) ~set_page =
+  let%sub manga_id =
+    let%arr manga = manga in
+    manga.id
+  in
+  Bonsai.scope_model (module Manga_id) ~on:manga_id
+  @@
   let%sub sexp_for_debugging = Util.sexp_for_debugging in
   let%sub top_bar = Top_bar.component ~instructions:(Value.return []) in
   let%sub flavor = Catpuccin.flavor in

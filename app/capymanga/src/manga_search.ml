@@ -128,7 +128,7 @@ let component ~dimensions ~set_page =
     let%arr top_bar = top_bar
     and table = table in
     let left_pane = Node.vcat [ top_bar; Node.text ""; table ] in
-    Node.pad ~l:2 ~t:1 left_pane
+    Node.pad ~l:1 ~t:1 left_pane
   in
   let%arr view = view
   and images = images

@@ -170,9 +170,41 @@ let table
                  then Attr.foreground_color (Catpuccin.color ~flavor Green)
                  else Attr.empty)
               ]
-            else []
+            else [ Attr.bold ]
           in
-          text ~attrs string)
+          let title =
+            text ~attrs ((if i = focus then "│ " else "  ") ^ string)
+          in
+          let chapter_count =
+            let preferred_language =
+              (* TODO: DO not hard code this... *)
+              "en"
+            in
+            match
+              Option.first_some
+                (List.find
+                   manga.attributes.description
+                   ~f:(fun { language; _ } ->
+                     String.equal language preferred_language))
+                (List.hd manga.attributes.description)
+            with
+            | None -> Node.none
+            | Some { string = description; language = _ } ->
+              let description =
+                String.concat_map description ~f:(function
+                  | c when Char.is_whitespace c -> " "
+                  | x -> Char.to_string x)
+              in
+              text
+                ~attrs:
+                  [ Attr.foreground_color
+                      (Catpuccin.color
+                         ~flavor
+                         (if i = focus then Yellow else Subtext1))
+                  ]
+                description
+          in
+          Node.hcat [ title; text " "; chapter_count ])
     in
     Node.vcat manga
   in

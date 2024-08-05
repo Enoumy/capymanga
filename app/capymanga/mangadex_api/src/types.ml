@@ -13,9 +13,10 @@ module Type = struct
 end
 
 module Manga_id = struct
-  type t = string [@@deriving sexp, yojson, equal]
+  include String
 
-  let to_string = Fn.id
+  let yojson_of_t = yojson_of_string
+  let t_of_yojson = string_of_yojson
 end
 
 module I18n_string = struct

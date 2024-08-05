@@ -12,9 +12,11 @@ module Type : sig
 end
 
 module Manga_id : sig
-  type t [@@deriving sexp, yojson, equal]
+  type t [@@deriving sexp, yojson, equal, compare]
 
   val to_string : t -> string
+
+  include Comparable.S with type t := t
 end
 
 module I18n_string : sig
