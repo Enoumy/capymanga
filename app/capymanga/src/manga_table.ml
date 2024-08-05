@@ -176,7 +176,7 @@ let table
     in
     Node.vcat manga
   in
-  let%sub { view; inject = inject_scroller } =
+  let%sub { view; inject = inject_scroller; less_keybindings_handler = _ } =
     Scroller.component ~dimensions view
   in
   let%sub () =
