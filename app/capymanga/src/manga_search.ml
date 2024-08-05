@@ -4,12 +4,6 @@ open Bonsai
 open Bonsai.Let_syntax
 module Catpuccin = Capytui_catpuccin
 
-type t =
-  { view : Node.t
-  ; images : Image.t list
-  ; handler : Event.t -> unit Effect.t
-  }
-
 let key_handler
   ~textbox_handler
   ~table_handler
@@ -69,7 +63,7 @@ let search_bar ~textbox_is_focused ~manga_title ~textbox_view =
   else Node.none
 ;;
 
-let component ~dimensions =
+let component ~dimensions ~set_page =
   let%sub flavor = Catpuccin.flavor in
   let%sub text = Text.component in
   let%sub spinner =
@@ -107,7 +101,11 @@ let component ~dimensions =
       and width = width - 1 in
       { Dimensions.height; width }
     in
-    Manga_table.component ~dimensions ~textbox_is_focused ~manga_title
+    Manga_table.component
+      ~dimensions
+      ~textbox_is_focused
+      ~manga_title
+      ~set_page
   in
   let%sub handler =
     key_handler
@@ -151,5 +149,5 @@ let component ~dimensions =
   let%arr view = view
   and images = images
   and handler = handler in
-  { view; images; handler }
+  { Component.view; images; handler }
 ;;

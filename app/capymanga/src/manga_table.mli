@@ -12,4 +12,5 @@ val component
   :  dimensions:Dimensions.t Value.t
   -> textbox_is_focused:bool Value.t
   -> manga_title:string Value.t
+  -> set_page:(Page.t -> unit Effect.t) Value.t
   -> t Computation.t

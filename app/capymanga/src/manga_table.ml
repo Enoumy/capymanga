@@ -143,11 +143,17 @@ module Scroll_into_view = struct
          then offset + (scroll_to - max)
          else scroll_to
        | Up -> Int.max 0 (offset - 1)
-       | Down -> Int.min (manga_collection_count - height) (offset + 1))
+       | Down -> Int.min (manga_collection_count - 1) (offset + 1))
   ;;
 end
 
-let table ~dimensions ~manga_title ~textbox_is_focused manga_collection =
+let table
+  ~dimensions
+  ~manga_title
+  ~textbox_is_focused
+  ~set_page
+  manga_collection
+  =
   let%sub offset, inject_offset =
     let%sub input =
       let%sub manga_collection_count =
@@ -180,11 +186,25 @@ let table ~dimensions ~manga_title ~textbox_is_focused manga_collection =
          input
   in
   let%sub handler =
+    let%sub manga_collection = Bonsai.yoink manga_collection in
+    let%sub focus = Bonsai.yoink focus in
     let%arr inject_focus = inject_focus
-    and inject_offset = inject_offset in
+    and inject_offset = inject_offset
+    and manga_collection = manga_collection
+    and focus = focus
+    and set_page = set_page in
     fun (event : Event.t) ->
       (* TODO: Implement a page scroller, maybe with an offset. *)
       match event with
+      | `Key (`Enter, []) ->
+        let%bind.Effect focus = focus
+        and manga_collection = manga_collection in
+        (match focus, manga_collection with
+         | Active focus, Active manga_collection ->
+           (match List.nth manga_collection.data focus with
+            | None -> Effect.Ignore
+            | Some manga -> set_page (Page.Manga_view { manga }))
+         | _ -> Effect.Ignore)
       | `Key (`ASCII 'k', [])
       | `Key (`Arrow `Up, [])
       | `Mouse (`Press (`Scroll `Up), _, _) ->
@@ -259,7 +279,7 @@ let table ~dimensions ~manga_title ~textbox_is_focused manga_collection =
   { view; images; handler }
 ;;
 
-let component ~dimensions ~textbox_is_focused ~manga_title =
+let component ~dimensions ~textbox_is_focused ~manga_title ~set_page =
   let%sub manga_title =
     let%sub bounced =
       let%sub bounced =
@@ -298,5 +318,10 @@ let component ~dimensions ~textbox_is_focused ~manga_title =
     ; handler = (fun _ -> Effect.Ignore)
     }
   | Some (Ok manga_collection) ->
-    table ~dimensions ~manga_title ~textbox_is_focused manga_collection
+    table
+      ~dimensions
+      ~manga_title
+      ~textbox_is_focused
+      ~set_page
+      manga_collection
 ;;
