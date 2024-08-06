@@ -15,13 +15,14 @@ let manga_list title =
   let%sub state, set_state = Bonsai.state_opt () in
   let%sub effect =
     Bonsai.const
-    @@ fun title ->
+    @@ fun _title ->
     Effect.of_deferred_fun
       (fun () ->
-        Mangadex_api.Search.search
-          ~limit:100
-          ?title:(match title with "" -> None | x -> Some x)
-          ())
+        (* Mangadex_api.Search.search *)
+        (*   ~limit:100 *)
+        (*   ?title:(match title with "" -> None | x -> Some x) *)
+        (*   () *)
+        Async.Deferred.Or_error.return Mock.response)
       ()
   in
   let%sub effect = Bonsai.Effect_throttling.poll effect in
@@ -59,7 +60,7 @@ module Action = struct
   type input =
     { time_source : Bonsai.Time_source.t
     ; manga_collection : Manga.t Collection.t
-    ; scroll_into_view : int -> unit Effect.t
+    ; scroll_into_view : bottom:int -> top:int -> unit Effect.t
     ; dimensions : Dimensions.t
     }
 
@@ -110,7 +111,9 @@ module Action = struct
       then
         Bonsai.Apply_action_context.schedule_event
           context
-          (scroll_into_view new_model.focus);
+          (scroll_into_view
+             ~bottom:((new_model.focus * 3) + 1)
+             ~top:(new_model.focus * 3));
       new_model
   ;;
 end
@@ -130,12 +133,11 @@ let table
       and manga_collection = manga_collection
       and dimensions = dimensions
       and inject_scroller = inject_scroller in
-      let scroll_into_view index =
+      let scroll_into_view ~bottom ~top =
         match inject_scroller with
         | None -> Effect.Ignore
         | Some inject_scroller ->
-          inject_scroller
-            (Scroller.Scroll_to { top = index; bottom = index })
+          inject_scroller (Scroller.Scroll_to { top; bottom })
       in
       { Action.time_source; manga_collection; scroll_into_view; dimensions }
     in
@@ -158,7 +160,8 @@ let table
     and text = text
     and focus = focus
     and flavor = flavor
-    and textbox_is_focused = textbox_is_focused in
+    and textbox_is_focused = textbox_is_focused
+    and dimensions = dimensions in
     let manga =
       List.mapi manga_collection.data ~f:(fun i manga ->
         match manga.attributes.title with
@@ -174,9 +177,12 @@ let table
               ]
             else [ Attr.bold ]
           in
-          let title =
-            text ~attrs ((if i = focus then "│ " else "  ") ^ string)
+          let left_bar =
+            Node.vcat
+              (List.init 2 ~f:(fun _ ->
+                 text ~attrs (if i = focus then "│ " else "  ")))
           in
+          let title = text ~attrs string in
           let chapter_count =
             let preferred_language =
               (* TODO: DO not hard code this... *)
@@ -190,12 +196,26 @@ let table
                      String.equal language preferred_language))
                 (List.hd manga.attributes.description)
             with
-            | None -> Node.none
+            | None -> Node.text ""
             | Some { string = description; language = _ } ->
               let description =
                 String.concat_map description ~f:(function
                   | c when Char.is_whitespace c -> " "
                   | x -> Char.to_string x)
+              in
+              let description =
+                let target_length = dimensions.width / 2 in
+                if String.length description <= target_length
+                then description
+                else
+                  String.sub description ~pos:0 ~len:target_length
+                  |> String.split ~on:' '
+                  |> List.rev
+                  |> List.tl
+                  |> Option.value ~default:[]
+                  |> List.rev
+                  |> String.concat ~sep:" "
+                  |> fun x -> x ^ "..."
               in
               text
                 ~attrs:
@@ -206,7 +226,7 @@ let table
                   ]
                 description
           in
-          Node.hcat [ title; text " "; chapter_count ])
+          Node.hcat [ left_bar; Node.vcat [ title; chapter_count; text "" ] ])
     in
     Node.vcat manga
   in
@@ -249,9 +269,19 @@ let table
       | `Key (`ASCII ('u' | 'U'), ([ `Ctrl ] | [])) ->
         inject_focus Up_half_page
       | `Key (`ASCII ('e' | 'E'), [ `Ctrl ]) ->
-        Effect.all_unit [ inject_scroller Down; inject_focus Down ]
+        Effect.all_unit
+          [ inject_scroller Down
+          ; inject_scroller Down
+          ; inject_scroller Down
+          ; inject_focus Down
+          ]
       | `Key (`ASCII ('y' | 'Y'), [ `Ctrl ]) ->
-        Effect.all_unit [ inject_scroller Up; inject_focus Up ]
+        Effect.all_unit
+          [ inject_scroller Up
+          ; inject_scroller Up
+          ; inject_scroller Up
+          ; inject_focus Up
+          ]
       | `Key (`ASCII 'j', [])
       | `Key (`Arrow `Down, [])
       | `Mouse (`Press (`Scroll `Down), _, _) ->

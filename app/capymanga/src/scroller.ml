@@ -54,7 +54,7 @@ let apply_action _ input { offset; last_time_g_was_pressed } action =
            correct... *)
         let min_visible = offset in
         let max_visible = offset + height - 1 in
-        if bottom >= min_visible && top <= max_visible
+        if bottom <= max_visible && top >= min_visible
         then offset
         else if bottom < max_visible
         then top

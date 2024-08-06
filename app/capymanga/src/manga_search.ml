@@ -29,7 +29,8 @@ let key_handler
         | `Key (`ASCII '/', [])
         | `Key (`ASCII ('s' | 'S'), [ `Ctrl ])
         | `Key (`ASCII ('l' | 'L'), [ `Ctrl ])
-        | `Key (`ASCII ('f' | 'F'), [ `Ctrl ]) ->
+        | `Key (`ASCII ('f' | 'F'), [ `Ctrl ])
+        | `Key (`ASCII ('k' | 'K'), [ `Ctrl ]) ->
           set_textbox_focus true
         | `Key (`ASCII '?', []) -> set_page Page.About_page
         | _ -> table_handler event)
@@ -128,7 +129,7 @@ let component ~dimensions ~set_page =
     let%arr top_bar = top_bar
     and table = table in
     let left_pane = Node.vcat [ top_bar; Node.text ""; table ] in
-    Node.pad ~l:1 ~t:1 left_pane
+    Node.pad ~l:2 ~t:1 left_pane
   in
   let%arr view = view
   and images = images
