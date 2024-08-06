@@ -5,12 +5,6 @@ open Bonsai.Let_syntax
 module Catpuccin = Capytui_catpuccin
 open Mangadex_api.Types
 
-type t =
-  { view : Node.t
-  ; images : Image.t list
-  ; handler : Event.t -> unit Effect.t
-  }
-
 let manga_list title =
   let%sub state, set_state = Bonsai.state_opt () in
   let%sub effect =
@@ -18,11 +12,11 @@ let manga_list title =
     @@ fun title ->
     Effect.of_deferred_fun
       (fun () ->
-        Mangadex_api.Search.search
-          ~limit:100
-          ?title:(match title with "" -> None | x -> Some x)
-          ()
-        (* Async.Deferred.Or_error.return Mock.response *))
+        (* Mangadex_api.Search.search *)
+        (*   ~limit:100 *)
+        (*   ?title:(match title with "" -> None | x -> Some x) *)
+        (*   () *)
+        Async.Deferred.Or_error.return Mock.response)
       ()
   in
   let%sub effect = Bonsai.Effect_throttling.poll effect in
@@ -126,6 +120,7 @@ let sort_of_tag_name name =
   | "gore" -> 1
   | "sci-fi" -> 1
   | "suggestive" | "romance" -> 2
+  | "slice of life" -> 2
   | x when String.is_substring x ~substring:"violence" -> 1
   | _ -> 3
 ;;
@@ -141,6 +136,7 @@ let render_tag ~flavor (tag : Tag.t) =
       | "gore" -> Catpuccin.Red
       | x when String.is_substring x ~substring:"violence" -> Red
       | "suggestive" | "award winning" -> Catpuccin.Yellow
+      | "slice of life" -> Flamingo
       | "sci-fi" -> Teal
       | _ -> Subtext0
     in
@@ -243,14 +239,22 @@ let render_row
         if String.length description <= target_length
         then description
         else
-          String.sub description ~pos:0 ~len:target_length
+          String.sub description ~pos:0 ~len:(target_length - 3)
           |> String.split ~on:' '
           |> List.rev
           |> List.tl
           |> Option.value ~default:[]
           |> List.rev
           |> String.concat ~sep:" "
-          |> fun x -> x ^ "..."
+          |> fun x ->
+          (String.chop_suffix_if_exists ~suffix:"." x
+           |> String.chop_suffix_if_exists ~suffix:"."
+           |> String.chop_suffix_if_exists ~suffix:"."
+           |> String.chop_suffix_if_exists ~suffix:";"
+           |> String.chop_suffix_if_exists ~suffix:","
+           |> String.chop_suffix_if_exists ~suffix:"!"
+           |> String.chop_suffix_if_exists ~suffix:"?")
+          ^ "..."
       in
       text
         ~attrs:
@@ -385,7 +389,7 @@ let table
   and image = image
   and handler = handler in
   let images = match image with None -> [] | Some (x, _) -> [ x ] in
-  { view; images; handler }
+  { Component.view; images; handler }
 ;;
 
 let component ~dimensions ~textbox_is_focused ~manga_title ~set_page =
@@ -414,18 +418,52 @@ let component ~dimensions ~textbox_is_focused ~manga_title ~set_page =
   | None ->
     let%sub () = Loading_state.i_am_loading in
     Bonsai.const
-      { view = Node.none; images = []; handler = (fun _ -> Effect.Ignore) }
+      { Component.view = Node.none
+      ; images = []
+      ; handler = (fun _ -> Effect.Ignore)
+      }
   | Some (Error error) ->
     let%arr error = error
     and sexp_for_debugging = sexp_for_debugging
     and flavor = flavor in
-    { view =
+    { Component.view =
         sexp_for_debugging
           ~attrs:[ Attr.foreground_color (Catpuccin.color ~flavor Red) ]
           [%sexp (error : Error.t)]
     ; images = []
     ; handler = (fun _ -> Effect.Ignore)
     }
+  | Some (Ok { data = []; _ }) ->
+    let%arr flavor = flavor in
+    let view =
+      Node.vcat
+        [ Node.hcat
+            [ Node.text
+                ~attrs:
+                  [ Attr.background_color (Catpuccin.color ~flavor Crust)
+                  ; Attr.foreground_color (Catpuccin.color ~flavor Text)
+                  ; Attr.bold
+                  ]
+                "No results "
+            ; Node.text
+                ~attrs:
+                  [ Attr.background_color (Catpuccin.color ~flavor Crust)
+                  ; Attr.foreground_color (Catpuccin.color ~flavor Mauve)
+                  ; Attr.bold
+                  ]
+                ":("
+            ]
+        ; Node.text
+            ~attrs:
+              [ Attr.background_color (Catpuccin.color ~flavor Crust)
+              ; Attr.foreground_color (Catpuccin.color ~flavor Subtext0)
+              ]
+            "please try another search"
+        ]
+    in
+    let images = [] in
+    let handler _ = Effect.Ignore in
+    { Component.view; images; handler }
   | Some (Ok manga_collection) ->
     table
       ~dimensions

@@ -1,0 +1,5 @@
+lib: [
+  "_build/install/default/lib/capy/META"
+  "_build/install/default/lib/capy/dune-package"
+  "_build/install/default/lib/capy/opam"
+]
