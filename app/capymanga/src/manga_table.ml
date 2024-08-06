@@ -118,6 +118,80 @@ module Action = struct
   ;;
 end
 
+let render_row
+  ~manga
+  ~i
+  ~focus
+  ~dimensions
+  ~(text : ?attrs:Attr.t list -> string -> Node.t)
+  ~textbox_is_focused
+  ~flavor
+  =
+  let title =
+    match manga.Manga.attributes.title with
+    | [] -> "Unknown title"
+    | { string = title; language = _ } :: _ -> title
+  in
+  let attrs =
+    if i = focus
+    then
+      [ Attr.bold
+      ; (if not textbox_is_focused
+         then Attr.foreground_color (Catpuccin.color ~flavor Green)
+         else Attr.empty)
+      ]
+    else [ Attr.bold ]
+  in
+  let left_bar =
+    Node.vcat
+      (List.init 2 ~f:(fun _ ->
+         text ~attrs (if i = focus then "│ " else "  ")))
+  in
+  let title = text ~attrs title in
+  let chapter_count =
+    let preferred_language =
+      (* TODO: DO not hard code this... *)
+      "en"
+    in
+    match
+      Option.first_some
+        (List.find manga.attributes.description ~f:(fun { language; _ } ->
+           String.equal language preferred_language))
+        (List.hd manga.attributes.description)
+    with
+    | None -> Node.text ""
+    | Some { string = description; language = _ } ->
+      let description =
+        String.concat_map description ~f:(function
+          | c when Char.is_whitespace c -> " "
+          | x -> Char.to_string x)
+      in
+      let description =
+        let target_length = dimensions.Dimensions.width / 2 in
+        if String.length description <= target_length
+        then description
+        else
+          String.sub description ~pos:0 ~len:target_length
+          |> String.split ~on:' '
+          |> List.rev
+          |> List.tl
+          |> Option.value ~default:[]
+          |> List.rev
+          |> String.concat ~sep:" "
+          |> fun x -> x ^ "..."
+      in
+      text
+        ~attrs:
+          [ Attr.foreground_color
+              (Catpuccin.color
+                 ~flavor
+                 (if i = focus then Yellow else Subtext1))
+          ]
+        description
+  in
+  Node.hcat [ left_bar; Node.vcat [ title; chapter_count; text "" ] ]
+;;
+
 let table
   ~dimensions
   ~manga_title
@@ -164,69 +238,14 @@ let table
     and dimensions = dimensions in
     let manga =
       List.mapi manga_collection.data ~f:(fun i manga ->
-        match manga.attributes.title with
-        | [] -> text "Unknown title"
-        | { string; language = _ } :: _ ->
-          let attrs =
-            if i = focus
-            then
-              [ Attr.bold
-              ; (if not textbox_is_focused
-                 then Attr.foreground_color (Catpuccin.color ~flavor Green)
-                 else Attr.empty)
-              ]
-            else [ Attr.bold ]
-          in
-          let left_bar =
-            Node.vcat
-              (List.init 2 ~f:(fun _ ->
-                 text ~attrs (if i = focus then "│ " else "  ")))
-          in
-          let title = text ~attrs string in
-          let chapter_count =
-            let preferred_language =
-              (* TODO: DO not hard code this... *)
-              "en"
-            in
-            match
-              Option.first_some
-                (List.find
-                   manga.attributes.description
-                   ~f:(fun { language; _ } ->
-                     String.equal language preferred_language))
-                (List.hd manga.attributes.description)
-            with
-            | None -> Node.text ""
-            | Some { string = description; language = _ } ->
-              let description =
-                String.concat_map description ~f:(function
-                  | c when Char.is_whitespace c -> " "
-                  | x -> Char.to_string x)
-              in
-              let description =
-                let target_length = dimensions.width / 2 in
-                if String.length description <= target_length
-                then description
-                else
-                  String.sub description ~pos:0 ~len:target_length
-                  |> String.split ~on:' '
-                  |> List.rev
-                  |> List.tl
-                  |> Option.value ~default:[]
-                  |> List.rev
-                  |> String.concat ~sep:" "
-                  |> fun x -> x ^ "..."
-              in
-              text
-                ~attrs:
-                  [ Attr.foreground_color
-                      (Catpuccin.color
-                         ~flavor
-                         (if i = focus then Yellow else Subtext1))
-                  ]
-                description
-          in
-          Node.hcat [ left_bar; Node.vcat [ title; chapter_count; text "" ] ])
+        render_row
+          ~manga
+          ~i
+          ~focus
+          ~dimensions
+          ~text
+          ~textbox_is_focused
+          ~flavor)
     in
     Node.vcat manga
   in

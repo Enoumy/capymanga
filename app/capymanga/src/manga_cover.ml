@@ -42,6 +42,7 @@ let component
   fun manga ->
   match%sub manga with
   | None -> Bonsai.const None
+  | _ when 1 > 0 -> Bonsai.const None
   | Some manga ->
     let%sub cover_id =
       let%arr manga = manga in
