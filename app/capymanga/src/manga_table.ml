@@ -15,14 +15,14 @@ let manga_list title =
   let%sub state, set_state = Bonsai.state_opt () in
   let%sub effect =
     Bonsai.const
-    @@ fun _title ->
+    @@ fun title ->
     Effect.of_deferred_fun
       (fun () ->
-        (* Mangadex_api.Search.search *)
-        (*   ~limit:100 *)
-        (*   ?title:(match title with "" -> None | x -> Some x) *)
-        (*   () *)
-        Async.Deferred.Or_error.return Mock.response)
+        Mangadex_api.Search.search
+          ~limit:100
+          ?title:(match title with "" -> None | x -> Some x)
+          ()
+        (* Async.Deferred.Or_error.return Mock.response *))
       ()
   in
   let%sub effect = Bonsai.Effect_throttling.poll effect in
@@ -118,6 +118,41 @@ module Action = struct
   ;;
 end
 
+let sort_of_tag_name name =
+  (* NOTE: These are the same priorities/colored tags as mangadex. *)
+  match String.lowercase name with
+  | "award winning" -> -1
+  | "doujinshi" -> 0
+  | "gore" -> 1
+  | "sci-fi" -> 1
+  | "suggestive" | "romance" -> 2
+  | x when String.is_substring x ~substring:"violence" -> 1
+  | _ -> 3
+;;
+
+let render_tag ~flavor (tag : Tag.t) =
+  match tag.attributes.name with
+  | [] -> Node.none
+  | { string; _ } :: _ ->
+    let color =
+      match String.lowercase string with
+      (* NOTE: These are the same colored tags as https://mangadex.org *)
+      | "doujinshi" | "romance" -> Catpuccin.Mauve
+      | "gore" -> Catpuccin.Red
+      | x when String.is_substring x ~substring:"violence" -> Red
+      | "suggestive" | "award winning" -> Catpuccin.Yellow
+      | "sci-fi" -> Teal
+      | _ -> Subtext0
+    in
+    Node.text
+      ~attrs:
+        [ Attr.background_color (Catpuccin.color ~flavor Surface0)
+        ; Attr.foreground_color (Catpuccin.color ~flavor color)
+        ; Attr.bold
+        ]
+      (" " ^ String.uppercase string ^ " ")
+;;
+
 let render_row
   ~manga
   ~i
@@ -148,6 +183,43 @@ let render_row
          text ~attrs (if i = focus then "│ " else "  ")))
   in
   let title = text ~attrs title in
+  let tags =
+    let tags =
+      List.sort
+        ~compare:
+          (Comparable.lift
+             ~f:(fun (tag : Tag.t) ->
+               let name =
+                 match tag.attributes.name with
+                 | [] -> ""
+                 | { string; _ } :: _ -> string
+               in
+               sort_of_tag_name name)
+             Int.ascending)
+        manga.attributes.tags
+    in
+    let first_6_tags, rem = List.split_n tags 6 in
+    let first_6_tags =
+      Node.hcat
+        (List.intersperse ~sep:(text " ")
+         @@ List.map first_6_tags ~f:(fun tag -> render_tag ~flavor tag))
+    in
+    match rem with
+    | [] -> first_6_tags
+    | rem ->
+      let count = List.length rem in
+      Node.hcat
+        [ first_6_tags
+        ; text " "
+        ; Node.text
+            ~attrs:
+              [ Attr.background_color (Catpuccin.color ~flavor Surface0)
+              ; Attr.foreground_color (Catpuccin.color ~flavor Yellow)
+              ]
+            [%string " +%{count#Int} tags "]
+        ]
+  in
+  let top_row = Node.hcat [ title; text " "; tags ] in
   let chapter_count =
     let preferred_language =
       (* TODO: DO not hard code this... *)
@@ -189,7 +261,7 @@ let render_row
           ]
         description
   in
-  Node.hcat [ left_bar; Node.vcat [ title; chapter_count; text "" ] ]
+  Node.hcat [ left_bar; Node.vcat [ top_row; chapter_count; text "" ] ]
 ;;
 
 let table
