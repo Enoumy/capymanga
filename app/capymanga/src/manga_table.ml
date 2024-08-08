@@ -12,11 +12,11 @@ let manga_list title =
     @@ fun title ->
     Effect.of_deferred_fun
       (fun () ->
-        (* Mangadex_api.Search.search *)
-        (*   ~limit:100 *)
-        (*   ?title:(match title with "" -> None | x -> Some x) *)
-        (*   () *)
-        Async.Deferred.Or_error.return Mock.response)
+        Mangadex_api.Search.search
+          ~limit:100
+          ?title:(match title with "" -> None | x -> Some x)
+          ()
+        (* Async.Deferred.Or_error.return Mock.response *))
       ()
   in
   let%sub effect = Bonsai.Effect_throttling.poll effect in
@@ -304,7 +304,25 @@ let table
     and focus = focus in
     List.nth manga_collection.data focus
   in
-  let%sub image = Manga_cover.component selected_manga in
+  let%sub url = Manga_cover.component selected_manga in
+  let%sub images =
+    (* NOTE: I want to use the terminal dimensions here as I want the entire
+       image to be big. *)
+    let%sub dimensions = Capytui.terminal_dimensions in
+    let%arr url = url
+    and dimensions = dimensions in
+    match url with
+    | None -> []
+    | Some { url } ->
+      [ { Image.url
+        ; row = 1
+        ; column = dimensions.Dimensions.width / 2
+        ; dimensions =
+            { width = dimensions.width / 2; height = dimensions.height - 2 }
+        ; scale = true
+        }
+      ]
+  in
   let%sub view =
     let%arr manga_collection = manga_collection
     and text = text
@@ -386,9 +404,8 @@ let table
       | _ -> inject_focus Other_key_pressed
   in
   let%arr view = view
-  and image = image
+  and images = images
   and handler = handler in
-  let images = match image with None -> [] | Some (x, _) -> [ x ] in
   { Component.view; images; handler }
 ;;
 

@@ -25,8 +25,87 @@ let sidebar
       ~attrs:[ Attr.foreground_color (Catpuccin.color ~flavor Flamingo) ]
       [%message (manga : Manga.t)]
   in
-  let%sub { view; inject = _; less_keybindings_handler } =
+  let%sub url = Manga_cover.component (Value.map ~f:Option.some manga) in
+  let%sub image_height =
+    let%arr { height; _ } = dimensions in
+    height / 3
+  in
+  let%sub images =
+    let%arr url = url
+    and dimensions = dimensions
+    and image_height = image_height in
+    match url with
+    | None -> []
+    | Some { url } ->
+      [ { Image.url
+        ; row = 4
+        ; column = 2
+        ; dimensions = { height = image_height; width = dimensions.width }
+        ; scale = true
+        }
+      ]
+  in
+  let%sub top_section =
+    let%sub title =
+      let%arr manga = manga
+      and flavor = flavor
+      and { width; _ } = dimensions in
+      let title =
+        match manga.attributes.title with
+        | [] -> "Unknown title"
+        | { string = title; _ } :: _ -> title
+      in
+      let title =
+        Node.text
+          ~attrs:
+            [ Attr.foreground_color (Catpuccin.color ~flavor Yellow)
+            ; Attr.background_color (Catpuccin.color ~flavor Base)
+            ; Attr.bold
+            ]
+          title
+      in
+      let pad =
+        Node.text
+          ~attrs:[ Attr.background_color (Catpuccin.color ~flavor Base) ]
+          (String.make (Int.max 0 ((width - Node.width title) / 2)) ' ')
+      in
+      let normal = Node.hcat [ pad; title; pad ] in
+      Node.hcat
+        [ normal
+        ; Node.text
+            ~attrs:[ Attr.background_color (Catpuccin.color ~flavor Base) ]
+            (String.make (Int.max 0 @@ (width - Node.height normal)) ' ')
+        ]
+    in
+    let%sub picture =
+      let%arr { width; _ } = dimensions
+      and flavor = flavor
+      and image_height = image_height in
+      Node.vcat
+        (List.init image_height ~f:(fun _ ->
+           Node.text
+             ~attrs:
+               [ Attr.background_color (Catpuccin.color ~flavor Mantle) ]
+             (String.make width ' ')))
+    in
+    let%arr title = title
+    and picture = picture in
+    Node.vcat [ title; picture ]
+  in
+  let%sub { view = sexp_view; inject = _; less_keybindings_handler } =
+    let%sub dimensions =
+      let%arr dimensions = dimensions
+      and top_section = top_section in
+      { Dimensions.height = dimensions.height - Node.height top_section
+      ; width = dimensions.width
+      }
+    in
     Scroller.component ~dimensions view
+  in
+  let%sub view =
+    let%arr sexp_view = sexp_view
+    and top_section = top_section in
+    Node.vcat [ top_section; sexp_view ]
   in
   let%sub view =
     let%arr dimensions = dimensions
@@ -42,8 +121,9 @@ let sidebar
       | _ -> less_keybindings_handler event
   in
   let%arr view = view
-  and handler = handler in
-  { Component.view; handler; images = [] }
+  and handler = handler
+  and images = images in
+  { Component.view; handler; images }
 ;;
 
 let chapter_table ~(dimensions : Dimensions.t Value.t) =
@@ -72,21 +152,28 @@ let component ~dimensions ~(manga : Manga.t Value.t) ~set_page =
   let%sub top_bar =
     Top_bar.component ~instructions:(Value.return [ "Backspace", "back" ])
   in
-  let%sub flavor = Catpuccin.flavor in
   let%sub content_dimensions =
     let%arr dimensions = dimensions in
     let height = dimensions.Dimensions.height - 3 in
     let width = dimensions.width - 4 in
     { Dimensions.height; width }
   in
-  let%sub left_dimensions =
+  let%sub left_dimensions, right_dimensions =
     let%arr content_dimensions = content_dimensions in
-    { content_dimensions with width = content_dimensions.width / 2 }
+    let left =
+      { content_dimensions with width = content_dimensions.width / 3 }
+    in
+    let right =
+      { content_dimensions with
+        width = content_dimensions.width - left.width
+      }
+    in
+    left, right
   in
-  let%sub { view = sidebar_view; images = _; handler = sidebar_handler } =
+  let%sub { view = sidebar_view; images; handler = sidebar_handler } =
     sidebar ~dimensions:left_dimensions manga ~set_page
   in
-  let%sub chapter_table = chapter_table ~dimensions:left_dimensions in
+  let%sub chapter_table = chapter_table ~dimensions:right_dimensions in
   let%sub view =
     let%arr sidebar_view = sidebar_view
     and chapter_table = chapter_table in
@@ -102,6 +189,7 @@ let component ~dimensions ~(manga : Manga.t Value.t) ~set_page =
       (Node.vcat [ top_bar; Node.text ""; view; Node.text "" ])
   in
   let%arr view = view
-  and sidebar_handler = sidebar_handler in
-  { Component.view; images = []; handler = sidebar_handler }
+  and sidebar_handler = sidebar_handler
+  and images = images in
+  { Component.view; images; handler = sidebar_handler }
 ;;

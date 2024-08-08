@@ -4,6 +4,8 @@ open Capytui
 open Bonsai.Let_syntax
 open Mangadex_api.Types
 
+type t = { url : string }
+
 let cover_filename ~cover_id =
   let%sub state, set_state = Bonsai.state_opt () in
   let%sub () =
@@ -36,13 +38,14 @@ let cover_filename ~cover_id =
 ;;
 
 let component
-  :  Mangadex_api.Types.Manga.t option Value.t
-  -> (Image.t * string) option Computation.t
+  : Mangadex_api.Types.Manga.t option Value.t -> t option Computation.t
   =
   fun manga ->
+  (* TODO: Add some caching here (there are duplicate queries on the manga
+     search and the manga view pages.)... *)
   match%sub manga with
   | None -> Bonsai.const None
-  | _ when 1 > 0 -> Bonsai.const None
+  (* | _ when 1 > 0 -> Bonsai.const None *)
   | Some manga ->
     let%sub cover_id =
       let%arr manga = manga in
@@ -71,24 +74,12 @@ let component
           in
           (match%sub filename with
            | Some (Ok { data = { attributes = { filename; _ }; _ } }) ->
-             let%sub dimensions = Capytui.terminal_dimensions in
              let%arr filename = filename
-             and manga_id = manga_id
-             and dimensions = dimensions in
+             and manga_id = manga_id in
              let url =
                [%string
                  "https://mangadex.org/covers/%{manga_id#Manga_id}/%{filename}"]
              in
-             Some
-               ( { Image.url
-                 ; row = 0
-                 ; column = dimensions.Dimensions.width / 2
-                 ; dimensions =
-                     { width = dimensions.width / 2
-                     ; height = dimensions.height
-                     }
-                 ; scale = true
-                 }
-               , url )
+             Some { url }
            | _ -> Bonsai.const None)))
 ;;
