@@ -17,6 +17,7 @@ let default_manga_cover ~cover_id:(_ : string) =
 let create_handle
   ?(manga_search = Value.return default_manga_search)
   ?(manga_cover = Value.return default_manga_cover)
+  ?(initial_dimensions = { Dimensions.width = 120; height = 30 })
   ()
   =
   let manga_search =
@@ -62,10 +63,6 @@ let create_handle
     in
     Node.zcat (images @ [ image ])
   in
-  let handle =
-    Capytui_test.create_handle
-      ~initial_dimensions:{ width = 120; height = 30 }
-      app
-  in
+  let handle = Capytui_test.create_handle ~initial_dimensions app in
   handle
 ;;
