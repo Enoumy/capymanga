@@ -14,11 +14,9 @@ let cover_filename ~cover_id =
     | Some _ -> Bonsai.const ()
   in
   let%sub effect =
-    Bonsai.const
-    @@ fun cover_id ->
-    Effect.of_deferred_fun
-      (fun cover_id -> Mangadex_api.Cover.get ~cover_id)
-      cover_id
+    let%sub cover = Outside_world.Manga_cover.component in
+    let%arr cover = cover in
+    fun cover_id -> cover ~cover_id
   in
   let%sub effect = Bonsai.Effect_throttling.poll effect in
   let%sub () =

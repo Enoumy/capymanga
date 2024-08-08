@@ -8,16 +8,9 @@ open Mangadex_api.Types
 let manga_list title =
   let%sub state, set_state = Bonsai.state_opt () in
   let%sub effect =
-    Bonsai.const
-    @@ fun title ->
-    Effect.of_deferred_fun
-      (fun () ->
-        Mangadex_api.Search.search
-          ~limit:100
-          ?title:(match title with "" -> None | x -> Some x)
-          ()
-        (* Async.Deferred.Or_error.return Mock.response *))
-      ()
+    let%sub search = Outside_world.Manga_search.component in
+    let%arr search = search in
+    fun title -> search ~title:(match title with "" -> None | x -> Some x)
   in
   let%sub effect = Bonsai.Effect_throttling.poll effect in
   let%sub () =

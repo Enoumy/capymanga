@@ -3,18 +3,27 @@ open Mangadex_api.Types
 open Bonsai
 open Capytui
 
-module Manga_cover = struct
-  type t = cover_id:string -> Cover.t Entity.t Or_error.t Effect.t
+module type S = sig
+  type t
+
+  val component : t Computation.t
+  val register_mock : t Value.t -> 'a Computation.t -> 'a Computation.t
+  val register_real : 'a Computation.t -> 'a Computation.t
+end
+
+module type Arg = sig
+  type t
+
+  val name : string
+  val unregistered : t
+  val real : t
+end
+
+module Make (Arg : Arg) = struct
+  type t = Arg.t
 
   let variable =
-    Bonsai.Dynamic_scope.create
-      ~name:"manga-cover"
-      ~fallback:(fun ~cover_id ->
-        raise_s
-          [%message
-            "manga-cover error! handler was never registered!"
-              (cover_id : string)])
-      ()
+    Bonsai.Dynamic_scope.create ~name:Arg.name ~fallback:Arg.unregistered ()
   ;;
 
   let component : t Computation.t = Dynamic_scope.lookup variable
@@ -26,13 +35,50 @@ module Manga_cover = struct
 
   let register_real : 'a Computation.t -> 'a Computation.t =
     fun computation ->
-    let handler =
-      Value.return
-      @@ fun ~cover_id ->
-      Effect.of_deferred_fun
-        (fun cover_id -> Mangadex_api.Cover.get ~cover_id)
-        cover_id
-    in
+    let handler = Value.return Arg.real in
     Dynamic_scope.set variable handler ~inside:computation
   ;;
 end
+
+module Manga_cover = Make (struct
+    type t = cover_id:string -> Cover.t Entity.t Or_error.t Effect.t
+
+    let name = "mangadex-cover"
+
+    let unregistered ~cover_id =
+      raise_s
+        [%message
+          "mangadex-cover error! handler was never registered!"
+            (cover_id : string)]
+    ;;
+
+    let real ~cover_id =
+      Effect.of_deferred_fun
+        (fun cover_id -> Mangadex_api.Cover.get ~cover_id)
+        cover_id
+    ;;
+  end)
+
+module Manga_search = Make (struct
+    type t = title:string option -> Manga.t Collection.t Or_error.t Effect.t
+
+    let name = "mangadex-search"
+
+    let unregistered ~title =
+      raise_s
+        [%message
+          "mangadex-search error! handler was never registered!"
+            (title : string option)]
+    ;;
+
+    let real ~title =
+      Effect.of_deferred_fun
+        (fun title ->
+          Mangadex_api.Search.search
+            ~limit:100
+            ?title:
+              (Option.bind title ~f:(function "" -> None | x -> Some x))
+            ())
+        title
+    ;;
+  end)

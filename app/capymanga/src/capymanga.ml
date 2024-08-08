@@ -50,6 +50,11 @@ let command =
     [%map_open.Command
       let () = return () in
       fun () ->
+        let app =
+          app
+          |> Outside_world.Manga_cover.register_real
+          |> Outside_world.Manga_search.register_real
+        in
         let%bind () = Capytui.start_with_images app in
         Deferred.return ()]
 ;;
