@@ -1,0 +1,14 @@
+(library
+ (name mangadex_api_dummy_data)
+ (libraries core expect_test_helpers_core mangadex_api)
+ (preprocess
+  (pps ppx_jane)))
+
+(rule
+ (targets embedded_files.ml embedded_files.mli)
+ (deps
+  %{bin:ocaml-embed-file}
+  ./one_punch_man_search_test_data.json
+  ./one_punch_man_cover_test_data.json)
+ (action
+  (bash "%{deps} -output embedded_files")))

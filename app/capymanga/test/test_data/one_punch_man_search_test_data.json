@@ -1,0 +1,1966 @@
+{
+  "result": "ok",
+  "response": "collection",
+  "data": [
+    {
+      "id": "d8a959f7-648e-4c8d-8f23-f1f3f8e129f3",
+      "type": "manga",
+      "attributes": {
+        "title": {
+          "en": "One-Punch Man"
+        },
+        "altTitles": [
+          {
+            "es": "El hombre de un solo golpe"
+          },
+          {
+            "en": "One Punch Man"
+          },
+          {
+            "en": "One-Punch Man"
+          },
+          {
+            "en": "OPM"
+          },
+          {
+            "tr": "Tek Yumruk"
+          },
+          {
+            "ja-ro": "Wanpanman"
+          },
+          {
+            "ru": "Ванпанчмен"
+          },
+          {
+            "fa": "مرد تک‌مشتی"
+          },
+          {
+            "fa": "وان‌پانچ‌من"
+          },
+          {
+            "ja": "ワンパンマン"
+          },
+          {
+            "zh": "一拳超人"
+          },
+          {
+            "ko": "원펀맨"
+          },
+          {
+            "zh": "一击男"
+          },
+          {
+            "ne": "वान्-पन्च् म्यान्"
+          },
+          {
+            "ar": "ون بنش مان"
+          },
+          {
+            "ar": "رجل اللكمة الواحدة"
+          },
+          {
+            "th": "วันพันช์แมน"
+          },
+          {
+            "he": "איש האגרוף הבודד"
+          },
+          {
+            "he": "וואן פאנץ' מן"
+          },
+          {
+            "kk": "Бірұрман"
+          },
+          {
+            "kk": "Уанпанчмен"
+          },
+          {
+            "de": "ONE-PUNCH MAN"
+          },
+          {
+            "pt-br": "One-Punch Man"
+          },
+          {
+            "en": "Onepunch-Man"
+          }
+        ],
+        "description": {
+          "en": "After rigorously training for three years, the ordinary Saitama has gained immense strength which allows him to take out anyone and anything with just one punch. He decides to put his new skill to good use by becoming a hero. However, he quickly becomes bored with easily defeating monsters, and wants someone to give him a challenge to bring back the spark of being a hero.  \n  \nUpon bearing witness to Saitama's amazing power, Genos, a cyborg, is determined to become Saitama's apprentice. During this time, Saitama realizes he is neither getting the recognition that he deserves nor known by the people due to him not being a part of the Hero Association. Wanting to boost his reputation, Saitama decides to have Genos register with him, in exchange for taking him in as a pupil. Together, the two begin working their way up toward becoming true heroes, hoping to find strong enemies and earn respect in the process.  \n  \n\n\n\n---\n\n**Notes:**  \n- Because some groups use the web version of the manga while others use the magazine version, the numbering won't match between different languages.  \n- **Because a takedown notice was sent to MangaDex from the owners of this series, fan translations of One Punch Man are currently unavailable to be uploaded. The series can be read in its entirety at [the official Shonen Jump website,](https://www.viz.com/shonenjump/chapters/one-punch-man) with the first and latest three chapters available at any time and the rest accessible with a Shonen Jump membership (which costs about $2 a month and can be accessed via a VPN if you are outside the US).**",
+          "fa": "در جهان اَبَر قهرمان ها قهرمانی بسیار قدرتمند و شکست ناپذیر وجود داره که به (مرد تک مشتی) معروفه چون اون تمامی دشمنان و رقیب هاشو فقط با یک مشت از میدان به در میکنه. بعد از مدتی سایتاما  دیگه از مبارزاتش لذت نمیبره و احساساتی مثل هیجان و ترس رو در خودش فراموش میکنه! و همراه تنها شاگردش که یک سایبورگ هست به انتظار رقیبی خوب ، ماجراهایی رو دنبال میکنن و……",
+          "ru": "Манга повествует о молодом человеке по имени Сайтама. Он — герой, обычный герой. Основная его проблема в том, что он вышибает дух из злодеев одним ударом. А это очень скучно…",
+          "tr": "Üç yıllık sıkı bir eğitimden sonra, Saitama, tek bir yumrukla herkesi ve her şeyi alt etmesine izin veren muazzam bir güç kazandı. Bir kahraman olarak yeni becerisini iyi bir şekilde kullanmaya karar verir. Bununla birlikte, canavarları kolayca yenmekten çabucak sıkılır ve kahraman olma kıvılcımını geri getirmek için birinin ona meydan okumasını ister.\n  Bir cyborg olan Genos, Saitama'nın inanılmaz gücüne tanık olduktan sonra, Saitama'nın çırağı olmaya kararlıdır. Bu süre zarfında Saitama, Kahraman Derneği'nin bir parçası olmadığı için ne hak ettiği takdiri görmediğini ne de insanlar tarafından tanınmadığını fark eder. İtibarını artırmak isteyen Saitama, Genos'u öğrenci olarak alması karşılığında kendisine kaydettirmeye karar verir. İkisi birlikte, güçlü düşmanlar bulmayı ve bu süreçte saygı kazanmayı umarak gerçek kahramanlar olma yolunda ilerlemeye başlar.",
+          "pt-br": "One-Punch Man conta a história de Saitama, um super-herói extremamente poderoso, que se entediou com a ausência dos desafios nas suas lutas contra o mau e procura encontrar um oponente digno para lutar."
+        },
+        "isLocked": false,
+        "links": {
+          "al": "74347",
+          "ap": "one-punch-man",
+          "bw": "series/70257/list",
+          "kt": "24147",
+          "mu": "80345",
+          "amz": "https://www.amazon.co.jp/gp/product/B074CGZDXX",
+          "cdj": "https://www.cdjapan.co.jp/product/NEOBK-2564289",
+          "ebj": "https://ebookjapan.yahoo.co.jp/books/364725/",
+          "mal": "44347",
+          "raw": "https://tonarinoyj.jp/episode/13932016480028985383",
+          "engtl": "https://www.viz.com/shonenjump/chapters/one-punch-man"
+        },
+        "originalLanguage": "ja",
+        "lastVolume": "",
+        "lastChapter": "",
+        "publicationDemographic": null,
+        "status": "ongoing",
+        "year": 2012,
+        "contentRating": "suggestive",
+        "tags": [
+          {
+            "id": "0a39b5a1-b235-4886-a747-1d05d216532d",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Award Winning"
+              },
+              "description": {},
+              "group": "format",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "256c8bd9-4904-4360-bf4f-508a76d67183",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Sci-Fi"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "36fd93ea-e8b8-445e-b836-358f02b3d33d",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Monsters"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "391b0423-d847-456f-aff0-8b0cfc03066b",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Action"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "4d32cc48-9f00-4cca-9b5a-a839f0764984",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Comedy"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "7064a261-a137-4d3a-8848-2d385de3a99c",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Superhero"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "799c202e-7daa-44eb-9cf7-8a3c0441531e",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Martial Arts"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "b29d6a3d-1569-4e7a-8caf-7557bc92cd5d",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Gore"
+              },
+              "description": {},
+              "group": "content",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "b9af3a63-f058-46de-a9a0-e0c13906197a",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Drama"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "e197df38-d0e7-43b5-9b09-2842d0c326dd",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Web Comic"
+              },
+              "description": {},
+              "group": "format",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "eabc5b4c-6aff-42f3-b657-3e90cbd00b75",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Supernatural"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "ee968100-4191-4968-93d3-f82d72be7e46",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Mystery"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "f4122d1c-3b44-44d0-9936-ff7502c39ad3",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Adaptation"
+              },
+              "description": {},
+              "group": "format",
+              "version": 1
+            },
+            "relationships": []
+          }
+        ],
+        "state": "published",
+        "chapterNumbersResetOnNewVolume": false,
+        "createdAt": "2018-06-13T18:16:59+00:00",
+        "updatedAt": "2024-07-29T11:18:00+00:00",
+        "version": 58,
+        "availableTranslatedLanguages": [
+          "es",
+          "hu",
+          "zh-hk",
+          "tr",
+          "es-la",
+          "ru",
+          "ta",
+          "ar",
+          "he",
+          "it",
+          "uk",
+          "pt-br",
+          "pl",
+          "ne",
+          "en",
+          "vi",
+          "id",
+          "sr",
+          "fr",
+          "el",
+          "fa"
+        ],
+        "latestUploadedChapter": "084a8393-d890-421f-b260-82d9354c266d"
+      },
+      "relationships": [
+        {
+          "id": "16b98239-6452-4859-b6df-fdb1c7f12b52",
+          "type": "author"
+        },
+        {
+          "id": "47cd4e57-3fc4-4d76-97e4-b3933a5b05ef",
+          "type": "artist"
+        },
+        {
+          "id": "c1037a0c-aa5e-4cd9-bd33-6514a2eb332b",
+          "type": "cover_art"
+        },
+        {
+          "id": "0cad2d89-a02d-455f-a027-74f52f81eb7f",
+          "type": "manga",
+          "related": "doujinshi"
+        },
+        {
+          "id": "0ea2f16b-8fbf-48bf-97c4-7649bb3c4044",
+          "type": "manga",
+          "related": "doujinshi"
+        },
+        {
+          "id": "29c42e49-d6f5-4084-9cec-771f5660c90f",
+          "type": "manga",
+          "related": "colored"
+        },
+        {
+          "id": "5ea5f435-49ae-4328-9062-fec7affbe879",
+          "type": "manga",
+          "related": "side_story"
+        },
+        {
+          "id": "636c607c-44b0-4c1a-8592-d0a602de95d9",
+          "type": "manga",
+          "related": "doujinshi"
+        },
+        {
+          "id": "6431a544-f126-449d-ac00-64df39f549a7",
+          "type": "manga",
+          "related": "doujinshi"
+        },
+        {
+          "id": "7a2438d6-67d4-40db-8a53-879354b894d1",
+          "type": "manga",
+          "related": "doujinshi"
+        },
+        {
+          "id": "7e52445d-ea1e-4fc9-90ec-1120c49fddcd",
+          "type": "manga",
+          "related": "doujinshi"
+        },
+        {
+          "id": "8f8c4f0e-93f5-433e-ba13-017746b485ec",
+          "type": "manga",
+          "related": "doujinshi"
+        },
+        {
+          "id": "8f8c4f0e-93f5-433e-ba13-017746b485ec",
+          "type": "manga",
+          "related": "spin_off"
+        },
+        {
+          "id": "9147871d-eb19-4acf-8530-233b88e4fe91",
+          "type": "manga",
+          "related": "doujinshi"
+        },
+        {
+          "id": "b7d069cb-4ab9-4c21-a20b-38f7c269be4e",
+          "type": "manga",
+          "related": "preserialization"
+        },
+        {
+          "id": "ed9d3980-a9f4-465e-a299-aa4e7197ea28",
+          "type": "manga",
+          "related": "doujinshi"
+        },
+        {
+          "id": "f004b6bd-4961-40c3-b40c-1648e1b70273",
+          "type": "manga",
+          "related": "doujinshi"
+        },
+        {
+          "id": "f0af90c5-05ea-411b-8cc6-8070765898df",
+          "type": "manga",
+          "related": "doujinshi"
+        },
+        {
+          "id": "fc102424-d94b-4a1b-98bc-d5062cd768d6",
+          "type": "manga",
+          "related": "doujinshi"
+        }
+      ]
+    },
+    {
+      "id": "7e52445d-ea1e-4fc9-90ec-1120c49fddcd",
+      "type": "manga",
+      "attributes": {
+        "title": {
+          "en": "DB X Saitama (Doujinshi)"
+        },
+        "altTitles": [
+          {
+            "ja": "DB×サイタマ"
+          },
+          {
+            "en": "Dragon Ball x One Punch-Man"
+          },
+          {
+            "en": "Dragon Ball x Saitama"
+          },
+          {
+            "pt-br": "Dragon Ball vs One Punch Man"
+          }
+        ],
+        "description": {
+          "en": "Fan-drawn crossover of DBZ and OPM.   \n  \n**Links:**  \n- [Author's twitter](https://twitter.com/dragongarowLEE)",
+          "pt-br": "Dragon Ball x Saitama é um doujinshi criado por Dragongarow LEE em que ele insere os personagens de One Punch Man no universo de Dragon Ball e vice-versa. Esse doujinshi é formado por capítulos crossover, mostrando encontros inusitados entre os personagens dessas duas histórias.\n\nÉ como se fosse aqueles mangás \"E se...\", mostrando situações como por exemplo Vegeta lutando contra Saitama, Saitama lutando contra Majin Boo no Torneio de Artes Marciais, Genos sendo consertado pela Bulma e por aí vai..."
+        },
+        "isLocked": false,
+        "links": {
+          "raw": "http://blog.livedoor.jp/hibitanren/archives/1016275348.html"
+        },
+        "originalLanguage": "ja",
+        "lastVolume": "3",
+        "lastChapter": "4",
+        "publicationDemographic": null,
+        "status": "completed",
+        "year": 2015,
+        "contentRating": "safe",
+        "tags": [
+          {
+            "id": "391b0423-d847-456f-aff0-8b0cfc03066b",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Action"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "4d32cc48-9f00-4cca-9b5a-a839f0764984",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Comedy"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "7064a261-a137-4d3a-8848-2d385de3a99c",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Superhero"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "799c202e-7daa-44eb-9cf7-8a3c0441531e",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Martial Arts"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "87cc87cd-a395-47af-b27a-93258283bbc6",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Adventure"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "ace04997-f6bd-436e-b261-779182193d3d",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Isekai"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "b13b2a48-c720-44a9-9c77-39c9979373fb",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Doujinshi"
+              },
+              "description": {},
+              "group": "format",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "cdc58593-87dd-415e-bbc0-2ec27bf404cc",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Fantasy"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          }
+        ],
+        "state": "published",
+        "chapterNumbersResetOnNewVolume": false,
+        "createdAt": "2018-10-31T16:59:03+00:00",
+        "updatedAt": "2024-04-05T17:15:45+00:00",
+        "version": 8,
+        "availableTranslatedLanguages": ["pl", "en", "pt-br"],
+        "latestUploadedChapter": "df67c8cf-07f7-4788-9745-3d4383e71e12"
+      },
+      "relationships": [
+        {
+          "id": "68d58bfb-02dc-45fb-8f1f-ffd6700c78bf",
+          "type": "author"
+        },
+        {
+          "id": "68d58bfb-02dc-45fb-8f1f-ffd6700c78bf",
+          "type": "artist"
+        },
+        {
+          "id": "dc2bd6ed-9bab-4fea-881b-a19908b86cff",
+          "type": "cover_art"
+        },
+        {
+          "id": "40bc649f-7b49-4645-859e-6cd94136e722",
+          "type": "manga",
+          "related": "based_on"
+        },
+        {
+          "id": "d8a959f7-648e-4c8d-8f23-f1f3f8e129f3",
+          "type": "manga",
+          "related": "based_on"
+        }
+      ]
+    },
+    {
+      "id": "ed9d3980-a9f4-465e-a299-aa4e7197ea28",
+      "type": "manga",
+      "attributes": {
+        "title": {
+          "en": "One-Punch Man - Wash Yourself Before Entering The Bath (Doujinshi)"
+        },
+        "altTitles": [
+          {
+            "es-la": "One-Punch Man - Lávate Antes de Entrar al Baño (Doujinshi)"
+          },
+          {
+            "ja-ro": "ワンパンマン - かけ湯しろよ (Doujinshi)"
+          }
+        ],
+        "description": {
+          "en": "After winning a public bath voucher, Saitama wanted to enjoy a peaceful and relaxing soak in the bath… Little did he know that opportunities for funny scenarios lurk in every corner."
+        },
+        "isLocked": false,
+        "links": {
+          "mu": "gulq6dt"
+        },
+        "originalLanguage": "ja",
+        "lastVolume": "",
+        "lastChapter": "",
+        "publicationDemographic": null,
+        "status": "completed",
+        "year": 2014,
+        "contentRating": "safe",
+        "tags": [
+          {
+            "id": "0234a31e-a729-4e28-9d6a-3f87c4966b9e",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Oneshot"
+              },
+              "description": {},
+              "group": "format",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "4d32cc48-9f00-4cca-9b5a-a839f0764984",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Comedy"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "7064a261-a137-4d3a-8848-2d385de3a99c",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Superhero"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "b13b2a48-c720-44a9-9c77-39c9979373fb",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Doujinshi"
+              },
+              "description": {},
+              "group": "format",
+              "version": 1
+            },
+            "relationships": []
+          }
+        ],
+        "state": "published",
+        "chapterNumbersResetOnNewVolume": false,
+        "createdAt": "2022-01-11T18:20:02+00:00",
+        "updatedAt": "2024-04-05T17:09:25+00:00",
+        "version": 4,
+        "availableTranslatedLanguages": ["es-la", "en", "pl"],
+        "latestUploadedChapter": "e4f02cf8-85c2-489e-9159-d22127c1e7f5"
+      },
+      "relationships": [
+        {
+          "id": "3ed3345f-c194-4ec0-ad3a-582515752157",
+          "type": "author"
+        },
+        {
+          "id": "de874034-d71b-4f46-b450-7415cd7cc2ed",
+          "type": "author"
+        },
+        {
+          "id": "3ed3345f-c194-4ec0-ad3a-582515752157",
+          "type": "artist"
+        },
+        {
+          "id": "de874034-d71b-4f46-b450-7415cd7cc2ed",
+          "type": "artist"
+        },
+        {
+          "id": "ae5b7b4e-64d1-4283-b492-0b203616fc3a",
+          "type": "cover_art"
+        },
+        {
+          "id": "d8a959f7-648e-4c8d-8f23-f1f3f8e129f3",
+          "type": "manga",
+          "related": "based_on"
+        },
+        {
+          "id": "a13fa3cc-9570-4f63-b682-3ff9b60ec060",
+          "type": "creator"
+        }
+      ]
+    },
+    {
+      "id": "b7d069cb-4ab9-4c21-a20b-38f7c269be4e",
+      "type": "manga",
+      "attributes": {
+        "title": {
+          "en": "One Punch Man (Webcomic/Original)"
+        },
+        "altTitles": [
+          {
+            "id": "Manusia Satu Pukulan"
+          },
+          {
+            "en": "One Punch-Man (Pre-Serialization)"
+          },
+          {
+            "en": "One-Punch Man (Pre-Serialization)"
+          },
+          {
+            "en": "OPM (Pre-Serialization)"
+          },
+          {
+            "tr": "Tek-Yumruk Adam"
+          },
+          {
+            "ru": "Ванпанчмен (ONE)"
+          },
+          {
+            "ja": "ワンパンマン"
+          },
+          {
+            "ko": "원펀치맨 (원작)"
+          },
+          {
+            "zh": "一拳超人原作版"
+          }
+        ],
+        "description": {
+          "en": "Follows the life of an average part-time hero who manages to win every battle with a single punch. This ability frustrates him as he no longer feels the thrill of fighting a tough opponent, which leads him to question his past desire of becoming strong.",
+          "ru": "История следует за жизнью героя, который умудряется выигрывать все битвы одним единственным ударом. Эта способность его раздражает, так как он больше не чувствует азарта и возбуждения во время жесткой схватки, что приводит к тому, что он сомневается в своем давнем желании стать сильным."
+        },
+        "isLocked": false,
+        "links": {
+          "al": "85364",
+          "ap": "one-punch-man-webcomic",
+          "kt": "35883",
+          "mu": "103033",
+          "raw": "http://galaxyheavyblow.web.fc2.com"
+        },
+        "originalLanguage": "ja",
+        "lastVolume": "",
+        "lastChapter": "",
+        "publicationDemographic": null,
+        "status": "ongoing",
+        "year": 2009,
+        "contentRating": "safe",
+        "tags": [
+          {
+            "id": "0a39b5a1-b235-4886-a747-1d05d216532d",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Award Winning"
+              },
+              "description": {},
+              "group": "format",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "256c8bd9-4904-4360-bf4f-508a76d67183",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Sci-Fi"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "36fd93ea-e8b8-445e-b836-358f02b3d33d",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Monsters"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "391b0423-d847-456f-aff0-8b0cfc03066b",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Action"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "4d32cc48-9f00-4cca-9b5a-a839f0764984",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Comedy"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "7064a261-a137-4d3a-8848-2d385de3a99c",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Superhero"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "799c202e-7daa-44eb-9cf7-8a3c0441531e",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Martial Arts"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "e197df38-d0e7-43b5-9b09-2842d0c326dd",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Web Comic"
+              },
+              "description": {},
+              "group": "format",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "e5301a23-ebd9-49dd-a0cb-2add944c7fe9",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Slice of Life"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "eabc5b4c-6aff-42f3-b657-3e90cbd00b75",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Supernatural"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          }
+        ],
+        "state": "published",
+        "chapterNumbersResetOnNewVolume": false,
+        "createdAt": "2018-07-21T11:15:33+00:00",
+        "updatedAt": "2024-05-09T03:26:52+00:00",
+        "version": 14,
+        "availableTranslatedLanguages": [
+          "en",
+          "fr",
+          "it",
+          "ar",
+          "pt-br",
+          "es-la",
+          "th",
+          "ro",
+          "vi",
+          "ru",
+          "tr"
+        ],
+        "latestUploadedChapter": "6f09158e-2704-48f9-9907-8e399bf5ecd0"
+      },
+      "relationships": [
+        {
+          "id": "16b98239-6452-4859-b6df-fdb1c7f12b52",
+          "type": "author"
+        },
+        {
+          "id": "16b98239-6452-4859-b6df-fdb1c7f12b52",
+          "type": "artist"
+        },
+        {
+          "id": "f26a652b-38e4-4af8-9b77-2ee8896d5eea",
+          "type": "cover_art"
+        },
+        {
+          "id": "465a9169-eb11-49a3-a8c5-9c452eae06e0",
+          "type": "manga",
+          "related": "colored"
+        },
+        {
+          "id": "6431a544-f126-449d-ac00-64df39f549a7",
+          "type": "manga",
+          "related": "doujinshi"
+        },
+        {
+          "id": "cec6d978-cd5f-462c-97cb-45dabf10bba5",
+          "type": "manga",
+          "related": "doujinshi"
+        },
+        {
+          "id": "d8a959f7-648e-4c8d-8f23-f1f3f8e129f3",
+          "type": "manga",
+          "related": "serialization"
+        }
+      ]
+    },
+    {
+      "id": "0cad2d89-a02d-455f-a027-74f52f81eb7f",
+      "type": "manga",
+      "attributes": {
+        "title": {
+          "en": "One-Punch Man - My Student Won't Go Back Home (Doujinshi)"
+        },
+        "altTitles": [
+          {
+            "ja": "うちの弟子♀(19)が帰ってくれない。(ワンパンマン )"
+          }
+        ],
+        "description": {
+          "en": "One Punch Man AU, where everything is the same except Saitama's cyborg disciple Genos is female!"
+        },
+        "isLocked": false,
+        "links": {
+          "mu": "3xgnc74"
+        },
+        "originalLanguage": "ja",
+        "lastVolume": "",
+        "lastChapter": "",
+        "publicationDemographic": null,
+        "status": "completed",
+        "year": null,
+        "contentRating": "erotica",
+        "tags": [
+          {
+            "id": "0234a31e-a729-4e28-9d6a-3f87c4966b9e",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Oneshot"
+              },
+              "description": {},
+              "group": "format",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "2bd2e8d0-f146-434a-9b51-fc9ff2c5fe6a",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Genderswap"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "391b0423-d847-456f-aff0-8b0cfc03066b",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Action"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "423e2eae-a7a2-4a8b-ac03-a8351462d71d",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Romance"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "4d32cc48-9f00-4cca-9b5a-a839f0764984",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Comedy"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "7064a261-a137-4d3a-8848-2d385de3a99c",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Superhero"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "799c202e-7daa-44eb-9cf7-8a3c0441531e",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Martial Arts"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "b13b2a48-c720-44a9-9c77-39c9979373fb",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Doujinshi"
+              },
+              "description": {},
+              "group": "format",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "b9af3a63-f058-46de-a9a0-e0c13906197a",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Drama"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "e5301a23-ebd9-49dd-a0cb-2add944c7fe9",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Slice of Life"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "ea2bc92d-1c26-4930-9b7c-d5c0dc1b6869",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Cooking"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          }
+        ],
+        "state": "published",
+        "chapterNumbersResetOnNewVolume": false,
+        "createdAt": "2020-08-12T17:08:44+00:00",
+        "updatedAt": "2024-04-05T17:10:22+00:00",
+        "version": 8,
+        "availableTranslatedLanguages": ["en"],
+        "latestUploadedChapter": "426eb2ae-cdba-49c2-8484-1e0a9f53bbd5"
+      },
+      "relationships": [
+        {
+          "id": "42e43c73-fb5a-4f04-82eb-4a1f477a3ae3",
+          "type": "author"
+        },
+        {
+          "id": "42e43c73-fb5a-4f04-82eb-4a1f477a3ae3",
+          "type": "artist"
+        },
+        {
+          "id": "d75e4618-89be-4f56-b3a4-b6f786d80bbb",
+          "type": "cover_art"
+        },
+        {
+          "id": "d8a959f7-648e-4c8d-8f23-f1f3f8e129f3",
+          "type": "manga",
+          "related": "based_on"
+        }
+      ]
+    },
+    {
+      "id": "cec6d978-cd5f-462c-97cb-45dabf10bba5",
+      "type": "manga",
+      "attributes": {
+        "title": {
+          "en": "One-Punch Man - Because I'm a Monster (Doujinshi)"
+        },
+        "altTitles": [
+          {
+            "en": "Because I'm a Monster (One Punch Man)"
+          },
+          {
+            "en": "Because I'm a Monster (One Punch-Man)"
+          },
+          {
+            "en": "Because I'm a Monster (OPM)"
+          }
+        ],
+        "description": {
+          "en": "Fan redraw of chapter 90 of One Punch Man."
+        },
+        "isLocked": false,
+        "links": {},
+        "originalLanguage": "en",
+        "lastVolume": null,
+        "lastChapter": null,
+        "publicationDemographic": null,
+        "status": "completed",
+        "year": null,
+        "contentRating": "safe",
+        "tags": [
+          {
+            "id": "07251805-a27e-4d59-b488-f0bfbec15168",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Thriller"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "36fd93ea-e8b8-445e-b836-358f02b3d33d",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Monsters"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "391b0423-d847-456f-aff0-8b0cfc03066b",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Action"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "7064a261-a137-4d3a-8848-2d385de3a99c",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Superhero"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "799c202e-7daa-44eb-9cf7-8a3c0441531e",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Martial Arts"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "b13b2a48-c720-44a9-9c77-39c9979373fb",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Doujinshi"
+              },
+              "description": {},
+              "group": "format",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "e197df38-d0e7-43b5-9b09-2842d0c326dd",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Web Comic"
+              },
+              "description": {},
+              "group": "format",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "eabc5b4c-6aff-42f3-b657-3e90cbd00b75",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Supernatural"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          }
+        ],
+        "state": "published",
+        "chapterNumbersResetOnNewVolume": false,
+        "createdAt": "2020-03-11T20:56:55+00:00",
+        "updatedAt": "2023-08-06T16:40:25+00:00",
+        "version": 3,
+        "availableTranslatedLanguages": ["es-la", "en", "ru"],
+        "latestUploadedChapter": "81fb9f28-76ac-49fc-a298-cc03b5aeea6f"
+      },
+      "relationships": [
+        {
+          "id": "16b98239-6452-4859-b6df-fdb1c7f12b52",
+          "type": "author"
+        },
+        {
+          "id": "dc96e9c6-361f-4751-8da3-12b0e1596e95",
+          "type": "artist"
+        },
+        {
+          "id": "6493bfce-fce7-4fa8-a705-25de64e8d8f7",
+          "type": "cover_art"
+        },
+        {
+          "id": "b7d069cb-4ab9-4c21-a20b-38f7c269be4e",
+          "type": "manga",
+          "related": "based_on"
+        }
+      ]
+    },
+    {
+      "id": "f5d9f26b-cf5d-49a0-b52d-f36042ff9b08",
+      "type": "manga",
+      "attributes": {
+        "title": {
+          "en": "One-Punch Man - Hatachi ni Naru Made Machinasai! (Doujinshi)"
+        },
+        "altTitles": [
+          {
+            "es-la": "¡Espera hasta que cumplas 20!"
+          },
+          {
+            "ja": "【サイジェノ】20歳になるまで待ちなさい！"
+          }
+        ],
+        "description": {
+          "en": "Saitama x Genos doujin."
+        },
+        "isLocked": false,
+        "links": {
+          "raw": "https://www.pixiv.net/en/artworks/72481886"
+        },
+        "originalLanguage": "ja",
+        "lastVolume": "",
+        "lastChapter": "",
+        "publicationDemographic": null,
+        "status": "completed",
+        "year": null,
+        "contentRating": "erotica",
+        "tags": [
+          {
+            "id": "0234a31e-a729-4e28-9d6a-3f87c4966b9e",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Oneshot"
+              },
+              "description": {},
+              "group": "format",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "423e2eae-a7a2-4a8b-ac03-a8351462d71d",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Romance"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "4d32cc48-9f00-4cca-9b5a-a839f0764984",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Comedy"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "5920b825-4181-4a17-beeb-9918b0ff7a30",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Boys' Love"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "7064a261-a137-4d3a-8848-2d385de3a99c",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Superhero"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "b13b2a48-c720-44a9-9c77-39c9979373fb",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Doujinshi"
+              },
+              "description": {},
+              "group": "format",
+              "version": 1
+            },
+            "relationships": []
+          }
+        ],
+        "state": "published",
+        "chapterNumbersResetOnNewVolume": false,
+        "createdAt": "2022-01-11T18:46:16+00:00",
+        "updatedAt": "2023-07-11T11:03:01+00:00",
+        "version": 5,
+        "availableTranslatedLanguages": ["es-la", "en"],
+        "latestUploadedChapter": "918be52f-70d3-4270-9813-2bdae3ced67f"
+      },
+      "relationships": [
+        {
+          "id": "ed8d23f0-182b-4c3f-91f4-fdb379071c80",
+          "type": "author"
+        },
+        {
+          "id": "ed8d23f0-182b-4c3f-91f4-fdb379071c80",
+          "type": "artist"
+        },
+        {
+          "id": "46683306-947d-4e0c-8d48-100be3cc851f",
+          "type": "cover_art"
+        },
+        {
+          "id": "a13fa3cc-9570-4f63-b682-3ff9b60ec060",
+          "type": "creator"
+        }
+      ]
+    },
+    {
+      "id": "6431a544-f126-449d-ac00-64df39f549a7",
+      "type": "manga",
+      "attributes": {
+        "title": {
+          "en": "One-Punch Man - The Fight of Gods (Doujinshi)"
+        },
+        "altTitles": [
+          {
+            "zh-hk": "決戰神級外星人"
+          }
+        ],
+        "description": {
+          "en": "A fanmade comic by Cminglap, depicting Saitama vs a Godlike entity.  \n  \nWARNING: SPOILERS FOR THE ONE PUNCH MAN WEBCOMIC!  \n  \nAuthor & Artist: <https://twitter.com/cminglap>"
+        },
+        "isLocked": false,
+        "links": {
+          "raw": "https://twitter.com/cminglap/media"
+        },
+        "originalLanguage": "zh-hk",
+        "lastVolume": null,
+        "lastChapter": null,
+        "publicationDemographic": null,
+        "status": "completed",
+        "year": null,
+        "contentRating": "safe",
+        "tags": [
+          {
+            "id": "256c8bd9-4904-4360-bf4f-508a76d67183",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Sci-Fi"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "36fd93ea-e8b8-445e-b836-358f02b3d33d",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Monsters"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "391b0423-d847-456f-aff0-8b0cfc03066b",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Action"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "7064a261-a137-4d3a-8848-2d385de3a99c",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Superhero"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "799c202e-7daa-44eb-9cf7-8a3c0441531e",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Martial Arts"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "b13b2a48-c720-44a9-9c77-39c9979373fb",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Doujinshi"
+              },
+              "description": {},
+              "group": "format",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "e64f6742-c834-471d-8d72-dd51fc02b835",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Aliens"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "eabc5b4c-6aff-42f3-b657-3e90cbd00b75",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Supernatural"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          }
+        ],
+        "state": "published",
+        "chapterNumbersResetOnNewVolume": false,
+        "createdAt": "2020-04-20T21:51:33+00:00",
+        "updatedAt": "2024-04-05T17:09:57+00:00",
+        "version": 5,
+        "availableTranslatedLanguages": ["pt-br", "it", "tr", "en", "fr"],
+        "latestUploadedChapter": "cc87ee92-1058-409a-89a3-bbcb52405c5c"
+      },
+      "relationships": [
+        {
+          "id": "4f9ee19d-9ca5-466e-894a-8aef77da118d",
+          "type": "author"
+        },
+        {
+          "id": "4f9ee19d-9ca5-466e-894a-8aef77da118d",
+          "type": "artist"
+        },
+        {
+          "id": "1ef8a735-084d-4f33-9c03-26534282906c",
+          "type": "cover_art"
+        },
+        {
+          "id": "b7d069cb-4ab9-4c21-a20b-38f7c269be4e",
+          "type": "manga",
+          "related": "based_on"
+        },
+        {
+          "id": "d8a959f7-648e-4c8d-8f23-f1f3f8e129f3",
+          "type": "manga",
+          "related": "based_on"
+        }
+      ]
+    },
+    {
+      "id": "a1c9cef0-540e-4f71-8891-ff7896cdde01",
+      "type": "manga",
+      "attributes": {
+        "title": {
+          "en": "One-Punch Man - Saitama in the One Piece Universe (Doujinshi)"
+        },
+        "altTitles": [
+          {
+            "en": "A crossover fancomic of One Punch Man and One Piece"
+          }
+        ],
+        "description": {},
+        "isLocked": false,
+        "links": {},
+        "originalLanguage": "en",
+        "lastVolume": "",
+        "lastChapter": "",
+        "publicationDemographic": null,
+        "status": "ongoing",
+        "year": null,
+        "contentRating": "safe",
+        "tags": [
+          {
+            "id": "36fd93ea-e8b8-445e-b836-358f02b3d33d",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Monsters"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "391b0423-d847-456f-aff0-8b0cfc03066b",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Action"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "3e2b8dae-350e-4ab8-a8ce-016e844b9f0d",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Long Strip"
+              },
+              "description": {},
+              "group": "format",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "4d32cc48-9f00-4cca-9b5a-a839f0764984",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Comedy"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "7064a261-a137-4d3a-8848-2d385de3a99c",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Superhero"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "799c202e-7daa-44eb-9cf7-8a3c0441531e",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Martial Arts"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "87cc87cd-a395-47af-b27a-93258283bbc6",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Adventure"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "891cf039-b895-47f0-9229-bef4c96eccd4",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Self-Published"
+              },
+              "description": {},
+              "group": "format",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "a1f53773-c69a-4ce5-8cab-fffcd90b1565",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Magic"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "b13b2a48-c720-44a9-9c77-39c9979373fb",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Doujinshi"
+              },
+              "description": {},
+              "group": "format",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "cdc58593-87dd-415e-bbc0-2ec27bf404cc",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Fantasy"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "da2d50ca-3018-4cc0-ac7a-6b7d472a29ea",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Delinquents"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "e197df38-d0e7-43b5-9b09-2842d0c326dd",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Web Comic"
+              },
+              "description": {},
+              "group": "format",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "eabc5b4c-6aff-42f3-b657-3e90cbd00b75",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Supernatural"
+              },
+              "description": {},
+              "group": "theme",
+              "version": 1
+            },
+            "relationships": []
+          }
+        ],
+        "state": "published",
+        "chapterNumbersResetOnNewVolume": false,
+        "createdAt": "2021-03-19T08:25:26+00:00",
+        "updatedAt": "2024-04-05T17:16:25+00:00",
+        "version": 6,
+        "availableTranslatedLanguages": ["en"],
+        "latestUploadedChapter": "67141362-f00b-46b4-982c-2c06571b30bc"
+      },
+      "relationships": [
+        {
+          "id": "7eccbb82-94a2-49ed-8b11-a52ca2574668",
+          "type": "author"
+        },
+        {
+          "id": "843b9356-20b2-4fa3-8b58-a80d665811de",
+          "type": "cover_art"
+        }
+      ]
+    },
+    {
+      "id": "9147871d-eb19-4acf-8530-233b88e4fe91",
+      "type": "manga",
+      "attributes": {
+        "title": {
+          "en": "One-Punch Man - Shikin Kyori (Doujinshi)"
+        },
+        "altTitles": [
+          {
+            "es-la": "Acercamiento"
+          }
+        ],
+        "description": {
+          "en": "Saitama x Genos douijn."
+        },
+        "isLocked": false,
+        "links": {},
+        "originalLanguage": "ja",
+        "lastVolume": "",
+        "lastChapter": "",
+        "publicationDemographic": null,
+        "status": "completed",
+        "year": null,
+        "contentRating": "suggestive",
+        "tags": [
+          {
+            "id": "0234a31e-a729-4e28-9d6a-3f87c4966b9e",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Oneshot"
+              },
+              "description": {},
+              "group": "format",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "423e2eae-a7a2-4a8b-ac03-a8351462d71d",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Romance"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "5920b825-4181-4a17-beeb-9918b0ff7a30",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Boys' Love"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "7064a261-a137-4d3a-8848-2d385de3a99c",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Superhero"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "b13b2a48-c720-44a9-9c77-39c9979373fb",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Doujinshi"
+              },
+              "description": {},
+              "group": "format",
+              "version": 1
+            },
+            "relationships": []
+          }
+        ],
+        "state": "published",
+        "chapterNumbersResetOnNewVolume": false,
+        "createdAt": "2022-01-11T18:52:05+00:00",
+        "updatedAt": "2024-04-05T17:13:01+00:00",
+        "version": 5,
+        "availableTranslatedLanguages": ["es-la"],
+        "latestUploadedChapter": "8a7e7477-7924-461c-9854-d0b3e6e63ede"
+      },
+      "relationships": [
+        {
+          "id": "f97cced5-c740-4056-b6e6-3a2d774273b6",
+          "type": "author"
+        },
+        {
+          "id": "f97cced5-c740-4056-b6e6-3a2d774273b6",
+          "type": "artist"
+        },
+        {
+          "id": "98d904d9-9e92-4cd6-af77-8630acd71270",
+          "type": "cover_art"
+        },
+        {
+          "id": "d8a959f7-648e-4c8d-8f23-f1f3f8e129f3",
+          "type": "manga",
+          "related": "based_on"
+        },
+        {
+          "id": "a13fa3cc-9570-4f63-b682-3ff9b60ec060",
+          "type": "creator"
+        }
+      ]
+    }
+  ],
+  "limit": 10,
+  "offset": 0,
+  "total": 18
+}

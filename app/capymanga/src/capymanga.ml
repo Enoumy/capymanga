@@ -58,3 +58,7 @@ let command =
         let%bind () = Capytui.start_with_images app in
         Deferred.return ()]
 ;;
+
+module For_testing = struct
+  module Outside_world = Outside_world
+end
