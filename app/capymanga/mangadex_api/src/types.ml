@@ -171,6 +171,19 @@ module Cover = struct
   [@@deriving sexp, yojson] [@@yojson.allow_extra_fields]
 end
 
+module Author = struct
+  module Attributes = struct
+    type t = { name : string }
+    [@@deriving sexp, yojson] [@@yojson.allow_extra_fields]
+  end
+
+  type t =
+    { id : string
+    ; attributes : Attributes.t
+    }
+  [@@deriving sexp, yojson] [@@yojson.allow_extra_fields]
+end
+
 module Collection = struct
   type 'a t =
     { data : 'a list

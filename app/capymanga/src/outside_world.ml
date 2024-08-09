@@ -82,3 +82,22 @@ module Manga_search = Make (struct
         title
     ;;
   end)
+
+module Author = Make (struct
+    type t = author_id:string -> Author.t Entity.t Or_error.t Effect.t
+
+    let name = "mangadex-author"
+
+    let unregistered ~author_id =
+      raise_s
+        [%message
+          "mangadex-search error! handler was never registered!"
+            (author_id : string)]
+    ;;
+
+    let real ~author_id =
+      Effect.of_deferred_fun
+        (fun author_id -> Mangadex_api.Author.get ~author_id)
+        author_id
+    ;;
+  end)

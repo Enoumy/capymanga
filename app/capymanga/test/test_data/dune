@@ -9,6 +9,7 @@
  (deps
   %{bin:ocaml-embed-file}
   ./one_punch_man_search_test_data.json
-  ./one_punch_man_cover_test_data.json)
+  ./one_punch_man_cover_test_data.json
+  ./mangadex_author_test_data.json)
  (action
   (bash "%{deps} -output embedded_files")))

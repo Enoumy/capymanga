@@ -17,3 +17,6 @@ module Manga_search :
   S
   with type t =
     title:string option -> Manga.t Collection.t Or_error.t Effect.t
+
+module Author :
+  S with type t = author_id:string -> Author.t Entity.t Or_error.t Effect.t

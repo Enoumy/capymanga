@@ -1,0 +1,74 @@
+{
+  "result": "ok",
+  "response": "entity",
+  "data": {
+    "id": "16b98239-6452-4859-b6df-fdb1c7f12b52",
+    "type": "author",
+    "attributes": {
+      "name": "ONE",
+      "imageUrl": null,
+      "biography": {
+        "en": "**Tomohiro** or **ONE** (born October 29, 1986) is the alias of a Japanese manga artist, best known for his manga series One-Punch Man (2009–present), which is remade by Yusuke Murata. ONE serialized One-Punch Man under his own website with no official publisher. The remake is serialized in the web version of Weekly Young Jump. He is a manga artist for fun. He serialized Mob Psycho 100 in the online version of Weekly Shōnen Sunday known as Ura Sunday, which ended in December 2017.\n\nHe was born in Niigata and was brought up in Kōnosu, Saitama. When ONE was much younger he made several manga that never got serialized such as \"Taiyo Man\" (Sun Man) and \"Tennis Player Ryu\".\n\nONE and Yusuke Murata received the Best Manga Sugoi Japan Award 2016. The award aims to promote works that have \"universality,\" \"originality\", and \"potential\" to be big international hits.\n| Year      | Award | Category     | Work | Result |\n|----         |    ----   |          ---- |          ---- |          ---- |\n| 2014      | 7th Manga Taishō      | Manga   | One-Punch Man\t| Nominated|\n| 2015  | 26th Eisner Award       | Best US Edition of International Material — Asia\t      |One-Punch Man (published by Viz Media)\t |Nominated |\n| 2016  | 28th Harvey Award        | Best American Edition of Foreign Material\t      |One-Punch Man (published by Viz Media)\t | Nominated|\n| 2016  | 2nd Sugoi Japan Award        | Manga      | One-Punch Man\t|Won |\n| 2017  | 62nd Shogakukan Manga Award       | Shōnen      |Mob Psycho 100 | Won|"
+      },
+      "twitter": "https://twitter.com/ONE_rakugaki",
+      "pixiv": null,
+      "melonBook": null,
+      "fanBox": null,
+      "booth": null,
+      "namicomi": null,
+      "nicoVideo": null,
+      "skeb": null,
+      "fantia": null,
+      "tumblr": null,
+      "youtube": null,
+      "weibo": null,
+      "naver": null,
+      "website": "http://galaxyheavyblow.web.fc2.com/",
+      "createdAt": "2021-04-19T21:59:45+00:00",
+      "updatedAt": "2024-07-09T00:17:24+00:00",
+      "version": 7
+    },
+    "relationships": [
+      {
+        "id": "babf105b-aa60-4d3b-9b4b-138dac6ca459",
+        "type": "manga"
+      },
+      {
+        "id": "9c1cd558-fba3-40f1-bb84-b320f5d1eab1",
+        "type": "manga"
+      },
+      {
+        "id": "15331b78-1801-4a45-8678-c48a9161c92e",
+        "type": "manga"
+      },
+      {
+        "id": "09bbbb75-1086-4e7c-b775-ae9ee1816e0d",
+        "type": "manga"
+      },
+      {
+        "id": "cec6d978-cd5f-462c-97cb-45dabf10bba5",
+        "type": "manga"
+      },
+      {
+        "id": "ff327450-be88-4f41-a780-df4d2387e2e6",
+        "type": "manga"
+      },
+      {
+        "id": "465a9169-eb11-49a3-a8c5-9c452eae06e0",
+        "type": "manga"
+      },
+      {
+        "id": "29c42e49-d6f5-4084-9cec-771f5660c90f",
+        "type": "manga"
+      },
+      {
+        "id": "c3a4f78b-a2c1-490a-9ec0-cdffe21f8f70",
+        "type": "manga"
+      },
+      {
+        "id": "6259f21b-1572-4bf6-9797-d44789b3355c",
+        "type": "manga"
+      }
+    ]
+  }
+}

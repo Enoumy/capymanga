@@ -119,6 +119,18 @@ module Cover : sig
   [@@deriving sexp, yojson]
 end
 
+module Author : sig
+  module Attributes : sig
+    type t = { name : string } [@@deriving sexp, yojson]
+  end
+
+  type t =
+    { id : string
+    ; attributes : Attributes.t
+    }
+  [@@deriving sexp, yojson] [@@yojson.allow_extra_fields]
+end
+
 module Collection : sig
   type 'a t =
     { data : 'a list

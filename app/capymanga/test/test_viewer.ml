@@ -48,9 +48,10 @@ let%expect_test "Manga viewer" =
   Handle.show handle;
   [%expect
     {|
+    ([author] (author_id 16b98239-6452-4859-b6df-fdb1c7f12b52))
     ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
     │                                                                                                                        │
-    │  Capymanga    Backspace back                                                                                           │
+    │  Capymanga ⣾  Backspace back                                                                                           │
     │                                                                                                                        │
     │              One-Punch Man                                                                                             │
     │                                                                                                                        │
@@ -62,23 +63,23 @@ let%expect_test "Manga viewer" =
     │                                                                                                                        │
     │                                                                                                                        │
     │                                                                                                                        │
-    │  (manga                                                                                                                │
-    │   ((id d8a959f7-648e-4c8d-8f23-f1f3f8e1                                                                                │
-    │    (attributes                                                                                                         │
-    │     ((title (((language en) (string "On                      List of manga chapters goes here!                         │
-    │      (alt_titles                                                                                                       │
-    │       ((((language es) (string "El homb                                                                                │
-    │        (((language en) (string "One Pun                                                                                │
-    │        (((language en) (string "One-Pun                                                                                │
-    │        (((language en) (string OPM))) (                                                                                │
-    │        (((language ja-ro) (string Wanpa                                                                                │
-    │        (((language ru)                                                                                                 │
-    │          (string                                                                                                       │
-    │           "\208\146\208\176\208\189\208                                                                                │
-    │        (((language fa)                                                                                                 │
-    │          (string                                                                                                       │
-    │           "\217\133\216\177\216\175 \21                                                                                │
-    │        (((language fa)                                                                                                 │
+    │                                                                                                                        │
+    │                                                                                                                        │
+    │  Author:  ONE                                                                                                          │
+    │                                                              List of manga chapters goes here!                         │
+    │  After rigorously training for three                                                                                   │
+    │  years, the ordinary Saitama has gained                                                                                │
+    │  immense strength which allows him to                                                                                  │
+    │  take out anyone and anything with just                                                                                │
+    │  one punch. He decides to put his new                                                                                  │
+    │  skill to good use by becoming a hero.                                                                                 │
+    │  However, he quickly becomes bored with                                                                                │
+    │  easily defeating monsters, and wants                                                                                  │
+    │  someone to give him a challenge to                                                                                    │
+    │  bring back the spark of being a hero.                                                                                 │
+    │                                                                                                                        │
+    │                                                                                                                        │
+    │  Upon bearing witness to Saitama's                                                                                     │
     └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
     |}];
   Handle.recompute_view handle;
@@ -102,23 +103,23 @@ let%expect_test "Manga viewer" =
     │  .........ow 4)(column 2)(dim..........                                                                                │
     │  .........ensions((height 9)(..........                                                                                │
     │  .........width 38)))(scale t..........                                                                                │
-    │  (manga   rue))                                                                                                        │
-    │   ((id d8a959f7-648e-4c8d-8f23-f1f3f8e1                                                                                │
-    │    (attributes                                                                                                         │
-    │     ((title (((language en) (string "On                      List of manga chapters goes here!                         │
-    │      (alt_titles                                                                                                       │
-    │       ((((language es) (string "El homb                                                                                │
-    │        (((language en) (string "One Pun                                                                                │
-    │        (((language en) (string "One-Pun                                                                                │
-    │        (((language en) (string OPM))) (                                                                                │
-    │        (((language ja-ro) (string Wanpa                                                                                │
-    │        (((language ru)                                                                                                 │
-    │          (string                                                                                                       │
-    │           "\208\146\208\176\208\189\208                                                                                │
-    │        (((language fa)                                                                                                 │
-    │          (string                                                                                                       │
-    │           "\217\133\216\177\216\175 \21                                                                                │
-    │        (((language fa)                                                                                                 │
+    │           rue))                                                                                                        │
+    │                                                                                                                        │
+    │  Author:  ONE                                                                                                          │
+    │                                                              List of manga chapters goes here!                         │
+    │  After rigorously training for three                                                                                   │
+    │  years, the ordinary Saitama has gained                                                                                │
+    │  immense strength which allows him to                                                                                  │
+    │  take out anyone and anything with just                                                                                │
+    │  one punch. He decides to put his new                                                                                  │
+    │  skill to good use by becoming a hero.                                                                                 │
+    │  However, he quickly becomes bored with                                                                                │
+    │  easily defeating monsters, and wants                                                                                  │
+    │  someone to give him a challenge to                                                                                    │
+    │  bring back the spark of being a hero.                                                                                 │
+    │                                                                                                                        │
+    │                                                                                                                        │
+    │  Upon bearing witness to Saitama's                                                                                     │
     └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
     |}]
 ;;

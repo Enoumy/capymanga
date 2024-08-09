@@ -54,6 +54,7 @@ let command =
           app
           |> Outside_world.Manga_cover.register_real
           |> Outside_world.Manga_search.register_real
+          |> Outside_world.Author.register_real
         in
         let%bind () = Capytui.start_with_images app in
         Deferred.return ()]
