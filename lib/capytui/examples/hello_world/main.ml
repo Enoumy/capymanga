@@ -10,7 +10,7 @@ let app =
 ;;
 
 let command =
-  Async.Command.async
+  Async.Command.async_or_error
     ~summary:{|Hello world!|}
     [%map_open.Command
       let () = return () in

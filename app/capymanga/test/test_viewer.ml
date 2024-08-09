@@ -67,6 +67,12 @@ let%expect_test "Manga viewer" =
     │                                                                                                                        │
     │  Author:  ONE                                                                                                          │
     │                                                              List of manga chapters goes here!                         │
+    │   AWARD WINNING   SCI-FI   GORE                                                                                        │
+    │   MONSTERS   ACTION   COMEDY                                                                                           │
+    │   SUPERHERO   MARTIAL ARTS   DRAMA                                                                                     │
+    │   WEB COMIC   SUPERNATURAL   MYSTERY                                                                                   │
+    │   ADAPTATION                                                                                                           │
+    │                                                                                                                        │
     │  After rigorously training for three                                                                                   │
     │  years, the ordinary Saitama has gained                                                                                │
     │  immense strength which allows him to                                                                                  │
@@ -74,12 +80,6 @@ let%expect_test "Manga viewer" =
     │  one punch. He decides to put his new                                                                                  │
     │  skill to good use by becoming a hero.                                                                                 │
     │  However, he quickly becomes bored with                                                                                │
-    │  easily defeating monsters, and wants                                                                                  │
-    │  someone to give him a challenge to                                                                                    │
-    │  bring back the spark of being a hero.                                                                                 │
-    │                                                                                                                        │
-    │                                                                                                                        │
-    │  Upon bearing witness to Saitama's                                                                                     │
     └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
     |}];
   Handle.recompute_view handle;
@@ -107,6 +107,12 @@ let%expect_test "Manga viewer" =
     │                                                                                                                        │
     │  Author:  ONE                                                                                                          │
     │                                                              List of manga chapters goes here!                         │
+    │   AWARD WINNING   SCI-FI   GORE                                                                                        │
+    │   MONSTERS   ACTION   COMEDY                                                                                           │
+    │   SUPERHERO   MARTIAL ARTS   DRAMA                                                                                     │
+    │   WEB COMIC   SUPERNATURAL   MYSTERY                                                                                   │
+    │   ADAPTATION                                                                                                           │
+    │                                                                                                                        │
     │  After rigorously training for three                                                                                   │
     │  years, the ordinary Saitama has gained                                                                                │
     │  immense strength which allows him to                                                                                  │
@@ -114,12 +120,6 @@ let%expect_test "Manga viewer" =
     │  one punch. He decides to put his new                                                                                  │
     │  skill to good use by becoming a hero.                                                                                 │
     │  However, he quickly becomes bored with                                                                                │
-    │  easily defeating monsters, and wants                                                                                  │
-    │  someone to give him a challenge to                                                                                    │
-    │  bring back the spark of being a hero.                                                                                 │
-    │                                                                                                                        │
-    │                                                                                                                        │
-    │  Upon bearing witness to Saitama's                                                                                     │
     └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
     |}]
 ;;

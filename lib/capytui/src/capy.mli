@@ -12,7 +12,7 @@ val start
   -> ?optimize:bool
   -> ?target_frames_per_second:int
   -> Node.t Bonsai.Computation.t
-  -> unit Async.Deferred.t
+  -> unit Async.Deferred.Or_error.t
 
 val start_with_images
   :  ?dispose:bool
@@ -22,7 +22,7 @@ val start_with_images
   -> ?optimize:bool
   -> ?target_frames_per_second:int
   -> (Node.t * Image.t list) Bonsai.Computation.t
-  -> unit Async.Deferred.t
+  -> unit Async.Deferred.Or_error.t
 
 val listen_to_events
   :  (Event.t -> unit Effect.t) Value.t

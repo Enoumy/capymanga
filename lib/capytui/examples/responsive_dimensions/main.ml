@@ -23,7 +23,7 @@ let app =
 ;;
 
 let command =
-  Async.Command.async
+  Async.Command.async_or_error
     ~summary:{|Capy dimensions!|}
     [%map_open.Command
       let () = return () in

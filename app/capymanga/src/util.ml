@@ -15,3 +15,9 @@ let sexp_for_debugging =
          @ attrs)
       sexp
 ;;
+
+let normalize_string_lossy string =
+  String.map string ~f:(function
+    | c when Char.is_whitespace c -> ' '
+    | c -> c)
+;;

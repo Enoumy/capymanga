@@ -40,7 +40,7 @@ let clock_app =
 ;;
 
 let command =
-  Async.Command.async
+  Async.Command.async_or_error
     ~summary:{|A capytui demo showcasing clock!|}
     [%map_open.Command
       let () = return () in

@@ -10,4 +10,4 @@ val start
   -> ?optimize:bool
   -> ?target_frames_per_second:int
   -> (Node.t * Image.t list) Computation.t
-  -> unit Deferred.t
+  -> unit Deferred.Or_error.t

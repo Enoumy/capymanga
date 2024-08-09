@@ -151,15 +151,16 @@ let start
   ?(target_frames_per_second = 60)
   (app : (Node.t * Image.t list) Computation.t)
   =
-  let params =
-    Start_params.create_exn
-      ~dispose
-      ~nosig
-      ~mouse
-      ~bpaste
-      ~optimize
-      ~target_frames_per_second
-      ~app
-  in
-  start params
+  Deferred.Or_error.try_with (fun () ->
+    let params =
+      Start_params.create_exn
+        ~dispose
+        ~nosig
+        ~mouse
+        ~bpaste
+        ~optimize
+        ~target_frames_per_second
+        ~app
+    in
+    start params)
 ;;

@@ -171,7 +171,7 @@ let app =
 ;;
 
 let command =
-  Command.async
+  Command.async_or_error
     ~summary:{|Counters example!|}
     [%map_open.Command
       let () = return () in

@@ -118,7 +118,7 @@ let app =
 ;;
 
 let command =
-  Command.async
+  Command.async_or_error
     ~summary:{|Catpuccin colors demo!|}
     [%map_open.Command
       let () = return () in

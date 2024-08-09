@@ -79,6 +79,7 @@ let description_view ~dimensions ~(manga : Manga.t Value.t) =
       let%sub lines =
         let%arr description = description in
         String.split ~on:'\n' description
+        |> List.map ~f:Util.normalize_string_lossy
       in
       let%sub wrapped_lines =
         let%arr lines = lines
@@ -150,6 +151,60 @@ let author_view ~(manga : Manga.t Value.t) =
          ])
 ;;
 
+let tags_view ~dimensions ~(manga : Manga.t Value.t) =
+  let%sub flavor = Catpuccin.flavor in
+  let%sub tags =
+    let%arr flavor = flavor
+    and manga = manga in
+    Tags.sort_tags manga.attributes.tags
+    |> List.map ~f:(fun tag -> Tags.render_tag ~flavor tag)
+  in
+  let%sub text = Text.component in
+  let%arr tags = tags
+  and text = text
+  and { Dimensions.width = target_width; _ } = dimensions in
+  let open struct
+    type acc =
+      { finished_lines : Node.t list Reversed_list.t
+      ; current_line : Node.t Reversed_list.t
+      ; current_length : int
+      }
+  end in
+  let acc =
+    List.fold
+      tags
+      ~init:
+        { finished_lines = Reversed_list.[]
+        ; current_line = Reversed_list.[]
+        ; current_length = 0
+        }
+      ~f:(fun acc tag ->
+        let width = Node.width tag in
+        let does_tag_fit = acc.current_length + width + 1 <= target_width in
+        match does_tag_fit with
+        | true ->
+          { acc with
+            current_line = Reversed_list.(tag :: acc.current_line)
+          ; current_length = acc.current_length + 1 + width
+          }
+        | false ->
+          let current_line = Reversed_list.[ tag ]
+          and current_length = width
+          and finished_lines =
+            Reversed_list.(rev acc.current_line :: acc.finished_lines)
+          in
+          { current_line; current_length; finished_lines })
+  in
+  let finished_lines =
+    match acc.current_line with
+    | [] -> Reversed_list.rev acc.finished_lines
+    | _ -> Reversed_list.(rev (rev acc.current_line :: acc.finished_lines))
+  in
+  Node.vcat
+  @@ List.map finished_lines ~f:(fun line ->
+    Node.hcat @@ List.intersperse ~sep:(text " ") line)
+;;
+
 let sidebar
   ~(dimensions : Dimensions.t Value.t)
   ~set_page
@@ -158,14 +213,16 @@ let sidebar
   let%sub flavor = Catpuccin.flavor in
   let%sub description_view = description_view ~dimensions ~manga in
   let%sub author_view = author_view ~manga in
+  let%sub tags_view = tags_view ~dimensions ~manga in
   let%sub view =
     let%arr description_view = description_view
-    and author_view = author_view in
+    and author_view = author_view
+    and tags_view = tags_view in
     Node.pad ~t:1
     @@ Node.vcat
     @@ List.intersperse ~sep:(Node.text "")
     @@ List.filter_opt
-    @@ [ author_view; Some description_view ]
+    @@ [ author_view; Some tags_view; Some description_view ]
   in
   let%sub url = Manga_cover.component (Value.map ~f:Option.some manga) in
   let%sub image_height =
@@ -204,7 +261,7 @@ let sidebar
             ; Attr.background_color (Catpuccin.color ~flavor Base)
             ; Attr.bold
             ]
-          title
+          (Util.normalize_string_lossy title)
       in
       let pad =
         Node.text

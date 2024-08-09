@@ -45,11 +45,12 @@ let app =
 
 let command =
   let open Async in
-  Command.async
+  Command.async_or_error
     ~summary:{|Capy manga!|}
     [%map_open.Command
       let () = return () in
       fun () ->
+        let open Deferred.Or_error.Let_syntax in
         let app =
           app
           |> Outside_world.Manga_cover.register_real
@@ -57,7 +58,7 @@ let command =
           |> Outside_world.Author.register_real
         in
         let%bind () = Capytui.start_with_images app in
-        Deferred.return ()]
+        Deferred.Or_error.return ()]
 ;;
 
 module For_testing = struct
