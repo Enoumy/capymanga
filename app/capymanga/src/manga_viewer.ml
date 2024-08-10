@@ -127,11 +127,16 @@ let author ~(manga : Manga.t Value.t) =
 
 let author_view ~(manga : Manga.t Value.t) =
   let%sub author = author ~manga in
+  let%sub text = Text.component in
   match%sub author with
-  | None | Some (Error _) -> Bonsai.const None
+  | None ->
+    let%sub spinner = Spinner.component ~kind:Dot (Value.return "") in
+    let%arr spinner = spinner
+    and text = text in
+    Some (Node.hcat [ text "Author: "; spinner ])
+  | Some (Error _) -> Bonsai.const None
   | Some (Ok author) ->
     let%sub flavor = Catpuccin.flavor in
-    let%sub text = Text.component in
     let%arr author = author
     and text = text
     and flavor = flavor in
@@ -149,6 +154,35 @@ let author_view ~(manga : Manga.t Value.t) =
                 if Char.is_whitespace c then ' ' else c)
               ^ " ")
          ])
+;;
+
+let status_view ~(manga : Manga.t Value.t) =
+  let%sub status =
+    let%arr manga = manga in
+    manga.attributes.status
+  in
+  let%sub flavor = Catpuccin.flavor in
+  let%sub text = Text.component in
+  let%arr status = status
+  and text = text
+  and flavor = flavor in
+  let color =
+    match status with
+    | "completed" -> Catpuccin.color ~flavor Green
+    | "ongoing" -> Catpuccin.color ~flavor Lavender
+    | "hiatus" -> Catpuccin.color ~flavor Mauve
+    | _ -> Catpuccin.color ~flavor Text
+  in
+  Node.hcat
+    [ text ~attrs:[] "Status: "
+    ; text
+        ~attrs:
+          [ Attr.foreground_color color
+          ; Attr.background_color (Catpuccin.color ~flavor Surface0)
+          ; Attr.bold
+          ]
+        (" " ^ (String.uppercase @@ Util.normalize_string_lossy status) ^ " ")
+    ]
 ;;
 
 let tags_view ~dimensions ~(manga : Manga.t Value.t) =
@@ -213,16 +247,21 @@ let sidebar
   let%sub flavor = Catpuccin.flavor in
   let%sub description_view = description_view ~dimensions ~manga in
   let%sub author_view = author_view ~manga in
+  let%sub status_view = status_view ~manga in
   let%sub tags_view = tags_view ~dimensions ~manga in
   let%sub view =
     let%arr description_view = description_view
     and author_view = author_view
+    and status_view = status_view
     and tags_view = tags_view in
     Node.pad ~t:1
     @@ Node.vcat
     @@ List.intersperse ~sep:(Node.text "")
     @@ List.filter_opt
-    @@ [ author_view; Some tags_view; Some description_view ]
+    @@ [ Some (Node.vcat @@ List.filter_opt [ author_view; Some status_view ])
+       ; Some tags_view
+       ; Some description_view
+       ]
   in
   let%sub url = Manga_cover.component (Value.map ~f:Option.some manga) in
   let%sub image_height =

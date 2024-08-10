@@ -66,7 +66,8 @@ let%expect_test "Manga viewer" =
     │                                                                                                                        │
     │                                                                                                                        │
     │  Author:  ONE                                                                                                          │
-    │                                                              List of manga chapters goes here!                         │
+    │  Status:  ONGOING                                            List of manga chapters goes here!                         │
+    │                                                                                                                        │
     │   AWARD WINNING   SCI-FI   GORE                                                                                        │
     │   MONSTERS   ACTION   COMEDY                                                                                           │
     │   SUPERHERO   MARTIAL ARTS   DRAMA                                                                                     │
@@ -79,7 +80,6 @@ let%expect_test "Manga viewer" =
     │  take out anyone and anything with just                                                                                │
     │  one punch. He decides to put his new                                                                                  │
     │  skill to good use by becoming a hero.                                                                                 │
-    │  However, he quickly becomes bored with                                                                                │
     └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
     |}];
   Handle.recompute_view handle;
@@ -106,7 +106,8 @@ let%expect_test "Manga viewer" =
     │           rue))                                                                                                        │
     │                                                                                                                        │
     │  Author:  ONE                                                                                                          │
-    │                                                              List of manga chapters goes here!                         │
+    │  Status:  ONGOING                                            List of manga chapters goes here!                         │
+    │                                                                                                                        │
     │   AWARD WINNING   SCI-FI   GORE                                                                                        │
     │   MONSTERS   ACTION   COMEDY                                                                                           │
     │   SUPERHERO   MARTIAL ARTS   DRAMA                                                                                     │
@@ -119,7 +120,6 @@ let%expect_test "Manga viewer" =
     │  take out anyone and anything with just                                                                                │
     │  one punch. He decides to put his new                                                                                  │
     │  skill to good use by becoming a hero.                                                                                 │
-    │  However, he quickly becomes bored with                                                                                │
     └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
     |}]
 ;;
