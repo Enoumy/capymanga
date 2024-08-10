@@ -16,13 +16,13 @@ let backdrop =
          (String.make width ' ')))
 ;;
 
-let content ~(page : Page.t Value.t) ~set_page =
+let content ~(page : Page.t Value.t) ~set_page ~go_back =
   let%sub dimensions = Capytui.terminal_dimensions in
   let%sub { view; images; handler } =
     match%sub page with
     | Manga_search -> Manga_search.component ~dimensions ~set_page
     | Manga_view { manga } ->
-      Manga_viewer.component ~dimensions ~manga ~set_page
+      Manga_viewer.component ~dimensions ~manga ~set_page ~go_back
     | About_page -> About.component ~set_page
   in
   let%sub () = Capytui.listen_to_events handler in
@@ -34,8 +34,10 @@ let content ~(page : Page.t Value.t) ~set_page =
 let app =
   Loading_state.register
   @@
-  let%sub page, set_page = Bonsai.state Page.Manga_search in
-  let%sub content, images = content ~page ~set_page in
+  let%sub { page; set_page; go_back } =
+    Navigation.component Page.Manga_search
+  in
+  let%sub content, images = content ~page ~set_page ~go_back in
   let%sub backdrop = backdrop in
   let%arr backdrop = backdrop
   and images = images

@@ -380,7 +380,7 @@ type focus =
   | Chapter_table
 [@@deriving equal]
 
-let component ~dimensions ~(manga : Manga.t Value.t) ~set_page =
+let component ~dimensions ~(manga : Manga.t Value.t) ~set_page:_ ~go_back =
   let%sub manga_id =
     let%arr manga = manga in
     manga.id
@@ -445,8 +445,8 @@ let component ~dimensions ~(manga : Manga.t Value.t) ~set_page =
     and set_focus = set_focus
     and sidebar_handler = sidebar_handler
     and chapter_table_handler = chapter_table_handler
-    and set_page = set_page
-    and is_table_focuseable = is_table_focuseable in
+    and is_table_focuseable = is_table_focuseable
+    and go_back = go_back in
     fun (event : Event.t) ->
       let set_focus x =
         match x with
@@ -454,7 +454,7 @@ let component ~dimensions ~(manga : Manga.t Value.t) ~set_page =
         | x -> set_focus x
       in
       match event, focus with
-      | `Key (`Backspace, []), _ -> set_page Page.Manga_search
+      | `Key (`Backspace, []), _ -> go_back
       | `Key (`Tab, []), Sidebar -> set_focus Chapter_table
       | `Key (`Tab, []), Chapter_table -> set_focus Sidebar
       | `Key ((`Arrow `Left | `ASCII 'h'), []), Chapter_table ->
