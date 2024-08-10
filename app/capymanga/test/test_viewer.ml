@@ -53,7 +53,7 @@ let%expect_test "Manga viewer" =
      (ascending true) (limit ()) (offset ()))
     ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
     │                                                                                                                        │
-    │  Capymanga ⣾  Backspace back                                                                                           │
+    │  Capymanga ⣾  Backspace back  Tab switch focus                                                                         │
     │                                                                                                                        │
     │              One-Punch Man               > Vol 7 Chapter 60.5                                                          │
     │                                            Vol 5 Chapter 42 No title                                                   │
@@ -93,7 +93,7 @@ let%expect_test "Manga viewer" =
     ([manga_cover] (cover_id c1037a0c-aa5e-4cd9-bd33-6514a2eb332b))
     ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
     │                                                                                                                        │
-    │  Capymanga ⣾  Backspace back                                                                                           │
+    │  Capymanga ⣾  Backspace back  Tab switch focus                                                                         │
     │                                                                                                                        │
     │              One-Punch Man               > Vol 7 Chapter 60.5                                                          │
     │  .........((url https://manga..........    Vol 5 Chapter 42 No title                                                   │

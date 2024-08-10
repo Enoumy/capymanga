@@ -378,6 +378,7 @@ let chapter_table ~(dimensions : Dimensions.t Value.t) manga =
 type focus =
   | Sidebar
   | Chapter_table
+[@@deriving equal]
 
 let component ~dimensions ~(manga : Manga.t Value.t) ~set_page =
   let%sub manga_id =
@@ -388,7 +389,9 @@ let component ~dimensions ~(manga : Manga.t Value.t) ~set_page =
   Bonsai.scope_model (module Manga_id) ~on:manga_id
   @@
   let%sub top_bar =
-    Top_bar.component ~instructions:(Value.return [ "Backspace", "back" ])
+    Top_bar.component
+      ~instructions:
+        (Value.return [ "Backspace", "back"; "Tab", "switch focus" ])
   in
   let%sub content_dimensions =
     let%arr dimensions = dimensions in
@@ -416,9 +419,12 @@ let component ~dimensions ~(manga : Manga.t Value.t) ~set_page =
     in
     sidebar ~dimensions:left_dimensions manga ~is_focused
   in
-  let%sub { view = chapter_table_view
-          ; images = _
-          ; handler = chapter_table_handler
+  let%sub { component =
+              { view = chapter_table_view
+              ; images = _
+              ; handler = chapter_table_handler
+              }
+          ; is_focuseable = is_table_focuseable
           }
     =
     let%sub is_focused =
@@ -427,13 +433,26 @@ let component ~dimensions ~(manga : Manga.t Value.t) ~set_page =
     in
     chapter_table ~dimensions:right_dimensions manga ~is_focused
   in
+  let%sub () =
+    let%sub callback =
+      let%arr set_focus = set_focus in
+      function false -> set_focus Sidebar | true -> Effect.Ignore
+    in
+    Bonsai.Edge.on_change ~equal:[%equal: bool] is_table_focuseable ~callback
+  in
   let%sub handler =
     let%arr focus = focus
     and set_focus = set_focus
     and sidebar_handler = sidebar_handler
     and chapter_table_handler = chapter_table_handler
-    and set_page = set_page in
+    and set_page = set_page
+    and is_table_focuseable = is_table_focuseable in
     fun (event : Event.t) ->
+      let set_focus x =
+        match x with
+        | Chapter_table when not is_table_focuseable -> Effect.Ignore
+        | x -> set_focus x
+      in
       match event, focus with
       | `Key (`Backspace, []), _ -> set_page Page.Manga_search
       | `Key (`Tab, []), Sidebar -> set_focus Chapter_table

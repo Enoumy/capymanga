@@ -5,6 +5,11 @@ open Mangadex_api.Types
 open Capytui
 module Catpuccin = Capytui_catpuccin
 
+type t =
+  { component : Component.t
+  ; is_focuseable : bool
+  }
+
 let chapter_list ~(manga : Manga.t Value.t) =
   let%sub chapters, set_chapters = Bonsai.state_opt () in
   let%sub manga_id =
@@ -103,7 +108,7 @@ end
 
 let component
   :  is_focused:bool Value.t -> dimensions:Dimensions.t Value.t
-  -> Manga.t Value.t -> Component.t Computation.t
+  -> Manga.t Value.t -> t Computation.t
   =
   fun ~is_focused ~dimensions manga ->
   let%sub chapter_list = chapter_list ~manga in
@@ -120,9 +125,9 @@ let component
       Node.center ~within:dimensions view
     in
     let%arr view = view in
-    { Component.view
-    ; images = []
-    ; handler = (fun (_ : Event.t) -> Effect.Ignore)
+    { component =
+        { view; images = []; handler = (fun (_ : Event.t) -> Effect.Ignore) }
+    ; is_focuseable = false
     }
   | Some (Error error) ->
     let%sub view =
@@ -139,7 +144,32 @@ let component
     in
     let%arr view = view
     and less_keybindings_handler = less_keybindings_handler in
-    { Component.view; handler = less_keybindings_handler; images = [] }
+    { component =
+        { Component.view; handler = less_keybindings_handler; images = [] }
+    ; is_focuseable = false
+    }
+  | Some (Ok { data = []; _ }) ->
+    let%sub view =
+      let%arr text = text
+      and dimensions = dimensions
+      and flavor = flavor in
+      Node.center
+        ~within:dimensions
+        (text
+           ~attrs:
+             [ Attr.foreground_color (Catpuccin.color ~flavor Mauve)
+             ; Attr.bold
+             ]
+           "no chapters :(")
+    in
+    let%arr view = view in
+    { component =
+        { Component.view
+        ; images = []
+        ; handler = (fun (_ : Event.t) -> Effect.Ignore)
+        }
+    ; is_focuseable = false
+    }
   | Some (Ok chapter_list) ->
     let%sub inject_scroller, set_inject_scroller = Bonsai.state_opt () in
     let%sub { Action.focus; last_top_press = _ }, inject_focus =
@@ -271,5 +301,7 @@ let component
     in
     let%arr view = view
     and handler = handler in
-    { Component.view; handler; images = [] }
+    { component = { Component.view; handler; images = [] }
+    ; is_focuseable = true
+    }
 ;;
