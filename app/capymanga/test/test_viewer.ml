@@ -123,5 +123,83 @@ let%expect_test "Manga viewer" =
     │  one punch. He decides to put his new      Vol 16 Chapter 100.01 ①                                                     │
     │  skill to good use by becoming a hero.     Vol 6 Chapter 45                                                            │
     └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+    |}];
+  Handle.recompute_view handle;
+  Capytui_test.send_event handle (`Key (`ASCII 'l', []));
+  Handle.recompute_view handle;
+  Handle.show handle;
+  [%expect
+    {|
+    ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+    │                                                                                                                        │
+    │  Capymanga    Backspace back  Tab switch focus                                                                         │
+    │                                                                                                                        │
+    │              One-Punch Man               > Vol 7 Chapter 60.5                                                          │
+    │  .........((url https://manga..........    Vol 5 Chapter 42 No title                                                   │
+    │  .........dex.org/covers/d8a9..........    Vol 16 Chapter 100.17 Гость из NK                                           │
+    │  .........59f7-648e-4c8d-8f23..........    Vol 16 Chapter 100.03 ③                                                     │
+    │  .........-f1f3f8e129f3/03809..........    Vol 2 Chapter 17 Psychic Power and I                                        │
+    │  .........62e-26f8-4233-8c24-..........    Vol 8 Chapter 62 Morphing                                                   │
+    │  .........d36b2ebceb3e.jpg)(r..........    Vol 7 Chapter 60 Истинная личина                                            │
+    │  .........ow 4)(column 2)(dim..........    Vol 11 Chapter 86 In Plain View                                             │
+    │  .........ensions((height 9)(..........    Vol 2 Chapter 15 Completamente Desaparecido                                 │
+    │  .........width 38)))(scale t..........    Vol 9 Chapter 74 No title                                                   │
+    │           rue))                            Vol 16 Chapter 100.07 Экстра Летние каникулы                                │
+    │                                            Vol 16 Chapter 100.18 ⑭                                                     │
+    │  Author:  ONE                              Vol 7 Chapter 55                                                            │
+    │  Status:  ONGOING                          Vol 1 Chapter 4 Önmagadért                                                  │
+    │                                            Vol 7 Chapter 58.5                                                          │
+    │   AWARD WINNING   SCI-FI   GORE            Vol 9 Chapter 74.5 Экстра Manga ONE                                         │
+    │   MONSTERS   ACTION   COMEDY               Vol 4 Chapter 31 Mature                                                     │
+    │   SUPERHERO   MARTIAL ARTS   DRAMA         Vol 4 Chapter 33 No title                                                   │
+    │   WEB COMIC   SUPERNATURAL   MYSTERY       Vol 6 Chapter 52.6 Экстра Большая уборка                                    │
+    │   ADAPTATION                               Vol 7 Chapter 57                                                            │
+    │                                            Vol 15 Chapter 99 No title                                                  │
+    │  After rigorously training for three       Vol 10 Chapter 75 Walaupun Demikian                                         │
+    │  years, the ordinary Saitama has gained    Vol 6 Chapter 52                                                            │
+    │  immense strength which allows him to      Vol 6 Chapter 52.5 Экстра Омакэ                                             │
+    │  take out anyone and anything with just    Vol 14 Chapter 97 Dimple Is                                                 │
+    │  one punch. He decides to put his new      Vol 16 Chapter 100.01 ①                                                     │
+    │  skill to good use by becoming a hero.     Vol 6 Chapter 45                                                            │
+    └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+    |}];
+  Handle.recompute_view handle;
+  String.iter "jjjjjjjjj" ~f:(fun c ->
+    Capytui_test.send_event handle (`Key (`ASCII c, [])));
+  Handle.recompute_view handle;
+  Handle.show handle;
+  [%expect {|
+    ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+    │                                                                                                                        │
+    │  Capymanga    Backspace back  Tab switch focus                                                                         │
+    │                                                                                                                        │
+    │              One-Punch Man                 Vol 7 Chapter 60.5                                                          │
+    │  .........((url https://manga..........    Vol 5 Chapter 42 No title                                                   │
+    │  .........dex.org/covers/d8a9..........    Vol 16 Chapter 100.17 Гость из NK                                           │
+    │  .........59f7-648e-4c8d-8f23..........    Vol 16 Chapter 100.03 ③                                                     │
+    │  .........-f1f3f8e129f3/03809..........    Vol 2 Chapter 17 Psychic Power and I                                        │
+    │  .........62e-26f8-4233-8c24-..........    Vol 8 Chapter 62 Morphing                                                   │
+    │  .........d36b2ebceb3e.jpg)(r..........    Vol 7 Chapter 60 Истинная личина                                            │
+    │  .........ow 4)(column 2)(dim..........    Vol 11 Chapter 86 In Plain View                                             │
+    │  .........ensions((height 9)(..........    Vol 2 Chapter 15 Completamente Desaparecido                                 │
+    │  .........width 38)))(scale t..........  > Vol 9 Chapter 74 No title                                                   │
+    │           rue))                            Vol 16 Chapter 100.07 Экстра Летние каникулы                                │
+    │                                            Vol 16 Chapter 100.18 ⑭                                                     │
+    │  Author:  ONE                              Vol 7 Chapter 55                                                            │
+    │  Status:  ONGOING                          Vol 1 Chapter 4 Önmagadért                                                  │
+    │                                            Vol 7 Chapter 58.5                                                          │
+    │   AWARD WINNING   SCI-FI   GORE            Vol 9 Chapter 74.5 Экстра Manga ONE                                         │
+    │   MONSTERS   ACTION   COMEDY               Vol 4 Chapter 31 Mature                                                     │
+    │   SUPERHERO   MARTIAL ARTS   DRAMA         Vol 4 Chapter 33 No title                                                   │
+    │   WEB COMIC   SUPERNATURAL   MYSTERY       Vol 6 Chapter 52.6 Экстра Большая уборка                                    │
+    │   ADAPTATION                               Vol 7 Chapter 57                                                            │
+    │                                            Vol 15 Chapter 99 No title                                                  │
+    │  After rigorously training for three       Vol 10 Chapter 75 Walaupun Demikian                                         │
+    │  years, the ordinary Saitama has gained    Vol 6 Chapter 52                                                            │
+    │  immense strength which allows him to      Vol 6 Chapter 52.5 Экстра Омакэ                                             │
+    │  take out anyone and anything with just    Vol 14 Chapter 97 Dimple Is                                                 │
+    │  one punch. He decides to put his new      Vol 16 Chapter 100.01 ①                                                     │
+    │  skill to good use by becoming a hero.     Vol 6 Chapter 45                                                            │
+    └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
     |}]
 ;;
