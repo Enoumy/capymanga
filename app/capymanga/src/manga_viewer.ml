@@ -240,8 +240,8 @@ let tags_view ~dimensions ~(manga : Manga.t Value.t) =
 ;;
 
 let sidebar
+  ~(is_focused : bool Value.t)
   ~(dimensions : Dimensions.t Value.t)
-  ~set_page
   (manga : Manga.t Value.t)
   =
   let%sub flavor = Catpuccin.flavor in
@@ -287,7 +287,8 @@ let sidebar
     let%sub title, bottom_bar =
       let%arr manga = manga
       and flavor = flavor
-      and { width; _ } = dimensions in
+      and { width; _ } = dimensions
+      and is_focused = is_focused in
       let title =
         match manga.attributes.title with
         | [] -> "Unknown title"
@@ -315,8 +316,13 @@ let sidebar
               (String.make (Int.max 0 @@ (width - Node.height normal)) ' ')
           ]
       , Node.text
-          ~attrs:[ Attr.background_color (Catpuccin.color ~flavor Base) ]
-          (String.make width ' ') )
+          ~attrs:
+            [ Attr.background_color (Catpuccin.color ~flavor Base)
+            ; Attr.foreground_color (Catpuccin.color ~flavor Green)
+            ]
+          (String.concat
+           @@ List.init width ~f:(fun _ -> if is_focused then "─" else " "))
+      )
     in
     let%sub picture =
       let%arr { width; _ } = dimensions
@@ -355,12 +361,9 @@ let sidebar
     constrain_width ~dimensions view
   in
   let%sub handler =
-    let%arr set_page = set_page
-    and less_keybindings_handler = less_keybindings_handler in
+    let%arr less_keybindings_handler = less_keybindings_handler in
     fun (event : Event.t) ->
-      match event with
-      | `Key (`Backspace, []) -> set_page Page.Manga_search
-      | _ -> less_keybindings_handler event
+      match event with _ -> less_keybindings_handler event
   in
   let%arr view = view
   and handler = handler
@@ -368,20 +371,13 @@ let sidebar
   { Component.view; handler; images }
 ;;
 
-let chapter_table ~(dimensions : Dimensions.t Value.t) =
-  let%sub flavor = Catpuccin.flavor in
-  let%arr flavor = flavor
-  and dimensions = dimensions in
-  Node.center
-    ~within:dimensions
-    (Node.text
-       ~attrs:
-         [ Attr.foreground_color (Catpuccin.color ~flavor Text)
-         ; Attr.background_color (Catpuccin.color ~flavor Crust)
-         ; Attr.bold
-         ]
-       "List of manga chapters goes here!")
+let chapter_table ~(dimensions : Dimensions.t Value.t) manga =
+  Chapter_list.component ~dimensions manga
 ;;
+
+type focus =
+  | Sidebar
+  | Chapter_table
 
 let component ~dimensions ~(manga : Manga.t Value.t) ~set_page =
   let%sub manga_id =
@@ -412,14 +408,47 @@ let component ~dimensions ~(manga : Manga.t Value.t) ~set_page =
     in
     left, right
   in
+  let%sub focus, set_focus = Bonsai.state Sidebar in
   let%sub { view = sidebar_view; images; handler = sidebar_handler } =
-    sidebar ~dimensions:left_dimensions manga ~set_page
+    let%sub is_focused =
+      let%arr focus = focus in
+      match focus with Sidebar -> true | _ -> false
+    in
+    sidebar ~dimensions:left_dimensions manga ~is_focused
   in
-  let%sub chapter_table = chapter_table ~dimensions:right_dimensions in
+  let%sub { view = chapter_table_view
+          ; images = _
+          ; handler = chapter_table_handler
+          }
+    =
+    let%sub is_focused =
+      let%arr focus = focus in
+      match focus with Chapter_table -> true | _ -> false
+    in
+    chapter_table ~dimensions:right_dimensions manga ~is_focused
+  in
+  let%sub handler =
+    let%arr focus = focus
+    and set_focus = set_focus
+    and sidebar_handler = sidebar_handler
+    and chapter_table_handler = chapter_table_handler
+    and set_page = set_page in
+    fun (event : Event.t) ->
+      match event, focus with
+      | `Key (`Backspace, []), _ -> set_page Page.Manga_search
+      | `Key (`Tab, []), Sidebar -> set_focus Chapter_table
+      | `Key (`Tab, []), Chapter_table -> set_focus Sidebar
+      | `Key ((`Arrow `Left | `ASCII 'h'), []), Chapter_table ->
+        set_focus Sidebar
+      | `Key ((`Arrow `Right | `ASCII 'l'), []), Sidebar ->
+        set_focus Chapter_table
+      | event, Sidebar -> sidebar_handler event
+      | event, Chapter_table -> chapter_table_handler event
+  in
   let%sub view =
     let%arr sidebar_view = sidebar_view
-    and chapter_table = chapter_table in
-    Node.hcat [ sidebar_view; chapter_table ]
+    and chapter_table_view = chapter_table_view in
+    Node.hcat [ sidebar_view; chapter_table_view ]
   in
   let%sub view =
     let%arr view = view
@@ -431,7 +460,7 @@ let component ~dimensions ~(manga : Manga.t Value.t) ~set_page =
       (Node.vcat [ top_bar; Node.text ""; view; Node.text "" ])
   in
   let%arr view = view
-  and sidebar_handler = sidebar_handler
+  and handler = handler
   and images = images in
-  { Component.view; images; handler = sidebar_handler }
+  { Component.view; images; handler }
 ;;

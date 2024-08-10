@@ -56,6 +56,7 @@ let command =
           |> Outside_world.Manga_cover.register_real
           |> Outside_world.Manga_search.register_real
           |> Outside_world.Author.register_real
+          |> Outside_world.Chapter_feed.register_real
         in
         let%bind () = Capytui.start_with_images app in
         Deferred.Or_error.return ()]

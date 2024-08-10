@@ -1,0 +1,3113 @@
+{
+  "result": "ok",
+  "response": "collection",
+  "data": [
+    {
+      "id": "09532215-5ab1-4e91-8508-d75fd904578a",
+      "type": "chapter",
+      "attributes": {
+        "volume": "7",
+        "chapter": "60.5",
+        "title": "",
+        "translatedLanguage": "en",
+        "externalUrl": null,
+        "publishAt": "2021-02-21T07:41:26+00:00",
+        "readableAt": "2021-02-21T07:41:26+00:00",
+        "createdAt": "2021-02-21T07:41:26+00:00",
+        "updatedAt": "2021-02-21T07:41:26+00:00",
+        "pages": 4,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "9387f5c9-04ae-40d1-b781-3c89968cfa03",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "d81ef2cd-1736-4232-8e79-9ebae66238d6",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "160c89e2-9e58-47b5-83e4-2a8c318d166d",
+      "type": "chapter",
+      "attributes": {
+        "volume": "5",
+        "chapter": "42",
+        "title": null,
+        "translatedLanguage": "pt-br",
+        "externalUrl": null,
+        "publishAt": "2022-11-21T23:30:21+00:00",
+        "readableAt": "2022-11-21T23:30:21+00:00",
+        "createdAt": "2022-11-21T23:30:20+00:00",
+        "updatedAt": "2022-11-21T23:30:56+00:00",
+        "pages": 27,
+        "version": 3
+      },
+      "relationships": [
+        {
+          "id": "b312bed7-abd9-4d00-bbb8-150af1081fac",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "e83bb484-5296-41aa-a36a-14a4ae8cf4d7",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "136b2825-8e33-43e7-b543-d49f813cb83c",
+      "type": "chapter",
+      "attributes": {
+        "volume": "16",
+        "chapter": "100.17",
+        "title": "Гость из NK",
+        "translatedLanguage": "ru",
+        "externalUrl": null,
+        "publishAt": "2019-03-29T17:16:01+00:00",
+        "readableAt": "2019-03-29T17:16:01+00:00",
+        "createdAt": "2019-03-29T17:16:01+00:00",
+        "updatedAt": "2019-03-29T17:16:01+00:00",
+        "pages": 6,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "89edf9e3-6698-4502-a495-24579ecb91d0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "5d322dcb-3605-4a9d-b399-1d9dc185b22e",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "12e0a22f-83d8-4e94-b8b6-fb6dc299deaf",
+      "type": "chapter",
+      "attributes": {
+        "volume": "16",
+        "chapter": "100.03",
+        "title": "③",
+        "translatedLanguage": "ru",
+        "externalUrl": null,
+        "publishAt": "2019-03-29T17:02:46+00:00",
+        "readableAt": "2019-03-29T17:02:46+00:00",
+        "createdAt": "2019-03-29T17:02:46+00:00",
+        "updatedAt": "2019-03-29T17:02:46+00:00",
+        "pages": 12,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "89edf9e3-6698-4502-a495-24579ecb91d0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "5d322dcb-3605-4a9d-b399-1d9dc185b22e",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "0ac65b54-0761-4257-934f-48ca44d48a05",
+      "type": "chapter",
+      "attributes": {
+        "volume": "2",
+        "chapter": "17",
+        "title": "Psychic Power and I",
+        "translatedLanguage": "en",
+        "externalUrl": null,
+        "publishAt": "2018-02-03T15:22:53+00:00",
+        "readableAt": "2018-02-03T15:22:53+00:00",
+        "createdAt": "2018-02-03T15:22:53+00:00",
+        "updatedAt": "2018-02-03T15:22:53+00:00",
+        "pages": 25,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "9387f5c9-04ae-40d1-b781-3c89968cfa03",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "f6c0b123-1b31-4b4e-8a63-850bc73f5191",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "03a0c9f3-a5b9-495a-9c2f-374453338607",
+      "type": "chapter",
+      "attributes": {
+        "volume": "8",
+        "chapter": "62",
+        "title": "Morphing",
+        "translatedLanguage": "en",
+        "externalUrl": null,
+        "publishAt": "2018-02-04T23:54:01+00:00",
+        "readableAt": "2018-02-04T23:54:01+00:00",
+        "createdAt": "2018-02-04T23:54:01+00:00",
+        "updatedAt": "2018-02-04T23:54:01+00:00",
+        "pages": 20,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "9387f5c9-04ae-40d1-b781-3c89968cfa03",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "f6c0b123-1b31-4b4e-8a63-850bc73f5191",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "1160aa20-9384-4e73-bb1b-f5efbfcc56ab",
+      "type": "chapter",
+      "attributes": {
+        "volume": "7",
+        "chapter": "60",
+        "title": "Истинная личина",
+        "translatedLanguage": "ru",
+        "externalUrl": null,
+        "publishAt": "2019-03-29T16:43:39+00:00",
+        "readableAt": "2019-03-29T16:43:39+00:00",
+        "createdAt": "2019-03-29T16:43:39+00:00",
+        "updatedAt": "2019-03-29T16:43:39+00:00",
+        "pages": 25,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "89edf9e3-6698-4502-a495-24579ecb91d0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "5d322dcb-3605-4a9d-b399-1d9dc185b22e",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "0b858760-3c60-4138-9369-f78d24100bad",
+      "type": "chapter",
+      "attributes": {
+        "volume": "11",
+        "chapter": "86",
+        "title": "In Plain View",
+        "translatedLanguage": "en",
+        "externalUrl": null,
+        "publishAt": "2018-02-05T20:35:33+00:00",
+        "readableAt": "2018-02-05T20:35:33+00:00",
+        "createdAt": "2018-02-05T20:35:33+00:00",
+        "updatedAt": "2018-02-05T20:35:33+00:00",
+        "pages": 27,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "9387f5c9-04ae-40d1-b781-3c89968cfa03",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "f6c0b123-1b31-4b4e-8a63-850bc73f5191",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "06bc1f05-caf0-4af1-885b-1a5d3cadd85c",
+      "type": "chapter",
+      "attributes": {
+        "volume": "2",
+        "chapter": "15",
+        "title": "Completamente Desaparecido",
+        "translatedLanguage": "pt-br",
+        "externalUrl": null,
+        "publishAt": "2022-10-31T17:59:53+00:00",
+        "readableAt": "2022-10-31T17:59:53+00:00",
+        "createdAt": "2022-10-31T17:59:52+00:00",
+        "updatedAt": "2022-10-31T18:00:47+00:00",
+        "pages": 22,
+        "version": 3
+      },
+      "relationships": [
+        {
+          "id": "5f7b2b86-0f13-4e2e-b9f7-c07faa65b3c1",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "e83bb484-5296-41aa-a36a-14a4ae8cf4d7",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "00e9c6ab-0ff6-4967-9d86-448e6245e61b",
+      "type": "chapter",
+      "attributes": {
+        "volume": "9",
+        "chapter": "74",
+        "title": null,
+        "translatedLanguage": "pt-br",
+        "externalUrl": null,
+        "publishAt": "2022-11-21T23:59:42+00:00",
+        "readableAt": "2022-11-21T23:59:42+00:00",
+        "createdAt": "2022-11-21T23:59:42+00:00",
+        "updatedAt": "2022-11-22T00:00:09+00:00",
+        "pages": 20,
+        "version": 3
+      },
+      "relationships": [
+        {
+          "id": "63251a29-a04e-42e1-a842-4a0d6fdebdd0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "e83bb484-5296-41aa-a36a-14a4ae8cf4d7",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "3004624e-d32d-4530-8297-b467a6e6123e",
+      "type": "chapter",
+      "attributes": {
+        "volume": "16",
+        "chapter": "100.07",
+        "title": "Экстра Летние каникулы",
+        "translatedLanguage": "ru",
+        "externalUrl": null,
+        "publishAt": "2019-03-29T17:04:26+00:00",
+        "readableAt": "2019-03-29T17:04:26+00:00",
+        "createdAt": "2019-03-29T17:04:26+00:00",
+        "updatedAt": "2019-03-29T17:04:26+00:00",
+        "pages": 7,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "89edf9e3-6698-4502-a495-24579ecb91d0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "5d322dcb-3605-4a9d-b399-1d9dc185b22e",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "3331be15-31e1-41e2-914a-317024c67e6a",
+      "type": "chapter",
+      "attributes": {
+        "volume": "16",
+        "chapter": "100.18",
+        "title": "⑭",
+        "translatedLanguage": "ru",
+        "externalUrl": null,
+        "publishAt": "2019-03-29T17:16:17+00:00",
+        "readableAt": "2019-03-29T17:16:17+00:00",
+        "createdAt": "2019-03-29T17:16:17+00:00",
+        "updatedAt": "2019-03-29T17:16:17+00:00",
+        "pages": 14,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "89edf9e3-6698-4502-a495-24579ecb91d0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "5d322dcb-3605-4a9d-b399-1d9dc185b22e",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "39644797-369f-4c6c-b0ee-56d182209100",
+      "type": "chapter",
+      "attributes": {
+        "volume": "7",
+        "chapter": "55",
+        "title": "",
+        "translatedLanguage": "pt-br",
+        "externalUrl": null,
+        "publishAt": "2018-05-13T06:48:34+00:00",
+        "readableAt": "2018-05-13T06:48:34+00:00",
+        "createdAt": "2018-05-13T06:48:34+00:00",
+        "updatedAt": "2018-05-13T06:48:34+00:00",
+        "pages": 24,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "a96cc99d-7ceb-43b1-99ef-02e6ae30c7cf",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "2f8bd1a5-5bb3-41ad-a88b-35fa88ea8108",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "39a3bcb1-f185-448c-a80d-a57d06112973",
+      "type": "chapter",
+      "attributes": {
+        "volume": "1",
+        "chapter": "4",
+        "title": "Önmagadért",
+        "translatedLanguage": "hu",
+        "externalUrl": null,
+        "publishAt": "2020-05-24T14:53:03+00:00",
+        "readableAt": "2020-05-24T14:53:03+00:00",
+        "createdAt": "2020-05-24T14:53:03+00:00",
+        "updatedAt": "2021-05-17T02:39:31+00:00",
+        "pages": 17,
+        "version": 2
+      },
+      "relationships": [
+        {
+          "id": "11a83245-d05f-45ff-9cba-42bf535ab54d",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "275d3288-4c21-4902-af8d-be5efe5086f1",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "3836cffe-9898-45b9-aa37-afc5dceced71",
+      "type": "chapter",
+      "attributes": {
+        "volume": "7",
+        "chapter": "58.5",
+        "title": "",
+        "translatedLanguage": "en",
+        "externalUrl": null,
+        "publishAt": "2021-02-21T07:39:58+00:00",
+        "readableAt": "2021-02-21T07:39:58+00:00",
+        "createdAt": "2021-02-21T07:39:58+00:00",
+        "updatedAt": "2021-02-21T07:39:58+00:00",
+        "pages": 2,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "9387f5c9-04ae-40d1-b781-3c89968cfa03",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "d81ef2cd-1736-4232-8e79-9ebae66238d6",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "3677201c-8290-4c01-9fbf-0365fefeb220",
+      "type": "chapter",
+      "attributes": {
+        "volume": "9",
+        "chapter": "74.5",
+        "title": "Экстра Manga ONE",
+        "translatedLanguage": "ru",
+        "externalUrl": null,
+        "publishAt": "2019-03-29T16:51:16+00:00",
+        "readableAt": "2019-03-29T16:51:16+00:00",
+        "createdAt": "2019-03-29T16:51:16+00:00",
+        "updatedAt": "2019-03-29T16:51:16+00:00",
+        "pages": 2,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "89edf9e3-6698-4502-a495-24579ecb91d0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "5d322dcb-3605-4a9d-b399-1d9dc185b22e",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "260363ea-4698-4a28-9dba-7035148676f7",
+      "type": "chapter",
+      "attributes": {
+        "volume": "4",
+        "chapter": "31",
+        "title": "Mature",
+        "translatedLanguage": "en",
+        "externalUrl": null,
+        "publishAt": "2018-02-03T21:38:24+00:00",
+        "readableAt": "2018-02-03T21:38:24+00:00",
+        "createdAt": "2018-02-03T21:38:24+00:00",
+        "updatedAt": "2018-02-03T21:38:24+00:00",
+        "pages": 21,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "9387f5c9-04ae-40d1-b781-3c89968cfa03",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "f6c0b123-1b31-4b4e-8a63-850bc73f5191",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "2464c663-0b76-468f-a581-497177cc0e35",
+      "type": "chapter",
+      "attributes": {
+        "volume": "4",
+        "chapter": "33",
+        "title": null,
+        "translatedLanguage": "pt-br",
+        "externalUrl": null,
+        "publishAt": "2022-11-21T21:05:53+00:00",
+        "readableAt": "2022-11-21T21:05:53+00:00",
+        "createdAt": "2022-11-21T21:05:53+00:00",
+        "updatedAt": "2022-11-21T21:05:59+00:00",
+        "pages": 23,
+        "version": 3
+      },
+      "relationships": [
+        {
+          "id": "ca6e48f8-f580-4cee-8eed-c30ead54b3d0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "e83bb484-5296-41aa-a36a-14a4ae8cf4d7",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "24c9ddc0-e7a5-415f-bb15-8ba9fa3d52f9",
+      "type": "chapter",
+      "attributes": {
+        "volume": "6",
+        "chapter": "52.6",
+        "title": "Экстра Большая уборка",
+        "translatedLanguage": "ru",
+        "externalUrl": null,
+        "publishAt": "2019-03-29T16:37:00+00:00",
+        "readableAt": "2019-03-29T16:37:00+00:00",
+        "createdAt": "2019-03-29T16:37:00+00:00",
+        "updatedAt": "2019-03-29T16:37:00+00:00",
+        "pages": 7,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "89edf9e3-6698-4502-a495-24579ecb91d0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "5d322dcb-3605-4a9d-b399-1d9dc185b22e",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "23b97320-9f00-4dd7-bf09-ff37c43c227a",
+      "type": "chapter",
+      "attributes": {
+        "volume": "7",
+        "chapter": "57",
+        "title": "",
+        "translatedLanguage": "pt-br",
+        "externalUrl": null,
+        "publishAt": "2018-05-13T06:48:40+00:00",
+        "readableAt": "2018-05-13T06:48:40+00:00",
+        "createdAt": "2018-05-13T06:48:40+00:00",
+        "updatedAt": "2018-05-13T06:48:40+00:00",
+        "pages": 23,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "a96cc99d-7ceb-43b1-99ef-02e6ae30c7cf",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "2f8bd1a5-5bb3-41ad-a88b-35fa88ea8108",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "26688907-39b7-4a05-987a-e474c1cf1d6f",
+      "type": "chapter",
+      "attributes": {
+        "volume": "15",
+        "chapter": "99",
+        "title": null,
+        "translatedLanguage": "pt-br",
+        "externalUrl": null,
+        "publishAt": "2022-11-23T12:21:45+00:00",
+        "readableAt": "2022-11-23T12:21:45+00:00",
+        "createdAt": "2022-11-23T12:21:44+00:00",
+        "updatedAt": "2022-11-23T12:22:23+00:00",
+        "pages": 52,
+        "version": 3
+      },
+      "relationships": [
+        {
+          "id": "63251a29-a04e-42e1-a842-4a0d6fdebdd0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "e83bb484-5296-41aa-a36a-14a4ae8cf4d7",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "26bb9300-21fe-4065-87cd-a1234429ca69",
+      "type": "chapter",
+      "attributes": {
+        "volume": "10",
+        "chapter": "75",
+        "title": "Walaupun Demikian",
+        "translatedLanguage": "id",
+        "externalUrl": null,
+        "publishAt": "2018-08-13T17:21:30+00:00",
+        "readableAt": "2018-08-13T17:21:30+00:00",
+        "createdAt": "2018-08-13T17:21:30+00:00",
+        "updatedAt": "2018-08-13T17:21:30+00:00",
+        "pages": 20,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "16f54fa6-44e8-41e4-857b-3ea4397ad784",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "692aa6f0-0a57-45d4-96fe-c6d5ed16aa0b",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "26bd280b-997d-437e-b876-a20090a7c88b",
+      "type": "chapter",
+      "attributes": {
+        "volume": "6",
+        "chapter": "52",
+        "title": "",
+        "translatedLanguage": "pt-br",
+        "externalUrl": null,
+        "publishAt": "2018-05-13T06:48:15+00:00",
+        "readableAt": "2018-05-13T06:48:15+00:00",
+        "createdAt": "2018-05-13T06:48:15+00:00",
+        "updatedAt": "2018-05-13T06:48:15+00:00",
+        "pages": 24,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "a96cc99d-7ceb-43b1-99ef-02e6ae30c7cf",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "2f8bd1a5-5bb3-41ad-a88b-35fa88ea8108",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "1f36ad41-d686-43c7-b765-2b6d4c010307",
+      "type": "chapter",
+      "attributes": {
+        "volume": "6",
+        "chapter": "52.5",
+        "title": "Экстра Омакэ",
+        "translatedLanguage": "ru",
+        "externalUrl": null,
+        "publishAt": "2019-03-29T16:36:45+00:00",
+        "readableAt": "2019-03-29T16:36:45+00:00",
+        "createdAt": "2019-03-29T16:36:45+00:00",
+        "updatedAt": "2019-03-29T16:36:45+00:00",
+        "pages": 12,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "89edf9e3-6698-4502-a495-24579ecb91d0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "5d322dcb-3605-4a9d-b399-1d9dc185b22e",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "1cb06e9b-b4ea-4b09-87f5-1865a63489a5",
+      "type": "chapter",
+      "attributes": {
+        "volume": "14",
+        "chapter": "97",
+        "title": "Dimple Is",
+        "translatedLanguage": "en",
+        "externalUrl": null,
+        "publishAt": "2018-02-07T00:56:07+00:00",
+        "readableAt": "2018-02-07T00:56:07+00:00",
+        "createdAt": "2018-02-07T00:56:07+00:00",
+        "updatedAt": "2018-02-07T00:56:07+00:00",
+        "pages": 143,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "9387f5c9-04ae-40d1-b781-3c89968cfa03",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "f6c0b123-1b31-4b4e-8a63-850bc73f5191",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "2a91eb3a-455d-48e5-9f2f-49350929b6e6",
+      "type": "chapter",
+      "attributes": {
+        "volume": "16",
+        "chapter": "100.01",
+        "title": "①",
+        "translatedLanguage": "ru",
+        "externalUrl": null,
+        "publishAt": "2019-03-29T17:01:54+00:00",
+        "readableAt": "2019-03-29T17:01:54+00:00",
+        "createdAt": "2019-03-29T17:01:54+00:00",
+        "updatedAt": "2019-03-29T17:01:54+00:00",
+        "pages": 15,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "89edf9e3-6698-4502-a495-24579ecb91d0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "5d322dcb-3605-4a9d-b399-1d9dc185b22e",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "345487b1-fe1b-438c-b5d1-0277308aa24b",
+      "type": "chapter",
+      "attributes": {
+        "volume": "6",
+        "chapter": "45",
+        "title": "",
+        "translatedLanguage": "pt-br",
+        "externalUrl": null,
+        "publishAt": "2018-05-13T06:47:09+00:00",
+        "readableAt": "2018-05-13T06:47:09+00:00",
+        "createdAt": "2018-05-13T06:47:09+00:00",
+        "updatedAt": "2018-05-13T06:47:09+00:00",
+        "pages": 31,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "a96cc99d-7ceb-43b1-99ef-02e6ae30c7cf",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "2f8bd1a5-5bb3-41ad-a88b-35fa88ea8108",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "3fe4ae90-b152-4779-ae6b-2c7d8a0f915a",
+      "type": "chapter",
+      "attributes": {
+        "volume": "2",
+        "chapter": "16",
+        "title": "Ochimusha",
+        "translatedLanguage": "en",
+        "externalUrl": null,
+        "publishAt": "2018-02-03T15:22:22+00:00",
+        "readableAt": "2018-02-03T15:22:22+00:00",
+        "createdAt": "2018-02-03T15:22:22+00:00",
+        "updatedAt": "2018-02-03T15:22:22+00:00",
+        "pages": 26,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "9387f5c9-04ae-40d1-b781-3c89968cfa03",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "f6c0b123-1b31-4b4e-8a63-850bc73f5191",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "592d8248-9380-4b5e-b318-595d046d1825",
+      "type": "chapter",
+      "attributes": {
+        "volume": "5",
+        "chapter": "38",
+        "title": "Нет времени играться",
+        "translatedLanguage": "ru",
+        "externalUrl": null,
+        "publishAt": "2019-03-29T16:32:56+00:00",
+        "readableAt": "2019-03-29T16:32:56+00:00",
+        "createdAt": "2019-03-29T16:32:56+00:00",
+        "updatedAt": "2019-03-29T16:32:56+00:00",
+        "pages": 21,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "89edf9e3-6698-4502-a495-24579ecb91d0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "5d322dcb-3605-4a9d-b399-1d9dc185b22e",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "596869a9-17f7-46f6-9f58-3c11feaf6782",
+      "type": "chapter",
+      "attributes": {
+        "volume": "10",
+        "chapter": "81",
+        "title": "Super 5",
+        "translatedLanguage": "en",
+        "externalUrl": null,
+        "publishAt": "2018-02-05T20:01:23+00:00",
+        "readableAt": "2018-02-05T20:01:23+00:00",
+        "createdAt": "2018-02-05T20:01:23+00:00",
+        "updatedAt": "2018-02-05T20:01:23+00:00",
+        "pages": 23,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "9387f5c9-04ae-40d1-b781-3c89968cfa03",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "f6c0b123-1b31-4b4e-8a63-850bc73f5191",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "58142a50-40e7-4964-b473-169e440ccfdc",
+      "type": "chapter",
+      "attributes": {
+        "volume": "10",
+        "chapter": "81.5",
+        "title": "Making Of Mob Psycho 100",
+        "translatedLanguage": "en",
+        "externalUrl": null,
+        "publishAt": "2021-02-21T07:55:45+00:00",
+        "readableAt": "2021-02-21T07:55:45+00:00",
+        "createdAt": "2021-02-21T07:55:45+00:00",
+        "updatedAt": "2021-02-21T07:55:45+00:00",
+        "pages": 2,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "9387f5c9-04ae-40d1-b781-3c89968cfa03",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "d81ef2cd-1736-4232-8e79-9ebae66238d6",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "5c5fd178-a596-4ea6-8a0a-a9b6e1a4b20e",
+      "type": "chapter",
+      "attributes": {
+        "volume": "8",
+        "chapter": "61",
+        "title": "Evil Spirit",
+        "translatedLanguage": "en",
+        "externalUrl": null,
+        "publishAt": "2018-02-04T23:53:40+00:00",
+        "readableAt": "2018-02-04T23:53:40+00:00",
+        "createdAt": "2018-02-04T23:53:40+00:00",
+        "updatedAt": "2018-02-04T23:53:40+00:00",
+        "pages": 40,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "9387f5c9-04ae-40d1-b781-3c89968cfa03",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "f6c0b123-1b31-4b4e-8a63-850bc73f5191",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "5eb435c5-0685-4391-a623-378a6f2b1e0e",
+      "type": "chapter",
+      "attributes": {
+        "volume": "9",
+        "chapter": "71",
+        "title": "Не зная меры",
+        "translatedLanguage": "ru",
+        "externalUrl": null,
+        "publishAt": "2019-03-29T16:50:13+00:00",
+        "readableAt": "2019-03-29T16:50:13+00:00",
+        "createdAt": "2019-03-29T16:50:13+00:00",
+        "updatedAt": "2019-03-29T16:50:13+00:00",
+        "pages": 15,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "89edf9e3-6698-4502-a495-24579ecb91d0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "5d322dcb-3605-4a9d-b399-1d9dc185b22e",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "5b9cac19-ff0a-43f1-ac10-1f4571e21359",
+      "type": "chapter",
+      "attributes": {
+        "volume": "5",
+        "chapter": "36",
+        "title": "Способы использования",
+        "translatedLanguage": "ru",
+        "externalUrl": null,
+        "publishAt": "2019-03-29T16:32:20+00:00",
+        "readableAt": "2019-03-29T16:32:20+00:00",
+        "createdAt": "2019-03-29T16:32:20+00:00",
+        "updatedAt": "2019-03-29T16:32:20+00:00",
+        "pages": 28,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "89edf9e3-6698-4502-a495-24579ecb91d0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "5d322dcb-3605-4a9d-b399-1d9dc185b22e",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "6760c518-f29b-4f1b-a7b4-d6acad322644",
+      "type": "chapter",
+      "attributes": {
+        "volume": "2",
+        "chapter": "17.5",
+        "title": "Omake 1",
+        "translatedLanguage": "pt-br",
+        "externalUrl": null,
+        "publishAt": "2022-11-21T20:43:12+00:00",
+        "readableAt": "2022-11-21T20:43:12+00:00",
+        "createdAt": "2022-11-21T20:43:11+00:00",
+        "updatedAt": "2022-11-21T20:43:24+00:00",
+        "pages": 13,
+        "version": 3
+      },
+      "relationships": [
+        {
+          "id": "d4bb3ad1-2451-4110-9940-0cd39d6db0a4",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "e83bb484-5296-41aa-a36a-14a4ae8cf4d7",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "7022c607-51ae-4004-8e22-c885dec5f357",
+      "type": "chapter",
+      "attributes": {
+        "volume": "7",
+        "chapter": "59",
+        "title": "Болтун",
+        "translatedLanguage": "ru",
+        "externalUrl": null,
+        "publishAt": "2019-03-29T16:43:28+00:00",
+        "readableAt": "2019-03-29T16:43:28+00:00",
+        "createdAt": "2019-03-29T16:43:28+00:00",
+        "updatedAt": "2019-03-29T16:43:28+00:00",
+        "pages": 26,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "89edf9e3-6698-4502-a495-24579ecb91d0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "5d322dcb-3605-4a9d-b399-1d9dc185b22e",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "6ea3557f-6353-4f2e-af0a-7959a2a76d5a",
+      "type": "chapter",
+      "attributes": {
+        "volume": "16",
+        "chapter": "100.24",
+        "title": "⑰",
+        "translatedLanguage": "ru",
+        "externalUrl": null,
+        "publishAt": "2019-03-29T17:18:02+00:00",
+        "readableAt": "2019-03-29T17:18:02+00:00",
+        "createdAt": "2019-03-29T17:18:02+00:00",
+        "updatedAt": "2019-03-29T17:18:02+00:00",
+        "pages": 22,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "89edf9e3-6698-4502-a495-24579ecb91d0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "5d322dcb-3605-4a9d-b399-1d9dc185b22e",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "77be0c37-f614-4ecf-b1d4-35bef53d73a3",
+      "type": "chapter",
+      "attributes": {
+        "volume": "14",
+        "chapter": "96",
+        "title": "Peace",
+        "translatedLanguage": "en",
+        "externalUrl": null,
+        "publishAt": "2018-02-07T00:55:25+00:00",
+        "readableAt": "2018-02-07T00:55:25+00:00",
+        "createdAt": "2018-02-07T00:55:25+00:00",
+        "updatedAt": "2018-02-07T00:55:25+00:00",
+        "pages": 58,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "9387f5c9-04ae-40d1-b781-3c89968cfa03",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "f6c0b123-1b31-4b4e-8a63-850bc73f5191",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "752b1fa1-2c36-4170-8fd1-9ab9d7b63227",
+      "type": "chapter",
+      "attributes": {
+        "volume": "8",
+        "chapter": "66.4",
+        "title": "Экстра",
+        "translatedLanguage": "ru",
+        "externalUrl": null,
+        "publishAt": "2019-03-29T16:48:20+00:00",
+        "readableAt": "2019-03-29T16:48:20+00:00",
+        "createdAt": "2019-03-29T16:48:20+00:00",
+        "updatedAt": "2019-03-29T16:48:20+00:00",
+        "pages": 1,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "89edf9e3-6698-4502-a495-24579ecb91d0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "5d322dcb-3605-4a9d-b399-1d9dc185b22e",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "76e8afbd-1afe-4fbc-85ae-0cdf50912d10",
+      "type": "chapter",
+      "attributes": {
+        "volume": "1",
+        "chapter": "7",
+        "title": "Owieczka",
+        "translatedLanguage": "pl",
+        "externalUrl": null,
+        "publishAt": "2024-01-29T17:47:57+00:00",
+        "readableAt": "2024-01-29T17:47:57+00:00",
+        "createdAt": "2024-01-29T17:47:57+00:00",
+        "updatedAt": "2024-01-29T17:48:31+00:00",
+        "pages": 23,
+        "version": 3
+      },
+      "relationships": [
+        {
+          "id": "50dbd326-619a-4751-aeb3-da76f8b52688",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "bd3a375c-99c8-4fef-b635-930b1acdfd11",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "50e18399-ba40-4175-aa04-e0f63ad5fa3a",
+      "type": "chapter",
+      "attributes": {
+        "volume": "11",
+        "chapter": "86",
+        "title": null,
+        "translatedLanguage": "pt-br",
+        "externalUrl": null,
+        "publishAt": "2022-11-22T00:30:04+00:00",
+        "readableAt": "2022-11-22T00:30:04+00:00",
+        "createdAt": "2022-11-22T00:30:03+00:00",
+        "updatedAt": "2022-11-22T00:30:19+00:00",
+        "pages": 26,
+        "version": 3
+      },
+      "relationships": [
+        {
+          "id": "63251a29-a04e-42e1-a842-4a0d6fdebdd0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "e83bb484-5296-41aa-a36a-14a4ae8cf4d7",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "4e004415-f474-413e-9818-237e1753c021",
+      "type": "chapter",
+      "attributes": {
+        "volume": "10",
+        "chapter": "75",
+        "title": "Даже так",
+        "translatedLanguage": "ru",
+        "externalUrl": null,
+        "publishAt": "2019-03-29T16:51:58+00:00",
+        "readableAt": "2019-03-29T16:51:58+00:00",
+        "createdAt": "2019-03-29T16:51:58+00:00",
+        "updatedAt": "2019-03-29T16:51:58+00:00",
+        "pages": 17,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "89edf9e3-6698-4502-a495-24579ecb91d0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "5d322dcb-3605-4a9d-b399-1d9dc185b22e",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "4e436790-c2ff-45c2-87e6-8b48cd3daa89",
+      "type": "chapter",
+      "attributes": {
+        "volume": "6",
+        "chapter": "46",
+        "title": "Учитель",
+        "translatedLanguage": "ru",
+        "externalUrl": null,
+        "publishAt": "2019-03-29T16:35:07+00:00",
+        "readableAt": "2019-03-29T16:35:07+00:00",
+        "createdAt": "2019-03-29T16:35:07+00:00",
+        "updatedAt": "2019-03-29T16:35:07+00:00",
+        "pages": 24,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "89edf9e3-6698-4502-a495-24579ecb91d0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "5d322dcb-3605-4a9d-b399-1d9dc185b22e",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "444635e4-dc7a-44ea-9a23-412ff59a0c24",
+      "type": "chapter",
+      "attributes": {
+        "volume": "9",
+        "chapter": "71",
+        "title": null,
+        "translatedLanguage": "pt-br",
+        "externalUrl": null,
+        "publishAt": "2022-11-21T23:55:52+00:00",
+        "readableAt": "2022-11-21T23:55:52+00:00",
+        "createdAt": "2022-11-21T23:55:52+00:00",
+        "updatedAt": "2022-11-21T23:55:57+00:00",
+        "pages": 16,
+        "version": 3
+      },
+      "relationships": [
+        {
+          "id": "63251a29-a04e-42e1-a842-4a0d6fdebdd0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "e83bb484-5296-41aa-a36a-14a4ae8cf4d7",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "3d03af53-c13c-49fc-bcdc-0a6597d430d5",
+      "type": "chapter",
+      "attributes": {
+        "volume": "4",
+        "chapter": "34",
+        "title": "\"Claw\"",
+        "translatedLanguage": "en",
+        "externalUrl": null,
+        "publishAt": "2018-02-03T21:39:59+00:00",
+        "readableAt": "2018-02-03T21:39:59+00:00",
+        "createdAt": "2018-02-03T21:39:59+00:00",
+        "updatedAt": "2021-05-17T02:39:34+00:00",
+        "pages": 29,
+        "version": 2
+      },
+      "relationships": [
+        {
+          "id": "9387f5c9-04ae-40d1-b781-3c89968cfa03",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "f6c0b123-1b31-4b4e-8a63-850bc73f5191",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "3e0bb0a7-d0d1-4878-9b69-1c5d6ef3abc6",
+      "type": "chapter",
+      "attributes": {
+        "volume": "3",
+        "chapter": "23",
+        "title": "Чтобы вырасти",
+        "translatedLanguage": "ru",
+        "externalUrl": null,
+        "publishAt": "2019-03-29T16:28:33+00:00",
+        "readableAt": "2019-03-29T16:28:33+00:00",
+        "createdAt": "2019-03-29T16:28:33+00:00",
+        "updatedAt": "2019-03-29T16:28:33+00:00",
+        "pages": 37,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "89edf9e3-6698-4502-a495-24579ecb91d0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "5d322dcb-3605-4a9d-b399-1d9dc185b22e",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "1b4217f4-46bd-41ee-8f9f-e218e9128d3d",
+      "type": "chapter",
+      "attributes": {
+        "volume": "11",
+        "chapter": "87",
+        "title": "Наставления",
+        "translatedLanguage": "ru",
+        "externalUrl": null,
+        "publishAt": "2019-03-29T16:56:03+00:00",
+        "readableAt": "2019-03-29T16:56:03+00:00",
+        "createdAt": "2019-03-29T16:56:03+00:00",
+        "updatedAt": "2019-03-29T16:56:03+00:00",
+        "pages": 49,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "89edf9e3-6698-4502-a495-24579ecb91d0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "5d322dcb-3605-4a9d-b399-1d9dc185b22e",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "1b52b396-269e-4e8d-867c-cfcdb1f4dac7",
+      "type": "chapter",
+      "attributes": {
+        "volume": "10",
+        "chapter": "79",
+        "title": null,
+        "translatedLanguage": "pt-br",
+        "externalUrl": null,
+        "publishAt": "2022-11-22T00:08:37+00:00",
+        "readableAt": "2022-11-22T00:08:37+00:00",
+        "createdAt": "2022-11-22T00:08:37+00:00",
+        "updatedAt": "2022-11-22T00:09:00+00:00",
+        "pages": 20,
+        "version": 3
+      },
+      "relationships": [
+        {
+          "id": "63251a29-a04e-42e1-a842-4a0d6fdebdd0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "e83bb484-5296-41aa-a36a-14a4ae8cf4d7",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "1db54875-8f5f-4fec-b91b-7d74ba8204a9",
+      "type": "chapter",
+      "attributes": {
+        "volume": "15",
+        "chapter": "99",
+        "title": "Моб",
+        "translatedLanguage": "ru",
+        "externalUrl": null,
+        "publishAt": "2019-03-29T17:00:47+00:00",
+        "readableAt": "2019-03-29T17:00:47+00:00",
+        "createdAt": "2019-03-29T17:00:47+00:00",
+        "updatedAt": "2019-03-29T17:00:47+00:00",
+        "pages": 53,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "89edf9e3-6698-4502-a495-24579ecb91d0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "5d322dcb-3605-4a9d-b399-1d9dc185b22e",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "202e0258-a174-4691-a0db-d9db96b02cbe",
+      "type": "chapter",
+      "attributes": {
+        "volume": "10",
+        "chapter": "82",
+        "title": "Схватка",
+        "translatedLanguage": "ru",
+        "externalUrl": null,
+        "publishAt": "2019-03-29T16:54:26+00:00",
+        "readableAt": "2019-03-29T16:54:26+00:00",
+        "createdAt": "2019-03-29T16:54:26+00:00",
+        "updatedAt": "2019-03-29T16:54:26+00:00",
+        "pages": 28,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "89edf9e3-6698-4502-a495-24579ecb91d0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "5d322dcb-3605-4a9d-b399-1d9dc185b22e",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "22bea844-cdda-4842-9c79-db5415e4b829",
+      "type": "chapter",
+      "attributes": {
+        "volume": "6",
+        "chapter": "50",
+        "title": "No Changes",
+        "translatedLanguage": "en",
+        "externalUrl": null,
+        "publishAt": "2018-02-04T01:04:33+00:00",
+        "readableAt": "2018-02-04T01:04:33+00:00",
+        "createdAt": "2018-02-04T01:04:33+00:00",
+        "updatedAt": "2018-02-04T01:04:33+00:00",
+        "pages": 16,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "9387f5c9-04ae-40d1-b781-3c89968cfa03",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "f6c0b123-1b31-4b4e-8a63-850bc73f5191",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "23214abc-0e3b-4695-aa03-8c635a34dbc8",
+      "type": "chapter",
+      "attributes": {
+        "volume": "1",
+        "chapter": "9.6",
+        "title": null,
+        "translatedLanguage": "pt-br",
+        "externalUrl": null,
+        "publishAt": "2022-10-30T20:27:10+00:00",
+        "readableAt": "2022-10-30T20:27:10+00:00",
+        "createdAt": "2022-10-30T20:27:09+00:00",
+        "updatedAt": "2022-10-30T20:27:22+00:00",
+        "pages": 5,
+        "version": 3
+      },
+      "relationships": [
+        {
+          "id": "5f7b2b86-0f13-4e2e-b9f7-c07faa65b3c1",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "e83bb484-5296-41aa-a36a-14a4ae8cf4d7",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "6ae94d68-0802-4360-ac35-52f3a228d96a",
+      "type": "chapter",
+      "attributes": {
+        "volume": "2",
+        "chapter": "17.7",
+        "title": "Omake 2 - Romance And Impulse",
+        "translatedLanguage": "en",
+        "externalUrl": null,
+        "publishAt": "2021-02-21T07:30:24+00:00",
+        "readableAt": "2021-02-21T07:30:24+00:00",
+        "createdAt": "2021-02-21T07:30:24+00:00",
+        "updatedAt": "2021-02-21T07:30:24+00:00",
+        "pages": 12,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "9387f5c9-04ae-40d1-b781-3c89968cfa03",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "d81ef2cd-1736-4232-8e79-9ebae66238d6",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "5dd3de9f-8746-4695-9dd2-f1a9659aa17c",
+      "type": "chapter",
+      "attributes": {
+        "volume": "16",
+        "chapter": "101",
+        "title": null,
+        "translatedLanguage": "pt-br",
+        "externalUrl": null,
+        "publishAt": "2022-11-22T01:04:30+00:00",
+        "readableAt": "2022-11-22T01:04:30+00:00",
+        "createdAt": "2022-11-22T01:04:30+00:00",
+        "updatedAt": "2022-11-22T01:04:42+00:00",
+        "pages": 16,
+        "version": 3
+      },
+      "relationships": [
+        {
+          "id": "63251a29-a04e-42e1-a842-4a0d6fdebdd0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "e83bb484-5296-41aa-a36a-14a4ae8cf4d7",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "5dd52c05-b07e-43c2-be82-f3acd15c7861",
+      "type": "chapter",
+      "attributes": {
+        "volume": "2",
+        "chapter": "16",
+        "title": "Отимуся",
+        "translatedLanguage": "ru",
+        "externalUrl": null,
+        "publishAt": "2019-03-29T16:25:01+00:00",
+        "readableAt": "2019-03-29T16:25:01+00:00",
+        "createdAt": "2019-03-29T16:25:01+00:00",
+        "updatedAt": "2019-03-29T16:25:01+00:00",
+        "pages": 29,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "89edf9e3-6698-4502-a495-24579ecb91d0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "5d322dcb-3605-4a9d-b399-1d9dc185b22e",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "6611a9fa-b8d0-4ce5-8fb9-94e295ee2846",
+      "type": "chapter",
+      "attributes": {
+        "volume": "2",
+        "chapter": "10",
+        "title": "O Dotado",
+        "translatedLanguage": "pt-br",
+        "externalUrl": null,
+        "publishAt": "2022-10-30T20:28:00+00:00",
+        "readableAt": "2022-10-30T20:28:00+00:00",
+        "createdAt": "2022-10-30T20:27:59+00:00",
+        "updatedAt": "2022-10-30T20:28:38+00:00",
+        "pages": 23,
+        "version": 3
+      },
+      "relationships": [
+        {
+          "id": "5f7b2b86-0f13-4e2e-b9f7-c07faa65b3c1",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "e83bb484-5296-41aa-a36a-14a4ae8cf4d7",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "67c45714-42c8-43e1-a985-5b1d706b4466",
+      "type": "chapter",
+      "attributes": {
+        "volume": "5",
+        "chapter": "39",
+        "title": null,
+        "translatedLanguage": "pt-br",
+        "externalUrl": null,
+        "publishAt": "2022-11-21T23:21:15+00:00",
+        "readableAt": "2022-11-21T23:21:15+00:00",
+        "createdAt": "2022-11-21T23:21:15+00:00",
+        "updatedAt": "2022-11-21T23:21:43+00:00",
+        "pages": 16,
+        "version": 3
+      },
+      "relationships": [
+        {
+          "id": "b312bed7-abd9-4d00-bbb8-150af1081fac",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "e83bb484-5296-41aa-a36a-14a4ae8cf4d7",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "6822778d-eab9-4bc9-bb3c-f082e95a1a65",
+      "type": "chapter",
+      "attributes": {
+        "volume": "11",
+        "chapter": "85",
+        "title": "Качество тела",
+        "translatedLanguage": "ru",
+        "externalUrl": null,
+        "publishAt": "2019-03-29T16:55:32+00:00",
+        "readableAt": "2019-03-29T16:55:32+00:00",
+        "createdAt": "2019-03-29T16:55:32+00:00",
+        "updatedAt": "2019-03-29T16:55:32+00:00",
+        "pages": 38,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "89edf9e3-6698-4502-a495-24579ecb91d0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "5d322dcb-3605-4a9d-b399-1d9dc185b22e",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "33e10106-02cd-4ccf-b553-0e6222ebf924",
+      "type": "chapter",
+      "attributes": {
+        "volume": "1",
+        "chapter": "2",
+        "title": "Naiwne Pytanie",
+        "translatedLanguage": "pl",
+        "externalUrl": null,
+        "publishAt": "2023-10-30T22:47:45+00:00",
+        "readableAt": "2023-10-30T22:47:45+00:00",
+        "createdAt": "2023-10-30T17:53:41+00:00",
+        "updatedAt": "2023-10-30T22:47:45+00:00",
+        "pages": 17,
+        "version": 3
+      },
+      "relationships": [
+        {
+          "id": "50dbd326-619a-4751-aeb3-da76f8b52688",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "970bfbaf-ae36-442d-bf20-4aa353eb078b",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "7d0653af-7965-412d-bc01-60f8199f226f",
+      "type": "chapter",
+      "attributes": {
+        "volume": "7",
+        "chapter": "54",
+        "title": "Стычка с вымыслом",
+        "translatedLanguage": "ru",
+        "externalUrl": null,
+        "publishAt": "2019-03-29T16:42:16+00:00",
+        "readableAt": "2019-03-29T16:42:16+00:00",
+        "createdAt": "2019-03-29T16:42:16+00:00",
+        "updatedAt": "2019-03-29T16:42:16+00:00",
+        "pages": 27,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "89edf9e3-6698-4502-a495-24579ecb91d0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "5d322dcb-3605-4a9d-b399-1d9dc185b22e",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "900874a1-da33-4884-9447-527207a3ad4a",
+      "type": "chapter",
+      "attributes": {
+        "volume": "2",
+        "chapter": "15",
+        "title": "Teljesen eltűnve",
+        "translatedLanguage": "hu",
+        "externalUrl": null,
+        "publishAt": "2023-02-21T19:04:42+00:00",
+        "readableAt": "2023-02-21T19:04:42+00:00",
+        "createdAt": "2023-02-21T19:04:41+00:00",
+        "updatedAt": "2023-02-21T19:04:49+00:00",
+        "pages": 22,
+        "version": 3
+      },
+      "relationships": [
+        {
+          "id": "11a83245-d05f-45ff-9cba-42bf535ab54d",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "3ce15bfc-7f6d-482d-86f9-60c34ba5110d",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "275d3288-4c21-4902-af8d-be5efe5086f1",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "8f3077c1-2fba-4132-a6b3-2da7906ad177",
+      "type": "chapter",
+      "attributes": {
+        "volume": "5",
+        "chapter": "38",
+        "title": null,
+        "translatedLanguage": "pt-br",
+        "externalUrl": null,
+        "publishAt": "2022-11-21T23:20:30+00:00",
+        "readableAt": "2022-11-21T23:20:30+00:00",
+        "createdAt": "2022-11-21T23:20:29+00:00",
+        "updatedAt": "2022-11-21T23:20:56+00:00",
+        "pages": 18,
+        "version": 3
+      },
+      "relationships": [
+        {
+          "id": "b312bed7-abd9-4d00-bbb8-150af1081fac",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "e83bb484-5296-41aa-a36a-14a4ae8cf4d7",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "b4430e04-08da-4196-86d9-2a8352298356",
+      "type": "chapter",
+      "attributes": {
+        "volume": "6",
+        "chapter": "47",
+        "title": "Rental",
+        "translatedLanguage": "en",
+        "externalUrl": null,
+        "publishAt": "2018-02-04T01:03:25+00:00",
+        "readableAt": "2018-02-04T01:03:25+00:00",
+        "createdAt": "2018-02-04T01:03:25+00:00",
+        "updatedAt": "2018-02-04T01:03:25+00:00",
+        "pages": 20,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "9387f5c9-04ae-40d1-b781-3c89968cfa03",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "f6c0b123-1b31-4b4e-8a63-850bc73f5191",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "8c0d68c0-2d37-4c7d-b33c-dd95addd267a",
+      "type": "chapter",
+      "attributes": {
+        "volume": "10",
+        "chapter": "78.5",
+        "title": "Omakes",
+        "translatedLanguage": "en",
+        "externalUrl": null,
+        "publishAt": "2021-02-21T07:54:06+00:00",
+        "readableAt": "2021-02-21T07:54:06+00:00",
+        "createdAt": "2021-02-21T07:54:06+00:00",
+        "updatedAt": "2021-02-21T07:54:06+00:00",
+        "pages": 9,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "9387f5c9-04ae-40d1-b781-3c89968cfa03",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "d81ef2cd-1736-4232-8e79-9ebae66238d6",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "80d8085a-954f-4619-9f0a-5d01342cdea6",
+      "type": "chapter",
+      "attributes": {
+        "volume": "9",
+        "chapter": "68",
+        "title": "",
+        "translatedLanguage": "ru",
+        "externalUrl": null,
+        "publishAt": "2019-03-29T16:49:20+00:00",
+        "readableAt": "2019-03-29T16:49:20+00:00",
+        "createdAt": "2019-03-29T16:49:20+00:00",
+        "updatedAt": "2019-03-29T16:49:20+00:00",
+        "pages": 15,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "89edf9e3-6698-4502-a495-24579ecb91d0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "5d322dcb-3605-4a9d-b399-1d9dc185b22e",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "836d28fb-88ed-4657-a493-6c5fd9d91d9e",
+      "type": "chapter",
+      "attributes": {
+        "volume": "13",
+        "chapter": "92",
+        "title": "Thoughts About the Future",
+        "translatedLanguage": "en",
+        "externalUrl": null,
+        "publishAt": "2018-02-06T19:55:51+00:00",
+        "readableAt": "2018-02-06T19:55:51+00:00",
+        "createdAt": "2018-02-06T19:55:51+00:00",
+        "updatedAt": "2018-02-06T19:55:51+00:00",
+        "pages": 34,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "9387f5c9-04ae-40d1-b781-3c89968cfa03",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "f6c0b123-1b31-4b4e-8a63-850bc73f5191",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "a08eaeee-47ed-49f6-8e71-3ea4d3ce93cb",
+      "type": "chapter",
+      "attributes": {
+        "volume": "7",
+        "chapter": "55",
+        "title": "Незнание",
+        "translatedLanguage": "ru",
+        "externalUrl": null,
+        "publishAt": "2019-03-29T16:42:29+00:00",
+        "readableAt": "2019-03-29T16:42:29+00:00",
+        "createdAt": "2019-03-29T16:42:29+00:00",
+        "updatedAt": "2019-03-29T16:42:29+00:00",
+        "pages": 23,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "89edf9e3-6698-4502-a495-24579ecb91d0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "5d322dcb-3605-4a9d-b399-1d9dc185b22e",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "a8b51325-3c83-4711-ac3b-08237f9bccad",
+      "type": "chapter",
+      "attributes": {
+        "volume": "7",
+        "chapter": "57",
+        "title": "Корни",
+        "translatedLanguage": "ru",
+        "externalUrl": null,
+        "publishAt": "2019-03-29T16:42:53+00:00",
+        "readableAt": "2019-03-29T16:42:53+00:00",
+        "createdAt": "2019-03-29T16:42:53+00:00",
+        "updatedAt": "2019-03-29T16:42:53+00:00",
+        "pages": 25,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "89edf9e3-6698-4502-a495-24579ecb91d0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "5d322dcb-3605-4a9d-b399-1d9dc185b22e",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "8d6e9c4e-09d8-4c90-a318-5f4361134c98",
+      "type": "chapter",
+      "attributes": {
+        "volume": "1",
+        "chapter": "8",
+        "title": "Сломайся",
+        "translatedLanguage": "ru",
+        "externalUrl": null,
+        "publishAt": "2019-03-29T16:19:30+00:00",
+        "readableAt": "2019-03-29T16:19:30+00:00",
+        "createdAt": "2019-03-29T16:19:30+00:00",
+        "updatedAt": "2019-03-29T16:19:30+00:00",
+        "pages": 34,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "89edf9e3-6698-4502-a495-24579ecb91d0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "5d322dcb-3605-4a9d-b399-1d9dc185b22e",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "9e9d6d8e-7ace-4990-ae47-e1ba046fed13",
+      "type": "chapter",
+      "attributes": {
+        "volume": "9",
+        "chapter": "70.5",
+        "title": "Crossing The Street",
+        "translatedLanguage": "en",
+        "externalUrl": null,
+        "publishAt": "2021-02-21T07:47:49+00:00",
+        "readableAt": "2021-02-21T07:47:49+00:00",
+        "createdAt": "2021-02-21T07:47:49+00:00",
+        "updatedAt": "2021-02-21T07:47:49+00:00",
+        "pages": 3,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "9387f5c9-04ae-40d1-b781-3c89968cfa03",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "d81ef2cd-1736-4232-8e79-9ebae66238d6",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "97d7e0c2-3276-4e62-aef0-b276ebf9413a",
+      "type": "chapter",
+      "attributes": {
+        "volume": "12",
+        "chapter": "89",
+        "title": null,
+        "translatedLanguage": "pt-br",
+        "externalUrl": null,
+        "publishAt": "2022-11-22T00:43:05+00:00",
+        "readableAt": "2022-11-22T00:43:05+00:00",
+        "createdAt": "2022-11-22T00:43:04+00:00",
+        "updatedAt": "2022-11-22T00:43:40+00:00",
+        "pages": 54,
+        "version": 3
+      },
+      "relationships": [
+        {
+          "id": "63251a29-a04e-42e1-a842-4a0d6fdebdd0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "e83bb484-5296-41aa-a36a-14a4ae8cf4d7",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "93f19746-db52-4f96-bc1a-cef7856b55a3",
+      "type": "chapter",
+      "attributes": {
+        "volume": "8",
+        "chapter": "63",
+        "title": "Last Resort",
+        "translatedLanguage": "en",
+        "externalUrl": null,
+        "publishAt": "2018-02-04T23:54:44+00:00",
+        "readableAt": "2018-02-04T23:54:44+00:00",
+        "createdAt": "2018-02-04T23:54:44+00:00",
+        "updatedAt": "2022-06-01T15:01:29+00:00",
+        "pages": 41,
+        "version": 2
+      },
+      "relationships": [
+        {
+          "id": "9387f5c9-04ae-40d1-b781-3c89968cfa03",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "f6c0b123-1b31-4b4e-8a63-850bc73f5191",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "94328317-978d-45d4-9a08-c0eab8fa2c75",
+      "type": "chapter",
+      "attributes": {
+        "volume": "1",
+        "chapter": "8",
+        "title": null,
+        "translatedLanguage": "pt-br",
+        "externalUrl": null,
+        "publishAt": "2022-06-05T17:01:12+00:00",
+        "readableAt": "2022-06-05T17:01:12+00:00",
+        "createdAt": "2022-06-05T17:01:12+00:00",
+        "updatedAt": "2022-06-05T17:01:19+00:00",
+        "pages": 35,
+        "version": 3
+      },
+      "relationships": [
+        {
+          "id": "5f7b2b86-0f13-4e2e-b9f7-c07faa65b3c1",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "70eeda89-a2a6-480c-aa32-031c8ee2e2f5",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "95c2fd05-ef4e-47ff-83df-4f22f389fb35",
+      "type": "chapter",
+      "attributes": {
+        "volume": "8",
+        "chapter": "66.8",
+        "title": "Экстра Рвение",
+        "translatedLanguage": "ru",
+        "externalUrl": null,
+        "publishAt": "2019-03-29T16:48:56+00:00",
+        "readableAt": "2019-03-29T16:48:56+00:00",
+        "createdAt": "2019-03-29T16:48:56+00:00",
+        "updatedAt": "2019-03-29T16:48:56+00:00",
+        "pages": 2,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "89edf9e3-6698-4502-a495-24579ecb91d0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "5d322dcb-3605-4a9d-b399-1d9dc185b22e",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "8cb5a253-1bd2-43ed-b0d8-e39e390c21f3",
+      "type": "chapter",
+      "attributes": {
+        "volume": "9",
+        "chapter": "68",
+        "title": "",
+        "translatedLanguage": "en",
+        "externalUrl": null,
+        "publishAt": "2018-02-05T00:35:26+00:00",
+        "readableAt": "2018-02-05T00:35:26+00:00",
+        "createdAt": "2018-02-05T00:35:26+00:00",
+        "updatedAt": "2018-02-05T00:35:26+00:00",
+        "pages": 16,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "9387f5c9-04ae-40d1-b781-3c89968cfa03",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "f6c0b123-1b31-4b4e-8a63-850bc73f5191",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "7c8aaaa1-ed0c-412e-adfc-cc205981a57e",
+      "type": "chapter",
+      "attributes": {
+        "volume": "2",
+        "chapter": "13",
+        "title": "Olhos que só veem inferioridade",
+        "translatedLanguage": "pt-br",
+        "externalUrl": null,
+        "publishAt": "2022-10-30T20:33:31+00:00",
+        "readableAt": "2022-10-30T20:33:31+00:00",
+        "createdAt": "2022-10-30T20:33:30+00:00",
+        "updatedAt": "2022-10-30T20:34:03+00:00",
+        "pages": 16,
+        "version": 3
+      },
+      "relationships": [
+        {
+          "id": "5f7b2b86-0f13-4e2e-b9f7-c07faa65b3c1",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "e83bb484-5296-41aa-a36a-14a4ae8cf4d7",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "7df311ff-4684-461e-a9e4-b874de361814",
+      "type": "chapter",
+      "attributes": {
+        "volume": "3",
+        "chapter": "24.5",
+        "title": "Экстра Проклятый ноутбук",
+        "translatedLanguage": "ru",
+        "externalUrl": null,
+        "publishAt": "2019-03-29T16:29:20+00:00",
+        "readableAt": "2019-03-29T16:29:20+00:00",
+        "createdAt": "2019-03-29T16:29:20+00:00",
+        "updatedAt": "2019-03-29T16:29:20+00:00",
+        "pages": 11,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "89edf9e3-6698-4502-a495-24579ecb91d0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "5d322dcb-3605-4a9d-b399-1d9dc185b22e",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "7ff6dda3-3cd8-4737-907b-eef021a52738",
+      "type": "chapter",
+      "attributes": {
+        "volume": "13",
+        "chapter": "95",
+        "title": "Длань",
+        "translatedLanguage": "ru",
+        "externalUrl": null,
+        "publishAt": "2019-03-29T16:59:28+00:00",
+        "readableAt": "2019-03-29T16:59:28+00:00",
+        "createdAt": "2019-03-29T16:59:28+00:00",
+        "updatedAt": "2019-03-29T16:59:28+00:00",
+        "pages": 42,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "89edf9e3-6698-4502-a495-24579ecb91d0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "5d322dcb-3605-4a9d-b399-1d9dc185b22e",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "7f5d2a8e-b635-400d-9199-29e0c3e6b913",
+      "type": "chapter",
+      "attributes": {
+        "volume": "6",
+        "chapter": "52",
+        "title": "Biri Biri",
+        "translatedLanguage": "en",
+        "externalUrl": null,
+        "publishAt": "2018-02-04T01:05:58+00:00",
+        "readableAt": "2018-02-04T01:05:58+00:00",
+        "createdAt": "2018-02-04T01:05:58+00:00",
+        "updatedAt": "2018-02-04T01:05:58+00:00",
+        "pages": 19,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "9387f5c9-04ae-40d1-b781-3c89968cfa03",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "f6c0b123-1b31-4b4e-8a63-850bc73f5191",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "878518a5-7762-4c39-bae0-bc056ad28d80",
+      "type": "chapter",
+      "attributes": {
+        "volume": "1",
+        "chapter": "1",
+        "title": "Samozwańcze Medium - Reigen Arataka",
+        "translatedLanguage": "pl",
+        "externalUrl": null,
+        "publishAt": "2023-04-02T14:34:03+00:00",
+        "readableAt": "2023-04-02T14:34:03+00:00",
+        "createdAt": "2023-04-02T14:17:49+00:00",
+        "updatedAt": "2023-04-09T19:33:56+00:00",
+        "pages": 21,
+        "version": 8
+      },
+      "relationships": [
+        {
+          "id": "50dbd326-619a-4751-aeb3-da76f8b52688",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "d867944d-ad48-4ec0-aef5-21105c113e61",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "87d88cfa-dfcb-493e-adeb-12a0bc14eb5c",
+      "type": "chapter",
+      "attributes": {
+        "volume": "9",
+        "chapter": "67",
+        "title": "Справедливость",
+        "translatedLanguage": "ru",
+        "externalUrl": null,
+        "publishAt": "2019-03-29T16:49:12+00:00",
+        "readableAt": "2019-03-29T16:49:12+00:00",
+        "createdAt": "2019-03-29T16:49:12+00:00",
+        "updatedAt": "2019-03-29T16:49:12+00:00",
+        "pages": 39,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "89edf9e3-6698-4502-a495-24579ecb91d0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "5d322dcb-3605-4a9d-b399-1d9dc185b22e",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "88bfd722-8b31-44bc-824f-fa5a0e8b5b34",
+      "type": "chapter",
+      "attributes": {
+        "volume": "5",
+        "chapter": "43.5",
+        "title": "Omake - The Living Spirit",
+        "translatedLanguage": "en",
+        "externalUrl": null,
+        "publishAt": "2021-02-21T07:35:09+00:00",
+        "readableAt": "2021-02-21T07:35:09+00:00",
+        "createdAt": "2021-02-21T07:35:09+00:00",
+        "updatedAt": "2021-02-21T07:35:09+00:00",
+        "pages": 10,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "9387f5c9-04ae-40d1-b781-3c89968cfa03",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "d81ef2cd-1736-4232-8e79-9ebae66238d6",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "93634e29-bc91-4178-b9c1-ca0c198d8b00",
+      "type": "chapter",
+      "attributes": {
+        "volume": "1",
+        "chapter": "1",
+        "title": "Самозваный экстрасенс - Рейген Аратака",
+        "translatedLanguage": "ru",
+        "externalUrl": null,
+        "publishAt": "2019-03-29T16:17:37+00:00",
+        "readableAt": "2019-03-29T16:17:37+00:00",
+        "createdAt": "2019-03-29T16:17:37+00:00",
+        "updatedAt": "2019-03-29T16:17:37+00:00",
+        "pages": 21,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "89edf9e3-6698-4502-a495-24579ecb91d0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "5d322dcb-3605-4a9d-b399-1d9dc185b22e",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "d543187e-0982-4607-aa50-1db2926c37a6",
+      "type": "chapter",
+      "attributes": {
+        "volume": "16",
+        "chapter": "100.19",
+        "title": "Экстра Видеострим",
+        "translatedLanguage": "ru",
+        "externalUrl": null,
+        "publishAt": "2019-03-29T17:16:40+00:00",
+        "readableAt": "2019-03-29T17:16:40+00:00",
+        "createdAt": "2019-03-29T17:16:40+00:00",
+        "updatedAt": "2019-03-29T17:16:40+00:00",
+        "pages": 3,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "89edf9e3-6698-4502-a495-24579ecb91d0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "5d322dcb-3605-4a9d-b399-1d9dc185b22e",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "d6ea932a-61ac-4af0-bafa-61bb61d8c43b",
+      "type": "chapter",
+      "attributes": {
+        "volume": "8",
+        "chapter": "65",
+        "title": null,
+        "translatedLanguage": "pt-br",
+        "externalUrl": null,
+        "publishAt": "2022-11-21T23:42:48+00:00",
+        "readableAt": "2022-11-21T23:42:48+00:00",
+        "createdAt": "2022-11-21T23:42:47+00:00",
+        "updatedAt": "2022-11-21T23:43:34+00:00",
+        "pages": 44,
+        "version": 3
+      },
+      "relationships": [
+        {
+          "id": "63251a29-a04e-42e1-a842-4a0d6fdebdd0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "e83bb484-5296-41aa-a36a-14a4ae8cf4d7",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "cbee8c9a-6d93-4c9a-a112-14c9a52cac78",
+      "type": "chapter",
+      "attributes": {
+        "volume": "2",
+        "chapter": "14",
+        "title": "Same Kind",
+        "translatedLanguage": "en",
+        "externalUrl": null,
+        "publishAt": "2018-02-03T15:21:16+00:00",
+        "readableAt": "2018-02-03T15:21:16+00:00",
+        "createdAt": "2018-02-03T15:21:16+00:00",
+        "updatedAt": "2018-02-03T15:21:16+00:00",
+        "pages": 23,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "9387f5c9-04ae-40d1-b781-3c89968cfa03",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "f6c0b123-1b31-4b4e-8a63-850bc73f5191",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "d7bf944e-fd0f-4d08-98b9-997742a71ac2",
+      "type": "chapter",
+      "attributes": {
+        "volume": "5",
+        "chapter": "37",
+        "title": null,
+        "translatedLanguage": "pt-br",
+        "externalUrl": null,
+        "publishAt": "2022-11-21T21:39:58+00:00",
+        "readableAt": "2022-11-21T21:39:58+00:00",
+        "createdAt": "2022-11-21T21:39:57+00:00",
+        "updatedAt": "2022-11-21T21:40:05+00:00",
+        "pages": 28,
+        "version": 3
+      },
+      "relationships": [
+        {
+          "id": "ca6e48f8-f580-4cee-8eed-c30ead54b3d0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "e83bb484-5296-41aa-a36a-14a4ae8cf4d7",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "cc7b602a-0b17-48e4-b303-4cd0b9091df9",
+      "type": "chapter",
+      "attributes": {
+        "volume": "4",
+        "chapter": "32",
+        "title": "Will to Destroy",
+        "translatedLanguage": "en",
+        "externalUrl": null,
+        "publishAt": "2018-02-03T21:38:52+00:00",
+        "readableAt": "2018-02-03T21:38:52+00:00",
+        "createdAt": "2018-02-03T21:38:52+00:00",
+        "updatedAt": "2018-02-03T21:38:52+00:00",
+        "pages": 18,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "9387f5c9-04ae-40d1-b781-3c89968cfa03",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "f6c0b123-1b31-4b4e-8a63-850bc73f5191",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "e07d8a70-16ec-4d11-b3a8-44d3ac006a03",
+      "type": "chapter",
+      "attributes": {
+        "volume": "7",
+        "chapter": "53",
+        "title": "",
+        "translatedLanguage": "pt-br",
+        "externalUrl": null,
+        "publishAt": "2018-05-13T06:48:21+00:00",
+        "readableAt": "2018-05-13T06:48:21+00:00",
+        "createdAt": "2018-05-13T06:48:21+00:00",
+        "updatedAt": "2018-05-13T06:48:21+00:00",
+        "pages": 17,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "a96cc99d-7ceb-43b1-99ef-02e6ae30c7cf",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "2f8bd1a5-5bb3-41ad-a88b-35fa88ea8108",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "e21d3445-74f9-48be-8b79-3a4f0984f94a",
+      "type": "chapter",
+      "attributes": {
+        "volume": "16",
+        "chapter": "100.16",
+        "title": "⑬",
+        "translatedLanguage": "ru",
+        "externalUrl": null,
+        "publishAt": "2019-03-29T17:15:44+00:00",
+        "readableAt": "2019-03-29T17:15:44+00:00",
+        "createdAt": "2019-03-29T17:15:44+00:00",
+        "updatedAt": "2019-03-29T17:15:44+00:00",
+        "pages": 12,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "89edf9e3-6698-4502-a495-24579ecb91d0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "5d322dcb-3605-4a9d-b399-1d9dc185b22e",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "e376b163-4078-4831-8790-5d5633586782",
+      "type": "chapter",
+      "attributes": {
+        "volume": "1",
+        "chapter": "7",
+        "title": null,
+        "translatedLanguage": "pt-br",
+        "externalUrl": null,
+        "publishAt": "2022-06-05T17:00:49+00:00",
+        "readableAt": "2022-06-05T17:00:49+00:00",
+        "createdAt": "2022-06-05T17:00:47+00:00",
+        "updatedAt": "2022-06-05T17:00:52+00:00",
+        "pages": 23,
+        "version": 3
+      },
+      "relationships": [
+        {
+          "id": "5f7b2b86-0f13-4e2e-b9f7-c07faa65b3c1",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "70eeda89-a2a6-480c-aa32-031c8ee2e2f5",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "e6afd96e-cb4e-4d67-918c-256818250ecb",
+      "type": "chapter",
+      "attributes": {
+        "volume": "7",
+        "chapter": "61",
+        "title": "Şeytani Ruh!",
+        "translatedLanguage": "tr",
+        "externalUrl": null,
+        "publishAt": "2021-01-27T12:06:41+00:00",
+        "readableAt": "2021-01-27T12:06:41+00:00",
+        "createdAt": "2021-01-27T12:06:41+00:00",
+        "updatedAt": "2021-01-27T12:06:41+00:00",
+        "pages": 40,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "56ddcbfa-ac51-43ee-8055-5f93d3757386",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "f957af74-fdb9-44ff-aaff-878b228393e4",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "fce8606f-6be5-4412-a1a9-bfaacb0a046d",
+      "type": "chapter",
+      "attributes": {
+        "volume": "3",
+        "chapter": "22",
+        "title": "Awakening Lab",
+        "translatedLanguage": "en",
+        "externalUrl": null,
+        "publishAt": "2018-02-03T21:27:53+00:00",
+        "readableAt": "2018-02-03T21:27:53+00:00",
+        "createdAt": "2018-02-03T21:27:53+00:00",
+        "updatedAt": "2018-02-03T21:27:53+00:00",
+        "pages": 36,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "9387f5c9-04ae-40d1-b781-3c89968cfa03",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "f6c0b123-1b31-4b4e-8a63-850bc73f5191",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "fd6e62af-e972-45a2-94f0-11617e491342",
+      "type": "chapter",
+      "attributes": {
+        "volume": "7",
+        "chapter": "61",
+        "title": "Espírito Maligno",
+        "translatedLanguage": "pt-br",
+        "externalUrl": null,
+        "publishAt": "2019-01-08T02:24:05+00:00",
+        "readableAt": "2019-01-08T02:24:05+00:00",
+        "createdAt": "2019-01-08T02:24:05+00:00",
+        "updatedAt": "2021-05-17T02:42:06+00:00",
+        "pages": 36,
+        "version": 2
+      },
+      "relationships": [
+        {
+          "id": "a96cc99d-7ceb-43b1-99ef-02e6ae30c7cf",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "cc6e63f0-10e8-4e96-a549-0e32a43309cd",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "fbad9532-f0c9-447f-b751-4b3c2cab045f",
+      "type": "chapter",
+      "attributes": {
+        "volume": "9",
+        "chapter": "71.5",
+        "title": "Impulsive",
+        "translatedLanguage": "en",
+        "externalUrl": null,
+        "publishAt": "2021-02-21T07:49:04+00:00",
+        "readableAt": "2021-02-21T07:49:04+00:00",
+        "createdAt": "2021-02-21T07:49:04+00:00",
+        "updatedAt": "2021-02-21T07:49:04+00:00",
+        "pages": 2,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "9387f5c9-04ae-40d1-b781-3c89968cfa03",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "d81ef2cd-1736-4232-8e79-9ebae66238d6",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "fc5bc795-4e7d-48e3-82b7-2d204103bc5e",
+      "type": "chapter",
+      "attributes": {
+        "volume": "5",
+        "chapter": "35",
+        "title": "Up Up",
+        "translatedLanguage": "en",
+        "externalUrl": null,
+        "publishAt": "2018-02-04T00:51:15+00:00",
+        "readableAt": "2018-02-04T00:51:15+00:00",
+        "createdAt": "2018-02-04T00:51:15+00:00",
+        "updatedAt": "2018-02-04T00:51:15+00:00",
+        "pages": 20,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "9387f5c9-04ae-40d1-b781-3c89968cfa03",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "f6c0b123-1b31-4b4e-8a63-850bc73f5191",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "f324b8f8-ead0-48f3-bda3-43d3bc97425d",
+      "type": "chapter",
+      "attributes": {
+        "volume": "8",
+        "chapter": "62",
+        "title": "Mutante",
+        "translatedLanguage": "pt-br",
+        "externalUrl": null,
+        "publishAt": "2019-01-08T02:24:22+00:00",
+        "readableAt": "2019-01-08T02:24:22+00:00",
+        "createdAt": "2019-01-08T02:24:22+00:00",
+        "updatedAt": "2019-01-08T02:24:22+00:00",
+        "pages": 20,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "a96cc99d-7ceb-43b1-99ef-02e6ae30c7cf",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "cc6e63f0-10e8-4e96-a549-0e32a43309cd",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "f3b7bb73-be81-4887-9a1d-4a09959a5866",
+      "type": "chapter",
+      "attributes": {
+        "volume": "6",
+        "chapter": "48",
+        "title": "",
+        "translatedLanguage": "pt-br",
+        "externalUrl": null,
+        "publishAt": "2018-05-13T06:47:38+00:00",
+        "readableAt": "2018-05-13T06:47:38+00:00",
+        "createdAt": "2018-05-13T06:47:38+00:00",
+        "updatedAt": "2018-05-13T06:47:38+00:00",
+        "pages": 19,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "a96cc99d-7ceb-43b1-99ef-02e6ae30c7cf",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "2f8bd1a5-5bb3-41ad-a88b-35fa88ea8108",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "db623c01-0702-4226-984a-d879864bb00c",
+      "type": "chapter",
+      "attributes": {
+        "volume": "16",
+        "chapter": "100.15",
+        "title": "⑫",
+        "translatedLanguage": "ru",
+        "externalUrl": null,
+        "publishAt": "2019-03-29T17:14:52+00:00",
+        "readableAt": "2019-03-29T17:14:52+00:00",
+        "createdAt": "2019-03-29T17:14:52+00:00",
+        "updatedAt": "2019-03-29T17:14:52+00:00",
+        "pages": 14,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "89edf9e3-6698-4502-a495-24579ecb91d0",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "5d322dcb-3605-4a9d-b399-1d9dc185b22e",
+          "type": "user"
+        }
+      ]
+    },
+    {
+      "id": "dc27388c-de3c-48f9-8732-e22b22443844",
+      "type": "chapter",
+      "attributes": {
+        "volume": "6",
+        "chapter": "46",
+        "title": "",
+        "translatedLanguage": "pt-br",
+        "externalUrl": null,
+        "publishAt": "2018-05-13T06:47:20+00:00",
+        "readableAt": "2018-05-13T06:47:20+00:00",
+        "createdAt": "2018-05-13T06:47:20+00:00",
+        "updatedAt": "2018-05-13T06:47:20+00:00",
+        "pages": 21,
+        "version": 1
+      },
+      "relationships": [
+        {
+          "id": "a96cc99d-7ceb-43b1-99ef-02e6ae30c7cf",
+          "type": "scanlation_group"
+        },
+        {
+          "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a",
+          "type": "manga"
+        },
+        {
+          "id": "2f8bd1a5-5bb3-41ad-a88b-35fa88ea8108",
+          "type": "user"
+        }
+      ]
+    }
+  ],
+  "limit": 100,
+  "offset": 0,
+  "total": 401
+}

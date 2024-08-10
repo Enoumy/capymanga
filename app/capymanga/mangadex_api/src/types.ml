@@ -111,6 +111,14 @@ module Chapter_id = struct
   type t = string [@@deriving sexp, yojson]
 end
 
+module Relationship = struct
+  type t =
+    { id : string
+    ; type_ : string [@key "type"]
+    }
+  [@@deriving sexp, yojson] [@@yojson.allow_extra_fields]
+end
+
 module Manga = struct
   module Attributes = struct
     type t =
@@ -138,14 +146,6 @@ module Manga = struct
            [@key "availableTranslatedLanguages"]
       ; latest_uploaded_chapter : Chapter_id.t option
            [@key "latestUploadedChapter"]
-      }
-    [@@deriving sexp, yojson] [@@yojson.allow_extra_fields]
-  end
-
-  module Relationship = struct
-    type t =
-      { id : string
-      ; type_ : string [@key "type"]
       }
     [@@deriving sexp, yojson] [@@yojson.allow_extra_fields]
   end
@@ -180,6 +180,27 @@ module Author = struct
   type t =
     { id : string
     ; attributes : Attributes.t
+    }
+  [@@deriving sexp, yojson] [@@yojson.allow_extra_fields]
+end
+
+module Chapter = struct
+  module Attributes = struct
+    type t =
+      { volume : string option
+      ; chapter : string option
+      ; title : string option
+      ; translated_language : string option [@key "translatedLanguage"]
+      ; pages : int option
+      ; version : int option
+      }
+    [@@deriving sexp, yojson] [@@yojson.allow_extra_fields]
+  end
+
+  type t =
+    { id : string
+    ; attributes : Attributes.t
+    ; relationships : Relationship.t list
     }
   [@@deriving sexp, yojson] [@@yojson.allow_extra_fields]
 end

@@ -20,6 +20,12 @@ let default_author ~author_id:(_ : string) =
     (Ok (force Mangadex_api_dummy_data.one_punch_man_dummy_author_response))
 ;;
 
+let default_chapter_feed ~manga_id:_ ~ascending:_ ?limit:_ ?offset:_ () =
+  Effect.return
+    (Ok
+       (force Mangadex_api_dummy_data.mob_psycho_dummy_chapter_feed_response))
+;;
+
 let mock_chainsaw_man_response =
   lazy
     (Manga.t_of_yojson
@@ -284,6 +290,7 @@ let create_handle
   ?(manga_search = Value.return default_manga_search)
   ?(manga_cover = Value.return default_manga_cover)
   ?(author = Value.return default_author)
+  ?(chapter_feed = Value.return default_chapter_feed)
   ?(initial_dimensions = { Dimensions.width = 120; height = 30 })
   ()
   =
@@ -311,10 +318,25 @@ let create_handle
       in
       author ~author_id
   in
+  let chapter_feed =
+    let%map chapter_feed = chapter_feed in
+    fun ~manga_id ~ascending ?limit ?offset () ->
+      let%bind.Effect () =
+        Effect.print_s
+          [%message
+            "chapter_feed"
+              (manga_id : Manga_id.t)
+              (ascending : bool)
+              (limit : int option)
+              (offset : int option)]
+      in
+      chapter_feed ~manga_id ~ascending ?limit ?offset ()
+  in
   let app =
     Outside_world.Manga_search.register_mock manga_search
     @@ Outside_world.Manga_cover.register_mock manga_cover
     @@ Outside_world.Author.register_mock author
+    @@ Outside_world.Chapter_feed.register_mock chapter_feed
     @@
     let%sub image, images = Capymanga.app in
     let%arr image = image

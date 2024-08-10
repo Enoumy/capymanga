@@ -13,6 +13,10 @@
   ./big_response.json
   ./big_response2.json
   ./big_response3.json
-  ./author_dummy_response.json)
+  ./author_dummy_response.json
+  ./dummy_mangadex_manga_feed.json
+  ./big_chapter_feed_regression.json
+  ;;
+  )
  (action
   (bash "%{deps} -output embedded_files")))

@@ -24,3 +24,11 @@ let one_punch_man_dummy_author_response : Author.t Entity.t Lazy.t =
        (Yojson.Safe.from_string
           Embedded_files.mangadex_author_test_data_dot_json))
 ;;
+
+let mob_psycho_dummy_chapter_feed_response : Chapter.t Collection.t Lazy.t =
+  lazy
+    (Collection.t_of_yojson
+       Chapter.t_of_yojson
+       (Yojson.Safe.from_string
+          Embedded_files.mob_psycho_mangadex_chapter_feed_test_data_dot_json))
+;;

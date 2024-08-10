@@ -101,3 +101,37 @@ module Author = Make (struct
         author_id
     ;;
   end)
+
+module Chapter_feed = Make (struct
+    type t =
+      manga_id:Manga_id.t
+      -> ascending:bool
+      -> ?limit:int
+      -> ?offset:int
+      -> unit
+      -> Chapter.t Collection.t Or_error.t Effect.t
+
+    let name = "mangadex-manga-feed"
+
+    let unregistered ~manga_id ~ascending ?limit ?offset () =
+      raise_s
+        [%message
+          "mangadex-manga-feed error! handler was never registered!"
+            (manga_id : Manga_id.t)
+            (ascending : bool)
+            (limit : int option)
+            (offset : int option)]
+    ;;
+
+    let real ~manga_id ~ascending ?limit ?offset () =
+      Effect.of_deferred_fun
+        (fun () ->
+          Mangadex_api.Chapter_feed.feed
+            ~manga_id
+            ~ascending
+            ?limit
+            ?offset
+            ())
+        ()
+    ;;
+  end)

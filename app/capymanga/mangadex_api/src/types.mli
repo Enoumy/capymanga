@@ -15,6 +15,7 @@ module Manga_id : sig
   type t [@@deriving sexp, yojson, equal, compare]
 
   val to_string : t -> string
+  val of_string : string -> t
 
   include Comparable.S with type t := t
 end
@@ -64,6 +65,14 @@ module Chapter_id : sig
   type t [@@deriving sexp, yojson]
 end
 
+module Relationship : sig
+  type t =
+    { id : string
+    ; type_ : string
+    }
+  [@@deriving sexp, yojson]
+end
+
 module Manga : sig
   module Attributes : sig
     type t =
@@ -87,14 +96,6 @@ module Manga : sig
       ; version : int
       ; available_translated_languages : string option list
       ; latest_uploaded_chapter : Chapter_id.t option
-      }
-    [@@deriving sexp, yojson]
-  end
-
-  module Relationship : sig
-    type t =
-      { id : string
-      ; type_ : string
       }
     [@@deriving sexp, yojson]
   end
@@ -127,6 +128,27 @@ module Author : sig
   type t =
     { id : string
     ; attributes : Attributes.t
+    }
+  [@@deriving sexp, yojson] [@@yojson.allow_extra_fields]
+end
+
+module Chapter : sig
+  module Attributes : sig
+    type t =
+      { volume : string option
+      ; chapter : string option
+      ; title : string option
+      ; translated_language : string option
+      ; pages : int option
+      ; version : int option
+      }
+    [@@deriving sexp, yojson] [@@yojson.allow_extra_fields]
+  end
+
+  type t =
+    { id : string
+    ; attributes : Attributes.t
+    ; relationships : Relationship.t list
     }
   [@@deriving sexp, yojson] [@@yojson.allow_extra_fields]
 end
