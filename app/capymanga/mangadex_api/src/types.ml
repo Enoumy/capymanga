@@ -215,6 +215,23 @@ module Collection = struct
   [@@deriving sexp, yojson] [@@yojson.allow_extra_fields]
 end
 
+module Chapter_images = struct
+  module Chapter = struct
+    type t =
+      { hash : string
+      ; data : string list
+      ; data_saver : string list [@key "dataSaver"]
+      }
+    [@@deriving sexp, yojson] [@@yojson.allow_extra_fields]
+  end
+
+  type t =
+    { base_url : string [@key "baseUrl"]
+    ; chapter : Chapter.t
+    }
+  [@@deriving sexp, yojson] [@@yojson.allow_extra_fields]
+end
+
 module Entity = struct
   type 'a t = { data : 'a }
   [@@deriving sexp, yojson] [@@yojson.allow_extra_fields]

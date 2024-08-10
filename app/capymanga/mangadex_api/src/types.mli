@@ -163,6 +163,23 @@ module Collection : sig
   [@@deriving sexp, yojson]
 end
 
+module Chapter_images : sig
+  module Chapter : sig
+    type t =
+      { hash : string
+      ; data : string list
+      ; data_saver : string list
+      }
+    [@@deriving sexp, yojson] [@@yojson.allow_extra_fields]
+  end
+
+  type t =
+    { base_url : string
+    ; chapter : Chapter.t
+    }
+  [@@deriving sexp, yojson] [@@yojson.allow_extra_fields]
+end
+
 module Entity : sig
   type 'a t = { data : 'a } [@@deriving sexp, yojson]
 end
