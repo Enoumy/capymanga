@@ -7,6 +7,7 @@ type t =
   { view : Node.t
   ; string : string
   ; handler : Event.t -> unit Effect.t
+  ; set : string -> unit Effect.t
   }
 
 type action =
@@ -14,10 +15,11 @@ type action =
   | Uchar of Uchar.t
   | Backspace
   | Clear
+  | Set of string
 
 let component ?(extra_attrs = Value.return []) ~is_focused =
   let%sub string, inject =
-    Bonsai.state_machine0 (* TODO: Implement cursor. *)
+    Bonsai.state_machine0
       ~default_model:""
       ~apply_action:(fun _ (model : string) (action : action) ->
         match action with
@@ -33,8 +35,13 @@ let component ?(extra_attrs = Value.return []) ~is_focused =
           model ^ Char.to_string char
         | Uchar uchar ->
           (* NOTE: This is O(n^2) and also sad... *)
-          model ^ Uchar.Utf8.to_string uchar)
+          model ^ Uchar.Utf8.to_string uchar
+        | Set s -> s)
       ()
+  in
+  let%sub set =
+    let%arr inject = inject in
+    fun value -> inject (Set value)
   in
   let%sub handler =
     let%arr inject = inject in
@@ -62,6 +69,7 @@ let component ?(extra_attrs = Value.return []) ~is_focused =
   in
   let%arr string = string
   and view = view
-  and handler = handler in
-  { view; string; handler }
+  and handler = handler
+  and set = set in
+  { view; string; handler; set }
 ;;

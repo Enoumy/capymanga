@@ -3,7 +3,7 @@ open Capytui
 module Catpuccin = Capytui_catpuccin
 open Bonsai.Let_syntax
 
-let component ~set_page =
+let component ~go_back =
   (* TODO: Make this prettier. Also figure out a way to nicely center align
      text... *)
   let%sub dimensions = Capytui.terminal_dimensions in
@@ -49,11 +49,11 @@ let component ~set_page =
     Node.center ~within:dimensions view
   in
   let%sub handler =
-    let%arr set_page = set_page in
+    let%arr go_back = go_back in
     fun (event : Event.t) ->
       match event with
       | `Key ((`Backspace | `Escape), []) | `Key (`ASCII ('q' | '?'), []) ->
-        set_page Page.Manga_search
+        go_back
       | _ -> Effect.Ignore
   in
   let%arr view = view

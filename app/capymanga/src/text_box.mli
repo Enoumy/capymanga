@@ -6,6 +6,7 @@ type t =
   { view : Node.t
   ; string : string
   ; handler : Event.t -> unit Effect.t
+  ; set : string -> unit Effect.t
   }
 
 val component

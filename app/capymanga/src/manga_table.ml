@@ -314,7 +314,8 @@ let table
          | Active focus, Active manga_collection ->
            (match List.nth manga_collection.data focus with
             | None -> Effect.Ignore
-            | Some manga -> set_page (Page.Manga_view { manga }))
+            | Some manga ->
+              set_page ~replace:false (Page.Manga_view { manga }))
          | _ -> Effect.Ignore)
       | `Key (`ASCII 'k', [])
       | `Key (`Arrow `Up, [])

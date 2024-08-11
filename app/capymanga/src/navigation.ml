@@ -4,7 +4,7 @@ open Bonsai.Let_syntax
 
 type 'a t =
   { page : 'a
-  ; set_page : 'a -> unit Effect.t
+  ; set_page : replace:bool -> 'a -> unit Effect.t
   ; go_back : unit Effect.t
   }
 
@@ -14,7 +14,10 @@ type 'a state =
   }
 
 type 'a action =
-  | Set_page of 'a
+  | Set_page of
+      { page : 'a
+      ; replace : bool
+      }
   | Go_back
 
 let component default_page =
@@ -23,8 +26,12 @@ let component default_page =
       ~default_model:{ current = default_page; history = [] }
       ~apply_action:(fun _ model action ->
         match action with
-        | Set_page new_page ->
+        | Set_page { page = new_page; replace = false } ->
           let history = model.current :: model.history in
+          let current = new_page in
+          { current; history }
+        | Set_page { page = new_page; replace = true } ->
+          let history = model.history in
           let current = new_page in
           { current; history }
         | Go_back ->
@@ -39,7 +46,7 @@ let component default_page =
   in
   let%sub set_page =
     let%arr inject = inject in
-    fun page -> inject (Set_page page)
+    fun ~replace page -> inject (Set_page { page; replace })
   in
   let%sub go_back =
     let%arr inject = inject in

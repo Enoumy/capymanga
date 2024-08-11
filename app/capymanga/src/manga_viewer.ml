@@ -378,9 +378,12 @@ let chapter_table ~(dimensions : Dimensions.t Value.t) manga =
 type focus =
   | Sidebar
   | Chapter_table
+  | Search_bar
 [@@deriving equal]
 
-let component ~dimensions ~(manga : Manga.t Value.t) ~set_page:_ ~go_back =
+let component ~dimensions ~(manga : Manga.t Value.t) ~set_page ~go_back =
+  let%sub text = Text.component in
+  let%sub flavor = Catpuccin.flavor in
   let%sub manga_id =
     let%arr manga = manga in
     manga.id
@@ -388,11 +391,6 @@ let component ~dimensions ~(manga : Manga.t Value.t) ~set_page:_ ~go_back =
   (* NOTE: Maybe this scope_model should only be for the scroller? *)
   Bonsai.scope_model (module Manga_id) ~on:manga_id
   @@
-  let%sub top_bar =
-    Top_bar.component
-      ~instructions:
-        (Value.return [ "Backspace", "back"; "Tab", "switch focus" ])
-  in
   let%sub content_dimensions =
     let%arr dimensions = dimensions in
     let height = dimensions.Dimensions.height - 3 in
@@ -412,6 +410,54 @@ let component ~dimensions ~(manga : Manga.t Value.t) ~set_page:_ ~go_back =
     left, right
   in
   let%sub focus, set_focus = Bonsai.state Sidebar in
+  let%sub is_textbox_focused =
+    return (focus >>| function Search_bar -> true | _ -> false)
+  in
+  let%sub { view = search_box_view
+          ; string = search_box_string
+          ; handler = search_box_handler
+          ; set = _
+          }
+    =
+    let%sub extra_attrs =
+      let%arr flavor = flavor in
+      [ Attr.background_color (Catpuccin.color ~flavor Base) ]
+    in
+    Text_box.component ~extra_attrs ~is_focused:is_textbox_focused
+  in
+  let%sub top_bar =
+    Top_bar.component
+      ~instructions:
+        (Value.return [ "Backspace", "back"; "Tab", "switch focus" ])
+  in
+  let%sub top_bar =
+    let%arr top_bar = top_bar
+    and search_box_view = search_box_view
+    and is_textbox_focused = is_textbox_focused
+    and text = text
+    and flavor = flavor in
+    match is_textbox_focused with
+    | false -> top_bar
+    | true ->
+      Node.hcat
+        [ top_bar
+        ; text " "
+        ; text
+            ~attrs:
+              [ Attr.foreground_color (Catpuccin.color ~flavor Green)
+              ; Attr.bold
+              ; Attr.background_color (Catpuccin.color ~flavor Surface0)
+              ]
+            " Search: "
+        ; text
+            ~attrs:[ Attr.background_color (Catpuccin.color ~flavor Base) ]
+            " "
+        ; search_box_view
+        ; text
+            ~attrs:[ Attr.background_color (Catpuccin.color ~flavor Base) ]
+            " "
+        ]
+  in
   let%sub { view = sidebar_view; images; handler = sidebar_handler } =
     let%sub is_focused =
       let%arr focus = focus in
@@ -441,12 +487,16 @@ let component ~dimensions ~(manga : Manga.t Value.t) ~set_page:_ ~go_back =
     Bonsai.Edge.on_change ~equal:[%equal: bool] is_table_focuseable ~callback
   in
   let%sub handler =
+    let%sub search_box_string = Bonsai.yoink search_box_string in
     let%arr focus = focus
     and set_focus = set_focus
     and sidebar_handler = sidebar_handler
     and chapter_table_handler = chapter_table_handler
     and is_table_focuseable = is_table_focuseable
-    and go_back = go_back in
+    and go_back = go_back
+    and search_box_handler = search_box_handler
+    and search_box_string = search_box_string
+    and set_page = set_page in
     fun (event : Event.t) ->
       let set_focus x =
         match x with
@@ -454,15 +504,26 @@ let component ~dimensions ~(manga : Manga.t Value.t) ~set_page:_ ~go_back =
         | x -> set_focus x
       in
       match event, focus with
-      | `Key (`Backspace, []), _ -> go_back
+      | `Key (`Backspace, []), (Sidebar | Chapter_table) -> go_back
       | `Key (`Tab, []), Sidebar -> set_focus Chapter_table
       | `Key (`Tab, []), Chapter_table -> set_focus Sidebar
+      | ( `Key (`ASCII '/', [] | `ASCII ('k' | 'K'), [ `Ctrl ])
+        , (Chapter_table | Sidebar) ) ->
+        set_focus Search_bar
       | `Key ((`Arrow `Left | `ASCII 'h'), []), Chapter_table ->
         set_focus Sidebar
       | `Key ((`Arrow `Right | `ASCII 'l'), []), Sidebar ->
         set_focus Chapter_table
       | event, Sidebar -> sidebar_handler event
       | event, Chapter_table -> chapter_table_handler event
+      | `Key (`Enter, []), Search_bar ->
+        (match%bind.Effect search_box_string with
+         | Inactive | Active "" -> Effect.Ignore
+         | Active title when String.for_all title ~f:Char.is_whitespace ->
+           Effect.Ignore
+         | Active title ->
+           set_page ~replace:false (Page.Manga_search { title = Some title }))
+      | event, Search_bar -> search_box_handler event
   in
   let%sub view =
     let%arr sidebar_view = sidebar_view

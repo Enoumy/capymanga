@@ -32,7 +32,7 @@ let key_handler
         | `Key (`ASCII ('f' | 'F'), [ `Ctrl ])
         | `Key (`ASCII ('k' | 'K'), [ `Ctrl ]) ->
           set_textbox_focus true
-        | `Key (`ASCII '?', []) -> set_page Page.About_page
+        | `Key (`ASCII '?', []) -> set_page ~replace:false Page.About_page
         | _ -> table_handler event)
   in
   return callback
@@ -67,12 +67,13 @@ let search_bar ~textbox_is_focused ~manga_title ~textbox_view =
   else Node.none
 ;;
 
-let component ~dimensions ~set_page =
+let component ~dimensions ~set_page ~title =
   let%sub flavor = Catpuccin.flavor in
   let%sub textbox_is_focused, set_textbox_focus = Bonsai.state false in
   let%sub { view = textbox_view
           ; string = manga_title
           ; handler = textbox_handler
+          ; set
           }
     =
     let%sub extra_attrs =
@@ -88,6 +89,18 @@ let component ~dimensions ~set_page =
         " "
     in
     { input with view = Node.hcat [ space; input.view; space ] }
+  in
+  let%sub () =
+    let%sub on_activate =
+      let%arr title = title
+      and set = set in
+      match title with None -> Effect.Ignore | Some title -> set title
+    in
+    (* Consider using something like mirror/ some other synchronization
+       mechanism here between the page and the textbox. I _think_ that only
+       doing the sync once here is simpler though + should have the same
+       behavior as we don't have a back button on the search page. *)
+    Bonsai.Edge.lifecycle ~on_activate ()
   in
   let%sub { view = table; images; handler = table_handler } =
     let%sub dimensions =

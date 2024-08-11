@@ -20,10 +20,11 @@ let content ~(page : Page.t Value.t) ~set_page ~go_back =
   let%sub dimensions = Capytui.terminal_dimensions in
   let%sub { view; images; handler } =
     match%sub page with
-    | Manga_search -> Manga_search.component ~dimensions ~set_page
+    | Manga_search { title } ->
+      Manga_search.component ~dimensions ~title ~set_page
     | Manga_view { manga } ->
       Manga_viewer.component ~dimensions ~manga ~set_page ~go_back
-    | About_page -> About.component ~set_page
+    | About_page -> About.component ~go_back
   in
   let%sub () = Capytui.listen_to_events handler in
   let%arr view = view
@@ -35,7 +36,7 @@ let app =
   Loading_state.register
   @@
   let%sub { page; set_page; go_back } =
-    Navigation.component Page.Manga_search
+    Navigation.component (Page.Manga_search { title = None })
   in
   let%sub content, images = content ~page ~set_page ~go_back in
   let%sub backdrop = backdrop in
