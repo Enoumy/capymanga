@@ -30,3 +30,6 @@ module Chapter_feed :
     -> ?offset:int
     -> unit
     -> Chapter.t Collection.t Or_error.t Effect.t
+
+module Chapter_images :
+  S with type t = chapter_id:string -> Chapter_images.t Or_error.t Effect.t

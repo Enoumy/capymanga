@@ -24,8 +24,8 @@ let content ~(page : Page.t Value.t) ~set_page ~go_back =
       Manga_search.component ~dimensions ~title ~set_page
     | Manga_view { manga } ->
       Manga_viewer.component ~dimensions ~manga ~set_page ~go_back
-    | Chapter_view { manga; chapter } ->
-      Chapter_viewer.component ~dimensions ~manga ~chapter ~go_back
+    | Chapter_view { chapter } ->
+      Chapter_viewer.component ~dimensions ~chapter ~go_back
     | About_page -> About.component ~go_back
   in
   let%sub () = Capytui.listen_to_events handler in
@@ -62,6 +62,7 @@ let command =
           |> Outside_world.Manga_search.register_real
           |> Outside_world.Author.register_real
           |> Outside_world.Chapter_feed.register_real
+          |> Outside_world.Chapter_images.register_real
         in
         let%bind () = Capytui.start_with_images app in
         Deferred.Or_error.return ()]

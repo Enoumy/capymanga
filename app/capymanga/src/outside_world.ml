@@ -135,3 +135,24 @@ module Chapter_feed = Make (struct
         ()
     ;;
   end)
+
+module Chapter_images = Make (struct
+    type t = chapter_id:string -> Chapter_images.t Or_error.t Effect.t
+
+    let name = "mangadex-chapter-images"
+
+    let unregistered : t =
+      fun ~chapter_id ->
+      raise_s
+        [%message
+          "mangadex-chapter-images error! handler was never registered!"
+            (chapter_id : string)]
+    ;;
+
+    let real : t =
+      fun ~chapter_id ->
+      Effect.of_deferred_fun
+        (fun () -> Mangadex_api.Chapter_images.get ~chapter_id)
+        ()
+    ;;
+  end)

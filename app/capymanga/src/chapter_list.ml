@@ -275,7 +275,6 @@ let component
       and inject_scroller = inject_scroller
       and chapter_list = chapter_list
       and focus = focus
-      and manga = manga
       and set_page = set_page in
       fun (event : Event.t) ->
         match event with
@@ -287,9 +286,7 @@ let component
              (match List.nth chapter_list.data focus with
               | None -> Effect.Ignore
               | Some chapter ->
-                set_page
-                  ~replace:false
-                  (Page.Chapter_view { manga; chapter }))
+                set_page ~replace:false (Page.Chapter_view { chapter }))
            | _ -> Effect.Ignore)
         | `Key (`ASCII 'k', [])
         | `Key (`Arrow `Up, [])

@@ -287,7 +287,8 @@ let table
     Node.vcat manga
   in
   let%sub { view; inject = inject_scroller; less_keybindings_handler = _ } =
-    Scroller.component ~dimensions view
+    Bonsai.scope_model (module String) ~on:manga_title
+    @@ Scroller.component ~dimensions view
   in
   let%sub () =
     let%sub on_activate =
