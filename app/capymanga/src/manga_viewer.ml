@@ -481,7 +481,12 @@ let component ~dimensions ~(manga : Manga.t Value.t) ~set_page ~go_back =
       let%arr set_focus = set_focus in
       set_focus Chapter_table
     in
-    chapter_table ~dimensions:right_dimensions manga ~is_focused ~grab_focus
+    chapter_table
+      ~dimensions:right_dimensions
+      manga
+      ~is_focused
+      ~grab_focus
+      ~set_page
   in
   let%sub () =
     let%sub callback =

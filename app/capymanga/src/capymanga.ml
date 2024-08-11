@@ -24,6 +24,8 @@ let content ~(page : Page.t Value.t) ~set_page ~go_back =
       Manga_search.component ~dimensions ~title ~set_page
     | Manga_view { manga } ->
       Manga_viewer.component ~dimensions ~manga ~set_page ~go_back
+    | Chapter_view { manga; chapter } ->
+      Chapter_viewer.component ~dimensions ~manga ~chapter ~go_back
     | About_page -> About.component ~go_back
   in
   let%sub () = Capytui.listen_to_events handler in

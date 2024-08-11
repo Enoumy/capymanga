@@ -108,9 +108,11 @@ end
 
 let component
   :  is_focused:bool Value.t -> dimensions:Dimensions.t Value.t
-  -> grab_focus:unit Effect.t Value.t -> Manga.t Value.t -> t Computation.t
+  -> grab_focus:unit Effect.t Value.t
+  -> set_page:(replace:bool -> Page.t -> unit Effect.t) Value.t
+  -> Manga.t Value.t -> t Computation.t
   =
-  fun ~is_focused ~dimensions ~grab_focus manga ->
+  fun ~is_focused ~dimensions ~grab_focus ~set_page manga ->
   let%sub chapter_list = chapter_list ~manga in
   let%sub text = Text.component in
   let%sub flavor = Catpuccin.flavor in
@@ -267,19 +269,28 @@ let component
       Bonsai.Edge.lifecycle ~on_activate ()
     in
     let%sub handler =
+      let%sub chapter_list = Bonsai.yoink chapter_list in
+      let%sub focus = Bonsai.yoink focus in
       let%arr inject_focus = inject_focus
-      and inject_scroller = inject_scroller in
+      and inject_scroller = inject_scroller
+      and chapter_list = chapter_list
+      and focus = focus
+      and manga = manga
+      and set_page = set_page in
       fun (event : Event.t) ->
         match event with
-        (* | `Key (`Enter, []) -> *)
-        (*   let%bind.Effect focus = focus *)
-        (*   and chapter_list = chapter_list in *)
-        (*   (match focus, chapter_list with *)
-        (*    | Active focus, Active manga_collection -> *)
-        (*      (match List.nth manga_collection.data focus with *)
-        (*       | None -> Effect.Ignore *)
-        (*       | Some manga -> set_page (Page.Manga_view { manga })) *)
-        (*    | _ -> Effect.Ignore) *)
+        | `Key (`Enter, []) ->
+          let%bind.Effect focus = focus
+          and chapter_list = chapter_list in
+          (match focus, chapter_list with
+           | Active focus, Active chapter_list ->
+             (match List.nth chapter_list.data focus with
+              | None -> Effect.Ignore
+              | Some chapter ->
+                set_page
+                  ~replace:false
+                  (Page.Chapter_view { manga; chapter }))
+           | _ -> Effect.Ignore)
         | `Key (`ASCII 'k', [])
         | `Key (`Arrow `Up, [])
         | `Mouse (`Press (`Scroll `Up), _, _) ->
