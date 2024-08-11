@@ -371,8 +371,8 @@ let sidebar
   { Component.view; handler; images }
 ;;
 
-let chapter_table ~(dimensions : Dimensions.t Value.t) manga =
-  Chapter_list.component ~dimensions manga
+let chapter_table ~(dimensions : Dimensions.t Value.t) ~grab_focus manga =
+  Chapter_list.component ~dimensions manga ~grab_focus
 ;;
 
 type focus =
@@ -477,7 +477,11 @@ let component ~dimensions ~(manga : Manga.t Value.t) ~set_page ~go_back =
       let%arr focus = focus in
       match focus with Chapter_table -> true | _ -> false
     in
-    chapter_table ~dimensions:right_dimensions manga ~is_focused
+    let%sub grab_focus =
+      let%arr set_focus = set_focus in
+      set_focus Chapter_table
+    in
+    chapter_table ~dimensions:right_dimensions manga ~is_focused ~grab_focus
   in
   let%sub () =
     let%sub callback =

@@ -108,9 +108,9 @@ end
 
 let component
   :  is_focused:bool Value.t -> dimensions:Dimensions.t Value.t
-  -> Manga.t Value.t -> t Computation.t
+  -> grab_focus:unit Effect.t Value.t -> Manga.t Value.t -> t Computation.t
   =
-  fun ~is_focused ~dimensions manga ->
+  fun ~is_focused ~dimensions ~grab_focus manga ->
   let%sub chapter_list = chapter_list ~manga in
   let%sub text = Text.component in
   let%sub flavor = Catpuccin.flavor in
@@ -171,6 +171,7 @@ let component
     ; is_focuseable = false
     }
   | Some (Ok chapter_list) ->
+    let%sub () = Bonsai.Edge.lifecycle ~on_activate:grab_focus () in
     let%sub inject_scroller, set_inject_scroller = Bonsai.state_opt () in
     let%sub { Action.focus; last_top_press = _ }, inject_focus =
       let%sub time_source = Bonsai.Incr.with_clock Ui_incr.return in

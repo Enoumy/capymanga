@@ -105,7 +105,7 @@ let%expect_test "Manga viewer" =
     │  .........ow 4)(column 2)(dim..........    Vol 11 Chapter 86 In Plain View                                             │
     │  .........ensions((height 9)(..........    Vol 2 Chapter 15 Completamente Desaparecido                                 │
     │  .........width 38)))(scale t..........    Vol 9 Chapter 74 No title                                                   │
-    │  ─────────rue))────────────────────────    Vol 16 Chapter 100.07 Экстра Летние каникулы                                │
+    │           rue))                            Vol 16 Chapter 100.07 Экстра Летние каникулы                                │
     │                                            Vol 16 Chapter 100.18 ⑭                                                     │
     │  Author:  ONE                              Vol 7 Chapter 55                                                            │
     │  Status:  ONGOING                          Vol 1 Chapter 4 Önmagadért                                                  │
@@ -168,7 +168,8 @@ let%expect_test "Manga viewer" =
     Capytui_test.send_event handle (`Key (`ASCII c, [])));
   Handle.recompute_view handle;
   Handle.show handle;
-  [%expect {|
+  [%expect
+    {|
     ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
     │                                                                                                                        │
     │  Capymanga    Backspace back  Tab switch focus                                                                         │

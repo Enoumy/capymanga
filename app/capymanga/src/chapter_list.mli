@@ -11,5 +11,6 @@ type t =
 val component
   :  is_focused:bool Value.t
   -> dimensions:Dimensions.t Value.t
+  -> grab_focus:unit Effect.t Value.t
   -> Manga.t Value.t
   -> t Computation.t
