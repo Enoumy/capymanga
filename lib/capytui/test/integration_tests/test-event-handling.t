@@ -28,7 +28,7 @@ which worked on linux ci, but it did not work on macos CI, so I am instead chang
 test no not outright disable tests in macos.
 
 
-  $ echo "12345" | ./bin/test_integration_key_events.exe  | grep -v 'No such device or address' | grep -v 'cannot'
+  $ echo "12345" | ./bin/test_integration_key_events.exe 2> /dev/null
   Press some keys!
   
   
