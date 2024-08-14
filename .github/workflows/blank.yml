@@ -22,7 +22,6 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set-up OCaml
-        shell: 'script -q -e -c "bash {0}"'
         uses: ocaml/setup-ocaml@v3
         with:
           ocaml-compiler: ${{ matrix.ocaml-compiler }}
@@ -31,13 +30,16 @@ jobs:
 
       - run: opam exec -- dune build
 
-      - run: opam exec -- dune runtest
+      - name: Run tests
+        shell: 'script -q -e -c "bash {0}"'
+        run: |
+        opam exec -- dune runtest
 
       - name: Upload the build artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ matrix.os }}-${{ matrix.ocaml-compiler }}-world.exe
-          path: _build/default/world.exe
+          name: ${{ matrix.os }}-${{ matrix.ocaml-compiler }}-capymanga.exe
+          path: _build/default/app/capymanga/bin/main.exe
 
   lint-doc:
     runs-on: ubuntu-latest
