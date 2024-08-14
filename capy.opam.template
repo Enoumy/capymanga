@@ -1,0 +1,4 @@
+pin-depends: [
+  [ "async_ssl.v.0.17.0" "git+https://github.com/vbmithr/async_ssl/#5206b3b" ]
+]
+
