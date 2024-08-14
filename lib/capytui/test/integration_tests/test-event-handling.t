@@ -21,7 +21,14 @@ This test is hacky, but it covers the contents of Capytui.start, which is nice.
 Due to limitations of cram, this test solely prints out each frame after each
 "key" event. These prints occur from within a let%arr block.
 
-  $ echo "12345" | ./bin/test_integration_key_events.exe
+Github CI removes /dev/tty which makes this test show some warning messages.
+The warning messages are important, but they are also not the purpose of this test.
+I attempted a workaround to still get /dev/tty in Github CI using `script(1)`, but
+which worked on linux ci, but it did not work on macos CI, so I am instead changing this
+test no not outright disable tests in macos.
+
+
+  $ echo "12345" | ./bin/test_integration_key_events.exe  | grep -v 'no such device or address'
   Press some keys!
   
   
@@ -71,4 +78,3 @@ Due to limitations of cram, this test solely prints out each frame after each
   Key 3
   Key 2
   Key 1
-
