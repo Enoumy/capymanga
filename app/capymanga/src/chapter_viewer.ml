@@ -118,8 +118,9 @@ let image_viewer
     let%arr dimensions = dimensions
     and url = url
     and is_fullscreen = is_full_screen in
+    let dimensions = { dimensions with height = dimensions.height - 2 } in
     { Image.url
-    ; row = (if is_fullscreen then 0 else 3)
+    ; row = (if is_fullscreen then 1 else 3)
     ; column = 0
     ; dimensions
     ; scale = true

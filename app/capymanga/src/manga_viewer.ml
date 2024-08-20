@@ -516,6 +516,7 @@ let component ~dimensions ~(manga : Manga.t Value.t) ~set_page ~go_back =
       | `Key (`Backspace, []), (Sidebar | Chapter_table) -> go_back
       | `Key (`Tab, []), Sidebar -> set_focus Chapter_table
       | `Key (`Tab, []), Chapter_table -> set_focus Sidebar
+      | `Key (`Escape, []), Search_bar -> set_focus Chapter_table
       | ( `Key (`ASCII '/', [] | `ASCII ('k' | 'K'), [ `Ctrl ])
         , (Chapter_table | Sidebar) ) ->
         set_focus Search_bar
