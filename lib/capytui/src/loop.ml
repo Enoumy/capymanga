@@ -28,11 +28,11 @@ let draw_command_for_image
   String.concat ~sep:" " args ^ " >/dev/tty </dev/tty 2>/dev/null"
 ;;
 
-let draw_images images =
+let draw_images images : Pid.t option Deferred.t =
   (* TODO: Currently drawing images is really slow and blocks user input. *)
   if true then clear_images ();
   match images with
-  | [] -> None
+  | [] -> Deferred.return None
   (* TODO: This was an attempt at making a cancellable image renderer. The
      cancelling worked, but sadly kitty sending image commands were
      incorrectly interpreted as user input, so we can't both listen to user
@@ -43,10 +43,16 @@ let draw_images images =
     (* (match Core_unix.fork () with *)
     (*  | `In_the_parent pid -> Some pid *)
     (*  | `In_the_child -> *)
-    List.iter images ~f:(fun image ->
-      let _ : _ = Sys_unix.command (draw_command_for_image image) in
-      ());
-    None
+    let%bind () =
+      Deferred.List.iter images ~how:`Sequential ~f:(fun image ->
+        let%bind _ = Async_unix.Sys.command (draw_command_for_image image) in
+        (* let%bind _ = Async_unix.Sys.command (draw_command_for_image image)
+           in *)
+
+        (* let _ : _ = Sys_unix.command (draw_command_for_image image) in *)
+        Deferred.return ())
+    in
+    Deferred.return None
 ;;
 
 (* _exit 0) *)
@@ -103,11 +109,11 @@ let start
       is_first_frame || not (phys_equal (fst result) (fst prev_result))
     in
     if node_changed then Term.image term node;
-    let draw_process_pid : Pid.t option =
+    let%bind (draw_process_pid : Pid.t option) =
       if is_first_frame
          || not ([%equal: Image.t list] (snd result) (snd prev_result))
       then draw_images images
-      else None
+      else Deferred.return None
     in
     let go () = go ~draw_process_pid in
     let%bind () = Async.Scheduler.yield () in

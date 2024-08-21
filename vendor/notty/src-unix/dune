@@ -1,0 +1,11 @@
+(library
+ (synopsis "Notty Unix IO")
+ (name notty_unix)
+ (wrapped false)
+ (foreign_stubs
+  (language c)
+  (names winsize))
+ (optional)
+ (libraries notty unix))
+
+(include_subdirs unqualified)

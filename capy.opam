@@ -12,7 +12,6 @@ bug-reports: "https://github.com/enoumy/capy/issues"
 depends: [
   "ocaml"
   "dune" {>= "3.9"}
-  "notty"
   "yojson" {= "2.2.2"}
   "ppx_yojson_conv" {= "v0.17.0"}
   "bonsai" {= "v0.17.0"}

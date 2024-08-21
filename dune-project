@@ -23,7 +23,6 @@
  (depends
   ocaml
   dune
-  notty
   (yojson
    (= "2.2.2"))
   (ppx_yojson_conv
