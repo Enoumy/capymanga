@@ -131,6 +131,7 @@ module Term = struct
     ;;
 
     let rec event t =
+      Core.eprintf "[event]!";
       match Unescape.next t.flt with
       | (#Unescape.event | `End) as r -> r
       | `Await ->

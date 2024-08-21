@@ -51,15 +51,33 @@ let render_event : Event.t -> Node.t =
 ;;
 
 let app =
+  let%sub dimensions = terminal_dimensions in
   let%sub events, add_event =
     Bonsai.state_machine0
       ~default_model:[]
       ~apply_action:(fun _ events event -> event :: List.take events 30)
       ()
   in
+  let%sub image =
+    let%arr dimensions = dimensions in
+    let dimensions_to_use =
+      { Dimensions.width = dimensions.width / 2
+      ; height = dimensions.height - 2
+      }
+    in
+    { Image.url = "https://capytea.com/capybara.png"
+    ; column = dimensions.width / 2
+    ; row = 1
+    ; dimensions = dimensions_to_use
+    ; scale = true
+    }
+  in
   let%sub () = Capytui.listen_to_events add_event in
-  let%arr events = events in
-  Node.vcat (Node.text "Press some keys!" :: List.map events ~f:render_event)
+  let%arr events = events
+  and image = image in
+  ( Node.vcat
+      (Node.text "Press some keys!" :: List.map events ~f:render_event)
+  , [ image ] )
 ;;
 
 let command =
@@ -67,7 +85,7 @@ let command =
     ~summary:{|An actual capybara!!!|}
     [%map_open.Command
       let () = return () in
-      fun () -> Capytui.start app]
+      fun () -> Capytui.start_with_images app]
 ;;
 
 let () = Command_unix.run command

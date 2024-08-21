@@ -45,11 +45,13 @@ let draw_images images : Pid.t option Deferred.t =
     (*  | `In_the_child -> *)
     let%bind () =
       Deferred.List.iter images ~how:`Sequential ~f:(fun image ->
-        let%bind _ = Async_unix.Sys.command (draw_command_for_image image) in
+        don't_wait_for
+          (let%map _ =
+             Async_unix.Sys.command (draw_command_for_image image)
+           in
+           ());
         (* let%bind _ = Async_unix.Sys.command (draw_command_for_image image)
            in *)
-
-        (* let _ : _ = Sys_unix.command (draw_command_for_image image) in *)
         Deferred.return ())
     in
     Deferred.return None
@@ -82,7 +84,11 @@ let start
   in
   Bonsai_driver.flush driver;
   Bonsai_driver.trigger_lifecycles driver;
+  let x = ref 0 in
   let rec go ~is_first_frame ~draw_process_pid : unit Deferred.t =
+    Core.eprintf "%d\n" !x;
+    incr x;
+    if !x > 100 then raise_s [%message "aaah!"];
     let go ~draw_process_pid = go ~is_first_frame:false ~draw_process_pid in
     let frame_start_time = Time_ns.now () in
     let () = State_management.For_clock.advance_to clock frame_start_time

@@ -3,7 +3,7 @@
 (library
  (name notty)
  (synopsis "Declaring terminals")
- (libraries uutf)
+ (libraries uutf core)
  (wrapped false)
  (modules notty notty_grapheme_cluster notty_uucp notty_uucp_data)
  (private_modules notty_grapheme_cluster notty_uucp notty_uucp_data))

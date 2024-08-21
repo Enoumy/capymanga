@@ -2,7 +2,6 @@
    LICENSE.md. *)
 
 let invalid_arg fmt = Format.kasprintf invalid_arg fmt
-let ( &. ) f g x = f (g x)
 let btw (x : int) a b = a <= x && x <= b
 let bit n b = b land (1 lsl n) > 0
 let max (a : int) b = if a > b then a else b
@@ -916,6 +915,8 @@ module Unescape = struct
     | SS2 of char
     | CSI of string * int list * char
     | Esc_M of int * int * int
+    | Esc_underscore_G
+    | Esc_slash
     | Uchar of Uchar.t
 
   let uchar = function `Uchar u -> u | `ASCII c -> Uchar.of_char c
@@ -944,6 +945,8 @@ module Unescape = struct
     function
     | 0x1b :: 0x5b :: 0x4d :: a :: b :: c :: xs ->
       Esc_M (a, b, c) :: demux xs
+    | 0x1b :: 0x5f :: 0x47 :: xs -> Esc_underscore_G :: demux xs
+    | 0x1b :: 0x2f :: xs -> Esc_slash :: demux xs
     | 0x1b :: 0x5b :: xs | 0x9b :: xs ->
       let r, xs = csi xs |> Option.get (C1 '\x5b', xs) in
       r :: demux xs
@@ -1074,28 +1077,79 @@ module Unescape = struct
     | CSI ("", [ 200 ], '~') -> Some (`Paste `Start)
     | CSI ("", [ 201 ], '~') -> Some (`Paste `End)
     | CSI _ | SS2 _ -> None
+    | Esc_slash | Esc_underscore_G -> None
   ;;
 
-  let rec events = function
-    | C0 '\x1b' :: cc :: ccs ->
-      (match event_of_control_code cc with
-       | Some (`Key (k, mods)) -> `Key (k, `Meta :: mods) :: events ccs
-       | Some _ -> `Key (`Escape, []) :: events (cc :: ccs)
-       | None -> events ccs)
-    | cc :: ccs -> (event_of_control_code cc |> Option.to_list) @ events ccs
-    | [] -> []
+  let rec drop_until_kitty_packet l =
+    match l with
+    | [] -> [], true
+    | Esc_slash :: rem -> rem, false
+    | _ :: rem -> drop_until_kitty_packet rem
   ;;
 
-  let decode = events &. demux &. List.map Uchar.to_int
+  let rec events ~in_the_middle_of_a_kitty_packet l =
+    let not_in_a_kitty_packet l =
+      match l with
+      | C0 '\x1b' :: cc :: ccs ->
+        (match event_of_control_code cc with
+         | Some (`Key (k, mods)) ->
+           let event = `Key (k, `Meta :: mods) in
+           let events, in_the_middle_of_a_kitty_packet =
+             events ~in_the_middle_of_a_kitty_packet:false ccs
+           in
+           event :: events, in_the_middle_of_a_kitty_packet
+         | Some _ ->
+           let event = `Key (`Escape, []) in
+           let events, in_the_middle_of_a_kitty_packet =
+             events ~in_the_middle_of_a_kitty_packet:false (cc :: ccs)
+           in
+           event :: events, in_the_middle_of_a_kitty_packet
+         | None -> events ~in_the_middle_of_a_kitty_packet:false ccs)
+      | Esc_underscore_G :: tl ->
+        let after, in_the_middle_of_a_kitty_packet =
+          drop_until_kitty_packet tl
+        in
+        (match after, in_the_middle_of_a_kitty_packet with
+         | [], true -> [], true
+         | after, _ -> events ~in_the_middle_of_a_kitty_packet after)
+      (* events ignored *)
+      | cc :: ccs ->
+        let event = event_of_control_code cc |> Option.to_list in
+        let events, in_the_middle_of_a_kitty_packet =
+          events ccs ~in_the_middle_of_a_kitty_packet:false
+        in
+        event @ events, in_the_middle_of_a_kitty_packet
+      | [] -> [], false
+    in
+    match in_the_middle_of_a_kitty_packet with
+    | true ->
+      let after, in_the_middle_of_a_kitty_packet =
+        drop_until_kitty_packet l
+      in
+      (match after, in_the_middle_of_a_kitty_packet with
+       | [], true -> [], true
+       | after, _ -> events ~in_the_middle_of_a_kitty_packet after)
+    | false -> not_in_a_kitty_packet l
+  ;;
 
-  type t = (event list * bool) ref
+  let decode x = events (demux (List.map Uchar.to_int x))
 
-  let create () = ref ([], false)
+  type t' =
+    { events : event list
+    ; eof : bool
+    ; in_the_middle_of_a_kitty_packet : bool
+    }
+
+  type t = t' ref
+
+  let create () =
+    ref { events = []; eof = false; in_the_middle_of_a_kitty_packet = false }
+  ;;
 
   let next t =
-    match !t with
+    match !t.events, !t.eof with
     | (#event as e) :: es, eof ->
-      t := es, eof;
+      t := { !t with events = es; eof };
       e
     | [], false -> `Await
     | _ -> `End
@@ -1111,11 +1165,28 @@ module Unescape = struct
   let input t buf i l =
     t
     := match !t with
-       | es, false when l > 0 -> es @ (list_of_utf8 buf i l |> decode), false
-       | es, _ -> es, true
+       | { events = es; eof = false; in_the_middle_of_a_kitty_packet }
+         when l > 0 ->
+         let events, in_the_middle_of_a_kitty_packet =
+           list_of_utf8 buf i l |> decode ~in_the_middle_of_a_kitty_packet
+         in
+         { events = es @ events
+         ; eof = false
+         ; in_the_middle_of_a_kitty_packet
+         }
+       | { events = es; _ } -> { !t with events = es; eof = true }
   ;;
 
-  let pending t = match !t with [], false -> false | _ -> true
+  let pending t =
+    match !t with
+    | { events = []; eof = false; in_the_middle_of_a_kitty_packet = _ } ->
+      false
+    | { events = _; eof = _; in_the_middle_of_a_kitty_packet = true } ->
+      false
+    | _ -> true
+  ;;
+
+  let decode x = fst (decode ~in_the_middle_of_a_kitty_packet:false x)
 end
 
 module Tmachine = struct
