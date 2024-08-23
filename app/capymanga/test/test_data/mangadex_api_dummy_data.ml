@@ -32,3 +32,11 @@ let mob_psycho_dummy_chapter_feed_response : Chapter.t Collection.t Lazy.t =
        (Yojson.Safe.from_string
           Embedded_files.mob_psycho_mangadex_chapter_feed_test_data_dot_json))
 ;;
+
+let scanlation_group_dummy_response : Scanlation_group.t Entity.t Lazy.t =
+  lazy
+    (Entity.t_of_yojson
+       Scanlation_group.t_of_yojson
+       (Yojson.Safe.from_string
+          Embedded_files.mangadex_scanlation_group_test_data_dot_json))
+;;

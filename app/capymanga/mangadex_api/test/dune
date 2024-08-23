@@ -17,6 +17,7 @@
   ./dummy_mangadex_manga_feed.json
   ./big_chapter_feed_regression.json
   ./chapter_query_response.json
+  ./scanlation_group_dummy_response.json
   ;;
   )
  (action

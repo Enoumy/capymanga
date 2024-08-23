@@ -36,6 +36,7 @@ let content ~(page : Page.t Value.t) ~set_page ~go_back =
 
 let app =
   Loading_state.register
+  @@ Scanlation_group_cache.register
   @@
   let%sub { page; set_page; go_back } =
     Navigation.component (Page.Manga_search { title = None })
@@ -63,6 +64,7 @@ let command =
           |> Outside_world.Author.register_real
           |> Outside_world.Chapter_feed.register_real
           |> Outside_world.Chapter_images.register_real
+          |> Outside_world.Scanlation_group.register_real
         in
         let%bind () = Capytui.start_with_images app in
         Deferred.Or_error.return ()]

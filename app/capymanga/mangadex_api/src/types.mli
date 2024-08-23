@@ -153,6 +153,23 @@ module Chapter : sig
   [@@deriving sexp, yojson] [@@yojson.allow_extra_fields]
 end
 
+module Scanlation_group : sig
+  module Attributes : sig
+    type t =
+      { name : string option
+      ; website : string option
+      ; description : string option
+      }
+    [@@deriving sexp, yojson] [@@yojson.allow_extra_fields]
+  end
+
+  type t =
+    { id : string
+    ; attributes : Attributes.t
+    }
+  [@@deriving sexp, yojson] [@@yojson.allow_extra_fields]
+end
+
 module Collection : sig
   type 'a t =
     { data : 'a list

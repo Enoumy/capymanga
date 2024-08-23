@@ -205,6 +205,23 @@ module Chapter = struct
   [@@deriving sexp, yojson] [@@yojson.allow_extra_fields]
 end
 
+module Scanlation_group = struct
+  module Attributes = struct
+    type t =
+      { name : string option
+      ; website : string option
+      ; description : string option
+      }
+    [@@deriving sexp, yojson] [@@yojson.allow_extra_fields]
+  end
+
+  type t =
+    { id : string
+    ; attributes : Attributes.t
+    }
+  [@@deriving sexp, yojson] [@@yojson.allow_extra_fields]
+end
+
 module Collection = struct
   type 'a t =
     { data : 'a list

@@ -27,7 +27,13 @@ let component ~instructions =
           ; Attr.bold
           ]
         "Capymanga"
-    ; text " "
+    ; text " powered by "
+    ; text
+        ~attrs:
+          [ Attr.bold
+          ; Attr.foreground_color (Catpuccin.color ~flavor Flamingo)
+          ]
+        "Mangadex  "
     ; spinner
     ; text " "
     ; instructions

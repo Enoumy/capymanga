@@ -15,7 +15,7 @@ let%expect_test "jk" =
     ([manga_search] (title ()))
     ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
     │                                                                                                                        │
-    │  Capymanga ⣾  / Search  j Down  k Up                                                                                   │
+    │  Capymanga powered by Mangadex  ⣾  / Search  j Down  k Up                                                              │
     │                                                                                                                        │
     │  │ One-Punch Man  AWARD WINNING   SCI-FI   GORE   MONSTERS   ACTION   COMEDY   +7 tags                                 │
     │  │ After rigorously training for three years, the ordinary...                                                          │
@@ -39,7 +39,7 @@ let%expect_test "jk" =
     {|
     ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
     │                                                                                                                        │
-    │  Capymanga    / Search  j Down  k Up                                                                                   │
+    │  Capymanga powered by Mangadex     / Search  j Down  k Up                                                              │
     │                                                                                                                        │
     │    One-Punch Man  AWARD WINNING   SCI-FI   GORE   MONSTERS   ACTION   COMEDY   +7 tags                                 │
     │    After rigorously training for three years, the ordinary...                                                          │
@@ -63,7 +63,7 @@ let%expect_test "jk" =
     {|
     ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
     │                                                                                                                        │
-    │  Capymanga    / Search  j Down  k Up                                                                                   │
+    │  Capymanga powered by Mangadex     / Search  j Down  k Up                                                              │
     │                                                                                                                        │
     │    One-Punch Man  AWARD WINNING   SCI-FI   GORE   MONSTERS   ACTION   COMEDY   +7 tags                                 │
     │    After rigorously training for three years, the ordinary...                                                          │
@@ -87,7 +87,7 @@ let%expect_test "jk" =
     {|
     ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
     │                                                                                                                        │
-    │  Capymanga    / Search  j Down  k Up                                                                                   │
+    │  Capymanga powered by Mangadex     / Search  j Down  k Up                                                              │
     │                                                                                                                        │
     │    One-Punch Man  AWARD WINNING   SCI-FI   GORE   MONSTERS   ACTION   COMEDY   +7 tags                                 │
     │    After rigorously training for three years, the ordinary...                                                          │
@@ -118,7 +118,7 @@ let%expect_test "du" =
     ([manga_search] (title ()))
     ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
     │                                                                                                                        │
-    │  Capymanga ⣾  / Search  j Down  k Up                                                                                   │
+    │  Capymanga powered by Mangadex  ⣾  / Search  j Down  k Up                                                              │
     │                                                                                                                        │
     │  │ One-Punch Man  AWARD WINNING   SCI-FI   GORE   MONSTERS   ACTION   COMEDY   +7 tags                                 │
     │  │ After rigorously training for three years, the ordinary...                                                          │
@@ -142,7 +142,7 @@ let%expect_test "du" =
     {|
     ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
     │                                                                                                                        │
-    │  Capymanga    / Search  j Down  k Up                                                                                   │
+    │  Capymanga powered by Mangadex     / Search  j Down  k Up                                                              │
     │                                                                                                                        │
     │                                                                                                                        │
     │    One Punch Man (Webcomic/Original)  AWARD WINNING   SCI-FI   SLICE OF LIFE   MONSTERS   ACTION   COMEDY   +4 tags    │
@@ -166,7 +166,7 @@ let%expect_test "du" =
     {|
     ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
     │                                                                                                                        │
-    │  Capymanga    / Search  j Down  k Up                                                                                   │
+    │  Capymanga powered by Mangadex     / Search  j Down  k Up                                                              │
     │                                                                                                                        │
     │                                                                                                                        │
     │    One-Punch Man - Hatachi ni Naru Made Machinasai! (Doujinshi)  DOUJINSHI   ROMANCE   ONESHOT   COMEDY   BOYS' LOVE   │
@@ -190,7 +190,7 @@ let%expect_test "du" =
     {|
     ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
     │                                                                                                                        │
-    │  Capymanga    / Search  j Down  k Up                                                                                   │
+    │  Capymanga powered by Mangadex     / Search  j Down  k Up                                                              │
     │                                                                                                                        │
     │  │ One Punch Man (Webcomic/Original)  AWARD WINNING   SCI-FI   SLICE OF LIFE   MONSTERS   ACTION   COMEDY   +4 tags    │
     │  │ Follows the life of an average part-time hero who...                                                                │
@@ -221,7 +221,7 @@ let%expect_test "G" =
     ([manga_search] (title ()))
     ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
     │                                                                                                                        │
-    │  Capymanga ⣾  / Search  j Down  k Up                                                                                   │
+    │  Capymanga powered by Mangadex  ⣾  / Search  j Down  k Up                                                              │
     │                                                                                                                        │
     │  │ One-Punch Man  AWARD WINNING   SCI-FI   GORE   MONSTERS   ACTION   COMEDY   +7 tags                                 │
     │  │ After rigorously training for three years, the ordinary...                                                          │
@@ -245,7 +245,7 @@ let%expect_test "G" =
     {|
     ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
     │                                                                                                                        │
-    │  Capymanga    / Search  j Down  k Up                                                                                   │
+    │  Capymanga powered by Mangadex     / Search  j Down  k Up                                                              │
     │                                                                                                                        │
     │                                                                                                                        │
     │    One-Punch Man - Hatachi ni Naru Made Machinasai! (Doujinshi)  DOUJINSHI   ROMANCE   ONESHOT   COMEDY   BOYS' LOVE   │
@@ -281,7 +281,7 @@ let%expect_test "gg" =
     ([manga_search] (title ()))
     ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
     │                                                                                                                        │
-    │  Capymanga    / Search  j Down  k Up                                                                                   │
+    │  Capymanga powered by Mangadex     / Search  j Down  k Up                                                              │
     │                                                                                                                        │
     │                                                                                                                        │
     │    One-Punch Man - Hatachi ni Naru Made Machinasai! (Doujinshi)  DOUJINSHI   ROMANCE   ONESHOT   COMEDY   BOYS' LOVE   │
@@ -306,7 +306,7 @@ let%expect_test "gg" =
     {|
     ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
     │                                                                                                                        │
-    │  Capymanga    / Search  j Down  k Up                                                                                   │
+    │  Capymanga powered by Mangadex     / Search  j Down  k Up                                                              │
     │                                                                                                                        │
     │  │ One-Punch Man  AWARD WINNING   SCI-FI   GORE   MONSTERS   ACTION   COMEDY   +7 tags                                 │
     │  │ After rigorously training for three years, the ordinary...                                                          │
@@ -345,7 +345,7 @@ let%expect_test "gg - but waited too long" =
     ([manga_search] (title ()))
     ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
     │                                                                                                                        │
-    │  Capymanga    / Search  j Down  k Up                                                                                   │
+    │  Capymanga powered by Mangadex     / Search  j Down  k Up                                                              │
     │                                                                                                                        │
     │                                                                                                                        │
     │    One-Punch Man - Hatachi ni Naru Made Machinasai! (Doujinshi)  DOUJINSHI   ROMANCE   ONESHOT   COMEDY   BOYS' LOVE   │
@@ -371,7 +371,7 @@ let%expect_test "gg - but waited too long" =
     ([manga_cover] (cover_id 98d904d9-9e92-4cd6-af77-8630acd71270))
     ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
     │                                                                                                                        │
-    │  Capymanga    / Search  j Down  k Up                       ............................................................│
+    │  Capymanga powered by Mangadex     / Search  j Down  k Up  ............................................................│
     │                                                            ............................................................│
     │                                                            ............................................................│
     │    One-Punch Man - Hatachi ni Naru Made Machinasai! (Doujin...............((url https://mangadex.org/cov...............│
@@ -403,7 +403,7 @@ let%expect_test "gg - but waited too long" =
     {|
       ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
       │                                                                                                                        │
-    -|│  Capymanga    / Search  j Down  k Up                       ............................................................│
+    -|│  Capymanga powered by Mangadex     / Search  j Down  k Up  ............................................................│
     -|│                                                            ............................................................│
     -|│                                                            ............................................................│
     -|│    One-Punch Man - Hatachi ni Naru Made Machinasai! (Doujin...............((url https://mangadex.org/cov...............│
@@ -412,7 +412,7 @@ let%expect_test "gg - but waited too long" =
     -|│    One-Punch Man - The Fight of Gods (Doujinshi)  DOUJINSHI...............8c24-d36b2ebceb3e.jpg)(row 1)(...............│
     -|│    A fanmade comic by Cminglap, depicting Saitama vs a...  ...............column 60)(dimensions((height ...............│
     -|│                                                            ...............13)(width 60)))(scale true)).................│
-    +|│  Capymanga    / Search  j Down  k Up                                                                                   │
+    +|│  Capymanga powered by Mangadex     / Search  j Down  k Up                                                              │
     +|│                                                                                                                        │
     +|│  │ One-Punch Man  AWARD WINNING   SCI-FI   GORE   MONSTERS   ACTION   COMEDY   +7 tags                                 │
     +|│  │ After rigorously training for three years, the ordinary...                                                          │

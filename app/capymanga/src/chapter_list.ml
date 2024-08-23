@@ -106,6 +106,81 @@ module Action = struct
   ;;
 end
 
+let scanlation_groups ~(chapter_list : Chapter.t Collection.t Value.t) =
+  let%sub ids =
+    let%arr chapter_list = chapter_list in
+    Set.of_list
+      (module String)
+      (List.filter_map
+         ~f:(fun chapter ->
+           let%map.Option { id; _ } =
+             List.find chapter.Chapter.relationships ~f:(fun relationship ->
+               String.equal relationship.type_ "scanlation_group")
+           in
+           id)
+         chapter_list.data)
+  in
+  let%sub flavor = Catpuccin.flavor in
+  Bonsai.assoc_set
+    (module String)
+    ids
+    ~f:(fun scanlation_group_id ->
+      let%sub scanlation_group =
+        Scanlation_group_cache.fetch ~scanlation_group_id
+      in
+      match%sub scanlation_group with
+      | None ->
+        Computation.map
+          (Spinner.component ~kind:Dot (Value.return ""))
+          ~f:(fun x ~is_focused:_ -> x)
+      | Some scanlation_group ->
+        let%arr scanlation_group = scanlation_group
+        and flavor = flavor in
+        fun ~is_focused ->
+          (match scanlation_group with
+           | Error error ->
+             (* TODO: Hmm, unsure if showing an error _next_ to the UI is
+                super nice in the table, specially if this error will be
+                placed once per table. I think using something like a
+                "global"/"dynamically scoped" error toast/notification would
+                be good here... *)
+             Node.text
+               ~attrs:
+                 [ Attr.background_color (Catpuccin.color ~flavor Crust)
+                 ; Attr.foreground_color (Catpuccin.color ~flavor Red)
+                 ]
+               (Util.normalize_string_lossy (Error.to_string_mach error))
+           | Ok { data = { attributes = { name = None; _ }; _ }; _ } ->
+             Node.none
+           | Ok { data = { attributes = { name = Some name; _ }; _ }; _ } ->
+             let name = Util.normalize_string_lossy name in
+             let group =
+               Node.text
+                 ~attrs:
+                   [ Attr.background_color (Catpuccin.color ~flavor Surface0)
+                   ; Attr.foreground_color
+                       (Catpuccin.color
+                          ~flavor
+                          (if is_focused then Green else Pink))
+                   ; (if is_focused then Attr.bold else Attr.empty)
+                   ]
+                 (" " ^ name ^ " ")
+             in
+             let by =
+               Node.text
+                 ~attrs:
+                   [ Attr.background_color (Catpuccin.color ~flavor Base)
+                   ; Attr.foreground_color
+                       (Catpuccin.color
+                          ~flavor
+                          (if is_focused then Green else Text))
+                   ; (if is_focused then Attr.bold else Attr.empty)
+                   ]
+                 " scanlation by "
+             in
+             Node.hcat [ by; group ]))
+;;
+
 let component
   :  is_focused:bool Value.t -> dimensions:Dimensions.t Value.t
   -> grab_focus:unit Effect.t Value.t
@@ -200,12 +275,14 @@ let component
            ~apply_action:Action.apply_action
            input
     in
+    let%sub scanlation_groups = scanlation_groups ~chapter_list in
     let%sub lines =
       let%arr chapter_list = chapter_list
       and text = text
       and focus = focus
       and flavor = flavor
-      and is_focused = is_focused in
+      and is_focused = is_focused
+      and scanlation_groups = scanlation_groups in
       let text ?attrs string =
         text ?attrs (Util.normalize_string_lossy string)
       in
@@ -231,13 +308,37 @@ let component
                 string
             else text ~attrs string
           in
+          let scanlation_group =
+            let%bind.Option { id; _ } =
+              List.find chapter.relationships ~f:(fun relationship ->
+                String.equal relationship.type_ "scanlation_group")
+            in
+            Core.Map.find scanlation_groups id
+          in
+          let row_is_focused = is_focused && i = focus in
           List.intersperse ~sep:(text " ")
           @@ List.filter_opt
                [ Option.map chapter.attributes.volume ~f:(fun volume ->
-                   Node.hcat [ text "Vol "; text volume ])
+                   Node.hcat
+                     [ text
+                         ~attrs:
+                           [ Attr.foreground_color
+                               (Catpuccin.color ~flavor Lavender)
+                           ]
+                         ("Vol " ^ volume)
+                     ])
                ; Option.map chapter.attributes.chapter ~f:(fun chapter ->
-                   Node.hcat [ text "Chapter "; text chapter ])
-               ; Some (text title)
+                   Node.hcat
+                     [ text
+                         ~attrs:
+                           [ Attr.foreground_color
+                               (Catpuccin.color ~flavor Yellow)
+                           ]
+                         ("Ch " ^ chapter)
+                     ])
+               ; Some (text ~attrs:[ Attr.bold ] title)
+               ; Option.map scanlation_group ~f:(fun f ->
+                   f ~is_focused:row_is_focused)
                ]
         in
         let prefix = if i = focus then "> " else "  " in

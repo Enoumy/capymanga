@@ -26,6 +26,11 @@ let default_chapter_feed ~manga_id:_ ~ascending:_ ?limit:_ ?offset:_ () =
        (force Mangadex_api_dummy_data.mob_psycho_dummy_chapter_feed_response))
 ;;
 
+let default_scalation_group ~scanlation_group_id:(_ : string) =
+  Effect.return
+    (Ok (force Mangadex_api_dummy_data.scanlation_group_dummy_response))
+;;
+
 let mock_chainsaw_man_response =
   lazy
     (Manga.t_of_yojson
@@ -291,6 +296,7 @@ let create_handle
   ?(manga_cover = Value.return default_manga_cover)
   ?(author = Value.return default_author)
   ?(chapter_feed = Value.return default_chapter_feed)
+  ?(scanlation_group = Value.return default_scalation_group)
   ?(initial_dimensions = { Dimensions.width = 120; height = 30 })
   ()
   =
@@ -318,6 +324,15 @@ let create_handle
       in
       author ~author_id
   in
+  let scanlation_group =
+    let%map scanlation_group = scanlation_group in
+    fun ~scanlation_group_id ->
+      let%bind.Effect () =
+        Effect.print_s
+          [%message "[scanlation_group]" (scanlation_group_id : string)]
+      in
+      scanlation_group ~scanlation_group_id
+  in
   let chapter_feed =
     let%map chapter_feed = chapter_feed in
     fun ~manga_id ~ascending ?limit ?offset () ->
@@ -337,6 +352,7 @@ let create_handle
     @@ Outside_world.Manga_cover.register_mock manga_cover
     @@ Outside_world.Author.register_mock author
     @@ Outside_world.Chapter_feed.register_mock chapter_feed
+    @@ Outside_world.Scanlation_group.register_mock scanlation_group
     @@
     let%sub image, images = Capymanga.app in
     let%arr image = image
