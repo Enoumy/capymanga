@@ -1,7 +1,9 @@
 # Capymanga
 
-**Capymanga** is a terminal UI for [Mangadex](https://mangadex.org/) written in
-[OCaml](https://ocaml.org/). It uses
+![output](https://github.com/user-attachments/assets/e2e1f075-30ab-476c-bbea-9ae331480121)
+
+**Capymanga** is a terminal UI for reading manga from [Mangadex](https://mangadex.org/). It is written in
+[OCaml](https://ocaml.org/) and uses
 [kitty](https://sw.kovidgoyal.net/kitty/) to show images in your terminal.
 
 Capymanga is currently under construction and is missing many features!
@@ -9,7 +11,7 @@ Capymanga is currently under construction and is missing many features!
 ## Installation (build from source)
 
 I'd like to eventually make installing Capymanga really easy. While Capymanga is
-being built, you can use it by building from source. If these instructions do
+being built, you can use it by building it from source. If these instructions do
 not work, please feel free to let me know by filing an issue!
 
 1. If you haven't already, **install [kitty](https://sw.kovidgoyal.net/kitty/)**.
