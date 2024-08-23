@@ -2,30 +2,27 @@
 
 **Capymanga** is a terminal UI for [Mangadex](https://mangadex.org/) written in
 [OCaml](https://ocaml.org/). It uses
-[kitty](https://sw.kovidgoyal.net/kitty/)'s terminal image rendering
-capabilities to show images.
+[kitty](https://sw.kovidgoyal.net/kitty/)'s to show images in your terminal.
 
 Capymanga is currently under construction and is missing many features!
 
 ## Installation (build from source)
 
-I'd like to eventually make install Capymanga really easy. While Capymanga is
-being built, you can use it by "building from source". Below are instructions
-for "building from source". If these instructions do not work, please feel free
-to let me know by filing an issue!
+I'd like to eventually make installing Capymanga really easy. While Capymanga is
+being built, you can use it by building from source. If these instructions do
+not work, please feel free to let me know by filing an issue!
 
 1. If you haven't already, **install [kitty](https://sw.kovidgoyal.net/kitty/)**.
    Kitty is a terminal emulator that lets Capymanga show images from the
-   terminal. To read images from the terminal, you must run capymanga from
-   kitty. I would like to implement first-class support for other terminal
+   terminal. I would like to implement first-class support for other terminal
    emulators at some point in the future, though sadly Capymanga currently can
    only display images with kitty...
 
 2. If you are new to OCaml - _or if you haven't already_ - **install
-   [opam](https://opam.ocaml.org/)**. `opam` is OCaml's package manager and we'll
+   [opam](https://opam.ocaml.org/)**. It is OCaml's package manager and we'll
    be using it to install Capymanga's OCaml dependencies. The specific
-   instructions for this depends on your platform; you can find
-   platform-specific instructions [here](https://opam.ocaml.org/doc/Install.html).
+   install instructions depend on your platform; you can find platform-specific
+   instructions [here](https://opam.ocaml.org/doc/Install.html).
 
 3. Create a new _"opam switch"_. You can think of a switch as kind of like a
    "python environment". A more detailed explanation of "switches" is
