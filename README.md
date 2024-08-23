@@ -1,6 +1,10 @@
+<div align="center">
+
 # Capymanga
 
 ![output](https://github.com/user-attachments/assets/e2e1f075-30ab-476c-bbea-9ae331480121)
+
+</div>
 
 **Capymanga** is a terminal UI for reading manga from [Mangadex](https://mangadex.org/). It is written in
 [OCaml](https://ocaml.org/) and uses
