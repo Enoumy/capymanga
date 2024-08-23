@@ -2,7 +2,7 @@
 
 **Capymanga** is a terminal UI for [Mangadex](https://mangadex.org/) written in
 [OCaml](https://ocaml.org/). It uses
-[kitty](https://sw.kovidgoyal.net/kitty/)'s to show images in your terminal.
+[kitty](https://sw.kovidgoyal.net/kitty/) to show images in your terminal.
 
 Capymanga is currently under construction and is missing many features!
 
