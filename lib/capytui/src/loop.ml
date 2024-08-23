@@ -1,5 +1,3 @@
-let _exit = Unix._exit
-
 open! Core
 open Bonsai
 open Async
@@ -48,8 +46,6 @@ let draw_images images =
       ());
     None
 ;;
-
-(* _exit 0) *)
 
 let start
   { Start_params.dispose

@@ -1,5 +1,0 @@
-(library
- (name capytui_layout)
- (libraries capytui bonsai)
- (preprocess
-  (pps ppx_jane bonsai.ppx_bonsai)))

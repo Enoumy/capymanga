@@ -4,7 +4,7 @@ open Mangadex_api.Types
 
 let command =
   Command.async_or_error
-    ~summary:{|Text executable for testing out the mangadex api.|}
+    ~summary:{|Testing executable for testing out the mangadex api.|}
     [%map_open.Command
       let () = return () in
       fun () ->
