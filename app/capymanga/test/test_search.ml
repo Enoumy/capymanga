@@ -30,7 +30,7 @@ let%expect_test "Searching a new box" =
     ([manga_search] (title ()))
     ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
     │                                                                                                                        │
-    │  Capymanga powered by Mangadex⣾  / Search  j Down  k Up                                                                │
+    │  Capymanga powered by Mangadex  ⣾  / Search  j Down  k Up                                                              │
     │                                                                                                                        │
     │  │ One-Punch Man  AWARD WINNING   SCI-FI   GORE   MONSTERS   ACTION   COMEDY   +7 tags                                 │
     │  │ After rigorously training for three years, the ordinary...                                                          │
@@ -55,8 +55,8 @@ let%expect_test "Searching a new box" =
     {|
       ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
       │                                                                                                                        │
-    -|│  Capymanga powered by Mangadex⣾  / Search  j Down  k Up                                                                │
-    +|│  Capymanga powered by Mangadex     Search:                                                                             │
+    -|│  Capymanga powered by Mangadex  ⣾  / Search  j Down  k Up                                                              │
+    +|│  Capymanga powered by Mangadex       Search:                                                                           │
       │                                                                                                                        │
       │  │ One-Punch Man  AWARD WINNING   SCI-FI   GORE   MONSTERS   ACTION   COMEDY   +7 tags                                 │
       │  │ After rigorously training for three years, the ordinary...                                                          │
@@ -83,7 +83,7 @@ let%expect_test "Searching a new box" =
     {|
     ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
     │                                                                                                                        │
-    │  Capymanga powered by Mangadex   / Search  j Down  k Up  Search:  Chainsaw Man                                         │
+    │  Capymanga powered by Mangadex     / Search  j Down  k Up  Search:  Chainsaw Man                                       │
     │                                                                                                                        │
     │  │ Chainsaw Man  AWARD WINNING   GORE   MONSTERS   ACTION   DEMONS   COMEDY   +2 tags                                  │
     │  │ Broke young man + chainsaw dog demon = Chainsaw Man!   ...                                                          │
@@ -107,7 +107,7 @@ let%expect_test "Searching a new box" =
     ([manga_cover] (cover_id c862f594-aa07-4df2-a2c8-361640f7a3ff))
     ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
     │                                                                                                                        │
-    │  Capymanga powered by Mangadex⣾  / Search  j Down  k Up  Se............................................................│
+    │  Capymanga powered by Mangadex  ⣾  / Search  j Down  k Up  ............................................................│
     │                                                            ............................................................│
     │  │ Chainsaw Man  AWARD WINNING   GORE   MONSTERS   ACTION  ............................................................│
     │  │ Broke young man + chainsaw dog demon = Chainsaw Man!   ................((url https://mangadex.org/cov...............│

@@ -11,7 +11,7 @@ let%expect_test "Manga viewer" =
     ([manga_search] (title ()))
     ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
     │                                                                                                                        │
-    │  Capymanga ⣾  / Search  j Down  k Up                                                                                   │
+    │  Capymanga powered by Mangadex  ⣾  / Search  j Down  k Up                                                              │
     │                                                                                                                        │
     │  │ One-Punch Man  AWARD WINNING   SCI-FI   GORE   MONSTERS   ACTION   COMEDY   +7 tags                                 │
     │  │ After rigorously training for three years, the ordinary...                                                          │
@@ -53,7 +53,7 @@ let%expect_test "Manga viewer" =
      (ascending true) (limit ()) (offset ()))
     ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
     │                                                                                                                        │
-    │  Capymanga ⣾  Backspace back  Tab switch focus                                                                         │
+    │  Capymanga powered by Mangadex  ⣾  Backspace back  Tab switch focus                                                    │
     │                                                                                                                        │
     │              One-Punch Man               > Vol 7 Ch 60.5  ⣾                                                            │
     │                                            Vol 5 Ch 42 No title ⣾                                                      │
@@ -117,7 +117,7 @@ let%expect_test "Manga viewer" =
     ([manga_cover] (cover_id c1037a0c-aa5e-4cd9-bd33-6514a2eb332b))
     ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
     │                                                                                                                        │
-    │  Capymanga ⣾  Backspace back  Tab switch focus                                                                         │
+    │  Capymanga powered by Mangadex  ⣾  Backspace back  Tab switch focus                                                    │
     │                                                                                                                        │
     │              One-Punch Man               > Vol 7 Ch 60.5   scanlation by  Hunlight Scans                               │
     │  .........((url https://manga..........    Vol 5 Ch 42 No title  scanlation by  Hunlight Scans                         │
@@ -156,7 +156,7 @@ let%expect_test "Manga viewer" =
     {|
     ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
     │                                                                                                                        │
-    │  Capymanga    Backspace back  Tab switch focus                                                                         │
+    │  Capymanga powered by Mangadex     Backspace back  Tab switch focus                                                    │
     │                                                                                                                        │
     │              One-Punch Man               > Vol 7 Ch 60.5   scanlation by  Hunlight Scans                               │
     │  .........((url https://manga..........    Vol 5 Ch 42 No title  scanlation by  Hunlight Scans                         │
@@ -196,7 +196,7 @@ let%expect_test "Manga viewer" =
     {|
     ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
     │                                                                                                                        │
-    │  Capymanga    Backspace back  Tab switch focus                                                                         │
+    │  Capymanga powered by Mangadex     Backspace back  Tab switch focus                                                    │
     │                                                                                                                        │
     │              One-Punch Man                 Vol 7 Ch 60.5   scanlation by  Hunlight Scans                               │
     │  .........((url https://manga..........    Vol 5 Ch 42 No title  scanlation by  Hunlight Scans                         │

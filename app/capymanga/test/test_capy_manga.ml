@@ -9,7 +9,7 @@ let%expect_test "Initial load" =
     {|
     ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
     │                                                                                                                        │
-    │  Capymanga    / Search  j Down  k Up                                                                                   │
+    │  Capymanga powered by Mangadex     / Search  j Down  k Up                                                              │
     │                                                                                                                        │
     │                                                                                                                        │
     │                                                                                                                        │
@@ -46,7 +46,7 @@ let%expect_test "Initial load" =
     ([manga_search] (title ()))
     ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
     │                                                                                                                        │
-    │  Capymanga ⣾  / Search  j Down  k Up                                                                                   │
+    │  Capymanga powered by Mangadex  ⣾  / Search  j Down  k Up                                                              │
     │                                                                                                                        │
     │  │ One-Punch Man  AWARD WINNING   SCI-FI   GORE   MONSTERS   ACTION   COMEDY   +7 tags                                 │
     │  │ After rigorously training for three years, the ordinary...                                                          │
@@ -130,7 +130,7 @@ let%expect_test "About page" =
     {|
     ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
     │                                                                                                                        │
-    │  Capymanga    / Search  j Down  k Up                                                                                   │
+    │  Capymanga powered by Mangadex     / Search  j Down  k Up                                                              │
     │                                                                                                                        │
     │  │ One-Punch Man  AWARD WINNING   SCI-FI   GORE   MONSTERS   ACTION   COMEDY   +7 tags                                 │
     │  │ After rigorously training for three years, the ordinary...                                                          │
@@ -171,7 +171,7 @@ let%expect_test "About page" =
     {|
     ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
     │                                                                                                                        │
-    │  Capymanga    / Search  j Down  k Up                       ............................................................│
+    │  Capymanga powered by Mangadex     / Search  j Down  k Up  ............................................................│
     │                                                            ............................................................│
     │  │ One-Punch Man  AWARD WINNING   SCI-FI   GORE   MONSTERS ............................................................│
     │  │ After rigorously training for three years, the ordinary.............................................................│
