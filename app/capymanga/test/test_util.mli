@@ -17,6 +17,7 @@ val create_handle
   -> ?manga_cover:Outside_world.Manga_cover.t Value.t
   -> ?author:Outside_world.Author.t Value.t
   -> ?chapter_feed:Outside_world.Chapter_feed.t Value.t
+  -> ?scanlation_group:Outside_world.Scanlation_group.t Value.t
   -> ?initial_dimensions:Dimensions.t
   -> unit
   -> (Result_spec.t, Result_spec.incoming) Handle.t

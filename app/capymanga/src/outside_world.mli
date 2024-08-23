@@ -33,3 +33,9 @@ module Chapter_feed :
 
 module Chapter_images :
   S with type t = chapter_id:string -> Chapter_images.t Or_error.t Effect.t
+
+module Scanlation_group :
+  S
+  with type t =
+    scanlation_group_id:string
+    -> Scanlation_group.t Entity.t Or_error.t Effect.t

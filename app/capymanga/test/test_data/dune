@@ -12,6 +12,7 @@
   ./one_punch_man_cover_test_data.json
   ./mangadex_author_test_data.json
   ./mob_psycho_mangadex_chapter_feed_test_data.json
+  ./mangadex_scanlation_group_test_data.json
   ;;
   )
  (action

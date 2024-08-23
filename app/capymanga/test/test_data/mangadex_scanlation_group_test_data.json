@@ -1,0 +1,60 @@
+{
+  "result": "ok",
+  "response": "entity",
+  "data": {
+    "id": "c6202414-0711-49f1-a63d-47b1169aff0a",
+    "type": "scanlation_group",
+    "attributes": {
+      "name": "Hunlight Scans",
+      "altNames": [],
+      "locked": true,
+      "website": "https://hunlight.com",
+      "ircServer": null,
+      "ircChannel": null,
+      "discord": "HFHfTVz",
+      "contactEmail": null,
+      "description": "Hunlight-Scans    We are here to provide best quality chapters for our readers and to have a good time.  Join our disco rd for all annoucements and join de group~ We're always recruitin'.  (The website is live again!)",
+      "twitter": null,
+      "mangaUpdates": null,
+      "focusedLanguages": ["en"],
+      "official": false,
+      "verified": false,
+      "inactive": false,
+      "publishDelay": null,
+      "exLicensed": false,
+      "createdAt": "2021-04-19T21:45:59+00:00",
+      "updatedAt": "2024-04-20T17:10:20+00:00",
+      "version": 13
+    },
+    "relationships": [
+      {
+        "id": "2006fa73-4d6a-4067-b95a-d12fd0e615ca",
+        "type": "leader"
+      },
+      {
+        "id": "1d19b8f3-a31a-4f21-a70c-68aa2c5dfc72",
+        "type": "member"
+      },
+      {
+        "id": "2006fa73-4d6a-4067-b95a-d12fd0e615ca",
+        "type": "member"
+      },
+      {
+        "id": "38187d63-8df9-4233-bbce-31273fe5b110",
+        "type": "member"
+      },
+      {
+        "id": "389b35ff-7ce8-420c-85b7-ee4769183530",
+        "type": "member"
+      },
+      {
+        "id": "656cc30c-7f81-428f-a0c8-a0ac4edf59f2",
+        "type": "member"
+      },
+      {
+        "id": "a449e779-d748-4e41-ba78-a6999b382589",
+        "type": "member"
+      }
+    ]
+  }
+}

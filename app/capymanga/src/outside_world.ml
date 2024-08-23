@@ -156,3 +156,26 @@ module Chapter_images = Make (struct
         ()
     ;;
   end)
+
+module Scanlation_group = Make (struct
+    type t =
+      scanlation_group_id:string
+      -> Scanlation_group.t Entity.t Or_error.t Effect.t
+
+    let name = "mangadex-scanlation-group"
+
+    let unregistered : t =
+      fun ~scanlation_group_id ->
+      raise_s
+        [%message
+          "mangadex-scanlation-group error! handler was never registered!"
+            (scanlation_group_id : string)]
+    ;;
+
+    let real : t =
+      fun ~scanlation_group_id ->
+      Effect.of_deferred_fun
+        (fun () -> Mangadex_api.Scanlation_group.get ~scanlation_group_id)
+        ()
+    ;;
+  end)
