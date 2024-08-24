@@ -68,3 +68,6 @@ dune build
 ```sh
 ./_build/default/app/capymanga/bin/main.exe
 ```
+
+8. For convenience, rather than typing the long path each time, you can also run
+   `make run` to run capymanga.
