@@ -49,7 +49,7 @@ cd capy
 5. Install capymanga's dependencies:
 
 ```sh
-make install
+opam install . --deps-only --with-test
 ```
 
 6. Build capymanga with [dune](https://dune.build/). `dune` is OCaml's "build
@@ -58,7 +58,7 @@ make install
    `dune` to build capymanga with:
 
 ```sh
-make build
+dune build
 ```
 
 7. Assuming that the above step succeeded, `dune` will place the things it
@@ -66,5 +66,8 @@ make build
    capymanga with:
 
 ```sh
-make run
+./_build/default/app/capymanga/bin/main.exe
 ```
+
+8. For convenience, rather than typing the long path each time, you can also run
+   `make run` to run capymanga.
