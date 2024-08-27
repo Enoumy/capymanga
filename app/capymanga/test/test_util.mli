@@ -18,6 +18,7 @@ val create_handle
   -> ?author:Outside_world.Author.t Value.t
   -> ?chapter_feed:Outside_world.Chapter_feed.t Value.t
   -> ?scanlation_group:Outside_world.Scanlation_group.t Value.t
+  -> ?chapter_images:Outside_world.Chapter_images.t Value.t
   -> ?initial_dimensions:Dimensions.t
   -> unit
   -> (Result_spec.t, Result_spec.incoming) Handle.t
