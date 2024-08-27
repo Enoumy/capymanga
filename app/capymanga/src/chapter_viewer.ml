@@ -118,7 +118,15 @@ let image_viewer
     let%arr dimensions = dimensions
     and url = url
     and is_fullscreen = is_full_screen in
-    let dimensions = { dimensions with height = dimensions.height - 2 } in
+    (* NOTE: We subtract 2 from the height and the width so that tmux works
+       properly. There seems to be some misunderstanding between kitty and
+       tmux on where the screen starts and ends leading to funny visual
+       artifacts. *)
+    let dimensions =
+      { Dimensions.height = dimensions.height - 2
+      ; width = dimensions.width - 2
+      }
+    in
     { Image.url
     ; row = (if is_fullscreen then 1 else 3)
     ; column = 0
