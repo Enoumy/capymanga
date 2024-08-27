@@ -123,9 +123,7 @@ let image_viewer
        tmux on where the screen starts and ends leading to funny visual
        artifacts. *)
     let dimensions =
-      { Dimensions.height = dimensions.height - 2
-      ; width = dimensions.width - 2
-      }
+      { Dimensions.height = dimensions.height - 2; width = dimensions.width }
     in
     { Image.url
     ; row = (if is_fullscreen then 1 else 3)

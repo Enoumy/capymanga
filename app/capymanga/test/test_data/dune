@@ -13,6 +13,7 @@
   ./mangadex_author_test_data.json
   ./mob_psycho_mangadex_chapter_feed_test_data.json
   ./mangadex_scanlation_group_test_data.json
+  ./mangadex_manga_chapter_images_dummy.json
   ;;
   )
  (action

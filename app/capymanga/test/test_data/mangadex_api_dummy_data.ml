@@ -40,3 +40,10 @@ let scanlation_group_dummy_response : Scanlation_group.t Entity.t Lazy.t =
        (Yojson.Safe.from_string
           Embedded_files.mangadex_scanlation_group_test_data_dot_json))
 ;;
+
+let mangadex_dummy_chapter_images : Chapter_images.t Lazy.t =
+  lazy
+    (Chapter_images.t_of_yojson
+       (Yojson.Safe.from_string
+          Embedded_files.mangadex_manga_chapter_images_dummy_dot_json))
+;;
