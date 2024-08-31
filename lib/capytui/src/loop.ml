@@ -12,23 +12,39 @@ let clear_images () =
 
 let draw_command_for_image
   { Image.row; column; url; dimensions = { height; width }; scale }
+  ~use_wezterm
   =
-  let args =
-    List.concat
-      [ [ "kitten"; "icat"; "--silent" ]
-      ; (if scale then [ "--scale-up" ] else [])
-      ; [ "--place"
-        ; [%string "'%{width#Int}x%{height#Int}@%{column#Int}x%{row#Int}'"]
-        ; [%string "'%{url}'"]
-        ]
-      ]
-  in
-  String.concat ~sep:" " args ^ " >/dev/tty </dev/tty 2>/dev/null"
+    if not use_wezterm then
+      let args =
+        List.concat
+          [ [ "kitten"; "icat"; "--silent" ]
+          ; (if scale then [ "--scale-up" ] else [])
+          ; [ "--place"
+            ; [%string "'%{width#Int}x%{height#Int}@%{column#Int}x%{row#Int}'"]
+            ; [%string "'%{url}'"]
+            ]
+          ]
+      in
+      String.concat ~sep:" " args ^ " >/dev/tty </dev/tty 2>/dev/null"
+    else
+      let args =
+        List.concat
+          [ [ "wezterm"; "imgcat"; "--silent" ]
+          ; (if scale then [ "--scale" ] else [])
+          ; [ "--position"
+            ; [%string "'%{column#Int},%{row#Int}'"]
+            ; [%string "--width '%{width#Int}"]
+            ; [%string "--height '%{height#Int}"]
+            ; [%string "'%{url}'"]
+            ]
+          ]
+      in
+      String.concat ~sep:" " args ^ " >/dev/tty </dev/tty 2>/dev/null"
 ;;
 
-let draw_images images =
+let draw_images images ~use_wezterm =
   (* TODO: Currently drawing images is really slow and blocks user input. *)
-  if true then clear_images ();
+  if not use_wezterm then clear_images ();
   match images with
   | [] -> None
   (* TODO: This was an attempt at making a cancellable image renderer. The
@@ -42,7 +58,7 @@ let draw_images images =
     (*  | `In_the_parent pid -> Some pid *)
     (*  | `In_the_child -> *)
     List.iter images ~f:(fun image ->
-      let _ : _ = Sys_unix.command (draw_command_for_image image) in
+      let _ : _ = Sys_unix.command (draw_command_for_image image ~use_wezterm) in
       ());
     None
 ;;
@@ -54,6 +70,7 @@ let start
   ; bpaste
   ; optimize
   ; target_frames_per_second
+  ; use_wezterm
   ; app
   }
   =
@@ -102,7 +119,7 @@ let start
     let draw_process_pid : Pid.t option =
       if is_first_frame
          || not ([%equal: Image.t list] (snd result) (snd prev_result))
-      then draw_images images
+      then draw_images images ~use_wezterm
       else None
     in
     let go () = go ~draw_process_pid in
@@ -145,6 +162,7 @@ let start
   ?bpaste
   ?(optimize = true)
   ?(target_frames_per_second = 60)
+  ?(use_wezterm = false)
   (app : (Node.t * Image.t list) Computation.t)
   =
   Deferred.Or_error.try_with (fun () ->
@@ -156,6 +174,7 @@ let start
         ~bpaste
         ~optimize
         ~target_frames_per_second
+        ~use_wezterm
         ~app
     in
     start params)

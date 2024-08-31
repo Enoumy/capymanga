@@ -11,6 +11,7 @@ val start
   -> ?bpaste:bool
   -> ?optimize:bool
   -> ?target_frames_per_second:int
+  -> ?use_wezterm:bool
   -> Node.t Bonsai.Computation.t
   -> unit Async.Deferred.Or_error.t
 
@@ -21,6 +22,7 @@ val start_with_images
   -> ?bpaste:bool
   -> ?optimize:bool
   -> ?target_frames_per_second:int
+  -> ?use_wezterm:bool
   -> (Node.t * Image.t list) Bonsai.Computation.t
   -> unit Async.Deferred.Or_error.t
 

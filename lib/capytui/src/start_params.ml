@@ -8,6 +8,7 @@ type t =
   ; bpaste : bool option
   ; optimize : bool
   ; target_frames_per_second : int
+  ; use_wezterm: bool 
   ; app : (Node.t * Image.t list) Computation.t
   }
 
@@ -18,6 +19,7 @@ let sanity_check_exn
   ; bpaste = _
   ; optimize = _
   ; target_frames_per_second
+  ; use_wezterm = _
   ; app = _
   }
   =
@@ -37,6 +39,7 @@ let create_exn
   ~bpaste
   ~optimize
   ~target_frames_per_second
+  ~use_wezterm
   ~app
   =
   let out =
@@ -46,6 +49,7 @@ let create_exn
     ; bpaste
     ; optimize
     ; target_frames_per_second
+    ; use_wezterm
     ; app
     }
   in
