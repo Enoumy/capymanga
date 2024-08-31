@@ -2,6 +2,29 @@ open! Core
 open Bonsai
 open Async
 
+module Stubs = struct
+  external rows : unit -> int = "caml_ioctl_winsz_rows"
+  external cols : unit -> int = "caml_ioctl_winsz_cols"
+  external xpixels : unit -> int = "caml_ioctl_winsz_xpixels"
+  external ypixels : unit -> int = "caml_ioctl_winsz_ypixels"
+end
+
+type window =
+  { rows : int
+  ; cols : int
+  ; xpixels : int
+  ; ypixels : int
+  }
+
+let get_window () =
+  let open Stubs in
+  let rows : int = rows ()
+  and cols : int = cols ()
+  and xpixels : int = xpixels ()
+  and ypixels : int = ypixels () in
+  { rows; cols; xpixels; ypixels }
+;;
+
 let clear_images () =
   let _ : _ =
     Sys_unix.command
@@ -14,32 +37,52 @@ let draw_command_for_image
   { Image.row; column; url; dimensions = { height; width }; scale }
   ~use_wezterm
   =
-    if not use_wezterm then
-      let args =
-        List.concat
-          [ [ "kitten"; "icat"; "--silent" ]
-          ; (if scale then [ "--scale-up" ] else [])
-          ; [ "--place"
-            ; [%string "'%{width#Int}x%{height#Int}@%{column#Int}x%{row#Int}'"]
-            ; [%string "'%{url}'"]
-            ]
+  if not use_wezterm
+  then (
+    let args =
+      List.concat
+        [ [ "kitten"; "icat"; "--silent" ]
+        ; (if scale then [ "--scale-up" ] else [])
+        ; [ "--place"
+          ; [%string "'%{width#Int}x%{height#Int}@%{column#Int}x%{row#Int}'"]
+          ; [%string "'%{url}'"]
           ]
+        ]
+    in
+    String.concat ~sep:" " args ^ " >/dev/tty </dev/tty 2>/dev/null")
+  else (
+    let _r_width, _r_height =
+      let window = get_window () in
+      let height =
+        Int.of_float
+          (0.5
+           *. Int.to_float window.ypixels
+           *. (Int.to_float height /. Int.to_float window.rows))
       in
-      String.concat ~sep:" " args ^ " >/dev/tty </dev/tty 2>/dev/null"
-    else
-      let args =
-        List.concat
-          [ [ "wezterm"; "imgcat"; "--silent" ]
-          ; (if scale then [ "--scale" ] else [])
-          ; [ "--position"
-            ; [%string "'%{column#Int},%{row#Int}'"]
-            ; [%string "--width '%{width#Int}"]
-            ; [%string "--height '%{height#Int}"]
-            ; [%string "'%{url}'"]
-            ]
+      let width =
+        Int.of_float
+          (0.5
+           *. Int.to_float window.xpixels
+           *. (Int.to_float width /. Int.to_float window.cols))
+      in
+      width, height
+    in
+    let args =
+      List.concat
+        [ [ [%string "curl -s '%{url}' > /tmp/capy-img && "]
+          ; "wezterm"
+          ; "imgcat"
           ]
-      in
-      String.concat ~sep:" " args ^ " >/dev/tty </dev/tty 2>/dev/null"
+        ; [ "--position"
+          ; [%string "'%{column#Int},%{row#Int}'"]
+            (* ; [%string "--width '%{width#Int}'"] *)
+          ; [%string "--height '%{height#Int}'"]
+            (* ; [%string "--resize '%{r_width#Int}x%{r_height#Int}'"] *)
+          ; "/tmp/capy-img"
+          ]
+        ]
+    in
+    String.concat ~sep:" " args ^ " >/dev/tty </dev/tty 2>/dev/null")
 ;;
 
 let draw_images images ~use_wezterm =
@@ -58,7 +101,9 @@ let draw_images images ~use_wezterm =
     (*  | `In_the_parent pid -> Some pid *)
     (*  | `In_the_child -> *)
     List.iter images ~f:(fun image ->
-      let _ : _ = Sys_unix.command (draw_command_for_image image ~use_wezterm) in
+      let _ : _ =
+        Sys_unix.command (draw_command_for_image image ~use_wezterm)
+      in
       ());
     None
 ;;
