@@ -14,6 +14,7 @@ let start
   ?bpaste
   ?optimize
   ?target_frames_per_second
+  ?use_wezterm
   (app : Node.t Bonsai.Computation.t)
   =
   Loop.start
@@ -23,6 +24,7 @@ let start
     ?bpaste
     ?optimize
     ?target_frames_per_second
+    ?use_wezterm
     (Bonsai.Computation.map app ~f:(fun app -> app, []))
 ;;
 

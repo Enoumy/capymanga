@@ -1,5 +1,8 @@
 (library
  (name capytui)
  (libraries core bonsai.driver bonsai notty notty.unix core_unix async)
+ (foreign_stubs
+  (language c)
+  (names stubs))
  (preprocess
   (pps ppx_jane bonsai.ppx_bonsai)))

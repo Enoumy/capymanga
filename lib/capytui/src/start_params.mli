@@ -8,6 +8,7 @@ type t = private
   ; bpaste : bool option
   ; optimize : bool
   ; target_frames_per_second : int
+  ; use_wezterm: bool
   ; app : (Node.t * Image.t list) Computation.t
   }
 
@@ -18,5 +19,6 @@ val create_exn
   -> bpaste:bool option
   -> optimize:bool
   -> target_frames_per_second:int
+  -> use_wezterm: bool
   -> app:(Node.t * Image.t list) Computation.t
   -> t

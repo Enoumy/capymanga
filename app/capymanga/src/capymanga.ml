@@ -54,7 +54,8 @@ let command =
   Command.async_or_error
     ~summary:{|Capy manga!|}
     [%map_open.Command
-      let () = return () in
+      let () = return ()
+      and use_wezterm = flag "use-wezterm" no_arg ~doc:" Use wezterm to render images" in
       fun () ->
         let open Deferred.Or_error.Let_syntax in
         let app =
@@ -66,7 +67,7 @@ let command =
           |> Outside_world.Chapter_images.register_real
           |> Outside_world.Scanlation_group.register_real
         in
-        let%bind () = Capytui.start_with_images app in
+        let%bind () = Capytui.start_with_images app ~use_wezterm in
         Deferred.Or_error.return ()]
 ;;
 
