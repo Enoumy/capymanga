@@ -230,7 +230,7 @@ let table
         match inject_scroller with
         | None -> Effect.Ignore
         | Some inject_scroller ->
-          inject_scroller (Scroller.Scroll_to { top; bottom })
+          inject_scroller (Capytui_scroller.Scroll_to { top; bottom })
       in
       { Action.time_source; manga_collection; scroll_into_view; dimensions }
     in
@@ -288,7 +288,7 @@ let table
   in
   let%sub { view; inject = inject_scroller; less_keybindings_handler = _ } =
     Bonsai.scope_model (module String) ~on:manga_title
-    @@ Scroller.component ~dimensions view
+    @@ Capytui_scroller.component ~dimensions view
   in
   let%sub () =
     let%sub on_activate =

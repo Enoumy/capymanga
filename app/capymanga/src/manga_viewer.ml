@@ -348,7 +348,7 @@ let sidebar
       ; width = dimensions.width
       }
     in
-    Scroller.component ~dimensions view
+    Capytui_scroller.component ~dimensions view
   in
   let%sub view =
     let%arr sexp_view = sexp_view

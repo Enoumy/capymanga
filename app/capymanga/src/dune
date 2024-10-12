@@ -6,6 +6,7 @@
   notty
   capytui
   capytui_catpuccin
+  capytui_scroller
   mangadex_api
   bonsai.extra)
  (preprocess

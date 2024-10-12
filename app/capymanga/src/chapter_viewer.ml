@@ -218,7 +218,7 @@ let component ~dimensions ~chapter ~go_back =
                 (Util.normalize_string_lossy line)))
       in
       let%sub { view; inject = _; less_keybindings_handler } =
-        Scroller.component ~dimensions view
+        Capytui_scroller.component ~dimensions view
       in
       let%arr view = view
       and less_keybindings_handler = less_keybindings_handler in
