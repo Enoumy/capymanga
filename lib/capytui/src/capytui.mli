@@ -6,4 +6,5 @@ module Event = Event
 module Position = Position
 module Effect = Effect
 module Image = Image
+module Component = Component
 include module type of Capy

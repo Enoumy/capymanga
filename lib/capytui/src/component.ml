@@ -1,5 +1,4 @@
 open! Core
-open Capytui
 
 type t =
   { view : Node.t
