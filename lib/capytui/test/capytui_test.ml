@@ -22,42 +22,72 @@ module Box = struct
 end
 
 module Result_spec = struct
-  type t =
-    { image : Notty.image
+  type ('a, 'incoming) t =
+    { a : 'a
+    ; to_image : 'a -> Notty.image
     ; set_dimensions : Dimensions.t -> unit Effect.t
     ; dimensions : Dimensions.t
     ; broadcast_event : Event.t -> unit Effect.t
+    ; handle_incoming : 'a -> 'incoming -> unit Effect.t
     }
 
-  type incoming =
+  type 'a incoming =
     | Set_dimensions of { dimensions : Dimensions.t }
     | Broadcast_event of { event : Event.t }
+    | External_event of 'a
 
   let view
-    { image
+    { a
+    ; to_image
     ; set_dimensions = _
     ; dimensions = { width; height }
     ; broadcast_event = _
+    ; handle_incoming = _
     }
     =
     let buffer = Buffer.create 100 in
-    Notty.Render.to_buffer buffer Notty.Cap.dumb (0, 0) (width, height) image;
+    Notty.Render.to_buffer
+      buffer
+      Notty.Cap.dumb
+      (0, 0)
+      (width, height)
+      (to_image a);
     let string = Buffer.contents buffer in
     let string = Box.surround { width; height } string in
     string
   ;;
 
-  let incoming { image = _; set_dimensions; dimensions = _; broadcast_event }
+  let incoming
+    { a
+    ; to_image = _
+    ; set_dimensions
+    ; dimensions = _
+    ; broadcast_event
+    ; handle_incoming
+    }
     = function
     | Set_dimensions { dimensions } -> set_dimensions dimensions
     | Broadcast_event { event } -> broadcast_event event
+    | External_event e -> handle_incoming a e
   ;;
 end
 
-let create_handle
+let create_handle_generic
+  (type a incoming)
   ?(initial_dimensions : Dimensions.t = { height = 40; width = 80 })
+  ~to_image
+  ~handle_incoming
   component
   =
+  let module Outer_result_spec = Result_spec in
+  let module Result_spec = struct
+    type t = (a, incoming) Result_spec.t
+    type nonrec incoming = incoming Result_spec.incoming
+
+    let view = Result_spec.view
+    let incoming = Result_spec.incoming
+  end
+  in
   Bonsai_test.Handle.create
     (module Result_spec)
     (let open Bonsai.Let_syntax in
@@ -66,14 +96,29 @@ let create_handle
        Dimensions.Private.variable
        dimensions
        ~inside:
-         (let%sub { result = image; broadcast_event } =
+         (let%sub { result = a; broadcast_event } =
             Event.Private.register component
           in
-          let%arr image = image
+          let%arr a = a
           and set_dimensions = set_dimensions
           and dimensions = dimensions
           and broadcast_event = broadcast_event in
-          { Result_spec.image; set_dimensions; dimensions; broadcast_event }))
+          { Outer_result_spec.a
+          ; to_image
+          ; set_dimensions
+          ; dimensions
+          ; broadcast_event
+          ; handle_incoming
+          }))
+;;
+
+let create_handle ?initial_dimensions component =
+  create_handle_generic
+    ?initial_dimensions
+    component
+    ~to_image:Fn.id
+    ~handle_incoming:(fun _ (nothing : Nothing.t) ->
+      match nothing with _ -> .)
 ;;
 
 let set_dimensions handle dimensions =
@@ -82,4 +127,10 @@ let set_dimensions handle dimensions =
 
 let send_event handle event =
   Handle.do_actions handle [ Result_spec.Broadcast_event { event } ]
+;;
+
+let do_actions handle actions =
+  Handle.do_actions
+    handle
+    (List.map actions ~f:(fun x -> Result_spec.External_event x))
 ;;
