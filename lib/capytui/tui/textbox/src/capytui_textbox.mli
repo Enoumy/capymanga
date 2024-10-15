@@ -10,6 +10,8 @@ type t =
   }
 
 val component
-  :  ?extra_attrs:Attr.t list Value.t
+  :  ?cursor_attrs:Attr.t list Value.t
+  -> ?text_attrs:Attr.t list Value.t
   -> is_focused:bool Value.t
+  -> unit
   -> t Computation.t

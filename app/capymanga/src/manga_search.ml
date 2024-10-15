@@ -76,12 +76,14 @@ let component ~dimensions ~set_page ~title =
           ; set
           }
     =
-    let%sub extra_attrs =
+    let%sub text_attrs =
       let%arr flavor = flavor in
-      [ Attr.background_color (Catpuccin.color ~flavor Base) ]
+      [ Attr.background_color (Catpuccin.color ~flavor Base)
+      ; Attr.foreground_color (Catpuccin.color ~flavor Text)
+      ]
     in
     let%map.Computation input =
-      Text_box.component ~extra_attrs ~is_focused:textbox_is_focused
+      Capytui_textbox.component ~text_attrs ~is_focused:textbox_is_focused ()
     and flavor = return flavor in
     let space =
       Node.text
