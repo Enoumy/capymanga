@@ -20,8 +20,8 @@ module Result_spec = struct
     }
 
   type incoming =
-    | Set_dimensions of { dimensions : Dimensions.t }
-    | Set_offset of { offset : Offset.t }
+    | Set_dimensions of Dimensions.t
+    | Set_offset of Offset.t
 
   let to_image t = t.view
 
@@ -30,8 +30,8 @@ module Result_spec = struct
     (action : incoming)
     =
     match action with
-    | Set_dimensions { dimensions } -> set_dimensions dimensions
-    | Set_offset { offset } -> set_offset offset
+    | Set_dimensions dimensions -> set_dimensions dimensions
+    | Set_offset offset -> set_offset offset
   ;;
 end
 
@@ -48,7 +48,7 @@ let component =
   let%sub scroller = Capytui_scroller.component ~dimensions content in
   let%sub view =
     let%arr { view; _ } = scroller
-    and { Offset.left; top } = offset in
+    and { left; top } = offset in
     Node.pad ~l:left ~t:top view
   in
   let%arr scroller = scroller
@@ -58,7 +58,7 @@ let component =
   { Result_spec.scroller; set_dimensions; set_offset; view }
 ;;
 
-let%expect_test "dummy print" =
+let%expect_test "Sanity printing the handle." =
   let handle =
     Capytui_test.create_handle_generic
       ~initial_dimensions:{ height = 10; width = 40 }
@@ -85,9 +85,7 @@ let%expect_test "dummy print" =
   (* We make the scrollable container smaller. *)
   Capytui_test.do_actions
     handle
-    [ Result_spec.Set_dimensions
-        { dimensions = { Dimensions.height = 5; width = 40 } }
-    ];
+    [ Set_dimensions { height = 5; width = 40 } ];
   Handle.show handle;
   [%expect
     {|
@@ -103,9 +101,37 @@ let%expect_test "dummy print" =
     │                                        │
     └────────────────────────────────────────┘
   |}];
+  Capytui_test.do_actions handle [ Set_offset { left = 0; top = 2 } ];
+  Handle.show handle;
+  [%expect
+    {|
+    ┌────────────────────────────────────────┐
+    │                                        │
+    │                                        │
+    │0                                       │
+    │1                                       │
+    │2                                       │
+    │3                                       │
+    │4                                       │
+    │                                        │
+    │                                        │
+    └────────────────────────────────────────┘
+    |}]
+;;
+
+let%expect_test "Sanity printing the handle." =
+  let handle =
+    Capytui_test.create_handle_generic
+      ~initial_dimensions:{ height = 10; width = 40 }
+      ~to_image:Result_spec.to_image
+      ~handle_incoming:Result_spec.incoming
+      component
+  in
   Capytui_test.do_actions
     handle
-    [ Result_spec.Set_offset { offset = { left = 0; top = 2 } } ];
+    [ Set_dimensions { height = 5; width = 40 }
+    ; Set_offset { left = 0; top = 2 }
+    ];
   Handle.show handle;
   [%expect
     {|
