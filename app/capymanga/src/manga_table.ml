@@ -87,11 +87,11 @@ module Action = struct
         | Bottom -> { last_top_press = None; focus = bottom_most }
         | Down_half_page ->
           { last_top_press = None
-          ; focus = Int.min bottom_most (focus + (dimensions.height / 2))
+          ; focus = Int.min bottom_most (focus + (dimensions.height / 6))
           }
         | Up_half_page ->
           { last_top_press = None
-          ; focus = Int.max 0 (focus - (dimensions.height / 2))
+          ; focus = Int.max 0 (focus - (dimensions.height / 6))
           }
       in
       if not (focus = new_model.focus)
