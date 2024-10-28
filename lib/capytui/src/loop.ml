@@ -5,7 +5,7 @@ open Async
 let clear_images () =
   let _ : _ =
     Sys_unix.command
-      "kitten  icat --clear --silent >/dev/tty </dev/tty 2>/dev/null"
+      "kitty +kitten icat --clear --silent >/dev/tty </dev/tty 2>/dev/null"
   in
   ()
 ;;
@@ -15,7 +15,7 @@ let draw_command_for_image
   =
   let args =
     List.concat
-      [ [ "kitten"; "icat"; "--silent" ]
+      [ [ "kitty" ; "+kitten"; "icat"; "--silent" ]
       ; (if scale then [ "--scale-up" ] else [])
       ; [ "--place"
         ; [%string "'%{width#Int}x%{height#Int}@%{column#Int}x%{row#Int}'"]
