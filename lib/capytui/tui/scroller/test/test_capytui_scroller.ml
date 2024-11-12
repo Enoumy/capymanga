@@ -635,7 +635,9 @@ let%expect_test "Testing the injection function" =
     handle
     [ Inject (Scroll_to { top = 100; bottom = 300 }) ];
   Handle.show handle;
-  (* NOTE: When the range is bigger than the viewport we go to the bottom. Not totally sure if this is ideal in all situations though at least there is a test showing this... *)
+  (* NOTE: When the range is bigger than the viewport we go to the bottom.
+     Not totally sure if this is ideal in all situations though at least
+     there is a test showing this... *)
   [%expect
     {|
     ┌────────────────────────────────────────┐
@@ -654,7 +656,8 @@ let%expect_test "Testing the injection function" =
     handle
     [ Inject (Scroll_to { top = 100; bottom = 300 }) ];
   Handle.show handle;
-  [%expect {|
+  [%expect
+    {|
     ┌────────────────────────────────────────┐
     │                                        │
     │                                        │

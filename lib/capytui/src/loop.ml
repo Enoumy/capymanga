@@ -15,7 +15,7 @@ let draw_command_for_image
   =
   let args =
     List.concat
-      [ [ "kitty" ; "+kitten"; "icat"; "--silent" ]
+      [ [ "kitty"; "+kitten"; "icat"; "--silent" ]
       ; (if scale then [ "--scale-up" ] else [])
       ; [ "--place"
         ; [%string "'%{width#Int}x%{height#Int}@%{column#Int}x%{row#Int}'"]
