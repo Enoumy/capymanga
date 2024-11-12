@@ -348,7 +348,7 @@ let sidebar
       ; width = dimensions.width
       }
     in
-    Scroller.component ~dimensions view
+    Capytui_scroller.component ~dimensions view
   in
   let%sub view =
     let%arr sexp_view = sexp_view
@@ -419,11 +419,13 @@ let component ~dimensions ~(manga : Manga.t Value.t) ~set_page ~go_back =
           ; set = _
           }
     =
-    let%sub extra_attrs =
+    let%sub text_attrs =
       let%arr flavor = flavor in
-      [ Attr.background_color (Catpuccin.color ~flavor Base) ]
+      [ Attr.background_color (Catpuccin.color ~flavor Base)
+      ; Attr.foreground_color (Catpuccin.color ~flavor Text)
+      ]
     in
-    Text_box.component ~extra_attrs ~is_focused:is_textbox_focused
+    Capytui_textbox.component ~text_attrs ~is_focused:is_textbox_focused ()
   in
   let%sub top_bar =
     Top_bar.component

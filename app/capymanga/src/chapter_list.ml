@@ -217,7 +217,7 @@ let component
         (Util.normalize_string_lossy string)
     in
     let%sub { view; inject = _; less_keybindings_handler } =
-      Scroller.component ~dimensions view
+      Capytui_scroller.component ~dimensions view
     in
     let%arr view = view
     and less_keybindings_handler = less_keybindings_handler in
@@ -261,7 +261,7 @@ let component
           match inject_scroller with
           | None -> Effect.Ignore
           | Some inject_scroller ->
-            inject_scroller (Scroller.Scroll_to { top; bottom })
+            inject_scroller (Capytui_scroller.Scroll_to { top; bottom })
         in
         { Action.time_source; chapter_list; scroll_into_view; dimensions }
       in
@@ -359,7 +359,7 @@ let component
       Node.pad ~l:2 @@ Node.vcat lines
     in
     let%sub { view; inject = inject_scroller; less_keybindings_handler = _ } =
-      Scroller.component ~dimensions view
+      Capytui_scroller.component ~dimensions view
     in
     let%sub () =
       let%sub on_activate =

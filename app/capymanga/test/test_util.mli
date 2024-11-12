@@ -21,4 +21,6 @@ val create_handle
   -> ?chapter_images:Outside_world.Chapter_images.t Value.t
   -> ?initial_dimensions:Dimensions.t
   -> unit
-  -> (Result_spec.t, Result_spec.incoming) Handle.t
+  -> ( (Notty.image, Nothing.t) Result_spec.t
+       , Nothing.t Result_spec.incoming )
+       Handle.t

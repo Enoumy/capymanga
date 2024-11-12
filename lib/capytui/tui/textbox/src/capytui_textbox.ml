@@ -17,7 +17,12 @@ type action =
   | Clear
   | Set of string
 
-let component ?(extra_attrs = Value.return []) ~is_focused =
+let component
+  ?(cursor_attrs = Value.return [])
+  ?(text_attrs = Value.return [])
+  ~is_focused
+  ()
+  =
   let%sub string, inject =
     Bonsai.state_machine0
       ~default_model:""
@@ -46,6 +51,7 @@ let component ?(extra_attrs = Value.return []) ~is_focused =
   let%sub handler =
     let%arr inject = inject in
     fun (event : Event.t) ->
+      (* TODO: Implement the abilityof moving the cursor around. *)
       match event with
       | `Mouse _ | `Paste _ -> Effect.Ignore
       | `Key (`ASCII char, []) -> inject (Char char)
@@ -55,15 +61,15 @@ let component ?(extra_attrs = Value.return []) ~is_focused =
       | _ -> Effect.Ignore
   in
   let%sub view =
-    let%sub text = Text.component in
     let%arr string = string
-    and text = text
     and is_focused = is_focused
-    and extra_attrs = extra_attrs in
+    and cursor_attrs = cursor_attrs
+    and text_attrs = text_attrs in
     Node.hcat
-      [ text ~attrs:extra_attrs string
+      [ Node.text ~attrs:text_attrs string
       ; (if is_focused
-         then text ~attrs:[ Attr.reverse; Attr.blink ] " "
+         then
+           Node.text ~attrs:(cursor_attrs @ [ Attr.reverse; Attr.blink ]) " "
          else Node.none)
       ]
   in
