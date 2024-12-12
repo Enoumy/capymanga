@@ -1,0 +1,3 @@
+(executable
+ (name main)
+ (libraries mandelbrot core_unix.command_unix))

@@ -1,0 +1,5 @@
+(library
+ (name mandelbrot)
+ (libraries core bonsai capytui async capytui_catpuccin)
+ (preprocess
+  (pps ppx_jane bonsai.ppx_bonsai)))
