@@ -1,0 +1,5 @@
+(library
+ (name capytui_scrollable_list)
+ (libraries core bonsai capytui)
+ (preprocess
+  (pps ppx_jane bonsai.ppx_bonsai)))
