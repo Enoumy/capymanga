@@ -56,6 +56,10 @@ jobs:
         with:
           ocaml-compiler: "5.1"
 
+      - run: opam switch create 5.2.0+flambda2 --repos with-extensions=git+https://github.com/janestreet/opam-repository.git#with-extensions,default
+
+      - run: bash -c "eval $(opam env --switch 5.2.0+flambda2)"
+
       - uses: ocaml/setup-ocaml/lint-doc@v3
 
   lint-fmt:
@@ -68,5 +72,9 @@ jobs:
         uses: ocaml/setup-ocaml@v3
         with:
           ocaml-compiler: "5.1"
+
+      - run: opam switch create 5.2.0+flambda2 --repos with-extensions=git+https://github.com/janestreet/opam-repository.git#with-extensions,default
+
+      - run: bash -c "eval $(opam env --switch 5.2.0+flambda2)"
 
       - uses: ocaml/setup-ocaml/lint-fmt@v3

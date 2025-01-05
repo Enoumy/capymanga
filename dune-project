@@ -26,8 +26,7 @@
   notty
   (yojson
    (= "2.2.2"))
-  (ppx_yojson_conv
-   (= "v0.18~preview.130.04+450"))
+  ppx_yojson_conv
   (bonsai
    (= "v0.18~preview.130.04+450"))
   (bonsai_test
