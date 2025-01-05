@@ -9,4 +9,8 @@ module Kind : sig
     | Fixed (* Loading... *)
 end
 
-val component : kind:Kind.t -> string Value.t -> Node.t Computation.t
+val component
+  :  kind:Kind.t
+  -> string Bonsai.t
+  -> local_ Bonsai.graph
+  -> Node.t Bonsai.t

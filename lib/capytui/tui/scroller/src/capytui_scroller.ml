@@ -117,44 +117,39 @@ let use_less_keybindings
   | _ -> Effect.Ignore
 ;;
 
-let component ~dimensions node =
-  let%sub content_height =
-    let%arr node = node in
+let component ~dimensions node (local_ graph) =
+  let content_height =
+    let%arr node in
     Node.height node
   in
   let%sub { offset; last_time_g_was_pressed = _ }, inject =
-    let%sub input =
-      let%sub time_source = Bonsai.Incr.with_clock Ui_incr.return in
-      let%arr content_height = content_height
-      and dimensions = dimensions
-      and time_source = time_source in
+    let input =
+      let time_source = Bonsai.Incr.with_clock ~f:Ui_incr.return graph in
+      let%arr content_height and dimensions and time_source in
       { content_height; dimensions; time_source }
     in
-    Bonsai.state_machine1
-      ~default_model:{ offset = 0; last_time_g_was_pressed = None }
-      ~apply_action
-      input
+    Tuple2.uncurry Bonsai.both
+    @@ Bonsai.state_machine1
+         ~default_model:{ offset = 0; last_time_g_was_pressed = None }
+         ~apply_action
+         input
+         graph
   in
-  let%sub view =
-    let%arr node = node
-    and offset = offset
-    and content_height = content_height
-    and dimensions = dimensions in
+  let view =
+    let%arr node and offset and content_height and dimensions in
     let view = Node.crop ~t:offset node in
     Node.crop
       ~b:(Int.max 0 (content_height - dimensions.Dimensions.height - offset))
       view
   in
-  let%sub less_keybindings_handler =
-    let%arr inject = inject in
+  let less_keybindings_handler =
+    let%arr inject in
     fun event -> use_less_keybindings event inject
   in
-  let%sub inject =
-    let%arr inject = inject in
+  let inject =
+    let%arr inject in
     fun action -> inject (Public_action action)
   in
-  let%arr view = view
-  and inject = inject
-  and less_keybindings_handler = less_keybindings_handler in
+  let%arr view and inject and less_keybindings_handler in
   { view; inject; less_keybindings_handler }
 ;;

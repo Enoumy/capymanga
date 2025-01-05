@@ -7,4 +7,4 @@ type 'a t =
   ; go_back : unit Effect.t
   }
 
-val component : 'a -> 'a t Computation.t
+val component : 'a -> local_ Bonsai.graph -> 'a t Bonsai.t

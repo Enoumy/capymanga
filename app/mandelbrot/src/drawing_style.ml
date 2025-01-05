@@ -13,19 +13,21 @@ type action =
   | Next
   | Prev
 
-let component =
+let component (local_ graph) =
   let all = Array.of_list all in
-  let%sub current, inject =
+  let current, inject =
     Bonsai.state_machine0
       ~default_model:0
       ~apply_action:(fun _ x action ->
         let offset = match action with Prev -> -1 | Next -> 1 in
         (x + offset) % Array.length all)
-      ()
+      graph
   in
-  let%arr current = current
-  and inject = inject in
-  all.(current), inject
+  let current =
+    let%arr current in
+    all.(current)
+  in
+  current, inject
 ;;
 
 let iter_on_pixels result ~f =
@@ -38,12 +40,12 @@ let iter_on_pixels result ~f =
   Node.vcat rows
 ;;
 
-let draw t =
-  let%sub text = Text.component in
-  let%sub flavor = Capytui_catpuccin.flavor in
+let draw t (local_ graph) =
+  let text = Text.component graph in
+  let flavor = Capytui_catpuccin.flavor graph in
   match%sub t with
   | Basic ->
-    let%arr text = text in
+    let%arr text in
     fun ~max_iterations result ->
       let string =
         String.concat_array ~sep:"\n"
@@ -54,8 +56,7 @@ let draw t =
       in
       Node.vcat (String.split ~on:'\n' string |> List.map ~f:text)
   | Unicode ->
-    let%arr text = text
-    and flavor = flavor in
+    let%arr text and flavor in
     fun ~max_iterations result ->
       iter_on_pixels result ~f:(fun iteration ->
         if iteration > max_iterations / 2
@@ -67,7 +68,7 @@ let draw t =
             " "
         else text " ")
   | Green ->
-    let%arr text = text in
+    let%arr text in
     fun ~max_iterations result ->
       iter_on_pixels result ~f:(fun iteration ->
         let quotient =

@@ -49,7 +49,6 @@ module Root_event : sig
 end
 
 module Private : sig
-  open Bonsai
 
   type action =
     | On_change of
@@ -58,12 +57,12 @@ module Private : sig
         }
     | Deactivate of { bonsai_path : string }
 
-  val listener_registry_variable : (action -> unit Effect.t) Dynamic_scope.t
+  val listener_registry_variable : (action -> unit Effect.t) Bonsai.Dynamic_scope.t
 
   type 'a handle =
     { result : 'a
     ; broadcast_event : t -> unit Effect.t
     }
 
-  val register : 'a Computation.t -> 'a handle Computation.t
+  val register : (local_ Bonsai.graph -> 'a Bonsai.t) -> (local_ Bonsai.graph -> 'a handle Bonsai.t)
 end

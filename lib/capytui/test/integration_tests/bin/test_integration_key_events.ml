@@ -50,15 +50,15 @@ let render_event : Event.t -> Node.t =
   | `Paste (`Start | `End) -> Node.hcat [ green "Paste" ]
 ;;
 
-let app =
-  let%sub events, add_event =
+let app (local_ graph) =
+  let events, add_event =
     Bonsai.state_machine0
       ~default_model:[]
       ~apply_action:(fun _ events event -> event :: List.take events 30)
-      ()
+      graph
   in
-  let%sub () = Capytui.listen_to_events add_event in
-  let%arr events = events in
+  let () = Capytui.listen_to_events add_event graph in
+  let%arr events in
   let dim =
     Node.vcat
       (Node.text "Press some keys!" :: List.map events ~f:render_event)

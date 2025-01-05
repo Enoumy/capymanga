@@ -12,8 +12,11 @@ type action =
   | Next
   | Prev
 
-val component : (t * (action -> unit Effect.t)) Computation.t
+val component
+  :  local_ Bonsai.graph
+  -> t Bonsai.t * (action -> unit Effect.t) Bonsai.t
 
 val draw
-  :  t Value.t
-  -> (max_iterations:int -> int array array -> Node.t) Computation.t
+  :  t Bonsai.t
+  -> local_ Bonsai.graph
+  -> (max_iterations:int -> int array array -> Node.t) Bonsai.t

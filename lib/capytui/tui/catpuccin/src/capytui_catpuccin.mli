@@ -50,10 +50,11 @@ end
 include Comparable.S_plain with type t := t
 
 val color : flavor:Flavor.t -> t -> Attr.Color.t
-val color' : t Value.t -> Attr.Color.t Computation.t
-val flavor : Flavor.t Computation.t
+val color' : t Bonsai.t -> local_ Bonsai.graph -> Attr.Color.t Bonsai.t
+val flavor : local_ Bonsai.graph -> Flavor.t Bonsai.t
 
 val set_flavor_within
-  :  Flavor.t Value.t
-  -> 'a Computation.t
-  -> 'a Computation.t
+  :  Flavor.t Bonsai.t
+  -> (local_ Bonsai.graph -> 'a Bonsai.t)
+  -> local_ Bonsai.graph
+  -> 'a Bonsai.t

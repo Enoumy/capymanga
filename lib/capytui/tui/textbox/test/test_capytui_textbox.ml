@@ -27,23 +27,21 @@ module Result_spec = struct
   ;;
 end
 
-let component =
-  let%sub is_focused, set_is_focused = Bonsai.state false in
-  let%sub textbox = Capytui_textbox.component ~is_focused () in
-  let%sub view =
+let component (local_ graph) =
+  let is_focused, set_is_focused = Bonsai.state false graph in
+  let textbox = Capytui_textbox.component ~is_focused graph in
+  let view =
     let%arr { string; view; handler = _; set = _ } = textbox in
     Node.vcat [ view; Node.text [%string "Inputed string: \"%{string}\""] ]
   in
-  let%sub () =
+  let () =
     let%sub listener =
       let%arr { handler; _ } = textbox in
       handler
     in
-    Capytui.listen_to_events listener
+    Capytui.listen_to_events listener graph
   in
-  let%arr textbox = textbox
-  and set_is_focused = set_is_focused
-  and view = view in
+  let%arr textbox and set_is_focused and view in
   { Result_spec.textbox; view; set_is_focused }
 ;;
 

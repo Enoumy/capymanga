@@ -10,27 +10,27 @@ type t =
   ; is_focuseable : bool
   }
 
-let chapter_list ~(manga : Manga.t Value.t) =
-  let%sub chapters, set_chapters = Bonsai.state_opt () in
-  let%sub manga_id =
-    let%arr manga = manga in
+let chapter_list ~(manga : Manga.t Bonsai.t) (local_ graph) =
+  let chapters, set_chapters = Bonsai.state_opt graph in
+  let manga_id =
+    let%arr manga in
     manga.id
   in
   let%sub () =
     match%sub chapters with
-    | None -> Loading_state.i_am_loading
-    | Some _ -> Bonsai.const ()
+    | None ->
+      Loading_state.i_am_loading graph;
+      Bonsai.return ()
+    | Some _ -> Bonsai.return ()
   in
-  let%sub on_activate =
-    let%sub get = Outside_world.Chapter_feed.component in
-    let%arr get = get
-    and set_chapters = set_chapters
-    and manga_id = manga_id in
+  let on_activate =
+    let get = Outside_world.Chapter_feed.component graph in
+    let%arr get and set_chapters and manga_id in
     let%bind.Effect response = get ~manga_id ~ascending:true () in
     set_chapters (Some response)
   in
-  let%sub () = Bonsai.Edge.lifecycle ~on_activate () in
-  return chapters
+  let () = Bonsai.Edge.lifecycle ~on_activate graph in
+  chapters
 ;;
 
 module Action = struct
@@ -106,9 +106,12 @@ module Action = struct
   ;;
 end
 
-let scanlation_groups ~(chapter_list : Chapter.t Collection.t Value.t) =
-  let%sub ids =
-    let%arr chapter_list = chapter_list in
+let scanlation_groups
+  ~(chapter_list : Chapter.t Collection.t Bonsai.t)
+  (local_ graph)
+  =
+  let ids =
+    let%arr chapter_list in
     Set.of_list
       (module String)
       (List.filter_map
@@ -120,22 +123,21 @@ let scanlation_groups ~(chapter_list : Chapter.t Collection.t Value.t) =
            id)
          chapter_list.data)
   in
-  let%sub flavor = Catpuccin.flavor in
+  let flavor = Catpuccin.flavor graph in
   Bonsai.assoc_set
     (module String)
     ids
-    ~f:(fun scanlation_group_id ->
-      let%sub scanlation_group =
-        Scanlation_group_cache.fetch ~scanlation_group_id
+    ~f:(fun scanlation_group_id (local_ graph) ->
+      let scanlation_group =
+        Scanlation_group_cache.fetch ~scanlation_group_id graph
       in
       match%sub scanlation_group with
       | None ->
-        Computation.map
-          (Spinner.component ~kind:Dot (Value.return ""))
+        Bonsai.map
+          (Spinner.component ~kind:Dot (Bonsai.return "") graph)
           ~f:(fun x ~is_focused:_ -> x)
       | Some scanlation_group ->
-        let%arr scanlation_group = scanlation_group
-        and flavor = flavor in
+        let%arr scanlation_group and flavor in
         fun ~is_focused ->
           (match scanlation_group with
            | Error error ->
@@ -179,57 +181,52 @@ let scanlation_groups ~(chapter_list : Chapter.t Collection.t Value.t) =
                  " scanlation by "
              in
              Node.hcat [ by; group ]))
+    graph
 ;;
 
 let component
-  :  is_focused:bool Value.t -> dimensions:Dimensions.t Value.t
-  -> grab_focus:unit Effect.t Value.t
-  -> set_page:(replace:bool -> Page.t -> unit Effect.t) Value.t
-  -> Manga.t Value.t -> t Computation.t
+  :  is_focused:bool Bonsai.t -> dimensions:Dimensions.t Bonsai.t
+  -> grab_focus:unit Effect.t Bonsai.t
+  -> set_page:(replace:bool -> Page.t -> unit Effect.t) Bonsai.t
+  -> Manga.t Bonsai.t -> local_ Bonsai.graph -> t Bonsai.t
   =
-  fun ~is_focused ~dimensions ~grab_focus ~set_page manga ->
-  let%sub chapter_list = chapter_list ~manga in
-  let%sub text = Text.component in
-  let%sub flavor = Catpuccin.flavor in
+  fun ~is_focused ~dimensions ~grab_focus ~set_page manga (local_ graph) ->
+  let chapter_list = chapter_list ~manga graph in
+  let text = Text.component graph in
+  let flavor = Catpuccin.flavor graph in
   match%sub chapter_list with
   | None ->
-    let%sub view =
-      Spinner.component ~kind:Dot (Value.return "Loading chapters...")
+    let view =
+      Spinner.component ~kind:Dot (Bonsai.return "Loading chapters...") graph
     in
-    let%sub view =
-      let%arr view = view
-      and dimensions = dimensions in
+    let view =
+      let%arr view and dimensions in
       Node.center ~within:dimensions view
     in
-    let%arr view = view in
+    let%arr view in
     { component =
         { view; images = []; handler = (fun (_ : Event.t) -> Effect.Ignore) }
     ; is_focuseable = false
     }
   | Some (Error error) ->
-    let%sub view =
-      let%arr text = text
-      and error = error
-      and flavor = flavor in
+    let view =
+      let%arr text and error and flavor in
       let string = Sexp.to_string_hum [%sexp (error : Error.t)] in
       text
         ~attrs:[ Attr.foreground_color (Catpuccin.color ~flavor Red) ]
         (Util.normalize_string_lossy string)
     in
     let%sub { view; inject = _; less_keybindings_handler } =
-      Capytui_scroller.component ~dimensions view
+      Capytui_scroller.component ~dimensions view graph
     in
-    let%arr view = view
-    and less_keybindings_handler = less_keybindings_handler in
+    let%arr view and less_keybindings_handler in
     { component =
         { Component.view; handler = less_keybindings_handler; images = [] }
     ; is_focuseable = false
     }
   | Some (Ok { data = []; _ }) ->
-    let%sub view =
-      let%arr text = text
-      and dimensions = dimensions
-      and flavor = flavor in
+    let view =
+      let%arr text and dimensions and flavor in
       Node.center
         ~within:dimensions
         (text
@@ -239,7 +236,7 @@ let component
              ]
            "no chapters :(")
     in
-    let%arr view = view in
+    let%arr view in
     { component =
         { Component.view
         ; images = []
@@ -248,15 +245,15 @@ let component
     ; is_focuseable = false
     }
   | Some (Ok chapter_list) ->
-    let%sub () = Bonsai.Edge.lifecycle ~on_activate:grab_focus () in
-    let%sub inject_scroller, set_inject_scroller = Bonsai.state_opt () in
+    let () = Bonsai.Edge.lifecycle ~on_activate:grab_focus graph in
+    let inject_scroller, set_inject_scroller = Bonsai.state_opt graph in
     let%sub { Action.focus; last_top_press = _ }, inject_focus =
-      let%sub time_source = Bonsai.Incr.with_clock Ui_incr.return in
-      let%sub input =
-        let%arr time_source = time_source
-        and chapter_list = chapter_list
-        and dimensions = dimensions
-        and inject_scroller = inject_scroller in
+      let time_source = Bonsai.Incr.with_clock ~f:Ui_incr.return graph in
+      let input =
+        let%arr time_source
+        and chapter_list
+        and dimensions
+        and inject_scroller in
         let scroll_into_view ~bottom ~top =
           match inject_scroller with
           | None -> Effect.Ignore
@@ -265,24 +262,30 @@ let component
         in
         { Action.time_source; chapter_list; scroll_into_view; dimensions }
       in
-      let%sub manga_id =
-        let%arr manga = manga in
+      let manga_id =
+        let%arr manga in
         manga.id
       in
-      Bonsai.scope_model (module Manga_id) ~on:manga_id
-      @@ Bonsai.state_machine1
-           ~default_model:{ Action.focus = 0; last_top_press = None }
-           ~apply_action:Action.apply_action
-           input
+      (Bonsai.scope_model
+         (module Manga_id)
+         ~on:manga_id
+         ~for_:(fun (local_ graph) ->
+           Tuple2.uncurry Bonsai.both
+           @@ Bonsai.state_machine1
+                ~default_model:{ Action.focus = 0; last_top_press = None }
+                ~apply_action:Action.apply_action
+                input
+                graph))
+        graph
     in
-    let%sub scanlation_groups = scanlation_groups ~chapter_list in
-    let%sub lines =
-      let%arr chapter_list = chapter_list
-      and text = text
-      and focus = focus
-      and flavor = flavor
-      and is_focused = is_focused
-      and scanlation_groups = scanlation_groups in
+    let scanlation_groups = scanlation_groups ~chapter_list graph in
+    let lines =
+      let%arr chapter_list
+      and text
+      and focus
+      and flavor
+      and is_focused
+      and scanlation_groups in
       let text ?attrs string =
         text ?attrs (Util.normalize_string_lossy string)
       in
@@ -355,33 +358,31 @@ let component
           ])
     in
     let%sub view =
-      let%arr lines = lines in
+      let%arr lines in
       Node.pad ~l:2 @@ Node.vcat lines
     in
     let%sub { view; inject = inject_scroller; less_keybindings_handler = _ } =
-      Capytui_scroller.component ~dimensions view
+      Capytui_scroller.component ~dimensions view graph
     in
-    let%sub () =
-      let%sub on_activate =
-        let%arr inject_scroller = inject_scroller
-        and set_inject_scroller = set_inject_scroller in
+    let () =
+      let on_activate =
+        let%arr inject_scroller and set_inject_scroller in
         set_inject_scroller (Some inject_scroller)
       in
-      Bonsai.Edge.lifecycle ~on_activate ()
+      Bonsai.Edge.lifecycle ~on_activate graph
     in
-    let%sub handler =
-      let%sub chapter_list = Bonsai.yoink chapter_list in
-      let%sub focus = Bonsai.yoink focus in
-      let%arr inject_focus = inject_focus
-      and inject_scroller = inject_scroller
-      and chapter_list = chapter_list
-      and focus = focus
-      and set_page = set_page in
+    let handler =
+      let chapter_list = Bonsai.peek chapter_list graph in
+      let focus = Bonsai.peek focus graph in
+      let%arr inject_focus
+      and inject_scroller
+      and chapter_list
+      and focus
+      and set_page in
       fun (event : Event.t) ->
         match event with
         | `Key (`Enter, []) ->
-          let%bind.Effect focus = focus
-          and chapter_list = chapter_list in
+          let%bind.Effect focus and chapter_list in
           (match focus, chapter_list with
            | Active focus, Active chapter_list ->
              (match List.nth chapter_list.data focus with
@@ -409,8 +410,7 @@ let component
         | `Key (`ASCII 'g', []) -> inject_focus Top
         | _ -> inject_focus Other_key_pressed
     in
-    let%arr view = view
-    and handler = handler in
+    let%arr view and handler in
     { component = { Component.view; handler; images = [] }
     ; is_focuseable = true
     }

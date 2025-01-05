@@ -4,11 +4,11 @@ open Bonsai.Let_syntax
 open Capytui
 module Catpuccin = Capytui_catpuccin
 
-let backdrop =
-  let%sub dimensions = Capytui.terminal_dimensions in
-  let%sub flavor = Catpuccin.flavor in
+let backdrop (local_ graph) =
+  let dimensions = Capytui.terminal_dimensions graph in
+  let flavor = Catpuccin.flavor graph in
   let%arr { height; width } = dimensions
-  and flavor = flavor in
+  and flavor in
   Node.vcat
     (List.init height ~f:(fun _ ->
        Node.text
@@ -16,36 +16,33 @@ let backdrop =
          (String.make width ' ')))
 ;;
 
-let content ~(page : Page.t Value.t) ~set_page ~go_back =
-  let%sub dimensions = Capytui.terminal_dimensions in
+let content ~(page : Page.t Bonsai.t) ~set_page ~go_back (local_ graph) =
+  let dimensions = Capytui.terminal_dimensions graph in
   let%sub { view; images; handler } =
     match%sub page with
     | Manga_search { title } ->
-      Manga_search.component ~dimensions ~title ~set_page
+      Manga_search.component ~dimensions ~title ~set_page graph
     | Manga_view { manga } ->
-      Manga_viewer.component ~dimensions ~manga ~set_page ~go_back
+      Manga_viewer.component ~dimensions ~manga ~set_page ~go_back graph
     | Chapter_view { chapter } ->
-      Chapter_viewer.component ~dimensions ~chapter ~go_back
-    | About_page -> About.component ~go_back
+      Chapter_viewer.component ~dimensions ~chapter ~go_back graph
+    | About_page -> About.component ~go_back graph
   in
-  let%sub () = Capytui.listen_to_events handler in
-  let%arr view = view
-  and images = images in
+  let () = Capytui.listen_to_events handler graph in
+  let%arr view and images in
   view, images
 ;;
 
 let app =
   Loading_state.register
   @@ Scanlation_group_cache.register
-  @@
+  @@ fun (local_ graph) ->
   let%sub { page; set_page; go_back } =
-    Navigation.component (Page.Manga_search { title = None })
+    Navigation.component (Page.Manga_search { title = None }) graph
   in
-  let%sub content, images = content ~page ~set_page ~go_back in
-  let%sub backdrop = backdrop in
-  let%arr backdrop = backdrop
-  and images = images
-  and content = content in
+  let%sub content, images = content ~page ~set_page ~go_back graph in
+  let%sub backdrop = backdrop graph in
+  let%arr backdrop and images and content in
   Node.zcat [ content; backdrop ], images
 ;;
 

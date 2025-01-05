@@ -54,16 +54,17 @@ module View_port = struct
     { center; scale; max_iterations }
   ;;
 
-  let component =
-    Bonsai.state_machine0 ~default_model:default ~apply_action ()
+  let component (local_ graph) =
+    Tuple2.uncurry Bonsai.both
+    @@ Bonsai.state_machine0 ~default_model:default ~apply_action graph
   ;;
 end
 
-let backdrop =
-  let%sub dimensions = Capytui.terminal_dimensions in
-  let%sub flavor = Capytui_catpuccin.flavor in
+let backdrop (local_ graph) =
+  let dimensions = Capytui.terminal_dimensions graph in
+  let flavor = Capytui_catpuccin.flavor graph in
   let%arr { height; width } = dimensions
-  and flavor = flavor in
+  and flavor in
   Node.vcat
     (List.init height ~f:(fun _ ->
        Node.text
@@ -72,13 +73,14 @@ let backdrop =
          (String.make width ' ')))
 ;;
 
-let app =
-  let%sub dimensions = Capytui.terminal_dimensions in
-  let%sub { center; scale; max_iterations }, inject = View_port.component in
-  let%sub drawing_style, inject_drawing_style = Drawing_style.component in
-  let%sub handler =
-    let%arr inject = inject
-    and inject_drawing_style = inject_drawing_style in
+let app (local_ graph) =
+  let dimensions = Capytui.terminal_dimensions graph in
+  let%sub { center; scale; max_iterations }, inject =
+    View_port.component graph
+  in
+  let drawing_style, inject_drawing_style = Drawing_style.component graph in
+  let handler =
+    let%arr inject and inject_drawing_style in
     fun (event : Event.t) ->
       match event with
       | `Key (`ASCII '+', []) -> inject Zoom_in
@@ -93,24 +95,18 @@ let app =
       | `Key (`ASCII 'N', []) -> inject_drawing_style Prev
       | _ -> Effect.Ignore
   in
-  let%sub () = Capytui.listen_to_events handler in
-  let%sub result =
-    let%arr dimensions = dimensions
-    and center = center
-    and scale = scale
-    and max_iterations = max_iterations in
+  let () = Capytui.listen_to_events handler graph in
+  let result =
+    let%arr dimensions and center and scale and max_iterations in
     Render.render ~center ~scale ~max_iterations ~dimensions
   in
-  let%sub draw = Drawing_style.draw drawing_style in
-  let%sub rendered =
-    let%arr result = result
-    and draw = draw
-    and max_iterations = max_iterations in
+  let draw = Drawing_style.draw drawing_style graph in
+  let rendered =
+    let%arr result and draw and max_iterations in
     draw ~max_iterations result
   in
-  let%sub backdrop = backdrop in
-  let%arr rendered = rendered
-  and backdrop = backdrop in
+  let backdrop = backdrop graph in
+  let%arr rendered and backdrop in
   Node.zcat [ rendered; backdrop ]
 ;;
 

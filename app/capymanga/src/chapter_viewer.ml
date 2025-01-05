@@ -5,23 +5,23 @@ open Bonsai.Let_syntax
 open Mangadex_api.Types
 module Catpuccin = Capytui_catpuccin
 
-let chapter_images ~(chapter_id : string Value.t) =
-  let%sub images, set_images = Bonsai.state_opt () in
+let chapter_images ~(chapter_id : string Bonsai.t) (local_ graph) =
+  let images, set_images = Bonsai.state_opt graph in
   let%sub () =
     match%sub images with
-    | None -> Loading_state.i_am_loading
-    | Some _ -> Bonsai.const ()
+    | None ->
+      Loading_state.i_am_loading graph;
+      Bonsai.return ()
+    | Some _ -> Bonsai.return ()
   in
-  let%sub on_activate =
-    let%sub get = Outside_world.Chapter_images.component in
-    let%arr get = get
-    and set_images = set_images
-    and chapter_id = chapter_id in
+  let on_activate =
+    let get = Outside_world.Chapter_images.component graph in
+    let%arr get and set_images and chapter_id in
     let%bind.Effect response = get ~chapter_id in
     set_images (Some response)
   in
-  let%sub () = Bonsai.Edge.lifecycle ~on_activate () in
-  return images
+  let () = Bonsai.Edge.lifecycle ~on_activate graph in
+  images
 ;;
 
 (* TODO: Consider making this a flag. *)
@@ -62,23 +62,22 @@ let render_progress ~flavor progress =
 ;;
 
 let image_viewer
-  ~(dimensions : Dimensions.t Value.t)
-  ~(chapter_images : Chapter_images.t Value.t)
-  ~(quality : image_quality Value.t)
-  ~(go_back : unit Effect.t Value.t)
-  ~(is_full_screen : bool Value.t)
+  ~(dimensions : Dimensions.t Bonsai.t)
+  ~(chapter_images : Chapter_images.t Bonsai.t)
+  ~(quality : image_quality Bonsai.t)
+  ~(go_back : unit Effect.t Bonsai.t)
+  ~(is_full_screen : bool Bonsai.t)
+  (local_ graph)
   =
-  let%sub images =
-    let%arr chapter_images = chapter_images
-    and quality = quality in
+  let images =
+    let%arr chapter_images and quality in
     match quality with
     | High -> Array.of_list chapter_images.chapter.data
     | Data_saver -> Array.of_list chapter_images.chapter.data_saver
   in
-  let%sub current_image_index, inject =
-    let%sub input =
-      let%arr images = images
-      and go_back = go_back in
+  let current_image_index, inject =
+    let input =
+      let%arr images and go_back in
       { images; go_back }
     in
     Bonsai.state_machine1
@@ -94,29 +93,26 @@ let image_viewer
              model
            | Next -> Int.min (Array.length images - 1) (model + 1)))
       input
+      graph
   in
-  let%sub current_image =
-    let%arr current_image_index = current_image_index
-    and images = images in
+  let current_image =
+    let%arr current_image_index and images in
     images.(current_image_index % Array.length images)
   in
   let%sub base_url, hash =
-    let%arr chapter_images = chapter_images in
+    let%arr chapter_images in
     chapter_images.base_url, chapter_images.chapter.hash
   in
-  let%sub url =
-    let%arr quality = quality
-    and current_image = current_image
-    and hash = hash
-    and base_url = base_url in
+  let url =
+    let%arr quality and current_image and hash and base_url in
     let quality =
       match quality with High -> "data" | Data_saver -> "data-saver"
     in
     [%string "%{base_url}/%{quality}/%{hash}/%{current_image}"]
   in
-  let%sub image =
-    let%arr dimensions = dimensions
-    and url = url
+  let image =
+    let%arr dimensions
+    and url
     and is_fullscreen = is_full_screen in
     (* NOTE: We subtract 2 from the height and the width so that tmux works
        properly. There seems to be some misunderstanding between kitty and
@@ -135,7 +131,7 @@ let image_viewer
     }
   in
   let%sub handler =
-    let%arr inject = inject in
+    let%arr inject in
     fun (event : Event.t) ->
       match event with
       | `Key ((`ASCII ('l' | ' ') | `Arrow `Right | `Enter), [])
@@ -145,139 +141,140 @@ let image_viewer
       | _ -> Effect.Ignore
   in
   let%sub progress =
-    let%arr current_image_index = current_image_index
-    and images = images in
+    let%arr current_image_index and images in
     { current_index = current_image_index; total = Array.length images }
   in
-  let%arr image = image
-  and handler = handler
-  and progress = progress in
+  let%arr image and handler and progress in
   { Component.view = Node.none; images = [ image ]; handler }, Some progress
 ;;
 
-let component ~dimensions ~chapter ~go_back =
-  let%sub flavor = Catpuccin.flavor in
-  let%sub text = Text.component in
-  let%sub chapter_id =
-    let%arr chapter = chapter in
+let component ~dimensions ~chapter ~go_back (local_ graph) =
+  let flavor = Catpuccin.flavor graph in
+  let text = Text.component graph in
+  let chapter_id =
+    let%arr chapter in
     chapter.Chapter.id
   in
-  let%sub is_full_screen, toggle_fullscreen =
+  let is_full_screen, toggle_fullscreen =
     Bonsai.state_machine0
       ~default_model:false
       ~apply_action:(fun _ current () -> not current)
-      ()
+      graph
   in
-  Bonsai.scope_model (module String) ~on:chapter_id
-  @@
-  let%sub dimensions =
-    let%arr dimensions = dimensions
-    and is_full_screen = is_full_screen in
-    if is_full_screen
-    then dimensions
-    else
-      { Dimensions.height = dimensions.Dimensions.height - 3
-      ; width = dimensions.width - 2
-      }
-  in
-  let%sub chapter_images = chapter_images ~chapter_id in
-  let%sub top_bar =
-    Top_bar.component
-      ~instructions:
-        (Value.return [ "Backspace", "go back"; "f", "go fullscreen" ])
-  in
-  let%sub { view; images; handler }, progress =
-    match%sub chapter_images with
-    | None ->
-      let%sub view =
-        Spinner.component ~kind:Dot (Value.return "Loading chapters...")
+  Bonsai.scope_model
+    (module String)
+    ~on:chapter_id
+    ~for_:(fun (local_ graph) ->
+      let dimensions =
+        let%arr dimensions and is_full_screen in
+        if is_full_screen
+        then dimensions
+        else
+          { Dimensions.height = dimensions.Dimensions.height - 3
+          ; width = dimensions.width - 2
+          }
       in
-      let%sub view =
-        let%arr view = view
-        and dimensions = dimensions in
-        Node.center ~within:dimensions view
+      let chapter_images = chapter_images ~chapter_id graph in
+      let top_bar =
+        Top_bar.component
+          ~instructions:
+            (Bonsai.return [ "Backspace", "go back"; "f", "go fullscreen" ])
+          graph
       in
-      let%arr view = view in
-      ( { Component.view
-        ; images = []
-        ; handler = (fun (_ : Event.t) -> Effect.Ignore)
-        }
-      , None )
-    | Some (Error error) ->
-      let%sub view =
-        let%arr text = text
-        and error = error
-        and flavor = flavor in
-        let string = Sexp.to_string_hum [%sexp (error : Error.t)] in
-        Node.vcat
-        @@ (String.split string ~on:'\n'
-            |> List.map ~f:(fun line ->
-              text
-                ~attrs:
-                  [ Attr.foreground_color (Catpuccin.color ~flavor Red) ]
-                (Util.normalize_string_lossy line)))
+      let%sub { view; images; handler }, progress =
+        match%sub chapter_images with
+        | None ->
+          let view =
+            Spinner.component
+              ~kind:Dot
+              (Bonsai.return "Loading chapters...")
+              graph
+          in
+          let view =
+            let%arr view and dimensions in
+            Node.center ~within:dimensions view
+          in
+          let%arr view in
+          ( { Component.view
+            ; images = []
+            ; handler = (fun (_ : Event.t) -> Effect.Ignore)
+            }
+          , None )
+        | Some (Error error) ->
+          let view =
+            let%arr text and error and flavor in
+            let string = Sexp.to_string_hum [%sexp (error : Error.t)] in
+            Node.vcat
+            @@ (String.split string ~on:'\n'
+                |> List.map ~f:(fun line ->
+                  text
+                    ~attrs:
+                      [ Attr.foreground_color (Catpuccin.color ~flavor Red) ]
+                    (Util.normalize_string_lossy line)))
+          in
+          let%sub { view; inject = _; less_keybindings_handler } =
+            Capytui_scroller.component ~dimensions view graph
+          in
+          let%arr view and less_keybindings_handler in
+          ( { Component.view
+            ; handler = less_keybindings_handler
+            ; images = []
+            }
+          , None )
+        | Some
+            (Ok { chapter = { data = []; _ } | { data_saver = []; _ }; _ })
+          ->
+          let view =
+            let%arr text and dimensions and flavor in
+            Node.center
+              ~within:dimensions
+              (text
+                 ~attrs:
+                   [ Attr.foreground_color (Catpuccin.color ~flavor Mauve)
+                   ; Attr.bold
+                   ]
+                 "no chapters :(")
+          in
+          let%arr view in
+          ( { Component.view
+            ; images = []
+            ; handler = (fun _ -> Effect.Ignore)
+            }
+          , None )
+        | Some (Ok chapter_images) ->
+          image_viewer
+            ~dimensions
+            ~is_full_screen
+            ~chapter_images
+            ~quality:(Bonsai.return Data_saver)
+            ~go_back
+            graph
       in
-      let%sub { view; inject = _; less_keybindings_handler } =
-        Capytui_scroller.component ~dimensions view
+      let handler =
+        let%arr handler and go_back and toggle_fullscreen in
+        fun (event : Event.t) ->
+          match event with
+          | `Key (`Backspace, []) -> go_back
+          | `Key (`ASCII ('f' | 'F'), []) -> toggle_fullscreen ()
+          | event -> handler event
       in
-      let%arr view = view
-      and less_keybindings_handler = less_keybindings_handler in
-      ( { Component.view; handler = less_keybindings_handler; images = [] }
-      , None )
-    | Some (Ok { chapter = { data = []; _ } | { data_saver = []; _ }; _ }) ->
-      let%sub view =
-        let%arr text = text
-        and dimensions = dimensions
-        and flavor = flavor in
-        Node.center
-          ~within:dimensions
-          (text
-             ~attrs:
-               [ Attr.foreground_color (Catpuccin.color ~flavor Mauve)
-               ; Attr.bold
-               ]
-             "no chapters :(")
+      let top_bar =
+        let%arr progress
+        and top_bar
+        and flavor
+        and text
+        and is_full_screen in
+        match progress, is_full_screen with
+        | None, _ -> top_bar
+        | Some progress, true -> render_progress ~flavor progress
+        | Some progress, false ->
+          Node.hcat [ top_bar; text " "; render_progress ~flavor progress ]
       in
-      let%arr view = view in
-      ( { Component.view; images = []; handler = (fun _ -> Effect.Ignore) }
-      , None )
-    | Some (Ok chapter_images) ->
-      image_viewer
-        ~dimensions
-        ~is_full_screen
-        ~chapter_images
-        ~quality:(Value.return Data_saver)
-        ~go_back
-  in
-  let%sub handler =
-    let%arr handler = handler
-    and go_back = go_back
-    and toggle_fullscreen = toggle_fullscreen in
-    fun (event : Event.t) ->
-      match event with
-      | `Key (`Backspace, []) -> go_back
-      | `Key (`ASCII ('f' | 'F'), []) -> toggle_fullscreen ()
-      | event -> handler event
-  in
-  let%sub top_bar =
-    let%arr progress = progress
-    and top_bar = top_bar
-    and flavor = flavor
-    and text = text
-    and is_full_screen = is_full_screen in
-    match progress, is_full_screen with
-    | None, _ -> top_bar
-    | Some progress, true -> render_progress ~flavor progress
-    | Some progress, false ->
-      Node.hcat [ top_bar; text " "; render_progress ~flavor progress ]
-  in
-  let%sub view =
-    let%arr view = view
-    and top_bar = top_bar in
-    Node.pad ~l:2 ~t:1 @@ Node.vcat [ top_bar; Node.text ""; view ]
-  in
-  let%arr view = view
-  and images = images
-  and handler = handler in
-  { Component.view; images; handler }
+      let view =
+        let%arr view and top_bar in
+        Node.pad ~l:2 ~t:1 @@ Node.vcat [ top_bar; Node.text ""; view ]
+      in
+      let%arr view and images and handler in
+      { Component.view; images; handler })
+    graph
 ;;

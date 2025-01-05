@@ -18,12 +18,12 @@ type action =
   | Set of string
 
 let component
-  ?(cursor_attrs = Value.return [])
-  ?(text_attrs = Value.return [])
+  ?(cursor_attrs = Bonsai.return [])
+  ?(text_attrs = Bonsai.return [])
   ~is_focused
-  ()
+  (local_ graph)
   =
-  let%sub string, inject =
+  let string, inject =
     Bonsai.state_machine0
       ~default_model:""
       ~apply_action:(fun _ (model : string) (action : action) ->
@@ -42,14 +42,14 @@ let component
           (* NOTE: This is O(n^2) and also sad... *)
           model ^ Uchar.Utf8.to_string uchar
         | Set s -> s)
-      ()
+      graph
   in
-  let%sub set =
-    let%arr inject = inject in
+  let set =
+    let%arr inject in
     fun value -> inject (Set value)
   in
-  let%sub handler =
-    let%arr inject = inject in
+  let handler =
+    let%arr inject in
     fun (event : Event.t) ->
       (* TODO: Implement the abilityof moving the cursor around. *)
       match event with
@@ -60,11 +60,8 @@ let component
       | `Key (`Backspace, []) -> inject Backspace
       | _ -> Effect.Ignore
   in
-  let%sub view =
-    let%arr string = string
-    and is_focused = is_focused
-    and cursor_attrs = cursor_attrs
-    and text_attrs = text_attrs in
+  let view =
+    let%arr string and is_focused and cursor_attrs and text_attrs in
     Node.hcat
       [ Node.text ~attrs:text_attrs string
       ; (if is_focused
@@ -73,9 +70,6 @@ let component
          else Node.none)
       ]
   in
-  let%arr string = string
-  and view = view
-  and handler = handler
-  and set = set in
+  let%arr string and view and handler and set in
   { view; string; handler; set }
 ;;

@@ -3,9 +3,9 @@ open Capytui
 open Bonsai.Let_syntax
 module Catpuccin = Capytui_catpuccin
 
-let sexp_for_debugging =
-  let%sub flavor = Catpuccin.flavor in
-  let%arr flavor = flavor in
+let sexp_for_debugging (local_ graph) =
+  let flavor = Catpuccin.flavor graph in
+  let%arr flavor in
   fun ?(attrs = []) sexp ->
     Node.sexp_for_debugging
       ~attrs:

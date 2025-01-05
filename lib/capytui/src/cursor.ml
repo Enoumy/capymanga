@@ -17,14 +17,14 @@ let variable : (Position.t option -> unit Effect.t) Bonsai.Dynamic_scope.t =
 
 let set_cursor_position = Bonsai.Dynamic_scope.lookup variable
 
-let register term inside =
+let register term inside (local_ graph) =
   let value =
-    Bonsai.Value.return
+    Bonsai.return
       (Effect.of_sync_fun (fun position ->
          Term.cursor
            term
            (Option.map position ~f:(fun { Position.row; column } ->
               column, row))))
   in
-  Bonsai.Dynamic_scope.set variable value ~inside
+  Bonsai.Dynamic_scope.set variable value ~inside graph
 ;;

@@ -54,8 +54,6 @@ module Root_event = struct
 end
 
 module Private = struct
-  open Bonsai
-
   type action =
     | On_change of
         { bonsai_path : string
@@ -64,7 +62,7 @@ module Private = struct
     | Deactivate of { bonsai_path : string }
 
   let listener_registry_variable =
-    Dynamic_scope.create
+    Bonsai.Dynamic_scope.create
       ~name:"event handler"
       ~fallback:(fun (_ : action) ->
         let _ =
@@ -87,13 +85,16 @@ module Private = struct
     | Deactivate { bonsai_path } -> Core.Map.remove model bonsai_path
   ;;
 
-  let register app =
+  let register app (local_ graph) =
     let open Bonsai.Let_syntax in
-    let%sub handlers, inject =
-      Bonsai.state_machine0 ~default_model:String.Map.empty ~apply_action ()
+    let handlers, inject =
+      Bonsai.state_machine0
+        ~default_model:String.Map.empty
+        ~apply_action
+        graph
     in
-    let%sub broadcast_event =
-      let%arr handlers = handlers in
+    let broadcast_event =
+      let%arr handlers in
       fun event ->
         (* print_s [%message "" ~num_listeners:(Core.Map.length handlers :
            int)]; *)
@@ -101,11 +102,14 @@ module Private = struct
           (List.map (Core.Map.data handlers) ~f:(fun handler ->
              handler event))
     in
-    let%sub result =
-      Bonsai.Dynamic_scope.set listener_registry_variable inject ~inside:app
+    let result =
+      Bonsai.Dynamic_scope.set
+        listener_registry_variable
+        inject
+        ~inside:app
+        graph
     in
-    let%arr result = result
-    and broadcast_event = broadcast_event in
+    let%arr result and broadcast_event in
     { result; broadcast_event }
   ;;
 end

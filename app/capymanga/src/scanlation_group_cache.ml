@@ -14,52 +14,59 @@ let variable : memo option Bonsai.Dynamic_scope.t =
 ;;
 
 let memo
-  : (string, Scanlation_group.t Entity.t Or_error.t option) Bonsai.Memo.t
-      Computation.t
+  :  local_ Bonsai.graph
+  -> (string, Scanlation_group.t Entity.t Or_error.t option) Bonsai.Memo.t
+       Bonsai.t
   =
+  fun (local_ graph) ->
   Bonsai.Memo.create
     (module String)
-    ~f:(fun scanlation_group_id ->
-      let%sub response, set_response = Bonsai.state_opt () in
+    ~f:(fun scanlation_group_id (local_ graph) ->
+      let response, set_response = Bonsai.state_opt graph in
       let%sub () =
         match%sub response with
-        | None -> Loading_state.i_am_loading
-        | Some _ -> Bonsai.const ()
+        | None ->
+          Loading_state.i_am_loading graph;
+          Bonsai.return ()
+        | Some _ -> Bonsai.return ()
       in
-      let%sub on_activate =
-        let%sub scanlation_group =
-          Outside_world.Scanlation_group.component
+      let on_activate =
+        let scanlation_group =
+          Outside_world.Scanlation_group.component graph
         in
-        let%arr set_response = set_response
-        and scanlation_group = scanlation_group
-        and scanlation_group_id = scanlation_group_id in
+        let%arr set_response and scanlation_group and scanlation_group_id in
         let%bind.Effect response = scanlation_group ~scanlation_group_id in
         set_response (Some response)
       in
-      let%sub () = Bonsai.Edge.lifecycle ~on_activate () in
-      return response)
+      let () = Bonsai.Edge.lifecycle ~on_activate graph in
+      response)
+    graph
 ;;
 
-let register within =
-  let%sub memo = memo in
-  let%sub memo =
-    let%arr memo = memo in
+let register within (local_ graph) =
+  let memo = memo graph in
+  let memo =
+    let%arr memo in
     Some memo
   in
-  Bonsai.Dynamic_scope.set variable memo ~inside:within
+  Bonsai.Dynamic_scope.set variable memo ~inside:within graph
 ;;
 
-let fetch ~scanlation_group_id =
-  let%sub memo = Bonsai.Dynamic_scope.lookup variable in
+let fetch ~scanlation_group_id (local_ graph) =
+  let memo = Bonsai.Dynamic_scope.lookup variable graph in
   match%sub memo with
   | None ->
-    Bonsai.const
+    Bonsai.return
       (Some
          (Error
             (Error.of_string
                "BUG: scanlation group cache was never registered")))
   | Some memo ->
-    Computation.map
-      (Bonsai.Memo.lookup ~equal:[%equal: string] memo scanlation_group_id)
+    Bonsai.map
+      (Bonsai.Memo.lookup
+         ~equal:[%equal: string]
+         memo
+         scanlation_group_id
+         graph)
       ~f:Option.join
 ;;

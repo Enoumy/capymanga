@@ -2,7 +2,7 @@ open! Core
 open Bonsai
 open Capytui
 
-val app : (Node.t * Image.t list) Computation.t
+val app : local_ Bonsai.graph -> (Node.t * Image.t list) Bonsai.t
 val command : Command.t
 
 module For_testing : sig

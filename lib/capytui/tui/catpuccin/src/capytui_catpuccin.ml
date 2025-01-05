@@ -194,11 +194,10 @@ let variable =
     ()
 ;;
 
-let color' c =
+let color' c (local_ graph) =
   let open Bonsai.Let_syntax in
-  let%sub flavor = Bonsai.Dynamic_scope.lookup variable in
-  let%arr c = c
-  and flavor = flavor in
+  let flavor = Bonsai.Dynamic_scope.lookup variable graph in
+  let%arr c and flavor in
   Flavor.color flavor c
 ;;
 

@@ -41,35 +41,32 @@ module Result_spec = struct
   ;;
 end
 
-let component =
-  let%sub dimensions, set_dimensions =
-    Bonsai.state { Dimensions.height = 10; width = 40 }
+let component (local_ graph) =
+  let dimensions, set_dimensions =
+    Bonsai.state { Dimensions.height = 10; width = 40 } graph
   in
-  let%sub offset, set_offset = Bonsai.state { Offset.left = 0; top = 0 } in
-  let%sub content =
-    Bonsai.const
+  let offset, set_offset = Bonsai.state { Offset.left = 0; top = 0 } graph in
+  let content =
+    Bonsai.return
       (Node.vcat
          (List.init 1000 ~f:(fun i -> Node.text [%string "%{i#Int}"])))
   in
-  let%sub scroller = Capytui_scroller.component ~dimensions content in
-  let%sub view =
+  let scroller = Capytui_scroller.component ~dimensions content graph in
+  let view =
     let%arr { view; _ } = scroller
     and { left; top } = offset in
     Node.pad ~l:left ~t:top view
   in
-  let%sub () =
+  let () =
     let%sub listener =
       let%arr { less_keybindings_handler; inject = _; view = _ } =
         scroller
       in
       less_keybindings_handler
     in
-    Capytui.listen_to_events listener
+    Capytui.listen_to_events listener graph
   in
-  let%arr scroller = scroller
-  and set_dimensions = set_dimensions
-  and set_offset = set_offset
-  and view = view in
+  let%arr scroller and set_dimensions and set_offset and view in
   { Result_spec.scroller; set_dimensions; set_offset; view }
 ;;
 

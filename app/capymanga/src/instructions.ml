@@ -22,16 +22,14 @@ let render_instruction flavor key action =
     ]
 ;;
 
-let component instructions =
-  let%sub flavor = Catpuccin.flavor in
-  let%sub instructions =
-    let%arr instructions = instructions
-    and flavor = flavor in
+let component instructions (local_ graph) =
+  let flavor = Catpuccin.flavor graph in
+  let instructions =
+    let%arr instructions and flavor in
     List.map instructions ~f:(fun (key, action) ->
       render_instruction flavor key action)
   in
-  let%sub text = Text.component in
-  let%arr instructions = instructions
-  and text = text in
+  let text = Text.component graph in
+  let%arr instructions and text in
   Node.hcat (List.intersperse ~sep:(text "  ") instructions)
 ;;

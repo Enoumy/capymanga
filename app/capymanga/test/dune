@@ -1,12 +1,6 @@
 (library
  (name capymanga_test)
- (libraries
-  core
-  notty
-  bonsai
-  bonsai.test
-  capymanga
-  capytui_test
+ (libraries core notty bonsai bonsai_test capymanga capytui_test
   mangadex_api_dummy_data)
  (inline_tests)
  (preprocess

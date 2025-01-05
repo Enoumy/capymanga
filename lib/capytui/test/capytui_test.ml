@@ -91,25 +91,26 @@ let create_handle_generic
   Bonsai_test.Handle.create
     (module Result_spec)
     (let open Bonsai.Let_syntax in
-     let%sub dimensions, set_dimensions = Bonsai.state initial_dimensions in
-     Bonsai.Dynamic_scope.set
-       Dimensions.Private.variable
-       dimensions
-       ~inside:
-         (let%sub { result = a; broadcast_event } =
-            Event.Private.register component
-          in
-          let%arr a = a
-          and set_dimensions = set_dimensions
-          and dimensions = dimensions
-          and broadcast_event = broadcast_event in
-          { Outer_result_spec.a
-          ; to_image
-          ; set_dimensions
-          ; dimensions
-          ; broadcast_event
-          ; handle_incoming
-          }))
+     fun (local_ graph) ->
+       let dimensions, set_dimensions =
+         Bonsai.state initial_dimensions graph
+       in
+       Bonsai.Dynamic_scope.set
+         Dimensions.Private.variable
+         dimensions
+         ~inside:(fun (local_ graph) ->
+           let%sub { result = a; broadcast_event } =
+             Event.Private.register component graph
+           in
+           let%arr a and set_dimensions and dimensions and broadcast_event in
+           { Outer_result_spec.a
+           ; to_image
+           ; set_dimensions
+           ; dimensions
+           ; broadcast_event
+           ; handle_incoming
+           })
+         graph)
 ;;
 
 let create_handle ?initial_dimensions component =

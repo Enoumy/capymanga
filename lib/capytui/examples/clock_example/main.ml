@@ -23,13 +23,13 @@ let render_time_of_day (time_of_day : Time_ns.Ofday.t) =
     (Time_ns.Ofday.to_sec_string time_of_day)
 ;;
 
-let clock_app =
-  let%sub now =
-    Bonsai.Clock.approx_now ~tick_every:(Time_ns.Span.of_sec 1.0)
+let clock_app (local_ graph) =
+  let now =
+    Bonsai.Clock.approx_now ~tick_every:(Time_ns.Span.of_sec 1.0) graph
   in
-  let%sub dimensions = terminal_dimensions in
+  let dimensions = terminal_dimensions graph in
   let%arr { width; height } = dimensions
-  and now = now in
+  and now in
   let date = Time_ns.to_date ~zone:(force Timezone.local) now in
   let date = render_date date in
   let time_of_day = Time_ns.to_ofday ~zone:(force Timezone.local) now in

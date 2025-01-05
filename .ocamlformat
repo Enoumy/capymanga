@@ -5,4 +5,3 @@ parse-docstrings = true
 wrap-comments = true
 line-endings = lf
 
-version = 0.26.2

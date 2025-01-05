@@ -5,16 +5,16 @@ open Bonsai.Let_syntax
 
 let%expect_test "Really basic sanity test" =
   let handle =
-    Capytui_test.create_handle
-      (let%sub dimensions = Capytui.terminal_dimensions in
-       let%arr dimensions = dimensions in
-       Node.sexp_for_debugging
-         [%message
-           (dimensions : Dimensions.t)
-             (dimensions : Dimensions.t)
-             (dimensions : Dimensions.t)
-             (dimensions : Dimensions.t)
-             (dimensions : Dimensions.t)])
+    Capytui_test.create_handle (fun (local_ graph) ->
+      let dimensions = Capytui.terminal_dimensions graph in
+      let%arr dimensions in
+      Node.sexp_for_debugging
+        [%message
+          (dimensions : Dimensions.t)
+            (dimensions : Dimensions.t)
+            (dimensions : Dimensions.t)
+            (dimensions : Dimensions.t)
+            (dimensions : Dimensions.t)])
   in
   Handle.show handle;
   [%expect
@@ -79,8 +79,8 @@ let%expect_test "Really basic sanity test" =
     |}]
 ;;
 
-let example_app =
-  let%sub dimensions = Capytui.terminal_dimensions in
+let example_app (local_ graph) =
+  let dimensions = Capytui.terminal_dimensions graph in
   let%arr { width; height } = dimensions in
   let number_attr =
     Attr.many [ Attr.foreground_color Attr.Color.blue; Attr.bold ]

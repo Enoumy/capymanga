@@ -3,27 +3,27 @@ open Bonsai
 
 module For_dimensions = struct
   type t =
-    { var : Dimensions.t Bonsai.Var.t
+    { var : Dimensions.t Bonsai.Expert.Var.t
     ; term : Term.t
     }
 
   let create ~term =
-    let var = Bonsai.Var.create (Term.dimensions term) in
+    let var = Bonsai.Expert.Var.create (Term.dimensions term) in
     { var; term }
   ;;
 
-  let set { var; term = _ } dimensions = Bonsai.Var.set var dimensions
+  let set { var; term = _ } dimensions = Bonsai.Expert.Var.set var dimensions
 
   let update ({ term; var } as t) =
     let new_dimensions = Term.dimensions term in
-    if not ([%equal: Dimensions.t] (Var.get var) new_dimensions)
+    if not ([%equal: Dimensions.t] (Expert.Var.get var) new_dimensions)
     then set t new_dimensions
   ;;
 
   let register { term = _; var } computation =
     Bonsai.Dynamic_scope.set
       Dimensions.Private.variable
-      (Bonsai.Var.value var)
+      (Bonsai.Expert.Var.value var)
       ~inside:computation
   ;;
 end

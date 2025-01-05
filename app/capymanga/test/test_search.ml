@@ -7,7 +7,7 @@ let%expect_test "Searching a new box" =
   let handle =
     Test_util.create_handle
       ~manga_search:
-        (Value.return
+        (Bonsai.return
          @@ fun ~title ->
          match title with
          | None -> Test_util.default_manga_search ~title

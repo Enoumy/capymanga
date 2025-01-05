@@ -36,9 +36,9 @@ let capybara =
               Node.text ~attrs:[ Attr.background_color colors.(index) ] "  "))))
 ;;
 
-let app =
-  let%sub dimensions = Capytui.terminal_dimensions in
-  let%arr dimensions = dimensions in
+let app (local_ graph) =
+  let dimensions = Capytui.terminal_dimensions graph in
+  let%arr dimensions in
   Node.center ~within:dimensions capybara
 ;;
 

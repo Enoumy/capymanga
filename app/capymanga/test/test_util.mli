@@ -13,12 +13,12 @@ val default_manga_search
   -> (Manga.t Collection.t, 'a) result Ui_effect.t
 
 val create_handle
-  :  ?manga_search:Outside_world.Manga_search.t Value.t
-  -> ?manga_cover:Outside_world.Manga_cover.t Value.t
-  -> ?author:Outside_world.Author.t Value.t
-  -> ?chapter_feed:Outside_world.Chapter_feed.t Value.t
-  -> ?scanlation_group:Outside_world.Scanlation_group.t Value.t
-  -> ?chapter_images:Outside_world.Chapter_images.t Value.t
+  :  ?manga_search:Outside_world.Manga_search.t Bonsai.t
+  -> ?manga_cover:Outside_world.Manga_cover.t Bonsai.t
+  -> ?author:Outside_world.Author.t Bonsai.t
+  -> ?chapter_feed:Outside_world.Chapter_feed.t Bonsai.t
+  -> ?scanlation_group:Outside_world.Scanlation_group.t Bonsai.t
+  -> ?chapter_images:Outside_world.Chapter_images.t Bonsai.t
   -> ?initial_dimensions:Dimensions.t
   -> unit
   -> ( (Notty.image, Nothing.t) Result_spec.t

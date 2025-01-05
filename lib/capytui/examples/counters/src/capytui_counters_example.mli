@@ -1,4 +1,4 @@
 open! Core
 
-val app : Capytui.Node.t Bonsai.Computation.t
+val app : local_ Bonsai.graph -> Capytui.Node.t Bonsai.t
 val command : Command.t

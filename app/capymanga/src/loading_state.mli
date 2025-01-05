@@ -1,6 +1,10 @@
 open! Core
 open Bonsai
 
-val register : 'a Computation.t -> 'a Computation.t
-val i_am_loading : unit Computation.t
-val is_something_loading : bool Computation.t
+val register
+  :  (local_ Bonsai.graph -> 'a Bonsai.t)
+  -> local_ Bonsai.graph
+  -> 'a Bonsai.t
+
+val i_am_loading : local_ Bonsai.graph -> unit
+val is_something_loading : local_ Bonsai.graph -> bool Bonsai.t

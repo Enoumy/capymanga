@@ -5,18 +5,17 @@ open Bonsai.Let_syntax
 module Catpuccin = Capytui_catpuccin
 open Mangadex_api.Types
 
-let manga_list title =
-  let%sub state, set_state = Bonsai.state_opt () in
-  let%sub effect =
-    let%sub search = Outside_world.Manga_search.component in
-    let%arr search = search in
+let manga_list title (local_ graph) =
+  let state, set_state = Bonsai.state_opt graph in
+  let effect =
+    let search = Outside_world.Manga_search.component graph in
+    let%arr search in
     fun title -> search ~title:(match title with "" -> None | x -> Some x)
   in
-  let%sub effect = Bonsai.Effect_throttling.poll effect in
-  let%sub () =
-    let%sub callback =
-      let%arr set_state = set_state
-      and effect = effect in
+  let effect = Bonsai.Effect_throttling.poll effect graph in
+  let () =
+    let callback =
+      let%arr set_state and effect in
       fun title ->
         let%bind.Effect () = set_state None in
         let%bind.Effect response = effect title in
@@ -24,9 +23,9 @@ let manga_list title =
         | Aborted -> Effect.Ignore
         | Finished response -> set_state (Some response)
     in
-    Bonsai.Edge.on_change ~equal:[%equal: string] title ~callback
+    Bonsai.Edge.on_change ~equal:[%equal: string] title ~callback graph
   in
-  return state
+  state
 ;;
 
 module Action = struct
@@ -217,15 +216,16 @@ let table
   ~textbox_is_focused
   ~set_page
   manga_collection
+  (local_ graph)
   =
-  let%sub inject_scroller, set_inject_scroller = Bonsai.state_opt () in
+  let inject_scroller, set_inject_scroller = Bonsai.state_opt graph in
   let%sub { Action.focus; last_top_press = _ }, inject_focus =
-    let%sub time_source = Bonsai.Incr.with_clock Ui_incr.return in
-    let%sub input =
-      let%arr time_source = time_source
-      and manga_collection = manga_collection
-      and dimensions = dimensions
-      and inject_scroller = inject_scroller in
+    let time_source = Bonsai.Incr.with_clock ~f:Ui_incr.return graph in
+    let input =
+      let%arr time_source
+      and manga_collection
+      and dimensions
+      and inject_scroller in
       let scroll_into_view ~bottom ~top =
         match inject_scroller with
         | None -> Effect.Ignore
@@ -234,26 +234,31 @@ let table
       in
       { Action.time_source; manga_collection; scroll_into_view; dimensions }
     in
-    Bonsai.scope_model (module String) ~on:manga_title
-    @@ Bonsai.state_machine1
-         ~default_model:{ Action.focus = 0; last_top_press = None }
-         ~apply_action:Action.apply_action
-         input
+    Tuple2.uncurry Bonsai.both
+    @@ Bonsai.scope_model_n
+         ~n:Two
+         (module String)
+         ~on:manga_title
+         ~for_:(fun (local_ graph) ->
+           Bonsai.state_machine1
+             ~default_model:{ Action.focus = 0; last_top_press = None }
+             ~apply_action:Action.apply_action
+             input
+             graph)
+         graph
   in
-  let%sub text = Text.component in
-  let%sub flavor = Catpuccin.flavor in
-  let%sub selected_manga =
-    let%arr manga_collection = manga_collection
-    and focus = focus in
+  let text = Text.component graph in
+  let flavor = Catpuccin.flavor graph in
+  let selected_manga =
+    let%arr manga_collection and focus in
     List.nth manga_collection.data focus
   in
-  let%sub url = Manga_cover.component selected_manga in
-  let%sub images =
+  let url = Manga_cover.component selected_manga graph in
+  let images =
     (* NOTE: I want to use the terminal dimensions here as I want the entire
        image to be big. *)
-    let%sub dimensions = Capytui.terminal_dimensions in
-    let%arr url = url
-    and dimensions = dimensions in
+    let dimensions = Capytui.terminal_dimensions graph in
+    let%arr url and dimensions in
     match url with
     | None -> []
     | Some { url } ->
@@ -266,13 +271,13 @@ let table
         }
       ]
   in
-  let%sub view =
-    let%arr manga_collection = manga_collection
-    and text = text
-    and focus = focus
-    and flavor = flavor
-    and textbox_is_focused = textbox_is_focused
-    and dimensions = dimensions in
+  let view =
+    let%arr manga_collection
+    and text
+    and focus
+    and flavor
+    and textbox_is_focused
+    and dimensions in
     let manga =
       List.mapi manga_collection.data ~f:(fun i manga ->
         render_row
@@ -287,30 +292,32 @@ let table
     Node.vcat manga
   in
   let%sub { view; inject = inject_scroller; less_keybindings_handler = _ } =
-    Bonsai.scope_model (module String) ~on:manga_title
-    @@ Capytui_scroller.component ~dimensions view
+    Bonsai.scope_model
+      (module String)
+      ~on:manga_title
+      ~for_:(fun (local_ graph) ->
+        Capytui_scroller.component ~dimensions view graph)
+      graph
   in
-  let%sub () =
-    let%sub on_activate =
-      let%arr inject_scroller = inject_scroller
-      and set_inject_scroller = set_inject_scroller in
+  let () =
+    let on_activate =
+      let%arr inject_scroller and set_inject_scroller in
       set_inject_scroller (Some inject_scroller)
     in
-    Bonsai.Edge.lifecycle ~on_activate ()
+    Bonsai.Edge.lifecycle ~on_activate graph
   in
-  let%sub handler =
-    let%sub manga_collection = Bonsai.yoink manga_collection in
-    let%sub focus = Bonsai.yoink focus in
-    let%arr inject_focus = inject_focus
-    and inject_scroller = inject_scroller
-    and manga_collection = manga_collection
-    and focus = focus
-    and set_page = set_page in
+  let handler =
+    let manga_collection = Bonsai.peek manga_collection graph in
+    let focus = Bonsai.peek focus graph in
+    let%arr inject_focus
+    and inject_scroller
+    and manga_collection
+    and focus
+    and set_page in
     fun (event : Event.t) ->
       match event with
       | `Key (`Enter, []) ->
-        let%bind.Effect focus = focus
-        and manga_collection = manga_collection in
+        let%bind.Effect focus and manga_collection in
         (match focus, manga_collection with
          | Active focus, Active manga_collection ->
            (match List.nth manga_collection.data focus with
@@ -348,46 +355,49 @@ let table
       | `Key (`ASCII 'g', []) -> inject_focus Top
       | _ -> inject_focus Other_key_pressed
   in
-  let%arr view = view
-  and images = images
-  and handler = handler in
+  let%arr view and images and handler in
   { Component.view; images; handler }
 ;;
 
-let component ~dimensions ~textbox_is_focused ~manga_title ~set_page =
-  let%sub manga_title =
-    let%sub bounced =
-      let%sub bounced =
+let component
+  ~dimensions
+  ~textbox_is_focused
+  ~manga_title
+  ~set_page
+  (local_ graph)
+  =
+  let manga_title =
+    let bounced =
+      let bounced =
         Bonsai_extra.value_stability
           ~equal:[%equal: string]
-          ~time_to_stable:(Value.return (Time_ns.Span.of_sec 1.0))
+          ~time_to_stable:(Bonsai.return (Time_ns.Span.of_sec 1.0))
           manga_title
+          graph
       in
       match%sub bounced with
-      | Stable x -> Bonsai.read x
-      | Unstable { previously_stable = Some x; _ } -> Bonsai.read x
+      | Stable x -> x
+      | Unstable { previously_stable = Some x; _ } -> x
       | Unstable { previously_stable = None; unstable_value } ->
-        Bonsai.read unstable_value
+        unstable_value
     in
     match%sub textbox_is_focused with
-    | false -> return manga_title
-    | true -> return bounced
+    | false -> manga_title
+    | true -> bounced
   in
-  let%sub manga_list = manga_list manga_title in
-  let%sub sexp_for_debugging = Util.sexp_for_debugging in
-  let%sub flavor = Catpuccin.flavor in
+  let manga_list = manga_list manga_title graph in
+  let sexp_for_debugging = Util.sexp_for_debugging graph in
+  let flavor = Catpuccin.flavor graph in
   match%sub manga_list with
   | None ->
-    let%sub () = Loading_state.i_am_loading in
-    Bonsai.const
+    let () = Loading_state.i_am_loading graph in
+    Bonsai.return
       { Component.view = Node.none
       ; images = []
       ; handler = (fun _ -> Effect.Ignore)
       }
   | Some (Error error) ->
-    let%arr error = error
-    and sexp_for_debugging = sexp_for_debugging
-    and flavor = flavor in
+    let%arr error and sexp_for_debugging and flavor in
     { Component.view =
         sexp_for_debugging
           ~attrs:[ Attr.foreground_color (Catpuccin.color ~flavor Red) ]
@@ -396,7 +406,7 @@ let component ~dimensions ~textbox_is_focused ~manga_title ~set_page =
     ; handler = (fun _ -> Effect.Ignore)
     }
   | Some (Ok { data = []; _ }) ->
-    let%arr flavor = flavor in
+    let%arr flavor in
     let view =
       Node.vcat
         [ Node.hcat
@@ -433,4 +443,5 @@ let component ~dimensions ~textbox_is_focused ~manga_title ~set_page =
       ~textbox_is_focused
       ~set_page
       manga_collection
+      graph
 ;;

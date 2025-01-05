@@ -5,9 +5,18 @@ open Bonsai
 module type S = sig
   type t
 
-  val component : t Computation.t
-  val register_mock : t Value.t -> 'a Computation.t -> 'a Computation.t
-  val register_real : 'a Computation.t -> 'a Computation.t
+  val component : local_ Bonsai.graph -> t Bonsai.t
+
+  val register_mock
+    :  t Bonsai.t
+    -> (local_ Bonsai.graph -> 'a Bonsai.t)
+    -> local_ Bonsai.graph
+    -> 'a Bonsai.t
+
+  val register_real
+    :  (local_ Bonsai.graph -> 'a Bonsai.t)
+    -> local_ Bonsai.graph
+    -> 'a Bonsai.t
 end
 
 module Manga_cover :

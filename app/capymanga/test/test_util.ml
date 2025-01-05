@@ -297,17 +297,17 @@ let mock_chainsaw_man_response =
 ;;
 
 let create_handle
-  ?(manga_search = Value.return default_manga_search)
-  ?(manga_cover = Value.return default_manga_cover)
-  ?(author = Value.return default_author)
-  ?(chapter_feed = Value.return default_chapter_feed)
-  ?(scanlation_group = Value.return default_scalation_group)
-  ?(chapter_images = Value.return default_manga_chapter_images)
+  ?(manga_search = Bonsai.return default_manga_search)
+  ?(manga_cover = Bonsai.return default_manga_cover)
+  ?(author = Bonsai.return default_author)
+  ?(chapter_feed = Bonsai.return default_chapter_feed)
+  ?(scanlation_group = Bonsai.return default_scalation_group)
+  ?(chapter_images = Bonsai.return default_manga_chapter_images)
   ?(initial_dimensions = { Dimensions.width = 120; height = 30 })
   ()
   =
   let manga_search =
-    let%map manga_search = manga_search in
+    let%map manga_search in
     fun ~title ->
       let%bind.Effect () =
         Effect.print_s [%message "[manga_search]" (title : string option)]
@@ -315,7 +315,7 @@ let create_handle
       manga_search ~title
   in
   let manga_cover =
-    let%map manga_cover = manga_cover in
+    let%map manga_cover in
     fun ~cover_id ->
       let%bind.Effect () =
         Effect.print_s [%message "[manga_cover]" (cover_id : string)]
@@ -323,7 +323,7 @@ let create_handle
       manga_cover ~cover_id
   in
   let author =
-    let%map author = author in
+    let%map author in
     fun ~author_id ->
       let%bind.Effect () =
         Effect.print_s [%message "[author]" (author_id : string)]
@@ -331,7 +331,7 @@ let create_handle
       author ~author_id
   in
   let scanlation_group =
-    let%map scanlation_group = scanlation_group in
+    let%map scanlation_group in
     fun ~scanlation_group_id ->
       let%bind.Effect () =
         Effect.print_s
@@ -340,7 +340,7 @@ let create_handle
       scanlation_group ~scanlation_group_id
   in
   let chapter_images =
-    let%map chapter_images = chapter_images in
+    let%map chapter_images in
     fun ~chapter_id ->
       let%bind.Effect () =
         Effect.print_s [%message "[chapter_id]" (chapter_id : string)]
@@ -348,7 +348,7 @@ let create_handle
       chapter_images ~chapter_id
   in
   let chapter_feed =
-    let%map chapter_feed = chapter_feed in
+    let%map chapter_feed in
     fun ~manga_id ~ascending ?limit ?offset () ->
       let%bind.Effect () =
         Effect.print_s
@@ -368,10 +368,9 @@ let create_handle
     @@ Outside_world.Chapter_feed.register_mock chapter_feed
     @@ Outside_world.Scanlation_group.register_mock scanlation_group
     @@ Outside_world.Chapter_images.register_mock chapter_images
-    @@
-    let%sub image, images = Capymanga.app in
-    let%arr image = image
-    and images = images in
+    @@ fun (local_ graph) ->
+    let%sub image, images = Capymanga.app graph in
+    let%arr image and images in
     let images =
       List.map images ~f:(fun image ->
         let string = Sexp.to_string_mach [%sexp (image : Image.t)] in

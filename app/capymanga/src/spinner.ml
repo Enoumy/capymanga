@@ -26,34 +26,32 @@ module Config = struct
   ;;
 end
 
-let component ~kind message =
+let component ~kind message (local_ graph) =
   let%tydi { frames; tick_every } = Config.get kind in
-  let%sub current_frame, tick =
+  let current_frame, tick =
     Bonsai.state_machine0
       ~default_model:0
       ~apply_action:(fun _ curr () -> (curr + 1) % Array.length frames)
-      ()
+      graph
   in
-  let%sub () =
-    let%sub tick =
-      let%arr tick = tick in
+  let () =
+    let tick =
+      let%arr tick in
       tick ()
     in
     Bonsai.Clock.every
       ~when_to_start_next_effect:`Every_multiple_of_period_non_blocking
       tick_every
       tick
+      graph
   in
-  let%sub frame =
-    let%arr current_frame = current_frame in
+  let frame =
+    let%arr current_frame in
     frames.(current_frame % Array.length frames)
   in
-  let%sub flavor = Capytui_catpuccin.flavor in
-  let%sub text = Text.component in
-  let%arr text = text
-  and message = message
-  and frame = frame
-  and flavor = flavor in
+  let flavor = Capytui_catpuccin.flavor graph in
+  let text = Text.component graph in
+  let%arr text and message and frame and flavor in
   Node.hcat
     [ text
         ~attrs:

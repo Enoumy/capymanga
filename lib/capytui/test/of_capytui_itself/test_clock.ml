@@ -3,13 +3,13 @@ open Bonsai_test
 open Capytui
 open Bonsai.Let_syntax
 
-let clock_app =
-  let%sub now =
-    Bonsai.Clock.approx_now ~tick_every:(Time_ns.Span.of_sec 1.0)
+let clock_app (local_ graph) =
+  let now =
+    Bonsai.Clock.approx_now ~tick_every:(Time_ns.Span.of_sec 1.0) graph
   in
-  let%sub dimensions = terminal_dimensions in
+  let dimensions = terminal_dimensions graph in
   let%arr { width; height } = dimensions
-  and now = now in
+  and now in
   Node.center
     (Node.text (Time_ns.to_string_utc now))
     ~within:{ width; height }

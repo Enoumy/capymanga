@@ -20,8 +20,8 @@ type 'a action =
       }
   | Go_back
 
-let component default_page =
-  let%sub state, inject =
+let component default_page (local_ graph) =
+  let state, inject =
     Bonsai.state_machine0
       ~default_model:{ current = default_page; history = [] }
       ~apply_action:(fun _ model action ->
@@ -38,22 +38,20 @@ let component default_page =
           (match model.history with
            | [] -> model
            | prev :: tl -> { current = prev; history = tl }))
-      ()
+      graph
   in
-  let%sub page =
+  let page =
     let%arr { current; _ } = state in
     current
   in
-  let%sub set_page =
-    let%arr inject = inject in
+  let set_page =
+    let%arr inject in
     fun ~replace page -> inject (Set_page { page; replace })
   in
-  let%sub go_back =
-    let%arr inject = inject in
+  let go_back =
+    let%arr inject in
     inject Go_back
   in
-  let%arr page = page
-  and set_page = set_page
-  and go_back = go_back in
+  let%arr page and set_page and go_back in
   { page; set_page; go_back }
 ;;

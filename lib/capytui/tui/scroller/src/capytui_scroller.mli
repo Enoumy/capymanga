@@ -28,9 +28,10 @@ type t =
     A default "handler" for events with less-like navigation is provided as
     a helper utility. *)
 val component
-  :  dimensions:Dimensions.t Value.t
-  -> Node.t Value.t
-  -> t Computation.t
+  :  dimensions:Dimensions.t Bonsai.t
+  -> Node.t Bonsai.t
+  -> local_ Bonsai.graph
+  -> t Bonsai.t
 
 (** SOMEDAY: Make it possible to have some form of "visual" scrollbar, or maybe
     even something like vim's "TOP"/"BOT"/% in the  bottom right of vim's

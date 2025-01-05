@@ -1,6 +1,6 @@
 (library
  (name capytui_counters_test)
- (libraries core bonsai.test capytui capytui_test capytui_counters_example)
+ (libraries core bonsai_test capytui capytui_test capytui_counters_example)
  (inline_tests)
  (preprocess
   (pps ppx_jane bonsai.ppx_bonsai)))

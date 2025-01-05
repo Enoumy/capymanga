@@ -3,13 +3,13 @@ open Capytui
 module Catpuccin = Capytui_catpuccin
 open Bonsai.Let_syntax
 
-let component ~go_back =
+let component ~go_back (local_ graph) =
   (* TODO: Make this prettier. Also figure out a way to nicely center align
      text... *)
-  let%sub dimensions = Capytui.terminal_dimensions in
-  let%sub flavor = Catpuccin.flavor in
-  let%sub view =
-    let%arr flavor = flavor in
+  let dimensions = Capytui.terminal_dimensions graph in
+  let flavor = Catpuccin.flavor graph in
+  let view =
+    let%arr flavor in
     Node.vcat
       [ Node.hcat
           [ Node.text
@@ -43,20 +43,18 @@ let component ~go_back =
           ]
       ]
   in
-  let%sub view =
-    let%arr dimensions = dimensions
-    and view = view in
+  let view =
+    let%arr dimensions and view in
     Node.center ~within:dimensions view
   in
-  let%sub handler =
-    let%arr go_back = go_back in
+  let handler =
+    let%arr go_back in
     fun (event : Event.t) ->
       match event with
       | `Key ((`Backspace | `Escape), []) | `Key (`ASCII ('q' | '?'), []) ->
         go_back
       | _ -> Effect.Ignore
   in
-  let%arr view = view
-  and handler = handler in
+  let%arr view and handler in
   { Component.view; handler; images = [] }
 ;;

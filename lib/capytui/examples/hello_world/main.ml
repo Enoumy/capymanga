@@ -3,9 +3,9 @@ open! Bonsai
 open! Capytui
 open! Bonsai.Let_syntax
 
-let app =
-  let%sub dimensions = Capytui.terminal_dimensions in
-  let%arr dimensions = dimensions in
+let app (local_ graph) =
+  let dimensions = Capytui.terminal_dimensions graph in
+  let%arr dimensions in
   Node.center ~within:dimensions (Node.text "Hello world!")
 ;;
 

@@ -10,8 +10,8 @@ type t =
   }
 
 val component
-  :  ?cursor_attrs:Attr.t list Value.t
-  -> ?text_attrs:Attr.t list Value.t
-  -> is_focused:bool Value.t
-  -> unit
-  -> t Computation.t
+  :  ?cursor_attrs:Attr.t list Bonsai.t
+  -> ?text_attrs:Attr.t list Bonsai.t
+  -> is_focused:bool Bonsai.t
+  -> local_ Bonsai.graph
+  -> t Bonsai.t

@@ -14,7 +14,7 @@ let start
   ?bpaste
   ?optimize
   ?target_frames_per_second
-  (app : Node.t Bonsai.Computation.t)
+  (app : local_ Bonsai.graph -> Node.t Bonsai.t)
   =
   Loop.start
     ?dispose
@@ -23,35 +23,37 @@ let start
     ?bpaste
     ?optimize
     ?target_frames_per_second
-    (Bonsai.Computation.map app ~f:(fun app -> app, []))
+    (fun (local_ graph) -> Bonsai.map (app graph) ~f:(fun app -> app, []))
 ;;
 
-let listen_to_events callback =
-  let%sub bonsai_path = Bonsai.path_id in
-  let%sub inject =
-    Bonsai.Dynamic_scope.lookup Event.Private.listener_registry_variable
+let listen_to_events callback (local_ graph) =
+  let bonsai_path = Bonsai.path_id graph in
+  let inject =
+    Bonsai.Dynamic_scope.lookup
+      Event.Private.listener_registry_variable
+      graph
   in
-  let%sub on_change =
-    let%arr inject = inject
-    and bonsai_path = bonsai_path in
+  let on_change =
+    let%arr inject and bonsai_path in
     fun callback -> inject (On_change { callback; bonsai_path })
   in
-  let%sub () =
-    Bonsai.Edge.on_change ~equal:phys_equal callback ~callback:on_change
+  let () =
+    Bonsai.Edge.on_change
+      ~equal:phys_equal
+      callback
+      ~callback:on_change
+      graph
   in
-  let%sub on_deactivate =
-    let%arr inject = inject
-    and bonsai_path = bonsai_path in
+  let on_deactivate =
+    let%arr inject and bonsai_path in
     inject (Deactivate { bonsai_path })
   in
-  let%sub on_activate =
-    let%arr inject = inject
-    and bonsai_path = bonsai_path
-    and callback = callback in
+  let on_activate =
+    let%arr inject and bonsai_path and callback in
     inject (On_change { callback; bonsai_path })
   in
-  let%sub () = Bonsai.Edge.lifecycle ~on_activate ~on_deactivate () in
-  Bonsai.const ()
+  let () = Bonsai.Edge.lifecycle ~on_activate ~on_deactivate graph in
+  ()
 ;;
 
 let set_cursor_position = Cursor.set_cursor_position

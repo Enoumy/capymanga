@@ -4,22 +4,20 @@ open Bonsai
 open Bonsai.Let_syntax
 module Catpuccin = Capytui_catpuccin
 
-let component ~instructions =
-  let%sub text = Text.component in
-  let%sub flavor = Catpuccin.flavor in
-  let%sub instructions = Instructions.component instructions in
-  let%sub spinner =
-    let%sub is_something_loading = Loading_state.is_something_loading in
+let component ~instructions (local_ graph) =
+  let text = Text.component graph in
+  let flavor = Catpuccin.flavor graph in
+  let instructions = Instructions.component instructions graph in
+  let spinner =
+    let is_something_loading = Loading_state.is_something_loading graph in
     match%sub is_something_loading with
     | false ->
-      let%arr text = text in
+      let%arr text in
       text "  "
-    | true -> Spinner.component ~kind:Spinner.Kind.Dot (Value.return "")
+    | true ->
+      Spinner.component ~kind:Spinner.Kind.Dot (Bonsai.return "") graph
   in
-  let%arr text = text
-  and flavor = flavor
-  and spinner = spinner
-  and instructions = instructions in
+  let%arr text and flavor and spinner and instructions in
   Node.hcat
     [ text
         ~attrs:

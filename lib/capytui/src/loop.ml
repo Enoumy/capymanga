@@ -57,7 +57,7 @@ let start
   ; app
   }
   =
-  let clock = State_management.For_clock.create ()
+  let time_source = State_management.For_clock.create ()
   and term = Term.create ?mouse ?dispose ?nosig ?bpaste ()
   and target_delay =
     Time_ns.Span.of_sec (1.0 /. Float.of_int target_frames_per_second)
@@ -68,14 +68,15 @@ let start
     |> State_management.For_dimensions.register dimensions_manager
     |> Event.Private.register
     |> Cursor.register term
-    |> Bonsai_driver.create ~optimize ~clock
+    |> Bonsai_driver.create ~optimize ~time_source
   in
   Bonsai_driver.flush driver;
   Bonsai_driver.trigger_lifecycles driver;
   let rec go ~is_first_frame ~draw_process_pid : unit Deferred.t =
     let go ~draw_process_pid = go ~is_first_frame:false ~draw_process_pid in
     let frame_start_time = Time_ns.now () in
-    let () = State_management.For_clock.advance_to clock frame_start_time
+    let () =
+      State_management.For_clock.advance_to time_source frame_start_time
     and () = State_management.For_dimensions.update dimensions_manager in
     let%tydi { result = prev_result; _ } = Bonsai_driver.result driver in
     (* XXX: AAAAAAH This makes images faster?? *)
@@ -145,7 +146,7 @@ let start
   ?bpaste
   ?(optimize = true)
   ?(target_frames_per_second = 60)
-  (app : (Node.t * Image.t list) Computation.t)
+  (app : local_ Bonsai.graph -> (Node.t * Image.t list) Bonsai.t)
   =
   Deferred.Or_error.try_with (fun () ->
     let params =

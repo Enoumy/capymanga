@@ -3,8 +3,8 @@ open! Bonsai
 open Capytui
 open Bonsai.Let_syntax
 
-let app =
-  let%sub dimensions = Capytui.terminal_dimensions in
+let app (local_ graph) =
+  let dimensions = Capytui.terminal_dimensions graph in
   let%arr { width; height } = dimensions in
   let number_attr =
     Attr.many [ Attr.foreground_color Attr.Color.blue; Attr.bold ]

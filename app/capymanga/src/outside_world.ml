@@ -6,9 +6,18 @@ open Capytui
 module type S = sig
   type t
 
-  val component : t Computation.t
-  val register_mock : t Value.t -> 'a Computation.t -> 'a Computation.t
-  val register_real : 'a Computation.t -> 'a Computation.t
+  val component : local_ Bonsai.graph -> t Bonsai.t
+
+  val register_mock
+    :  t Bonsai.t
+    -> (local_ Bonsai.graph -> 'a Bonsai.t)
+    -> local_ Bonsai.graph
+    -> 'a Bonsai.t
+
+  val register_real
+    :  (local_ Bonsai.graph -> 'a Bonsai.t)
+    -> local_ Bonsai.graph
+    -> 'a Bonsai.t
 end
 
 module type Arg = sig
@@ -26,17 +35,25 @@ module Make (Arg : Arg) = struct
     Bonsai.Dynamic_scope.create ~name:Arg.name ~fallback:Arg.unregistered ()
   ;;
 
-  let component : t Computation.t = Dynamic_scope.lookup variable
-
-  let register_mock : t Value.t -> 'a Computation.t -> 'a Computation.t =
-    fun handler computation ->
-    Dynamic_scope.set variable handler ~inside:computation
+  let component : local_ Bonsai.graph -> t Bonsai.t =
+    fun (local_ graph) -> Dynamic_scope.lookup variable graph
   ;;
 
-  let register_real : 'a Computation.t -> 'a Computation.t =
-    fun computation ->
-    let handler = Value.return Arg.real in
-    Dynamic_scope.set variable handler ~inside:computation
+  let register_mock
+    :  t Bonsai.t -> (local_ Bonsai.graph -> 'a Bonsai.t)
+    -> local_ Bonsai.graph -> 'a Bonsai.t
+    =
+    fun handler computation (local_ graph) ->
+    Dynamic_scope.set variable handler ~inside:computation graph
+  ;;
+
+  let register_real
+    :  (local_ Bonsai.graph -> 'a Bonsai.t) -> local_ Bonsai.graph
+    -> 'a Bonsai.t
+    =
+    fun computation (local_ graph) ->
+    let handler = Bonsai.return Arg.real in
+    Dynamic_scope.set variable handler ~inside:computation graph
   ;;
 end
 

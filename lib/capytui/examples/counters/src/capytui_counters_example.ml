@@ -7,10 +7,10 @@ module Catpuccin = Capytui_catpuccin
 
 let bg = Capytui_catpuccin.Crust
 
-let backdrop (dimensions : Dimensions.t Value.t) =
-  let%sub flavor = Catpuccin.flavor in
+let backdrop (dimensions : Dimensions.t Bonsai.t) (local_ graph) =
+  let flavor = Catpuccin.flavor graph in
   let%arr { height; width } = dimensions
-  and flavor = flavor in
+  and flavor in
   let bg_color = Capytui_catpuccin.color ~flavor bg in
   List.init height ~f:(fun _ ->
     Node.text
@@ -19,9 +19,9 @@ let backdrop (dimensions : Dimensions.t Value.t) =
   |> Node.vcat
 ;;
 
-let text =
-  let%sub flavor = Catpuccin.flavor in
-  let%arr flavor = flavor in
+let text (local_ graph) =
+  let flavor = Catpuccin.flavor graph in
+  let%arr flavor in
   let text_color = Capytui_catpuccin.color ~flavor Text in
   let crust = Capytui_catpuccin.color ~flavor bg in
   fun ?(attrs = []) text ->
@@ -32,9 +32,9 @@ let text =
       text
 ;;
 
-let render_instruction key action =
-  let%sub flavor = Catpuccin.flavor in
-  let%arr flavor = flavor in
+let render_instruction key action (local_ graph) =
+  let flavor = Catpuccin.flavor graph in
+  let%arr flavor in
   let text = Capytui_catpuccin.color ~flavor Text in
   let subtext = Capytui_catpuccin.color ~flavor Subtext0 in
   let crust = Capytui_catpuccin.color ~flavor bg in
@@ -53,30 +53,27 @@ let render_instruction key action =
     ]
 ;;
 
-let instructions =
-  let%sub instructions =
+let instructions (local_ graph) =
+  let instructions =
     [ "+", "New"
     ; "j", "Down"
     ; "k", "Up"
     ; "l", "Increment"
     ; "h", "Decrement"
     ]
-    |> List.map ~f:(fun (key, action) -> render_instruction key action)
-    |> Computation.all
+    |> List.map ~f:(fun (key, action) -> render_instruction key action graph)
+    |> Bonsai.all
   in
-  let%sub text = text in
-  let%arr instructions = instructions
-  and text = text in
+  let text = text graph in
+  let%arr instructions and text in
   Node.hcat (List.intersperse ~sep:(text "  ") instructions)
 ;;
 
-let top_bar =
-  let%sub flavor = Catpuccin.flavor in
-  let%sub text = text in
-  let%sub instructions = instructions in
-  let%arr text = text
-  and instructions = instructions
-  and flavor = flavor in
+let top_bar (local_ graph) =
+  let flavor = Catpuccin.flavor graph
+  and text = text graph
+  and instructions = instructions graph in
+  let%arr text and instructions and flavor in
   let mauve = Capytui_catpuccin.color ~flavor Mauve in
   Node.hcat
     [ text ~attrs:[ Attr.foreground_color mauve; Attr.bold ] "Counters!  "
@@ -84,20 +81,19 @@ let top_bar =
     ]
 ;;
 
-let counter_state_machine =
+let counter_state_machine (local_ graph) =
   Bonsai.state_machine0
     ~default_model:(Core.Int.Map.singleton 0 0)
-    ~apply_action:(fun _ map ->
-      function
+    ~apply_action:(fun _ map -> function
       | `New -> Core.Map.set map ~key:(Core.Map.length map) ~data:0
       | `Increment key ->
         Core.Map.update map key ~f:(function None -> 0 | Some x -> x + 1)
       | `Decrement key ->
         Core.Map.update map key ~f:(function None -> 0 | Some x -> x - 1))
-    ()
+    graph
 ;;
 
-let focus_state_machine counters =
+let focus_state_machine counters (local_ graph) =
   Bonsai.state_machine1
     ~default_model:0
     ~apply_action:(fun _ counters model action ->
@@ -108,13 +104,12 @@ let focus_state_machine counters =
       | Inactive -> 0
       | Active counters -> result % Core.Map.length counters)
     counters
+    graph
 ;;
 
 let keyboard_handler ~inject_counters ~inject_focus ~focus =
   let%sub callback =
-    let%arr inject_counters = inject_counters
-    and inject_focus = inject_focus
-    and focus = focus in
+    let%arr inject_counters and inject_focus and focus in
     fun (event : Event.t) ->
       match event with
       | `Key (`ASCII 'j', []) | `Key (`Arrow `Down, []) | `Key (`Tab, []) ->
@@ -133,18 +128,15 @@ let keyboard_handler ~inject_counters ~inject_focus ~focus =
   Capytui.listen_to_events callback
 ;;
 
-let counters =
-  let%sub top_bar = top_bar in
-  let%sub counters, inject_counters = counter_state_machine in
-  let%sub focus, inject_focus = focus_state_machine counters in
-  let%sub () = keyboard_handler ~inject_counters ~inject_focus ~focus in
-  let%sub counters_view =
-    let%sub flavor = Catpuccin.flavor in
-    let%sub text = text in
-    let%arr counters = counters
-    and focus = focus
-    and text = text
-    and flavor = flavor in
+let counters (local_ graph) =
+  let top_bar = top_bar graph in
+  let counters, inject_counters = counter_state_machine graph in
+  let focus, inject_focus = focus_state_machine counters graph in
+  let () = keyboard_handler ~inject_counters ~inject_focus ~focus graph in
+  let counters_view =
+    let flavor = Catpuccin.flavor graph in
+    let text = text graph in
+    let%arr counters and focus and text and flavor in
     let mauve = Capytui_catpuccin.color ~flavor Mauve in
     List.map (Core.Map.to_alist counters) ~f:(fun (counter_id, count) ->
       Node.hcat
@@ -156,17 +148,15 @@ let counters =
     |> Node.vcat
     |> Node.pad ~l:1
   in
-  let%arr top_bar = top_bar
-  and counters_view = counters_view in
+  let%arr top_bar and counters_view in
   Node.vcat [ top_bar; Node.text ""; counters_view ]
 ;;
 
-let app =
-  let%sub dimensions = Capytui.terminal_dimensions in
-  let%sub backdrop = backdrop dimensions in
-  let%sub counters = counters in
-  let%arr backdrop = backdrop
-  and counters = counters in
+let app (local_ graph) =
+  let dimensions = Capytui.terminal_dimensions graph in
+  let backdrop = backdrop dimensions graph in
+  let counters = counters graph in
+  let%arr backdrop and counters in
   Node.zcat [ Node.pad ~l:2 ~t:1 counters; backdrop ]
 ;;
 
