@@ -27,9 +27,26 @@
   (yojson
    (= "2.2.2"))
   (ppx_yojson_conv
-   (= "v0.17.0"))
+   (= "v0.18~preview.130.04+450"))
   (bonsai
-   (= "v0.17.0")))
+   (= "v0.18~preview.130.04+450"))
+  (bonsai_test
+   (= "v0.18~preview.130.04+450"))
+  (async_ssl
+   (= "v0.18~preview.130.04+450"))
+  cohttp-async
+  (async
+   (= "v0.18~preview.130.04+450"))
+  (expectable
+   (= "v0.18~preview.130.04+450"))
+  (core_unix
+   (= "v0.18~preview.130.04+450"))
+  (core
+   (= "v0.18~preview.130.04+450"))
+  (expect_test_helpers_core
+   (= "v0.18~preview.130.04+450"))
+  ;;
+  )
  (tags
   (ocaml ui tui "terminal ui" manga notty bonsai)))
 
