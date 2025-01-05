@@ -23,7 +23,7 @@ jobs:
         uses: actions/checkout@v4
 
       - run: brew install autoconf
-        if: ${{ matrix.os == "macos-latest" }}
+        if: ${{ matrix.os == 'macos-latest' }}
 
       - name: Set-up OCaml
         uses: ocaml/setup-ocaml@v3
