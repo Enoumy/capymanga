@@ -1,0 +1,6 @@
+(library
+ (name test_pacman_sort)
+ (inline_tests)
+ (libraries core angstrom pacman_sort expect_test_helpers_core)
+ (preprocess
+  (pps ppx_jane)))

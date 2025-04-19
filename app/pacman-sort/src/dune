@@ -1,0 +1,6 @@
+(library
+ (name pacman_sort)
+ (libraries core angstrom async re filesystem.async
+  ppx_typed_fields.typed_field_map)
+ (preprocess
+  (pps ppx_jane ppx_typed_fields)))
